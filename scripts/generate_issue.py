@@ -1,24 +1,25 @@
-"""Generates a fresh Morgenkurier edition using Google Gemini (free tier,
-plain text generation - no paid Search grounding). Real headlines are
-fetched from free public RSS feeds and handed to Gemini as source material
-so it never has to invent facts. Overwrites index.html. Run daily via
-.github/workflows/daily-update.yml."""
+"""Generates a fresh Morgenkurier edition using Groq (free tier, no card
+required). Real headlines are fetched from free public RSS feeds and
+handed to the model as source material so it never has to invent facts.
+Overwrites index.html. Run daily via .github/workflows/daily-update.yml."""
 
+import json
 import os
 import re
 import sys
+import urllib.error
 import urllib.request
 import xml.etree.ElementTree as ET
 from datetime import datetime
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
-from google import genai
-
 REPO_ROOT = Path(__file__).resolve().parent.parent
 INDEX_PATH = REPO_ROOT / "index.html"
 
-MODEL = "gemini-flash-latest"
+GROQ_URL = "https://api.groq.com/openai/v1/chat/completions"
+MODEL = "llama-3.3-70b-versatile"
+MAX_COMPLETION_TOKENS = 32768
 
 WEEKDAYS_DE = [
     "Montag", "Dienstag", "Mittwoch", "Donnerstag",
@@ -176,14 +177,48 @@ REFERENZAUSGABE (gestrige Ausgabe, als Stil- und Struktur-Vorlage - NICHT den In
     return system_prompt, user_prompt
 
 
+def call_groq(system_prompt: str, user_prompt: str, api_key: str) -> str:
+    payload = {
+        "model": MODEL,
+        "messages": [
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": user_prompt},
+        ],
+        "max_completion_tokens": MAX_COMPLETION_TOKENS,
+        "temperature": 0.6,
+    }
+    req = urllib.request.Request(
+        GROQ_URL,
+        data=json.dumps(payload).encode("utf-8"),
+        headers={
+            "Authorization": f"Bearer {api_key}",
+            "Content-Type": "application/json",
+        },
+        method="POST",
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=240) as resp:
+            data = json.loads(resp.read())
+    except urllib.error.HTTPError as exc:
+        body = exc.read().decode("utf-8", errors="replace")
+        raise RuntimeError(f"Groq-API-Fehler {exc.code}: {body}") from exc
+
+    choice = data["choices"][0]
+    finish_reason = choice.get("finish_reason")
+    content = choice["message"]["content"] or ""
+    if not content.strip():
+        raise RuntimeError(f"Leere Antwort von Groq (finish_reason={finish_reason}).")
+    return content
+
+
 def main() -> None:
     if not INDEX_PATH.exists():
         print(f"Fehler: {INDEX_PATH} nicht gefunden.", file=sys.stderr)
         sys.exit(1)
 
-    api_key = os.environ.get("GEMINI_API_KEY")
+    api_key = os.environ.get("GROQ_API_KEY")
     if not api_key:
-        print("Fehler: Umgebungsvariable GEMINI_API_KEY ist nicht gesetzt.", file=sys.stderr)
+        print("Fehler: Umgebungsvariable GROQ_API_KEY ist nicht gesetzt.", file=sys.stderr)
         sys.exit(1)
 
     previous_html = INDEX_PATH.read_text(encoding="utf-8")
@@ -200,24 +235,7 @@ def main() -> None:
         previous_html, edition_number, date_str, time_str, news_material
     )
 
-    client = genai.Client(api_key=api_key)
-    response = client.interactions.create(
-        model=MODEL,
-        input=user_prompt,
-        system_instruction=system_prompt,
-        generation_config={"max_output_tokens": 32768},
-    )
-
-    if response.status != "completed":
-        error_detail = "; ".join(
-            f"{e.code}: {e.message}" for e in (response.errors or [])
-        ) or "kein Detail verfuegbar"
-        raise RuntimeError(f"Gemini-Interaction nicht erfolgreich (status={response.status}): {error_detail}")
-
-    raw_text = response.output_text or ""
-    if not raw_text.strip():
-        raise RuntimeError("Leere Antwort von Gemini (output_text ist leer).")
-
+    raw_text = call_groq(system_prompt, user_prompt, api_key)
     new_html = extract_html(raw_text)
 
     INDEX_PATH.write_text(new_html, encoding="utf-8")
