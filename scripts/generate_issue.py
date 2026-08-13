@@ -1,18 +1,21 @@
-"""Generates a fresh Morgenkurier edition using Claude with web search
-and overwrites index.html. Run daily via .github/workflows/daily-update.yml."""
+"""Generates a fresh Morgenkurier edition using Google Gemini (free tier)
+with Google Search grounding and overwrites index.html. Run daily via
+.github/workflows/daily-update.yml."""
 
+import os
 import re
 import sys
 from datetime import datetime
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
-import anthropic
+from google import genai
+from google.genai import types
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 INDEX_PATH = REPO_ROOT / "index.html"
 
-MODEL = "claude-opus-5"
+MODEL = "gemini-flash-latest"
 
 WEEKDAYS_DE = [
     "Montag", "Dienstag", "Mittwoch", "Donnerstag",
@@ -54,13 +57,13 @@ def build_prompt(previous_html: str, edition_number: int, date_str: str, time_st
         "Bosnien, Slowakei, Kroatien, Slowenien). Der Ton ist sachlich, "
         "praezise und einordnend - wie eine hochwertige Wirtschaftszeitung, "
         "nicht wie eine Nachrichtenagentur-Auflistung. Du recherchierst "
-        "AUSSCHLIESSLICH echte, aktuelle Ereignisse ueber die Websuche und "
+        "AUSSCHLIESSLICH echte, aktuelle Ereignisse ueber die Google-Suche und "
         "erfindest niemals Fakten, Zahlen oder Zitate."
     )
 
     user_prompt = f"""Erstelle die heutige Ausgabe {edition_number} des Morgenkurier fuer {date_str}, {time_str} Uhr.
 
-Nutze die Websuche, um dir einen aktuellen Ueberblick ueber die wichtigsten Ereignisse von heute und den letzten 24-48 Stunden zu verschaffen, in diesen Bereichen:
+Nutze die Google-Suche, um dir einen aktuellen Ueberblick ueber die wichtigsten Ereignisse von heute und den letzten 24-48 Stunden zu verschaffen, in diesen Bereichen:
 - Deutschland (Politik, Wirtschaft, Gesellschaft)
 - Politik / Europa (mit Fokus auf ein zentrales Leitartikel-Thema des Tages)
 - Finanzen & Wirtschaft (Wall Street, DAX, Fed, EZB, wichtige Unternehmenszahlen)
@@ -92,6 +95,11 @@ def main() -> None:
         print(f"Fehler: {INDEX_PATH} nicht gefunden.", file=sys.stderr)
         sys.exit(1)
 
+    api_key = os.environ.get("GEMINI_API_KEY")
+    if not api_key:
+        print("Fehler: Umgebungsvariable GEMINI_API_KEY ist nicht gesetzt.", file=sys.stderr)
+        sys.exit(1)
+
     previous_html = INDEX_PATH.read_text(encoding="utf-8")
     edition_number = next_edition_number(previous_html)
 
@@ -101,23 +109,28 @@ def main() -> None:
 
     system_prompt, user_prompt = build_prompt(previous_html, edition_number, date_str, time_str)
 
-    client = anthropic.Anthropic(timeout=1200.0)
-
-    with client.messages.stream(
-        model=MODEL,
-        max_tokens=32000,
-        system=system_prompt,
-        tools=[{"type": "web_search_20260209", "name": "web_search", "max_uses": 30}],
-        messages=[{"role": "user", "content": user_prompt}],
-    ) as stream:
-        final_message = stream.get_final_message()
-
-    if final_message.stop_reason == "refusal":
-        raise RuntimeError("Anfrage wurde von Claude abgelehnt (stop_reason=refusal).")
-
-    raw_text = "\n".join(
-        block.text for block in final_message.content if block.type == "text"
+    client = genai.Client(api_key=api_key)
+    grounding_tool = types.Tool(google_search=types.GoogleSearch())
+    config = types.GenerateContentConfig(
+        system_instruction=system_prompt,
+        tools=[grounding_tool],
+        max_output_tokens=32768,
     )
+
+    response = client.models.generate_content(
+        model=MODEL,
+        contents=user_prompt,
+        config=config,
+    )
+
+    if not response.candidates:
+        raise RuntimeError("Keine Antwort von Gemini erhalten (evtl. durch Sicherheitsfilter blockiert).")
+
+    raw_text = response.text or ""
+    if not raw_text.strip():
+        finish_reason = response.candidates[0].finish_reason
+        raise RuntimeError(f"Leere Antwort von Gemini (finish_reason={finish_reason}).")
+
     new_html = extract_html(raw_text)
 
     INDEX_PATH.write_text(new_html, encoding="utf-8")
