@@ -14,7 +14,6 @@ from pathlib import Path
 from zoneinfo import ZoneInfo
 
 from google import genai
-from google.genai import types
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 INDEX_PATH = REPO_ROOT / "index.html"
@@ -202,24 +201,22 @@ def main() -> None:
     )
 
     client = genai.Client(api_key=api_key)
-    config = types.GenerateContentConfig(
-        system_instruction=system_prompt,
-        max_output_tokens=32768,
-    )
-
-    response = client.models.generate_content(
+    response = client.interactions.create(
         model=MODEL,
-        contents=user_prompt,
-        config=config,
+        input=user_prompt,
+        system_instruction=system_prompt,
+        generation_config={"max_output_tokens": 32768},
     )
 
-    if not response.candidates:
-        raise RuntimeError("Keine Antwort von Gemini erhalten (evtl. durch Sicherheitsfilter blockiert).")
+    if response.status != "completed":
+        error_detail = "; ".join(
+            f"{e.code}: {e.message}" for e in (response.errors or [])
+        ) or "kein Detail verfuegbar"
+        raise RuntimeError(f"Gemini-Interaction nicht erfolgreich (status={response.status}): {error_detail}")
 
-    raw_text = response.text or ""
+    raw_text = response.output_text or ""
     if not raw_text.strip():
-        finish_reason = response.candidates[0].finish_reason
-        raise RuntimeError(f"Leere Antwort von Gemini (finish_reason={finish_reason}).")
+        raise RuntimeError("Leere Antwort von Gemini (output_text ist leer).")
 
     new_html = extract_html(raw_text)
 
