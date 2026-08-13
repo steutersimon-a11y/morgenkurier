@@ -1,10 +1,14 @@
-"""Generates a fresh Morgenkurier edition using Google Gemini (free tier)
-with Google Search grounding and overwrites index.html. Run daily via
+"""Generates a fresh Morgenkurier edition using Google Gemini (free tier,
+plain text generation - no paid Search grounding). Real headlines are
+fetched from free public RSS feeds and handed to Gemini as source material
+so it never has to invent facts. Overwrites index.html. Run daily via
 .github/workflows/daily-update.yml."""
 
 import os
 import re
 import sys
+import urllib.request
+import xml.etree.ElementTree as ET
 from datetime import datetime
 from pathlib import Path
 from zoneinfo import ZoneInfo
@@ -25,6 +29,79 @@ MONTHS_DE = [
     "Januar", "Februar", "März", "April", "Mai", "Juni",
     "Juli", "August", "September", "Oktober", "November", "Dezember",
 ]
+
+# Freie, oeffentliche RSS-Feeds - keine Anmeldung, kein API-Key, keine Kosten.
+FEEDS = {
+    "Deutschland (Tagesschau Inland)": "https://www.tagesschau.de/inland/index~rss2.xml",
+    "Welt (Tagesschau Ausland)": "https://www.tagesschau.de/ausland/index~rss2.xml",
+    "Wirtschaft (Tagesschau)": "https://www.tagesschau.de/wirtschaft/index~rss2.xml",
+    "Welt (BBC World)": "http://feeds.bbci.co.uk/news/world/rss.xml",
+    "Europa & Welt (Deutsche Welle)": "https://rss.dw.com/rdf/rss-de-all",
+    "Technologie (Heise)": "https://www.heise.de/rss/heise-atom.xml",
+}
+ITEMS_PER_FEED = 12
+
+HTML_TAG_RE = re.compile(r"<[^>]+>")
+WHITESPACE_RE = re.compile(r"\s+")
+
+
+def clean_text(text: str | None) -> str:
+    if not text:
+        return ""
+    text = HTML_TAG_RE.sub(" ", text)
+    return WHITESPACE_RE.sub(" ", text).strip()
+
+
+def local_name(tag: str) -> str:
+    return tag.rsplit("}", 1)[-1] if "}" in tag else tag
+
+
+def fetch_feed(url: str, limit: int = ITEMS_PER_FEED) -> list[tuple[str, str]]:
+    """Returns a list of (title, description) tuples. Never raises -
+    a broken feed just yields fewer headlines, it must not fail the run.
+    Namespace-agnostic so it handles RSS 2.0, RSS 1.0/RDF, and Atom alike."""
+    try:
+        req = urllib.request.Request(
+            url, headers={"User-Agent": "Mozilla/5.0 (compatible; MorgenkurierBot/1.0)"}
+        )
+        with urllib.request.urlopen(req, timeout=20) as resp:
+            data = resp.read()
+        root = ET.fromstring(data)
+
+        items: list[tuple[str, str]] = []
+        for el in root.iter():
+            if local_name(el.tag) not in ("item", "entry"):
+                continue
+            title = None
+            desc = None
+            for child in el:
+                ctag = local_name(child.tag)
+                if ctag == "title" and title is None:
+                    title = clean_text(child.text)
+                elif ctag in ("description", "summary", "content") and desc is None:
+                    desc = clean_text(child.text)
+            if title:
+                items.append((title, desc or ""))
+            if len(items) >= limit:
+                break
+        return items
+    except Exception as exc:  # noqa: BLE001 - eine kaputte Quelle darf den Lauf nicht stoppen
+        print(f"Warnung: Feed konnte nicht geladen werden ({url}): {exc}", file=sys.stderr)
+        return []
+
+
+def build_news_material() -> str:
+    sections = []
+    for label, url in FEEDS.items():
+        items = fetch_feed(url)
+        if not items:
+            continue
+        lines = [f"## {label}"]
+        for title, desc in items:
+            snippet = f" — {desc[:280]}" if desc else ""
+            lines.append(f"- {title}{snippet}")
+        sections.append("\n".join(lines))
+    return "\n\n".join(sections) if sections else "(Keine Quellen erreichbar.)"
 
 
 def german_date(dt: datetime) -> str:
@@ -48,7 +125,9 @@ def extract_html(raw_text: str) -> str:
     return raw_text[start : end + len("</html>")]
 
 
-def build_prompt(previous_html: str, edition_number: int, date_str: str, time_str: str) -> tuple[str, str]:
+def build_prompt(
+    previous_html: str, edition_number: int, date_str: str, time_str: str, news_material: str
+) -> tuple[str, str]:
     system_prompt = (
         "Du bist der Chefredakteur des 'Morgenkurier', eines taeglichen, "
         "redaktionell kuratierten Morgen-Briefings fuer die Geschaeftsfuehrung "
@@ -56,32 +135,40 @@ def build_prompt(previous_html: str, edition_number: int, date_str: str, time_st
         "(Oesterreich, Tschechien, Ungarn, Rumaenien, Bulgarien, Serbien, "
         "Bosnien, Slowakei, Kroatien, Slowenien). Der Ton ist sachlich, "
         "praezise und einordnend - wie eine hochwertige Wirtschaftszeitung, "
-        "nicht wie eine Nachrichtenagentur-Auflistung. Du recherchierst "
-        "AUSSCHLIESSLICH echte, aktuelle Ereignisse ueber die Google-Suche und "
-        "erfindest niemals Fakten, Zahlen oder Zitate."
+        "nicht wie eine Nachrichtenagentur-Auflistung. Du bekommst echtes, "
+        "aktuelles Rohmaterial (Schlagzeilen und Kurzbeschreibungen aus "
+        "RSS-Feeds echter Nachrichtenquellen) und schreibst NUR auf Basis "
+        "dieses Materials. Du erfindest niemals Fakten, Zahlen, Namen oder "
+        "Zitate, die nicht im Material stehen oder sich nicht direkt daraus "
+        "ableiten lassen. Wenn zu einem Themenbereich nichts im Material "
+        "steht, schreibst du das ehrlich kurz, statt Fuellstoff zu erfinden."
     )
 
     user_prompt = f"""Erstelle die heutige Ausgabe {edition_number} des Morgenkurier fuer {date_str}, {time_str} Uhr.
 
-Nutze die Google-Suche, um dir einen aktuellen Ueberblick ueber die wichtigsten Ereignisse von heute und den letzten 24-48 Stunden zu verschaffen, in diesen Bereichen:
+ROHMATERIAL (echte, aktuelle Schlagzeilen aus RSS-Feeds - deine einzige Faktenquelle):
+
+{news_material}
+
+AUFGABE:
+Ordne das Rohmaterial diesen Ressorts zu und schreibe daraus die Ausgabe (nicht jedes Ressort braucht Material aus jedem Feed - waehle passend zu):
 - Deutschland (Politik, Wirtschaft, Gesellschaft)
-- Politik / Europa (mit Fokus auf ein zentrales Leitartikel-Thema des Tages)
-- Finanzen & Wirtschaft (Wall Street, DAX, Fed, EZB, wichtige Unternehmenszahlen)
-- USA (Washington, Wall Street, America)
+- Politik / Europa (ein zentrales Leitartikel-Thema des Tages, falls das Material eins hergibt)
+- Finanzen & Wirtschaft (Maerkte, Unternehmen, Notenbanken)
+- USA (falls im Material vorhanden)
 - Welt & Geopolitik (China, Russland/Ukraine, Nahost, weitere Krisenherde)
-- CSEE Business Brief (Oesterreich, Tschechien, Ungarn, Rumaenien, Bulgarien, Serbien, Bosnien, Slowakei, Kroatien, Slowenien - mit "Relevanz fuer den Schuhretail" Einordnung je Meldung)
-- Future & Technology (KI, Robotik, Quantencomputing, Raumfahrt)
-- Wissen (rotierendes Ressort: waehle 4-6 Themen aus Cybersecurity, Sport, Astrophysik, Longevity, Architektur, Wissenschaft, Kultur, Musik - je nachdem was heute wirklich Neues gibt)
-- Ein bis zwei Deep Dives zu einem groesseren Wirtschafts- oder Markt-Thema des Tages
+- CSEE Business Brief (Oesterreich, Tschechien, Ungarn, Rumaenien, Bulgarien, Serbien, Bosnien, Slowakei, Kroatien, Slowenien - durchsuche das Material gezielt nach diesen Laendern; findest du nichts, schreibe das ehrlich, erfinde nichts. Wo vorhanden: "Relevanz fuer den Schuhretail" Einordnung je Meldung.)
+- Future & Technology (KI, Robotik, Wissenschaft, falls im Material vorhanden)
+- Wissen (rotierendes Ressort: nutze passende Themen aus dem Material - Wissenschaft, Kultur, Gesellschaft etc.)
+- Ein Deep Dive zu einem groesseren Thema, falls das Material genug Substanz fuer eine Einordnung hergibt
 
 ANFORDERUNGEN AN DAS ERGEBNIS:
 1. Gib AUSSCHLIESSLICH ein vollstaendiges HTML-Dokument zurueck, beginnend mit <!DOCTYPE html> und endend mit </html>. Keine Erklaerungen, kein Markdown, keine Code-Fences davor oder danach.
-2. Uebernimm das komplette CSS (den <style>-Block) und die HTML-Struktur/Klassen/IDs 1:1 aus der untenstehenden Referenzausgabe - Layout, Sektionen, Anker-IDs (#inhalt, #deutschland, #politik, #finanzen, #mechanics, #usa, #geopolitik, #csee, #signal, #future, #wissen, #deepdive, #zitat etc.) und Navigation bleiben identisch.
-3. Aktualisiere: Titel-Tag und "Ausgabe {edition_number}" ueberall, das Datum/die Uhrzeit im meta-row, das Inhaltsverzeichnis (Titel/Teaser passend zu den heutigen Themen) und saemtliche Fliesstexte, Schlagzeilen und den Morgenkurier-Index (Ampel-Bewertung pro Bereich) mit echten, heutigen Inhalten.
-4. Jede Schlagzeile und jede inhaltliche Aussage muss auf tatsaechlich recherchierten, aktuellen Informationen beruhen. Keine erfundenen Fakten, Namen, Zahlen oder Zitate.
-5. Behalte den redaktionellen Aufbau jeder Sektion bei (z.B. "Was ist passiert" / "Gewinner & Verlierer" im Finanzressort, "Ereignis / Hintergrund / Interessen & Akteure / Machtverhaeltnisse / Konsequenzen & Szenarien" im Politikressort), fuelle sie aber mit den heutigen Themen.
-6. Das Zitat des Tages am Ende soll thematisch zur Ausgabe passen und einer echten, verifizierbaren Person zugeordnet sein.
-7. Wenn du zu einem Bereich an einem bestimmten Tag nichts wirklich Berichtenswertes findest, schreibe das ehrlich kurz statt Fuellstoff zu erfinden.
+2. Uebernimm das komplette CSS (den <style>-Block) und die HTML-Struktur/Klassen/IDs 1:1 aus der untenstehenden Referenzausgabe - Layout, Sektionen, Anker-IDs (#inhalt, #deutschland, #politik, #finanzen, #mechanics, #usa, #geopolitik, #csee, #signal, #future, #wissen, #deepdive, #zitat etc.) und Navigation bleiben identisch. Ressorts, fuer die es heute nichts Berichtenswertes gibt, duerfen kurz ausfallen oder auf das Naechstliegende ausweichen - aber die Struktur bleibt erhalten.
+3. Aktualisiere: Titel-Tag und "Ausgabe {edition_number}" ueberall, das Datum/die Uhrzeit im meta-row, das Inhaltsverzeichnis (Titel/Teaser passend zu den heutigen Themen) und saemtliche Fliesstexte, Schlagzeilen und den Morgenkurier-Index (Ampel-Bewertung pro Bereich) mit echten, heutigen Inhalten aus dem Rohmaterial.
+4. Jede Aussage muss sich auf das gelieferte Rohmaterial stuetzen. Keine erfundenen Fakten, Namen, Zahlen oder Zitate.
+5. Behalte den redaktionellen Aufbau jeder Sektion bei (z.B. "Was ist passiert" / "Gewinner & Verlierer" im Finanzressort, "Ereignis / Hintergrund / Interessen & Akteure / Machtverhaeltnisse / Konsequenzen & Szenarien" im Politikressort), soweit das Material das hergibt.
+6. Das Zitat des Tages am Ende soll thematisch zur Ausgabe passen und einer echten, verifizierbaren Person zugeordnet sein - falls im Material kein passendes Zitat vorkommt, waehle ein bekanntes, echtes Zitat, das zum Hauptthema der Ausgabe passt, und kennzeichne es klar als solches statt es zu erfinden.
 
 REFERENZAUSGABE (gestrige Ausgabe, als Stil- und Struktur-Vorlage - NICHT den Inhalt uebernehmen, nur Design/Struktur):
 
@@ -107,13 +194,16 @@ def main() -> None:
     date_str = german_date(now_berlin)
     time_str = now_berlin.strftime("%H:%M")
 
-    system_prompt, user_prompt = build_prompt(previous_html, edition_number, date_str, time_str)
+    news_material = build_news_material()
+    print(f"Rohmaterial gesammelt ({len(news_material)} Zeichen).")
+
+    system_prompt, user_prompt = build_prompt(
+        previous_html, edition_number, date_str, time_str, news_material
+    )
 
     client = genai.Client(api_key=api_key)
-    grounding_tool = types.Tool(google_search=types.GoogleSearch())
     config = types.GenerateContentConfig(
         system_instruction=system_prompt,
-        tools=[grounding_tool],
         max_output_tokens=32768,
     )
 
