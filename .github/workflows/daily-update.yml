@@ -37,7 +37,7 @@ jobs:
 
       - name: Neue Ausgabe generieren
         env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: python scripts/generate_issue.py
 
       - name: Aenderung committen und pushen
