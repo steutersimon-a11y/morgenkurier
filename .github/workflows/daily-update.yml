@@ -1,0 +1,65 @@
+name: Morgenkurier taeglich aktualisieren
+
+on:
+  schedule:
+    # 05:00 UTC = 07:00 Uhr im Sommer (CEST) / 06:00 Uhr im Winter (CET)
+    - cron: "0 5 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  update-and-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Repo auschecken
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Python einrichten
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Abhaengigkeiten installieren
+        run: pip install -r scripts/requirements.txt
+
+      - name: Neue Ausgabe generieren
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python scripts/generate_issue.py
+
+      - name: Aenderung committen und pushen
+        run: |
+          git config user.name "morgenkurier-bot"
+          git config user.email "morgenkurier-bot@users.noreply.github.com"
+          if git diff --quiet -- index.html; then
+            echo "Keine Aenderungen an index.html."
+          else
+            git add index.html
+            git commit -m "Automatisches Update: neue Ausgabe vom $(date -u +%Y-%m-%d)"
+            git push
+          fi
+
+      - name: Pages vorbereiten
+        uses: actions/configure-pages@v5
+
+      - name: Artefakt hochladen
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: "."
+
+      - name: Auf GitHub Pages deployen
+        id: deployment
+        uses: actions/deploy-pages@v4
