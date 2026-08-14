@@ -266,26 +266,26 @@ def run_group(name: str, api_key: str, max_completion_tokens: int, material: str
 # ---------------------------------------------------------------------------
 # Gruppe A: Deutschland & Politik
 # ---------------------------------------------------------------------------
-SCHEMA_A = """Antworte AUSSCHLIESSLICH mit einem validen JSON-Objekt (kein Markdown, keine Code-Fences), reiner Klartext ohne HTML-Tags, exakt in diesem Schema:
+SCHEMA_A = """Antworte AUSSCHLIESSLICH mit einem validen JSON-Objekt (kein Markdown, keine Code-Fences), reiner Klartext ohne HTML-Tags, exakt in diesem Schema. WICHTIG: Die angegebenen Mindest-Wortzahlen sind harte Vorgaben, kein Richtwert - unterschreite sie nicht, auch wenn das Rohmaterial knapp ist (dann eben mit mehr Einordnung/Kontext/Konsequenzen fuellen, niemals mit Wiederholung des bereits Gesagten).
 {
   "deutschland": {
     "headlines": [str] (6-8 kurze Ein-Satz-Meldungen aus Deutschland, ohne Gedankenstrich-Praefix),
     "article_title": str (Ueberschrift fuer einen ausfuehrlichen Hintergrundartikel zum wichtigsten deutschen Thema des Tages),
-    "article_paragraphs": [str] (4-6 gut ausgearbeitete Absaetze, je 4-6 Saetze - insgesamt ein wirklich substantieller Artikel, keine Kurzmeldung),
+    "article_paragraphs": [str] (4-6 Absaetze, INSGESAMT MINDESTENS 450 WOERTER - ein wirklich substantieller Artikel, keine Kurzmeldung. Jeder Absatz bringt einen neuen Aspekt: Ereignis, Hintergrund, Betroffene, Einordnung, moegliche Folgen - nicht denselben Punkt mehrfach umformulieren),
     "toc_teaser": str (1 Satz fuers Inhaltsverzeichnis)
   },
   "politik": {
-    "leitartikel_desc": str (1 Satz: welches politische Leitthema wird behandelt - waehle nach Moeglichkeit ein anderes Thema als der Deutschland-Artikel, z.B. ein europaeisches oder internationales Politikthema aus dem Material),
+    "leitartikel_desc": str (1 Satz: welches politische Leitthema wird behandelt - MUSS ein anderes Grundthema als der Deutschland-Artikel sein, idealerweise ein europaeisches oder internationales Politikthema aus dem Material),
     "ereignis": str (2-3 Saetze, was konkret passiert ist),
-    "hintergrund": str (1 ausfuehrlicher Absatz, 4-6 Saetze),
-    "akteure": str (1 ausfuehrlicher Absatz: wer will was, welche Interessen stehen sich gegenueber),
-    "machtverhaeltnisse": str (1 Absatz),
-    "konsequenzen": str (1 ausfuehrlicher Absatz: konkrete moegliche Szenarien),
+    "hintergrund": str (1 ausfuehrlicher Absatz, mindestens 80 Woerter),
+    "akteure": str (1 ausfuehrlicher Absatz, mindestens 80 Woerter: wer will was, welche Interessen stehen sich gegenueber),
+    "machtverhaeltnisse": str (1 Absatz, mindestens 60 Woerter),
+    "konsequenzen": str (1 ausfuehrlicher Absatz, mindestens 80 Woerter: konkrete moegliche Szenarien),
     "toc_teaser": str (1 Satz fuers Inhaltsverzeichnis)
   },
   "topics_covered": [str] (3-6 kurze Stichworte der Hauptthemen dieser beiden Abschnitte, z.B. ["Rentenreform","Landtagswahl Sachsen-Anhalt"])
 }
-Wenn zu einem Bereich nichts Ausreichendes im Material steht, schreibe das ehrlich kurz statt Fuellstoff zu erfinden."""
+Wenn zu einem Bereich nichts Ausreichendes im Material steht, schreibe das ehrlich kurz statt Fuellstoff zu erfinden (die Mindest-Wortzahl gilt dann nicht)."""
 
 
 def group_a(all_items, api_key, covered) -> dict:
@@ -301,27 +301,27 @@ def group_a(all_items, api_key, covered) -> dict:
 SCHEMA_B = """Antworte AUSSCHLIESSLICH mit einem validen JSON-Objekt (kein Markdown, keine Code-Fences), reiner Klartext ohne HTML-Tags, exakt in diesem Schema:
 {
   "finanzen": {
-    "was_ist_passiert": [str] (2-3 ausfuehrliche Absaetze zu den wichtigsten Markt-/Unternehmensmeldungen des Tages),
-    "eingepreist": str (1 Absatz: was war bereits erwartet worden, was war die eigentliche Ueberraschung),
+    "was_ist_passiert": [str] (2-3 Absaetze, INSGESAMT MINDESTENS 250 WOERTER, zu den wichtigsten Markt-/Unternehmensmeldungen des Tages),
+    "eingepreist": str (1 Absatz, mindestens 60 Woerter: was war bereits erwartet worden, was war die eigentliche Ueberraschung),
     "gewinner": str (1-2 Saetze als Fliesstext),
     "verlierer": str (1-2 Saetze als Fliesstext),
-    "auswirkungen": str (1 ausfuehrlicher Absatz zu Europa/Deutschland),
+    "auswirkungen": str (1 ausfuehrlicher Absatz, mindestens 70 Woerter, zu Europa/Deutschland),
     "toc_teaser": str (1 Satz fuers Inhaltsverzeichnis)
   },
   "mechanics": {
     "headline": str (eine erklaerende Frage, z.B. 'Warum...?', verankert an einer heutigen Meldung),
-    "paragraphs": [str] (2-3 Absaetze, die ein wirtschaftliches Konzept laienverstaendlich, aber nicht oberflaechlich erklaeren),
+    "paragraphs": [str] (2-3 Absaetze, INSGESAMT MINDESTENS 180 WOERTER, die ein wirtschaftliches Konzept laienverstaendlich, aber nicht oberflaechlich erklaeren),
     "toc_teaser": str (1 Satz fuers Inhaltsverzeichnis)
   },
   "usa": {
-    "washington": str (1 ausfuehrlicher Absatz zur US-Politik),
-    "wallstreet": str (1 ausfuehrlicher Absatz zu US-Maerkten),
+    "washington": str (1 ausfuehrlicher Absatz, mindestens 70 Woerter, zur US-Politik),
+    "wallstreet": str (1 ausfuehrlicher Absatz, mindestens 70 Woerter, zu US-Maerkten),
     "america": str (1 Absatz zu Gesellschaft/Technologie/Sonstiges aus den USA, falls Material vorhanden),
     "toc_teaser": str (1 Satz fuers Inhaltsverzeichnis)
   },
   "topics_covered": [str] (3-6 kurze Stichworte, z.B. ["US-Inflationsdaten","Lufthansa-Gewinnwarnung"])
 }
-Wenn zu einem Bereich nichts Ausreichendes im Material steht, schreibe das ehrlich kurz statt Fuellstoff zu erfinden."""
+Die Mindest-Wortzahlen sind harte Vorgaben (mit mehr Einordnung/Kontext fuellen, nicht mit Wiederholung). Wenn zu einem Bereich nichts Ausreichendes im Material steht, schreibe das ehrlich kurz statt Fuellstoff zu erfinden (die Mindest-Wortzahl gilt dann nicht)."""
 
 
 def group_b(all_items, api_key, covered) -> dict:
@@ -338,18 +338,18 @@ def group_b(all_items, api_key, covered) -> dict:
 SCHEMA_C = """Antworte AUSSCHLIESSLICH mit einem validen JSON-Objekt (kein Markdown, keine Code-Fences), reiner Klartext ohne HTML-Tags, exakt in diesem Schema:
 {
   "geopolitik": {
-    "china": str (1 ausfuehrlicher Absatz),
-    "ukraine_russland": str (1 ausfuehrlicher Absatz),
-    "weitere": str (1 Absatz zu weiteren geopolitischen Entwicklungen, z.B. Nahost, Nordkorea, Asien),
+    "china": str (1 ausfuehrlicher Absatz, mindestens 70 Woerter),
+    "ukraine_russland": str (1 ausfuehrlicher Absatz, mindestens 70 Woerter),
+    "weitere": str (1 Absatz, mindestens 60 Woerter, zu weiteren geopolitischen Entwicklungen, z.B. Nahost, Nordkorea, Asien),
     "toc_teaser": str (1 Satz fuers Inhaltsverzeichnis)
   },
   "csee": [
-    {"headline": str, "text": str (2-3 Saetze), "relevanz": str (1-2 Saetze: konkrete Relevanz fuer einen Schuh-Einzelhaendler mit Geschaeft/Beschaffung/Filialen in der Region)}
+    {"headline": str, "text": str (2-4 Saetze), "relevanz": str (1-2 Saetze: konkrete Relevanz fuer einen Schuh-Einzelhaendler mit Geschaeft/Beschaffung/Filialen in der Region)}
   ] (3-5 Eintraege NUR zu Oesterreich, Tschechien, Ungarn, Rumaenien, Bulgarien, Serbien, Bosnien, Slowakei, Kroatien oder Slowenien - durchsuche das Material gezielt danach; findest du zu einem Land nichts, nimm es nicht in die Liste auf; findest du insgesamt nichts, gib ein Array mit einem Eintrag zurueck, der das ehrlich sagt),
   "csee_toc_teaser": str (1 Satz fuers Inhaltsverzeichnis),
   "topics_covered": [str] (3-6 kurze Stichworte, z.B. ["Ukraine-Angriffe auf Oelinfrastruktur","Rumaenien Regierungskrise"])
 }
-Wenn zu einem Bereich nichts Ausreichendes im Material steht, schreibe das ehrlich kurz statt Fuellstoff zu erfinden."""
+Die Mindest-Wortzahlen sind harte Vorgaben. Wenn zu einem Bereich nichts Ausreichendes im Material steht, schreibe das ehrlich kurz statt Fuellstoff zu erfinden (die Mindest-Wortzahl gilt dann nicht)."""
 
 
 def group_c(all_items, api_key, covered) -> dict:
@@ -365,18 +365,18 @@ def group_c(all_items, api_key, covered) -> dict:
 SCHEMA_D = """Antworte AUSSCHLIESSLICH mit einem validen JSON-Objekt (kein Markdown, keine Code-Fences), reiner Klartext ohne HTML-Tags, exakt in diesem Schema:
 {
   "future": {
-    "verfuegbar": str (1 ausfuehrlicher Absatz: KI/Tech, die bereits im produktiven Einsatz ist),
-    "in_entwicklung": str (1 ausfuehrlicher Absatz),
-    "experimentell": str (1 Absatz: experimentelle/spekulative Entwicklungen, mit angemessener Vorsicht formuliert),
+    "verfuegbar": str (1 ausfuehrlicher Absatz, mindestens 70 Woerter: KI/Tech, die bereits im produktiven Einsatz ist),
+    "in_entwicklung": str (1 ausfuehrlicher Absatz, mindestens 70 Woerter),
+    "experimentell": str (1 Absatz, mindestens 60 Woerter: experimentelle/spekulative Entwicklungen, mit angemessener Vorsicht formuliert),
     "toc_teaser": str (1 Satz fuers Inhaltsverzeichnis)
   },
   "wissen": [
-    {"kicker": str (Rubrik, z.B. 'Wissenschaft', 'Gesellschaft', 'Kultur'), "headline": str, "text": str (2-3 Saetze)}
+    {"kicker": str (Rubrik, z.B. 'Wissenschaft', 'Gesellschaft', 'Kultur'), "headline": str, "text": str (3-4 Saetze, mindestens 40 Woerter)}
   ] (5-7 Eintraege zu unterschiedlichen Themen aus dem Material - moeglichst breit gestreut, nicht mehrere Eintraege zum selben Thema),
   "wissen_toc_teaser": str (1 Satz fuers Inhaltsverzeichnis),
   "topics_covered": [str] (3-6 kurze Stichworte, z.B. ["Quantencomputing-Durchbruch","Neue Exoplaneten-Entdeckung"])
 }
-Wenn zu einem Bereich nichts Ausreichendes im Material steht, schreibe das ehrlich kurz statt Fuellstoff zu erfinden."""
+Die Mindest-Wortzahlen sind harte Vorgaben. Wenn zu einem Bereich nichts Ausreichendes im Material steht, schreibe das ehrlich kurz statt Fuellstoff zu erfinden (die Mindest-Wortzahl gilt dann nicht)."""
 
 
 def group_d(all_items, api_key, covered) -> dict:
@@ -398,14 +398,14 @@ SCHEMA_E = """Antworte AUSSCHLIESSLICH mit einem validen JSON-Objekt (kein Markd
   "welt_am_morgen": [str] (8-10 kurze Ein-Satz-Meldungen quer durch alle Themenbereiche, je ein String ohne Gedankenstrich-Praefix, moeglichst divers),
   "signal": [ {"tag": str (z.B. 'Economic Signal', 'Political Signal', 'Future Signal'), "headline": str, "text": str (2-3 Saetze)} ] (genau 3 Eintraege: eine wirtschaftliche, eine politische, eine technologische Perspektive - zu Themen, die NICHT bereits die Hauptartikel anderer Ressorts sind),
   "deepdive": {
-    "headline": str (ein groesseres Thema, das mehrere Faeden aus verschiedenen Ressorts zusammenfuehrt und tiefer einordnet als die einzelnen Ressort-Artikel - WICHTIG: waehle explizit ein anderes Thema als die cover_headline),
-    "paragraphs": [str] (4-6 ausfuehrliche Absaetze, die das Thema wirklich durchdringen - Ursachen, Zusammenhaenge, Betroffene, moegliche Folgen),
+    "headline": str (ein Thema, das MEHRERE FAEDEN AUS MINDESTENS ZWEI VERSCHIEDENEN RESSORTS explizit zusammenfuehrt, z.B. wie ein Finanzthema und ein CSEE-Thema zusammenhaengen, oder wie ein Politik- und ein Technologiethema sich gegenseitig beeinflussen. VERBOTEN: dasselbe zugrundeliegende Ereignis/Thema wie cover_headline oder wie in der Ressort-Zusammenfassung unten - auch nicht aus einem anderen Blickwinkel. Wenn du unsicher bist, ob es zu aehnlich ist: waehle ein anderes Thema),
+    "paragraphs": [str] (4-6 Absaetze, INSGESAMT MINDESTENS 400 WOERTER, die das Thema wirklich durchdringen: erst die Verbindung zwischen den Ressorts herstellen, dann Ursachen, Betroffene, moegliche Folgen - jeder Absatz eine neue Facette, keine Wiederholung),
     "toc_teaser": str (1 Satz fuers Inhaltsverzeichnis)
   },
   "quote": {"text": str (ein bekanntes, echtes, verifizierbares Zitat passend zum Hauptthema der Ausgabe), "author": str (Name und ggf. Quelle)},
   "gedanke": str (1 Absatz, redaktioneller Schlussgedanke passend zur Ausgabe)
 }
-Wenn zu einem Bereich nichts Ausreichendes im Material steht, schreibe das ehrlich kurz statt Fuellstoff zu erfinden."""
+Die Mindest-Wortzahlen sind harte Vorgaben. Wenn zu einem Bereich nichts Ausreichendes im Material steht, schreibe das ehrlich kurz statt Fuellstoff zu erfinden (die Mindest-Wortzahl gilt dann nicht)."""
 
 
 def group_e(all_items, api_key, covered, digest: str) -> dict:
