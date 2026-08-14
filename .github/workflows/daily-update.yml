@@ -2,8 +2,11 @@ name: Morgenkurier taeglich aktualisieren
 
 on:
   schedule:
-    # 05:00 UTC = 07:00 Uhr im Sommer (CEST) / 06:00 Uhr im Winter (CET)
-    - cron: "0 5 * * *"
+    # 04:30 UTC = 06:30 Uhr im Sommer (CEST) / 05:30 Uhr im Winter (CET).
+    # Bewusst grosszuegiger Puffer vor 8 Uhr: die Generierung macht 5
+    # gestaffelte KI-Aufrufe (mit Pausen fuers Gratis-Kontingent) und
+    # dauert dadurch ca. 6-7 Minuten statt weniger Sekunden.
+    - cron: "30 4 * * *"
   workflow_dispatch: {}
 
 permissions:
@@ -33,6 +36,7 @@ jobs:
           python-version: "3.12"
 
       - name: Neue Ausgabe generieren
+        timeout-minutes: 20
         env:
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
         run: python scripts/generate_issue.py
