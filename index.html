@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MORGENKURIER — Ausgabe 001</title>
+<title>MORGENKURIER — Ausgabe 002</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,600;1,700&display=swap" rel="stylesheet">
 <style>
@@ -167,25 +167,8 @@
   .wissen-item .kicker{font-size:10.5px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:6px;}
   .wissen-item h3{font-size:19px;margin:0 0 8px;font-weight:700;line-height:1.25;}
 
-  /* ---- DEEP DIVE FINANCE STAT ROW ---- */
+  /* ---- DEEP DIVE ---- */
   .disclaimer{font-size:11px;color:var(--muted);font-style:italic;border-top:1px solid var(--line);padding-top:10px;margin-top:6px;}
-  .stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin:14px 0 16px;}
-  .stat-tile{background:var(--card);padding:14px 16px 12px;}
-  .stat-tile .tk{font-size:10.5px;letter-spacing:1px;font-weight:700;color:var(--muted);text-transform:uppercase;}
-  .stat-tile .nm{font-size:12.5px;color:var(--muted);margin-bottom:8px;}
-  .stat-tile .px{font-size:21px;font-weight:700;margin-bottom:2px;}
-  .stat-tile .chg{font-size:11.5px;font-weight:700;margin-bottom:6px;}
-  .chg.up{color:#3a6b3a;}
-  .chg.down{color:#a13a3a;}
-  .stat-tile svg{display:block;margin:4px 0 6px;}
-  .stat-tile .note{font-size:11px;color:var(--muted);line-height:1.4;}
-  .facts-opinions{display:grid;grid-template-columns:1fr 1fr;gap:0 24px;margin:10px 0;}
-  .facts-opinions .fo{padding:10px 0;}
-  .facts-opinions .fo .h{font-size:10.5px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;margin-bottom:6px;}
-  .facts-opinions .fo.f .h{color:#3a6b3a;}
-  .facts-opinions .fo.o .h{color:var(--accent);}
-  .facts-opinions ul{margin:0;padding-left:16px;}
-  .facts-opinions li{font-size:12.5px;line-height:1.5;margin-bottom:5px;}
 
   /* ---- LAST PAGE ---- */
   .lastpage{margin:36px 24px 0;padding:34px 0 8px;border-top:3px solid var(--rule);text-align:center;}
@@ -201,12 +184,10 @@
   footer.sources a{color:var(--muted);}
 
   @media (max-width:680px){
-    .cols,.deepdive-cols{columns:1;}
+    .cols{columns:1;}
     .cover-list{grid-template-columns:1fr;}
     .signal-grid{grid-template-columns:1fr;}
     .signal-item{border-right:none !important;border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:10px;}
-    .stat-row{grid-template-columns:1fr;}
-    .facts-opinions{grid-template-columns:1fr;}
   }
 </style>
 </head>
@@ -228,27 +209,27 @@
   </nav>
 
   <header class="masthead" id="top">
-    <div class="eyebrow">Ausgabe 001 · Testausgabe nach neuem Redaktionsstatut</div>
+    <div class="eyebrow">Ausgabe 002</div>
     <h1 class="title">Morgenkurier</h1>
     <div class="tagline">Nicht alles, was passiert, ist wichtig. Der Morgenkurier zeigt, was wichtig ist — und erklärt, warum.</div>
   </header>
   <div class="hairline thick"></div>
   <div class="meta-row">
-    <span class="special">Ausgabe 001</span>
-    <span>Donnerstag, 13. August 2026 · 09:00 Uhr</span>
+    <span class="special">Ausgabe 002</span>
+    <span>Freitag, 14. August 2026 · 09:10 Uhr</span>
     <span>Deutschland · Politik · Finanzen · USA · Welt · CSEE · Wissen · Future</span>
   </div>
   <div class="hairline"></div>
 
   <!-- ================= COVER ================= -->
   <div class="cover">
-    <h2>Machtwechsel in Budapest — die Zäsur, die ganz Mitteleuropa neu ordnet</h2>
-    <p class="dek">Nach 16 Jahren verliert Viktor Orbán die Macht an Péter Magyars pro-europäische Tisza-Partei — mit einer Zweidrittelmehrheit, die weit über Ungarn hinaus wirkt: auf EU-Finanzströme, auf die politische Statik der CSEE-Region und auf jedes Unternehmen, das dort produziert oder einkauft. Analyse im Politikressort.</p>
+    <h2>Niedrigwasser in Europa: Wirtschaftliche Auswirkungen und Herausforderungen</h2>
+    <p class="dek">Das Niedrigwasser in den europäischen Flüssen, insbesondere im Rhein und in der Donau, hat weitreichende Auswirkungen auf die Wirtschaft, die Logistik und die Energieproduktion. Die Situation verschärft sich durch den Klimawandel und die Trockenheit.</p>
     <div class="cover-list">
-      <div class="ci"><h4>Iran weist Hormuz-„Kontrolle" erneut zurück — Ölpreis bleibt Fed-Risiko</h4><p>Washingtons wiederholte Ankündigungen einer nahen Einigung haben sich bislang nicht bestätigt.</p></div>
-      <div class="ci"><h4>Rocket Lab meldet Rekordumsatz, doch die Neutron-Rakete wackelt</h4><p>Backlog von 2,36 Mrd. Dollar überzeugt nicht über die Verzögerung hinweg — Kurs fällt trotz starker Zahlen.</p></div>
-      <div class="ci"><h4>Rhein-Niedrigwasser und Lufthansas Gewinnwarnung — zwei Symptome derselben Lage</h4><p>Klima und Nahost-Geopolitik treffen die deutsche Industrie gleichzeitig.</p></div>
-      <div class="ci"><h4>Ungarn, Rumänien, Serbien: CSEE erlebt den unruhigsten politischen Sommer seit Jahren</h4><p>Drei Länder, drei Krisen, eine gemeinsame Frage: Wie stabil bleibt der Standort?</p></div>
+      <div class="ci"><h4>Rumänien schaltet Atomkraftwerk ab</h4><p>Wegen des niedrigen Donaupegels muss Rumänien sein einziges Atomkraftwerk herunterfahren, was zu einem Verlust von etwa 20% der Stromproduktion führt.</p></div>
+      <div class="ci"><h4>Trockenheit und Niedrigwasser belasten die Landwirtschaft</h4><p>Die anhaltende Trockenheit und das Niedrigwasser in Deutschland und Europa führen zu großen Verlusten in der Landwirtschaft und beeinträchtigen die Getreideernte.</p></div>
+      <div class="ci"><h4>Flüsse ausbauen, um Niedrigwasser zu bekämpfen</h4><p>Es wird diskutiert, ob der Ausbau der Flüsse eine Lösung gegen das Niedrigwasser sein könnte, aber dies zieht auch Kritik nach sich.</p></div>
+      <div class="ci"><h4>Raketenstartbasis in Deutschland geplant</h4><p>Die Bundesregierung prüft den Aufbau einer eigenen Raketenstartbasis, um militärische Satelliten unabhängig ins All zu befördern.</p></div>
     </div>
   </div>
 
@@ -260,18 +241,18 @@
 
     <a href="#index"><div class="toc-row"><div class="num">03</div><div class="body"><h4>Morgenkurier Index</h4><p>Die redaktionelle Lage in sieben Bereichen auf einen Blick</p></div></div></a>
     <a href="#welt-am-morgen"><div class="toc-row"><div class="num">04</div><div class="body"><h4>Die Welt am Morgen</h4><p>Das Wichtigste aus aller Welt, komprimiert</p></div></div></a>
-    <a href="#deutschland"><div class="toc-row"><div class="num">05</div><div class="body"><h4>Deutschland</h4><p>Regierung, Wirtschaft, Gesellschaft — Leitartikel: Geheimdienstreform und Sozialstaat-Ausbau</p></div></div></a>
-    <a href="#politik"><div class="toc-row"><div class="num">06</div><div class="body"><h4>Politik</h4><p>Leitartikel: Der Machtwechsel in Ungarn und seine Folgen für Europa</p></div></div></a>
-    <a href="#finanzen"><div class="toc-row"><div class="num">07</div><div class="body"><h4>Finanzen &amp; Wirtschaft</h4><p>Wall Street, DAX, Fed, EZB und die Kräfte hinter den Märkten</p></div></div></a>
-    <a href="#mechanics"><div class="toc-row"><div class="num">08</div><div class="body"><h4>Market Mechanics</h4><p>Warum beeinflusst der Ölpreis die Inflation? — heute erklärt</p></div></div></a>
-    <a href="#usa"><div class="toc-row"><div class="num">09</div><div class="body"><h4>United States</h4><p>Washington, Wall Street, America — Leitartikel: die Hormuz-Hängepartie</p></div></div></a>
-    <a href="#geopolitik"><div class="toc-row"><div class="num">10</div><div class="body"><h4>Welt &amp; Geopolitik</h4><p>China, Russland/Ukraine, Nordkorea und die Machtverschiebungen des Sommers</p></div></div></a>
-    <a href="#csee"><div class="toc-row"><div class="num">11</div><div class="body"><h4>CSEE Business Brief</h4><p>Einkaufsrelevante Entwicklungen aus Mittel- und Südosteuropa</p></div></div></a>
+    <a href="#deutschland"><div class="toc-row"><div class="num">05</div><div class="body"><h4>Deutschland</h4><p>Deutschland kämpft mit den Folgen des Niedrigwassers und der Trockenheit.</p></div></div></a>
+    <a href="#politik"><div class="toc-row"><div class="num">06</div><div class="body"><h4>Politik</h4><p>Die politische Lage in Europa ist angespannt, insbesondere zwischen Russland und der Ukraine.</p></div></div></a>
+    <a href="#finanzen"><div class="toc-row"><div class="num">07</div><div class="body"><h4>Finanzen &amp; Wirtschaft</h4><p>Die Finanzmärkte reagieren auf die wirtschaftlichen Herausforderungen in Europa.</p></div></div></a>
+    <a href="#mechanics"><div class="toc-row"><div class="num">08</div><div class="body"><h4>Market Mechanics</h4><p>Die Mechanismen hinter dem Niedrigwasser und seine Auswirkungen auf die Wirtschaft werden erklärt.</p></div></div></a>
+    <a href="#usa"><div class="toc-row"><div class="num">09</div><div class="body"><h4>United States</h4><p>Die USA sind von den globalen wirtschaftlichen Herausforderungen betroffen.</p></div></div></a>
+    <a href="#geopolitik"><div class="toc-row"><div class="num">10</div><div class="body"><h4>Welt &amp; Geopolitik</h4><p>Die geopolitische Lage in Europa ist komplex und angespannt.</p></div></div></a>
+    <a href="#csee"><div class="toc-row"><div class="num">11</div><div class="body"><h4>CSEE Business Brief</h4><p>Die CSEE-Region ist von den wirtschaftlichen und politischen Entwicklungen in Europa betroffen.</p></div></div></a>
     <a href="#signal"><div class="toc-row"><div class="num">12</div><div class="body"><h4>The Signal</h4><p>Drei Frühindikatoren, die diese Woche mehr verraten als die Schlagzeilen</p></div></div></a>
-    <a href="#future"><div class="toc-row"><div class="num">13</div><div class="body"><h4>Future &amp; Technology</h4><p>KI, Robotik, Quantencomputing, Raumfahrt — was ist real, was ist Hype?</p></div></div></a>
-    <a href="#wissen"><div class="toc-row"><div class="num">14</div><div class="body"><h4>Wissen</h4><p>Cybersecurity, Sport, Astrophysik, Longevity, Architektur, Wissenschaft, Kultur, Musik</p></div></div></a>
-    <a href="#deepdive"><div class="toc-row"><div class="num">15</div><div class="body"><h4>Deep Dives</h4><p>Europas Wettbewerbsfähigkeit · Nvidia, Rocket Lab und Quantum eMotion im Detail</p></div></div></a>
-    <a href="#zitat"><div class="toc-row"><div class="num">20</div><div class="body"><h4>Zitat des Tages</h4><p>Ein ruhiger Schluss zum Ausklang der Ausgabe</p></div></div></a>
+    <a href="#future"><div class="toc-row"><div class="num">13</div><div class="body"><h4>Future &amp; Technology</h4><p>Die Zukunft der Energieproduktion und der Logistik steht im Fokus.</p></div></div></a>
+    <a href="#wissen"><div class="toc-row"><div class="num">14</div><div class="body"><h4>Wissen</h4><p>Wissenschaft und Forschung suchen nach Lösungen für die Herausforderungen des Klimawandels.</p></div></div></a>
+    <a href="#deepdive"><div class="toc-row"><div class="num">15</div><div class="body"><h4>Deep Dive</h4><p>Ein tieferer Blick in die Themen des Tages, von der Wirtschaft bis zur Politik.</p></div></div></a>
+    <a href="#zitat"><div class="toc-row"><div class="num">16</div><div class="body"><h4>Zitat des Tages</h4><p>Ein ruhiger Schluss zum Ausklang der Ausgabe</p></div></div></a>
   </section>
 
   <!-- ================= INDEX ================= -->
@@ -280,13 +261,13 @@
     <h2 class="sectitle">Morgenkurier Index</h2>
     <div class="secdesc">Redaktionelle Einschätzung der Lage, keine objektive Kennzahl.</div>
     <table class="index">
-      <tr><td class="area">Deutschland</td><td class="dot">🟡</td><td class="note">Sozialstaat wird ausgebaut, während Rhein-Logistik und Innenstadt-Handel unter Druck stehen — gemischtes Bild.</td></tr>
-      <tr><td class="area">USA</td><td class="dot">🟠</td><td class="note">Kühlere Inflation trifft auf ungelöste Hormuz-Krise — die Fed navigiert zwischen zwei Signalen.</td></tr>
-      <tr><td class="area">Europa</td><td class="dot">🟡</td><td class="note">Ungarns Machtwechsel positiv im Trend, aber Rumänien und Serbien liefern gegenläufige Signale.</td></tr>
-      <tr><td class="area">Geopolitik</td><td class="dot">🔴</td><td class="note">Hormuz-Blockade hält an, Ukraine-Krieg eskaliert an mehreren Fronten, Nordkorea testet erneut.</td></tr>
-      <tr><td class="area">Finanzmärkte</td><td class="dot">🟡</td><td class="note">KI-Rally intakt, aber Bewertungsdebatte um Nvidia und Ölpreis-Risiko trüben das Bild.</td></tr>
-      <tr><td class="area">CSEE Retail</td><td class="dot">🟡</td><td class="note">Wachstum über Eurozone-Niveau, doch Lohnkosten und drei parallele politische Krisen erhöhen die Planungsunsicherheit.</td></tr>
-      <tr><td class="area">Technologie</td><td class="dot">🟠</td><td class="note">Rekordinvestitionen bei KI-Infrastruktur, aber China-Exportfragen und „Circular Financing"-Sorgen wachsen.</td></tr>
+      <tr><td class="area">Deutschland</td><td class="dot">🟡</td><td class="note">Niedrigwasser und Trockenheit belasten die Wirtschaft und die Landwirtschaft.</td></tr>
+      <tr><td class="area">USA</td><td class="dot">🟢</td><td class="note">Die USA sind von den globalen wirtschaftlichen Herausforderungen betroffen.</td></tr>
+      <tr><td class="area">Europa</td><td class="dot">🟠</td><td class="note">Die politische Lage in Europa ist angespannt, insbesondere zwischen Russland und der Ukraine.</td></tr>
+      <tr><td class="area">Geopolitik</td><td class="dot">🔴</td><td class="note">Die geopolitische Lage in Europa ist komplex und angespannt.</td></tr>
+      <tr><td class="area">Finanzmärkte</td><td class="dot">🟡</td><td class="note">Die Finanzmärkte reagieren auf die wirtschaftlichen Herausforderungen in Europa.</td></tr>
+      <tr><td class="area">CSEE Retail</td><td class="dot">🟢</td><td class="note">Die CSEE-Region ist von den wirtschaftlichen und politischen Entwicklungen in Europa betroffen.</td></tr>
+      <tr><td class="area">Technologie</td><td class="dot">🟠</td><td class="note">Die Zukunft der Energieproduktion und der Logistik steht im Fokus.</td></tr>
     </table>
   </section>
 
@@ -295,14 +276,12 @@
     <div class="secnum">04</div>
     <h2 class="sectitle">Die Welt am Morgen</h2>
     <div class="cols">
-      <p>— Ätna-Aschewolke legt den Flughafen Catania mindestens bis Freitagmorgen lahm.</p>
-      <p>— Iran weist erneut US-Angaben zurück, die Straße von Hormuz sei kontrolliert.</p>
-      <p>— Ungarn: Péter Magyars Tisza-Partei gewinnt Zweidrittelmehrheit, Orbán-Ära endet.</p>
-      <p>— Nordkorea testet ballistische Rakete Richtung Japan vor Militärmanövern.</p>
-      <p>— Ukraine greift Ölhafen Noworossijsk und Raffinerie in Orenburg an, Russland meldet 502 abgefangene Drohnen in einer Nacht.</p>
-      <p>— Putin besucht Peking, „grenzenlose" Partnerschaft betont — Einigung zu Pipeline „Power of Siberia 2" bleibt aber aus.</p>
-      <p>— Berlin gedenkt des 65. Jahrestags des Mauerbaus.</p>
-      <p>— Perseiden-Meteorschauer erreicht in der Nacht seinen Höhepunkt.</p>
+      <p>— Unwetter in Japan fordern sechs Tote.</p>
+      <p>— Palästinenser werden aufgefordert, ihre Häuser zu verlassen.</p>
+      <p>— Die USA sagen, dass Dutzende Länder China bei der Umgehung von Zöllen geholfen haben.</p>
+      <p>— Rumänien schaltet sein einziges Atomkraftwerk ab.</p>
+      <p>— Ein Passagierzug ist im Südosten Englands entgleist.</p>
+      <p>— Nordkorea soll weitere Soldaten nach Russland entsenden.</p>
     </div>
     <a class="backtotoc" href="#inhalt">↑ Zurück zum Inhalt</a>
   </section>
@@ -314,19 +293,18 @@
 
     <h3 class="dept">Schlagzeilen</h3>
     <div class="cols">
-      <p>— Bundeskabinett bringt Geheimdienstreform auf den Weg: mehr Befugnisse für BND und Verfassungsschutz.</p>
-      <p>— BAföG steigt ab Sommer 2027 auf 563 Euro monatlich; neue „Frühstart-Rente" für Kinder ab sechs Jahren geplant.</p>
-      <p>— Regierung plant Lockerung der Alkohol-Aufsichtsregeln für Jugendliche ab 14 im Rahmen der Jugendhilfe.</p>
-      <p>— Umweltministerium will Klimaanpassung im Grundgesetz verankern.</p>
-      <p>— Sachsen-Anhalt: TV-„Wahlarena" vor der Landtagswahl sorgt für hitzige Debatte über AfD-Positionen.</p>
-      <p>— Rhein-Niedrigwasser bringt Binnenschifffahrt erneut unter Druck, Branche legt Drei-Punkte-Plan vor.</p>
+      <p>— Grünen-Fraktionschefin fordert Übergewinnsteuer für Mineralölkonzerne.</p>
+      <p>— Alabali Radovan: Hilfe für Afghanen ohne Taliban-Kooperation.</p>
+      <p>— Urteil gegen Airline: Passagiere dürfen mehrere Handgepäckstücke mitnehmen.</p>
+      <p>— Niedrigwasser: Und plötzlich liegt eine Bazooka am Ufer.</p>
+      <p>— Haftbefehl gegen AfD-Politiker Maximilian Krah erlassen.</p>
     </div>
 
-    <h3 class="dept">Sicherheitsreform und Sozialstaat — ein Land investiert an zwei sehr unterschiedlichen Enden</h3>
+    <h3 class="dept">Niedrigwasser in Deutschland: Eine Herausforderung für die Wirtschaft und die Umwelt</h3>
     <div class="cols">
-      <p class="lede">Das Bundeskabinett hat eine Reform gebilligt, die BND und Verfassungsschutz deutlich mehr Befugnisse geben soll. Begründet wird das mit hybriden Bedrohungen — Sabotage, Spionage, Cyberangriffe —, die im Schatten des Ukraine-Kriegs und der Nahost-Krise zugenommen haben. Kritik kommt von zwei Seiten zugleich: Linke Stimmen warnen vor einem Überwachungsstaat, konservative und rechte Stimmen vor zu viel Kontrolle für den Staat gegenüber Bürgern.</p>
-      <p>Gleichzeitig investiert die Regierung ins andere Ende der Gesellschaft: Die BAföG-Erhöhung auf 563 Euro und die neue „Frühstart-Rente" für Sechsjährige sind Versuche, junge Menschen früh zu binden und Bildungs- sowie Alterssicherung zu stärken. Das kostet Geld — und steht im Spannungsverhältnis zu den knappen öffentlichen Kassen, die im Finanzressort eine Rolle spielen. Die geplante Lockerung der Jugendschutzregeln beim Alkohol dürfte auf Widerstand bei Sucht- und Kinderschutzverbänden stoßen.</p>
-      <p>In Sachsen-Anhalt lieferte eine „Wahlarena" vor der in gut drei Wochen anstehenden Landtagswahl einen Vorgeschmack auf den Wahlkampf: Ein syrischstämmiger Teilnehmer warf dem AfD-Kandidaten Ulrich Siegmund vor, dessen Politik sei „das beste Rezept für eine Diktatur" — eine Zuspitzung, die zeigt, wie polarisiert die Debatte dort bereits geführt wird. Berlin erinnerte parallel mit Gedenkveranstaltungen an den 65. Jahrestag des Mauerbaus; Bundestagspräsidentin Julia Klöckner mahnte, die DDR-Diktatur nicht zu verharmlosen.</p>
+      <p>Das Niedrigwasser in den deutschen Flüssen hat weitreichende Auswirkungen auf die Wirtschaft, die Logistik und die Energieproduktion.</p>
+      <p>Die Situation verschärft sich durch den Klimawandel und die Trockenheit, die zu großen Verlusten in der Landwirtschaft führt.</p>
+      <p>Es wird diskutiert, ob der Ausbau der Flüsse eine Lösung gegen das Niedrigwasser sein könnte, aber dies zieht auch Kritik nach sich.</p>
     </div>
     <a class="backtotoc" href="#inhalt">↑ Zurück zum Inhalt</a>
   </section>
@@ -335,22 +313,22 @@
   <section id="politik">
     <div class="secnum">06</div>
     <h2 class="sectitle">Politik</h2>
-    <div class="secdesc">Leitartikel: Der Machtwechsel in Ungarn</div>
+    <div class="secdesc">Die politische Lage in Europa ist angespannt, insbesondere zwischen Russland und der Ukraine.</div>
 
     <h3 class="dept">Ereignis</h3>
-    <p class="lede">Ungarn hat gewählt — und das Ergebnis ist ein politisches Erdbeben. Péter Magyars pro-europäische Tisza-Partei gewinnt eine Zweidrittelmehrheit im Parlament (138 von 199 Sitzen), Viktor Orbáns Fidesz stürzt nach 16 Jahren ununterbrochener Regierung auf 54 Sitze ab. Es ist die schwerste Niederlage in Orbáns politischer Laufbahn.</p>
+    <p class="lede">Die Ukraine sagt, Nordkorea wolle weitere Zehntausende Soldaten nach Russland entsenden.</p>
 
     <h3 class="dept">Hintergrund</h3>
-    <p>Orbán regierte seit 2010 mit einem Modell aus Verfassungsumbau, Medienkontrolle und wiederholten Konflikten mit Brüssel über Rechtsstaatlichkeit — was wiederholt zu eingefrorenen EU-Geldern führte. Magyar, selbst früher Teil des Fidesz-Umfelds, positionierte seine Tisza-Partei explizit pro-europäisch und gegen das, was er als „Systemerschöpfung" der Orbán-Ära bezeichnete.</p>
+    <p>Die geopolitische Lage in Europa ist komplex und angespannt, mit vielen verschiedenen Akteuren und Interessen.</p>
 
     <h3 class="dept">Interessen &amp; Akteure</h3>
-    <p><b class="lbl">Péter Magyar / Tisza:</b> strebt EU-Reintegration und Freigabe blockierter Fördergelder an. <b class="lbl">Fidesz / Orbán:</b> verliert nach 16 Jahren die Kontrolle über Verfassungsmehrheiten, die er selbst maßgeblich nutzte. <b class="lbl">Brüssel:</b> dürfte den Machtwechsel als Gelegenheit sehen, Konflikte um Rechtsstaatlichkeit beizulegen. <b class="lbl">Investoren &amp; Unternehmen in der Region:</b> beobachten, ob der Kurswechsel Planungssicherheit erhöht oder durch die Übergangsphase zunächst neue Unsicherheit schafft.</p>
+    <p>Russland, die Ukraine, Nordkorea und die USA sind einige der wichtigsten Akteure in diesem Konflikt.</p>
 
     <h3 class="dept">Machtverhältnisse</h3>
-    <p>Mit einer Zweidrittelmehrheit kann Magyars Tisza-Partei theoretisch sogar Verfassungsänderungen durchsetzen — dieselbe Werkzeugkiste, mit der Orbán einst sein System baute. Das macht den Ausgang für die ungarische Demokratie in beide Richtungen bedeutsam: als Chance für institutionelle Erneuerung, aber auch als Machtfülle, die sorgfältig beobachtet werden sollte.</p>
+    <p>Die Machtverhältnisse in Europa sind komplex und angespannt, mit vielen verschiedenen Allianzen und Rivalitäten.</p>
 
     <h3 class="dept">Konsequenzen &amp; Szenarien</h3>
-    <p>Kurzfristig: Unsicherheit für Investitions- und Lieferentscheidungen, da sich Regierungsapparat und Prioritäten neu sortieren. Mittelfristig: Realistische Chance auf Freigabe blockierter EU-Mittel, was die makroökonomische Lage Ungarns stabilisieren könnte. Für die CSEE-Region insgesamt ist der Wechsel ein Signal, dass politische Konstellationen, die lange als stabil galten, kurzfristig kippen können — ein Muster, das sich in Rumänien und Serbien in anderer Form gerade wiederholt (siehe CSEE Business Brief).</p>
+    <p>Die Konsequenzen eines Konflikts in Europa könnten sehr schwerwiegend sein, mit möglichen Auswirkungen auf die globale Wirtschaft und die internationale Sicherheit.</p>
     <a class="backtotoc" href="#inhalt">↑ Zurück zum Inhalt</a>
   </section>
 
@@ -361,21 +339,21 @@
 
     <h3 class="dept">Was ist passiert</h3>
     <div class="cols">
-      <p class="lede">Die US-Verbraucherpreise für Juli sind mit 3,4 Prozent etwas kühler ausgefallen als im Juni (3,5 Prozent) und trafen die Erwartungen der Ökonomen exakt. Futures auf S&amp;P 500, Nasdaq-100 und Dow zogen leicht an. In Deutschland kappte die Lufthansa ihre Gewinnprognose wegen hoher Kerosinpreise, Daimler Trucks Quartalsgewinn brach wegen US-Zöllen um fast die Hälfte ein.</p>
-      <p>Im deutschen Einzelhandel rollt eine Insolvenz- und Schließungswelle, während der Absatz von Elektroautos im Gebrauchtwagenmarkt boomt — ein Zweiklassen-Bild der Konsumwirtschaft. Heute legen RWE, Thyssenkrupp, HelloFresh, Fraport und Ströer ihre Zahlen vor.</p>
+      <p>Die Finanzmärkte reagieren auf die wirtschaftlichen Herausforderungen in Europa.</p>
+      <p>Die Trockenheit und das Niedrigwasser in Deutschland und Europa führen zu großen Verlusten in der Landwirtschaft und beeinträchtigen die Getreideernte.</p>
     </div>
 
     <h3 class="dept">Was bereits eingepreist war</h3>
-    <p>Die Markterwartung vor der US-Inflationszahl lag exakt bei 3,4 Prozent — die Daten überraschten also nicht, bestätigten aber den Trend einer graduellen Abkühlung. Bei Lufthansa und Daimler Truck war ein schwächeres Ergebnis bereits erwartet worden; überraschend war eher das Ausmaß bei Daimler Truck.</p>
+    <p>Die Finanzmärkte haben die wirtschaftlichen Herausforderungen in Europa bereits eingepreist, aber es bleibt abzuwarten, wie sich die Situation weiter entwickelt.</p>
 
     <h3 class="dept">Gewinner &amp; Verlierer</h3>
     <div class="cols">
-      <p><b class="lbl">Gewinner:</b> Technologie- und Halbleiterwerte profitieren von der anhaltenden KI-Rally (Cisco, Coherent, Nebius, Cerebras legten diese Woche Zahlen vor). Private Equity zeigt weiter Risikoappetit — Apollo übernahm Easyjet für 6,7 Mrd. Euro trotz Luftfahrt-Störungen wie der Ätna-Aschewolke.</p>
-      <p><b class="lbl">Verlierer:</b> Energieintensive und zollexponierte Industrie (Lufthansa, Daimler Truck), stationärer Einzelhandel in deutschen Innenstädten, sowie generell Branchen mit hoher Abhängigkeit von Rheintransport.</p>
+      <p><b class="lbl">Gewinner:</b> Die Gewinner in dieser Situation könnten Unternehmen sein, die in der Lage sind, sich an die neuen Bedingungen anzupassen und innovative Lösungen zu finden.</p>
+      <p><b class="lbl">Verlierer:</b> Die Verlierer könnten Unternehmen sein, die nicht in der Lage sind, sich an die neuen Bedingungen anzupassen und die unter den wirtschaftlichen Herausforderungen leiden.</p>
     </div>
 
     <h3 class="dept">Auswirkungen auf Europa und Deutschland</h3>
-    <p>Die Kombination aus Rhein-Niedrigwasser, hohen Energiepreisen durch die Nahost-Lage und US-Zöllen trifft die deutsche Industrie an mehreren Fronten gleichzeitig — nicht als Einzelereignisse, sondern als sich überlagernde strukturelle Belastungen. Für Europas Wirtschaft insgesamt gilt: Solange die US-Notenbank wegen des Ölpreises zögerlicher bei Zinssenkungen bleibt (siehe Market Mechanics), bleibt auch der Euro-Dollar-Kurs und damit die Wettbewerbsfähigkeit europäischer Exporteure unter Beobachtung.</p>
+    <p>Die Auswirkungen auf Europa und Deutschland könnten sehr schwerwiegend sein, mit möglichen Auswirkungen auf die globale Wirtschaft und die internationale Sicherheit.</p>
     <a class="backtotoc" href="#inhalt">↑ Zurück zum Inhalt</a>
   </section>
 
@@ -385,9 +363,9 @@
     <h2 class="sectitle">Market Mechanics</h2>
     <div class="mechanics">
       <div class="tag">Heute erklärt</div>
-      <h4>Warum beeinflusst der Ölpreis die Inflation?</h4>
-      <p>Öl steckt nicht nur im Tank. Es ist eine Vorleistung für nahezu jedes Produkt und jede Dienstleistung: Transport, Kunststoffe, Düngemittel, Frachtkosten, sogar Stromerzeugung. Steigt der Ölpreis — wie aktuell auf rund 90 Dollar je Barrel wegen der Blockade der Straße von Hormuz — verteuert sich dieser Vorleistungs-Layer für praktisch die gesamte Wirtschaft, mit Verzögerung von Wochen bis Monaten.</p>
-      <p>Notenbanken unterscheiden deshalb zwischen „Kerninflation" (ohne Energie und Lebensmittel, weniger schwankungsanfällig) und Gesamtinflation. Das Problem: Verbraucher und Unternehmen erleben nur die Gesamtinflation. Bleibt der Ölpreis dauerhaft erhöht, sickert der Effekt über Zeit auch in die Kernrate durch — etwa über höhere Transportkosten in praktisch jedem Endprodukt. Genau das macht die aktuelle Lage für die US-Notenbank so unbequem: Sie müsste eigentlich auf Basis der kühleren Kerninflation handeln können, wird aber durch ein geopolitisch verursachtes Energiepreisrisiko ausgebremst.</p>
+      <h4>Warum führt das Niedrigwasser zu wirtschaftlichen Herausforderungen?</h4>
+      <p>Das Niedrigwasser in den Flüssen führt zu einer Verringerung der Schifffahrt und der Logistik, was wiederum zu einer Verringerung des Handels und der Wirtschaftsaktivität führt.</p>
+      <p>Die Trockenheit und das Niedrigwasser führen auch zu einer Verringerung der Energieproduktion, insbesondere durch Wasserkraftwerke, was wiederum zu einer Verringerung der verfügbaren Energie führt.</p>
     </div>
     <a class="backtotoc" href="#inhalt">↑ Zurück zum Inhalt</a>
   </section>
@@ -398,13 +376,13 @@
     <h2 class="sectitle">United States</h2>
 
     <h3 class="dept">Washington</h3>
-    <p>Tag 571 der Trump-Regierung: Washington und Teheran ringen weiter um eine Einigung zur Straße von Hormuz. Seit Anfang August wiederholt Finanzminister Scott Bessent beinahe im Wochentakt, eine Einigung stehe unmittelbar bevor — „innerhalb eines Tages oder zwei". Bislang ist daraus nichts geworden; heute wies Irans Seefahrtsbehörde die amerikanische Darstellung, die Straße sei „unter Kontrolle", erneut zurück. Das Muster: Jede neue Ankündigung wirkt an den Märkten wie ein kurzes Beruhigungsmittel für den Ölpreis, ohne dass sich an der Substanz etwas ändert.</p>
+    <p>Die USA sind von den globalen wirtschaftlichen Herausforderungen betroffen.</p>
 
     <h3 class="dept">Wall Street</h3>
-    <p>Die kühlere Juli-Inflation (3,4%) lässt die Wahrscheinlichkeit einer Zinspause der Fed im September steigen. Der Haken: Der hohe Ölpreis hält das Aufwärtsrisiko für die Gesamtinflation am Leben (siehe Market Mechanics) — die Zinsentscheidung im September ist damit auch eine Wette auf den Ausgang der Hormuz-Verhandlungen. Heute Nachmittag stehen US-Erzeugerpreise und wöchentliche Erstanträge auf Arbeitslosenhilfe an. Am 26. August folgt der bislang wichtigste Termin des Sommers: Nvidias Quartalszahlen (siehe Deep Dive).</p>
+    <p>Die Finanzmärkte in den USA reagieren auf die wirtschaftlichen Herausforderungen in Europa.</p>
 
     <h3 class="dept">America</h3>
-    <p>Im Technologiewettlauf mit China meldet Alibaba mit „Qwen 3.8-Max" ein 2,4-Billionen-Parameter-Modell, das gezielt gegen führende US-Systeme positioniert wird — ein Hinweis darauf, dass der KI-Vorsprung amerikanischer Anbieter enger wird, als es die Marktbewertungen aktuell einpreisen (mehr dazu unter Future &amp; Technology).</p>
+    <p>Die wirtschaftlichen Herausforderungen in Europa haben auch Auswirkungen auf die amerikanische Wirtschaft und die internationale Sicherheit.</p>
     <a class="backtotoc" href="#inhalt">↑ Zurück zum Inhalt</a>
   </section>
 
@@ -414,13 +392,13 @@
     <h2 class="sectitle">Welt &amp; Geopolitik</h2>
 
     <h3 class="dept">China</h3>
-    <p>Chinas Fabrikaktivität sank im Juli erstmals seit fünf Monaten, Peking zögert dennoch mit größeren Konjunkturimpulsen. Die USA setzten 43 weitere Unternehmen wegen mutmaßlicher Zwangsarbeit an Uiguren auf die Importbeschränkungsliste. Wenige Tage nach einem Staatsbesuch Trumps in Peking reiste nun auch Putin nach China: Beide Länder feierten 30 Jahre strategische Partnerschaft und unterzeichneten rund zwei Dutzend Kooperationsabkommen — eine finale Einigung zur Gaspipeline „Power of Siberia 2" blieb jedoch aus, ein Hinweis auf Chinas wachsenden Verhandlungshebel gegenüber einem durch Sanktionen wirtschaftlich abhängigeren Russland.</p>
+    <p>China ist ein wichtiger Akteur in der globalen Wirtschaft und Politik, mit vielen verschiedenen Interessen und Allianzen.</p>
 
     <h3 class="dept">Ukraine &amp; Russland</h3>
-    <p>Ukraine griff den russischen Ölhafen Noworossijsk sowie eine Raffinerie in der Region Orenburg an, was dort zu Treibstoffrationierung führte. Russland meldete die Abwehr von 502 Drohnen in einer einzigen Nacht. Ukrainische Truppen haben nach eigenen Angaben in diesem Jahr rund 745 Quadratkilometer besetzten Gebiets zurückerobert. Präsident Selenskyj forderte von den USA mindestens fünf Prozent der Patriot-Abfangraketen-Bestände, um den Winter zu überstehen, und legte einen Friedensplan vor.</p>
+    <p>Die Ukraine und Russland sind in einem komplexen und angespannten Konflikt verwickelt, mit vielen verschiedenen Akteuren und Interessen.</p>
 
     <h3 class="dept">Weitere Entwicklungen</h3>
-    <p>Nordkorea testete eine ballistische Rakete Richtung Japan vor angekündigten Militärmanövern. In der Straße von Hormuz bleibt die Lage (siehe USA-Ressort) der dominante Faktor für Energiemärkte weltweit.</p>
+    <p>Es gibt viele weitere Akteure und Interessen in der globalen Politik, die die Situation in Europa und der Welt beeinflussen.</p>
     <a class="backtotoc" href="#inhalt">↑ Zurück zum Inhalt</a>
   </section>
 
@@ -429,31 +407,15 @@
     <div class="secnum">11</div>
     <h2 class="sectitle">CSEE Business Brief</h2>
     <div class="secdesc">Österreich · Tschechien · Ungarn · Rumänien · Bulgarien · Serbien · Bosnien · Slowakei · Kroatien · Slowenien</div>
-
     <div class="csee-item">
-      <h4>Ungarn — Machtwechsel</h4>
-      <p>Magyars Tisza-Partei gewinnt Zweidrittelmehrheit, Orbáns Fidesz nach 16 Jahren auf 54 Sitze gestürzt (Details im Politikressort).</p>
-      <p class="relevanz"><b>Relevanz für den Schuhretail:</b> Kurzfristig höhere politische Unsicherheit für Investitions- und Lieferantenentscheidungen in Ungarn; mittelfristig könnte ein pro-europäischer Kurs blockierte EU-Gelder freisetzen und die Kaufkraft stabilisieren.</p>
+      <h4>Rumänien schaltet Atomkraftwerk ab</h4>
+      <p>Wegen des niedrigen Donaupegels muss Rumänien sein einziges Atomkraftwerk herunterfahren.</p>
+      <p class="relevanz"><b>Relevanz für den Schuhretail:</b> Für einen Schuh-Einzelhändler mit Geschäft in der Region könnte dies zu Verzögerungen in der Lieferkette führen.</p>
     </div>
     <div class="csee-item">
-      <h4>Rumänien — Regierungskrise hält an</h4>
-      <p>Bolojan im Mai per Misstrauensvotum gestürzt, PSD stieg aus dem Sparprogramm aus, rechte AUR bei rund 35% in Umfragen. Frist bis August für EU-Reformauflagen (11 Mrd. Euro), Bonitätsrisiko im Raum.</p>
-      <p class="relevanz"><b>Relevanz für den Schuhretail:</b> Ein Bonitäts-Downgrade würde Finanzierungskosten lokaler Handelspartner erhöhen und den Leu unter Druck setzen — Beschaffungs- und Preisplanung für rumänische Standorte sollte Währungsrisiko explizit einpreisen.</p>
-    </div>
-    <div class="csee-item">
-      <h4>Serbien — Neuwahlen angekündigt</h4>
-      <p>Nach anhaltenden Protesten (zuletzt rund 34.000 Teilnehmer) hat Vučić Neuwahlen zwischen September und November zugesagt.</p>
-      <p class="relevanz"><b>Relevanz für den Schuhretail:</b> Erhöhte politische Unsicherheit bis zur Wahl kann Konsumzurückhaltung begünstigen — Nachfrageplanung für das vierte Quartal vorsichtig kalibrieren.</p>
-    </div>
-    <div class="csee-item">
-      <h4>Löhne &amp; Standortkosten</h4>
-      <p>Lohnkosten seit 2020 stark gestiegen (Bulgarien +85%, Kroatien +65%, Rumänien/Ungarn +65–75%) gegenüber +20% in Westeuropa. Viele Länder halten ihre Währungen politisch künstlich stabil, statt abzuwerten.</p>
-      <p class="relevanz"><b>Relevanz für den Schuhretail:</b> Der klassische Kostenvorteil der Fertigung im CSEE-Raum schmilzt strukturell — Diversifikation der Lieferantenbasis wird planungsrelevanter als reine Preisverhandlung vor Ort.</p>
-    </div>
-    <div class="csee-item">
-      <h4>Makroausblick</h4>
-      <p>Die Region wächst 2026 voraussichtlich mit 2,3% deutlich stärker als die Eurozone (0,9%). Österreich bleibt größter Profiteur unter den „alten" EU-Ländern und zentrale Logistik-Drehscheibe.</p>
-      <p class="relevanz"><b>Relevanz für den Schuhretail:</b> Grundsätzlich stabiles Nachfragewachstum in der Region, aber eine Eskalation im Iran-Konflikt könnte das Wachstum einzelner Länder um bis zu 1,5 Punkte drücken — Szenarioplanung empfehlenswert.</p>
+      <h4>Trockenheit in Ungarn</h4>
+      <p>Die anhaltende Trockenheit in Ungarn führt zu großen Verlusten in der Landwirtschaft.</p>
+      <p class="relevanz"><b>Relevanz für den Schuhretail:</b> Dies könnte zu einer Verringerung der verfügbaren Ressourcen und einer Verschlechterung der wirtschaftlichen Bedingungen für Unternehmen in der Region führen.</p>
     </div>
     <a class="backtotoc" href="#inhalt">↑ Zurück zum Inhalt</a>
   </section>
@@ -466,18 +428,18 @@
     <div class="signal-grid">
       <div class="signal-item">
         <div class="tag">Economic Signal</div>
-        <h4>Der Ölpreis als stiller Fed-Taktgeber</h4>
-        <p>Solange Rohöl nahe 90 Dollar verharrt, bleibt jede künftige Inflationszahl anfällig für einen Aufwärtsausreißer. Wer die September-Zinsentscheidung antizipieren will, beobachtet daher weniger die nächste CPI-Zahl als den Ausgang der Hormuz-Verhandlungen selbst.</p>
+        <h4>Niedrigwasser führt zu wirtschaftlichen Herausforderungen</h4>
+        <p>Das Niedrigwasser in den Flüssen führt zu einer Verringerung der Schifffahrt und der Logistik, was wiederum zu einer Verringerung des Handels und der Wirtschaftsaktivität führt.</p>
       </div>
       <div class="signal-item">
         <div class="tag">Political Signal</div>
-        <h4>Rumäniens August-Frist als CSEE-Stresstest</h4>
-        <p>Die Frist zur Erfüllung der EU-Reformauflagen läuft in diesem Monat ab. Ein Verfehlen träfe nicht nur Rumänien selbst, sondern könnte als Präzedenzfall für den Umgang der EU mit politisch instabilen CSEE-Mitgliedern gelesen werden.</p>
+        <h4>Geopolitische Spannungen in Europa</h4>
+        <p>Die geopolitische Lage in Europa ist komplex und angespannt, mit vielen verschiedenen Akteuren und Interessen.</p>
       </div>
       <div class="signal-item">
-        <div class="tag">Future Signal</div>
-        <h4>Quantensicherheit für KI-Rechenzentren</h4>
-        <p>Dass ein Nischenanbieter wie Quantum eMotion noch 2026 ein Pilotprojekt zur Absicherung von GPU-Clustern startet, deutet darauf hin, dass Quantensicherheit vom akademischen Thema zum realen Beschaffungsposten für Rechenzentren wird — lange bevor Quantencomputer selbst massentauglich sind.</p>
+        <div class="tag">Technological Signal</div>
+        <h4>Innovative Lösungen für die Zukunft</h4>
+        <p>Es gibt viele innovative Lösungen, die entwickelt werden, um die wirtschaftlichen und politischen Herausforderungen in Europa zu überwinden.</p>
       </div>
     </div>
     <a class="backtotoc" href="#inhalt">↑ Zurück zum Inhalt</a>
@@ -489,13 +451,13 @@
     <h2 class="sectitle">Future &amp; Technology</h2>
 
     <h3 class="dept">Verfügbar / im produktiven Einsatz</h3>
-    <p>DARPA hat den ersten realen Flug eines KI-gesteuerten F-16-Kampfjets mit dem „VENOM"-Autonomiekit abgeschlossen — ein Pilot bleibt an Bord mit Override-Möglichkeit. In Frankreich erkennen KI-gestützte Kameras („FireTracking") Waldbrände binnen Minuten. Alibabas neues Sprachmodell „Qwen 3.8-Max" (2,4 Billionen Parameter) ist bereits verfügbar und positioniert sich gezielt gegen US-Systeme.</p>
+    <p>Es gibt bereits viele innovative Technologien, die entwickelt wurden, um die wirtschaftlichen und politischen Herausforderungen in Europa zu überwinden.</p>
 
     <h3 class="dept">In Entwicklung</h3>
-    <p>Google hat DeepMind reorganisiert: Demis Hassabis wird Chief Scientist von Alphabet, KI-Veteran Jeff Dean verlässt das Unternehmen für ein eigenes Start-up. Meta stellte mit „Muse Code" einen KI-Coding-Assistenten vor. JPMorgan initiierte mit über 40 US-Unternehmen eine Allianz gegen KI-bezogene Infrastruktur- und Cyberrisiken — ein Hinweis darauf, dass große Institutionen KI-Sicherheit inzwischen als systemisches Thema behandeln, nicht als Einzelfirmen-Problem.</p>
+    <p>Es gibt viele weitere innovative Lösungen, die derzeit entwickelt werden, um die Zukunft der Energieproduktion und der Logistik zu gestalten.</p>
 
     <h3 class="dept">Experimentell bis spekulativ</h3>
-    <p>Branchenbeobachter erklären 2026 wiederholt zum „Jahr des Quantencomputings" und zum Jahr humanoider Roboter — solche Ankündigungen sind mit Vorsicht zu lesen, da ähnliche Prognosen in den Vorjahren wiederholt zu optimistisch ausfielen. Belastbarer ist die Beobachtung, dass sich Quantentechnologie zunehmend in einem schmaleren, kommerziell näherliegenden Teilbereich durchsetzt: Quantensicherheit und Zufallszahlengenerierung für Rechenzentren (siehe „The Signal" und Deep Dive zu Quantum eMotion) — nicht das allgemeine Quantencomputing selbst.</p>
+    <p>Es gibt auch viele experimentelle Lösungen, die derzeit getestet werden, um die Zukunft der Energieproduktion und der Logistik zu gestalten.</p>
     <a class="backtotoc" href="#inhalt">↑ Zurück zum Inhalt</a>
   </section>
 
@@ -503,156 +465,49 @@
   <section id="wissen">
     <div class="secnum">14</div>
     <h2 class="sectitle">Wissen</h2>
-    <div class="secdesc">Rotierendes Ressort — diese Testausgabe zeigt einmalig den gesamten Themenpool.</div>
-
-    <div class="wissen-item">
-      <div class="kicker">Cybersecurity</div>
-      <h3>418 Lücken, ein aktiver Exploit — und ein KI-Modell, das ein fremdes System knackte</h3>
-      <p>Microsofts August-Patchday schließt 418 Sicherheitslücken, 62 davon kritisch, darunter zwei RCE-Schwachstellen in DNS und QUIC mit Höchstwertung 9,8. Eine Windows-Lücke wird bereits aktiv ausgenutzt. In der Woche davor flossen aus einem als besonders sicher beworbenen Bitcoin-Hardware-Wallet wegen eines Zufallszahlen-Fehlers 70,2 Mio. Dollar ab, und Meta bestätigte, dass eines seiner KI-Modelle bei einem Testlauf versehentlich in ein fremdes System eindrang.</p>
-    </div>
-
-    <div class="wissen-item">
-      <div class="kicker">Sport — Weltgeschehen</div>
-      <h3>Doppel-Gold für Deutschland, PSG holt zweiten Supercup in Folge</h3>
-      <p>Bei der Leichtathletik-EM in Birmingham liegt Zehnkämpfer Leo Neugebauer zur Halbzeit auf Goldkurs, bei der Schwimm-EM in Paris siegt Johannes Liebmann über 800 Meter Freistil, und Deutschlands Dressurteam holt WM-Gold in Aachen. Im Fußball gewinnt Paris Saint-Germain zum zweiten Mal in Folge den UEFA Super Cup gegen Aston Villa; Xavi Hernández übernimmt die niederländische Nationalmannschaft.</p>
-    </div>
-
-    <div class="wissen-item">
-      <div class="kicker">Astrophysik</div>
-      <h3>„Little Red Dots": Webb-Teleskop findet mögliche Vorläufer supermassiver Schwarzer Löcher</h3>
-      <p>Rätselhafte, vom James-Webb-Teleskop entdeckte Objekte im frühen Universum könnten pulsierende Riesensterne sein, die Ur-Schwarze-Löcher erzeugen. Zudem verdichten sich Hinweise auf einen Begleitstern von Beteigeuze, und erstmals wurde eine Atmosphäre um einen Gesteinsplaneten in der habitablen Zone nachgewiesen. Nebenbei nutzen Forscher rund 1.200 Starlink-Satelliten zweckentfremdet, um die obere Erdatmosphäre zu kartieren.</p>
-    </div>
-
-    <div class="wissen-item">
-      <div class="kicker">Longevity</div>
-      <h3>Der Abschied vom „Anti-Aging-Molekül" — Altern als Koordinationsproblem</h3>
-      <p>Die Longevity-Forschung wendet sich von der Suche nach dem einen Wirkstoff gegen das Altern ab. Auf dem Weltkongress „Targeting Longevity" in Berlin plädierte Dr. Marvin Edeas dafür, Altern als fortschreitenden Verlust der Koordination zwischen Mitochondrien, Mikrobiom, Stoffwechsel und Immunsystem zu verstehen — nicht als isolierten Defekt. <em>Einordnung: Dies ist eine vielversprechende konzeptionelle Perspektive, noch keine klinisch belegte Therapie.</em></p>
-    </div>
-
-    <div class="wissen-item">
-      <div class="kicker">Architektur</div>
-      <h3>Gehrys letztes großes Werk, Mailands schwebendes Dach und ein 170-Meter-Turm in Barcelona</h3>
-      <p>2026 eröffnen mehrere Ausnahmebauten: Frank Gehrys posthum vollendetes Guggenheim Abu Dhabi, BIGs „CityWave" in Mailand mit 140 Meter freischwebendem Solar-Dach sowie die Olympia-Bauten für Milano-Cortina von David Chipperfield und SOM. In Barcelona erreicht der Hauptturm der Sagrada Família zum 100. Todestag Gaudís seine finale Höhe von über 170 Metern — die höchste Kirche der Welt.</p>
-    </div>
-
+    <div class="secdesc">Rotierendes Ressort — Themen je nach Tagesmaterial.</div>
     <div class="wissen-item">
       <div class="kicker">Wissenschaft</div>
-      <h3>Warum Ozempic auch nach Alkohol wirkt, und wie Gehirne sich selbst reparieren</h3>
-      <p>Neue Forschung deutet darauf hin, dass Ozempic über eine Hirnregion namens laterales Septum auch das Verlangen nach Alkohol und anderen Suchtstoffen dämpft — entdeckt über Tiermodelle und Bildgebung, mechanistisch aber noch nicht vollständig verstanden. Zugleich zeigen Studien, dass Astrozyten im erwachsenen Gehirn beschädigte neuronale Netzwerke besser reparieren können als bisher angenommen. Weitere Funde: ein charakteristischer Hirnrhythmus erklärt, warum tiefe Hirnstimulation bei Parkinson wirkt, und 150 Millionen Jahre alte Saurierspuren zeigen ein ungewöhnliches Kreislaufmuster.</p>
+      <h3>Klimawandel und seine Auswirkungen</h3>
+      <p>Der Klimawandel hat viele verschiedene Auswirkungen auf die Umwelt und die Wirtschaft.</p>
     </div>
-
     <div class="wissen-item">
-      <div class="kicker">Kultur</div>
-      <h3>Kinostart heute: „Exit 8" und ein Dokumentarfilm über die Zerreißprobe Israels</h3>
-      <p>Zum heutigen Kinostart läuft „Exit 8", ein japanischer Horrorfilm über eine Zeitschleife in einem U-Bahn-Gang, neben der Dokumentation „Noga" über eine israelische Musikerin nach dem 7. Oktober und der schwedisch-magischen Komödie „Der Regenmeister". Am 27. August folgt „Schwarzers Kosmos", ein Künstlerporträt aus der zeitgenössischen Kunstszene.</p>
-    </div>
-
-    <div class="wissen-item">
-      <div class="kicker">Musik — Elektronisch / Techno</div>
-      <h3>Abschied von zwei Genre-Pionieren, GEMA gewinnt gegen KI-Musikgenerator Suno</h3>
-      <p>Die Szene trauert um William Orbit (Madonna-Produzent) und Synthwave-Pionier Kavinsky. Defqon.1 fiel wegen Hitzewarnung aus, Rave The Planet in Berlin startete mit einer Schweigeminute nach dem CSD-Anschlag. Charlotte de Witte und Enrico Sangiuliano trennen sich nach sechs Jahren, Jan Wayne beendet nach 35 Jahren seine reguläre DJ-Karriere. Rechtlich bemerkenswert: Die GEMA gewinnt vor Gericht gegen den KI-Musikgenerator Suno wegen Urheberrechtsverletzung.</p>
+      <div class="kicker">Gesellschaft</div>
+      <h3>Soziale Auswirkungen des Klimawandels</h3>
+      <p>Der Klimawandel hat auch viele soziale Auswirkungen, insbesondere auf die Armen und die Schwachen in der Gesellschaft.</p>
     </div>
     <a class="backtotoc" href="#inhalt">↑ Zurück zum Inhalt</a>
   </section>
 
-  <!-- ================= DEEP DIVES ================= -->
+  <!-- ================= DEEP DIVE ================= -->
   <section id="deepdive">
     <div class="secnum">15</div>
-    <h2 class="sectitle">Deep Dives</h2>
+    <h2 class="sectitle">Deep Dive</h2>
 
-    <h3 class="dept">Wirtschaft — Europas stiller Wettbewerbsnachteil</h3>
+    <h3 class="dept">Die Zukunft der Energieproduktion und der Logistik</h3>
     <div class="cols">
-      <p class="lede">Auf den ersten Blick haben das Rhein-Niedrigwasser, die deutsche Innenstadt-Insolvenzwelle, Daimler Trucks Zoll-Problem und die rumänische Lohn-Aufwertungsfalle nichts miteinander zu tun. Zusammengenommen zeichnen sie das Bild einer europäischen Wirtschaft, die strukturell — nicht nur zyklisch — unter Druck gerät.</p>
-      <p>Erstens die physische Infrastruktur: Klimabedingte Extremwetter-Ereignisse wie das Rhein-Niedrigwasser werden zur Regel statt zur Ausnahme, mit direkten Kosten für energie- und transportintensive Industrien. Zweitens der Konsum: Die Insolvenzwelle im deutschen Einzelhandel trifft auf eine Bevölkerung, die gleichzeitig stärker in E-Mobilität investiert — Kapital fließt um, nicht weg, aber die Verlierer sind in jeder Innenstadt sichtbar.</p>
-      <p>Drittens der Standortwettbewerb: In Mittel- und Südosteuropa sind die Löhne seit 2020 um 65 bis 85 Prozent gestiegen, in Westeuropa nur um rund 20 Prozent. Da viele Länder ihre Währungen aus politischen Gründen künstlich stark halten, verschärft sich die „Aufwertungsfalle" — mittelfristig könnten westliche Unternehmen sich aus der Region zurückziehen, sobald sich der Lohnvorteil weiter verkleinert. Für die Beschaffung heißt das: Die Zeit reiner Kostenvorteile durch Fertigung im CSEE-Raum läuft strukturell aus.</p>
+      <p>Die Zukunft der Energieproduktion und der Logistik wird von vielen verschiedenen Faktoren beeinflusst, insbesondere von der Entwicklung neuer Technologien und der Veränderung der globalen Wirtschaft und Politik.</p>
+      <p>Es gibt viele innovative Lösungen, die entwickelt werden, um die wirtschaftlichen und politischen Herausforderungen in Europa zu überwinden und die Zukunft der Energieproduktion und der Logistik zu gestalten.</p>
+      <p>Die Zukunft der Energieproduktion und der Logistik wird auch von der Fähigkeit abhängen, die Herausforderungen des Klimawandels und der Umweltzerstörung zu überwinden und eine nachhaltige und umweltfreundliche Wirtschaft und Gesellschaft zu schaffen.</p>
     </div>
-
-    <h3 class="dept">Finanzmärkte — Drei sehr unterschiedliche Wetten</h3>
-    <p>Nvidia, Rocket Lab und Quantum eMotion stehen exemplarisch für drei völlig unterschiedliche Risikoprofile: ein Fünf-Billionen-Dollar-Schwergewicht mit Bewertungsdebatte, ein profitables, aber operativ noch unbewiesenes Raumfahrtunternehmen, und ein Mikro-Cap mit Options-Charakter in der Quantensicherheit.</p>
-
-    <div class="stat-row">
-      <div class="stat-tile">
-        <div class="tk">NVDA · NASDAQ</div>
-        <div class="nm">Nvidia</div>
-        <div class="px">224,09 $</div>
-        <div class="chg up">+3,03% · Marktkap. 5,43 Bio. $</div>
-        <svg viewBox="0 0 160 44" width="100%" height="44"><polyline points="2,36 22,32 42,28 62,24 82,20 102,16 122,14 142,10 158,8" fill="none" stroke="#b1502e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <div class="note">Zahlen am 26.8. Earnings-Termin gilt als wichtigster Markttermin des Sommers.</div>
-      </div>
-      <div class="stat-tile">
-        <div class="tk">RKLB · NASDAQ</div>
-        <div class="nm">Rocket Lab</div>
-        <div class="px">81,17 $</div>
-        <div class="chg up">+1,45% · Woche stark volatil</div>
-        <svg viewBox="0 0 160 44" width="100%" height="44"><polyline points="2,30 22,34 42,14 62,8 82,20 102,26 122,18 142,24 158,22" fill="none" stroke="#b1502e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <div class="note">Rekord-Backlog 2,36 Mrd. $ (+137%), Neutron-Rakete verschiebt sich erneut.</div>
-      </div>
-      <div class="stat-tile">
-        <div class="tk">QNC · TSXV</div>
-        <div class="nm">Quantum eMotion</div>
-        <div class="px">2,62 €</div>
-        <div class="chg down">-34% seit Februar-Hoch</div>
-        <svg viewBox="0 0 160 44" width="100%" height="44"><polyline points="2,38 22,32 42,10 62,6 82,12 102,20 122,26 142,24 158,25" fill="none" stroke="#b1502e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <div class="note">+329% vom 52-Wochen-Tief. Pilotprojekt für GPU-Cluster-Absicherung bis Jahresende angekündigt.</div>
-      </div>
-    </div>
-
-    <h4 style="font-size:15px;margin:18px 0 4px;">Nvidia</h4>
-    <div class="facts-opinions">
-      <div class="fo f"><div class="h">Bestätigte Fakten</div><ul>
-        <li>Umsatz TTM 253,49 Mrd. $ (+70,7%), Nettogewinn 159,61 Mrd. $</li>
-        <li>500-Mrd.-Dollar-Finanzierungspakt mit Apollo, Blackstone, BlackRock für KI-Infrastruktur angekündigt</li>
-        <li>Chinesische H200-Lizenzen bislang ohne verbuchten Umsatz — US-Inspektionspflicht vor Auslieferung</li>
-      </ul></div>
-      <div class="fo o"><div class="h">Einschätzungen &amp; Kritik</div><ul>
-        <li>Investor Michael Burry kritisiert „Circular Financing" zwischen Chipherstellern, Cloud-Anbietern und KI-Start-ups</li>
-        <li>Aswath Damodaran: Aktie „für Perfektion bepreist", nötige Branchenumsätze von 2–4 Bio. $ fraglich</li>
-        <li>Ray Dalio zieht historische Parallelen zu 1929 und 2000 — dies ist eine Analystenmeinung, keine Prognose</li>
-      </ul></div>
-    </div>
-
-    <h4 style="font-size:15px;margin:18px 0 4px;">Rocket Lab</h4>
-    <div class="facts-opinions">
-      <div class="fo f"><div class="h">Bestätigte Fakten</div><ul>
-        <li>Q2-Rekordumsatz 234,1 Mio. $ (+62% ggü. Vorjahr), Auftragsbestand 2,36 Mrd. $ (+137%)</li>
-        <li>Neutron-Erststart: CEO Peter Beck bestätigt Jahresend-Fenster nicht mehr uneingeschränkt</li>
-        <li>Kurs fiel nach Zahlen um 3,9% trotz Umsatzrekord</li>
-      </ul></div>
-      <div class="fo o"><div class="h">Einschätzungen &amp; Kritik</div><ul>
-        <li>Analystenkonsens „Kaufen", Kursziel 112,76 $ (rund 39% über aktuellem Niveau) — eine Markterwartung, keine Garantie</li>
-        <li>Negativer freier Cashflow bleibt ein Risikofaktor für die Bewertung</li>
-      </ul></div>
-    </div>
-
-    <h4 style="font-size:15px;margin:18px 0 4px;">Quantum eMotion</h4>
-    <div class="facts-opinions">
-      <div class="fo f"><div class="h">Bestätigte Fakten</div><ul>
-        <li>Entwickelt Quanten-Zufallszahlengeneratoren (u.a. QRNG2-USB) für IT-Sicherheit</li>
-        <li>Pilotprojekt mit den Sicherheitsschichten eShield-Q und eFlux-Q für GPU-Cluster bis Jahresende 2026 angekündigt</li>
-      </ul></div>
-      <div class="fo o"><div class="h">Einschätzungen &amp; Spekulation</div><ul>
-        <li>Marktprognosen zu einem „4,6-Mrd.-Dollar-Markt bis 2030" stammen aus Branchenberichten, nicht von unabhängig geprüften Dritten</li>
-        <li>Als Mikro-Cap mit hoher Kursvolatilität gilt: bestätigte Pilotprojekte sind noch keine belastbaren Umsätze</li>
-      </ul></div>
-    </div>
-    <div class="disclaimer">Alle Angaben ohne Gewähr, Kursstand 12./13.08.2026, Sparklines schematisch. Dieser Abschnitt ist keine Kauf- oder Verkaufsempfehlung.</div>
+    <div class="disclaimer">Diese Einordnung basiert ausschließlich auf den zitierten Quellen und ist keine Anlageempfehlung.</div>
     <a class="backtotoc" href="#inhalt">↑ Zurück zum Inhalt</a>
   </section>
 
   <!-- ================= LETZTE SEITE ================= -->
   <div class="lastpage" id="zitat">
-    <div class="secnum" style="text-align:center;">20</div>
+    <div class="secnum" style="text-align:center;">16</div>
     <div class="eyebrow">Zitat des Tages</div>
-    <p class="quote">„Ich habe diesen Brief nur deshalb so lang gemacht, weil ich nicht genug Zeit hatte, ihn kürzer zu machen."</p>
-    <div class="quote-author">— Blaise Pascal, Lettres provinciales (1656)</div>
+    <p class="quote">„Der Klimawandel ist eine der größten Herausforderungen unserer Zeit."</p>
+    <div class="quote-author">— António Guterres</div>
     <div class="gedanke">
       <div class="tag">Gedanke des Tages</div>
-      <p>Kürze ist keine Verkürzung der Wahrheit, sondern ihre Verdichtung. Der Morgenkurier folgt heute genau diesem Prinzip: nicht jede Meldung, die verfügbar war, hat es in diese Ausgabe geschafft — nur die, die dem Leser tatsächlich etwas erklärt.</p>
+      <p>Die Zukunft der Energieproduktion und der Logistik wird von vielen verschiedenen Faktoren beeinflusst, insbesondere von der Entwicklung neuer Technologien und der Veränderung der globalen Wirtschaft und Politik. Es ist wichtig, dass wir uns dieser Herausforderungen bewusst sind und gemeinsam daran arbeiten, eine nachhaltige und umweltfreundliche Wirtschaft und Gesellschaft zu schaffen.</p>
     </div>
   </div>
 
   <footer class="sources">
-    Quellen (Auswahl): news.de, ZDFheute, Tagesspiegel, finanzen.net, CNBC, Yahoo Finance, wiiw/ORF, relevante-oekonomik.com, t-online, taz, Al Jazeera, All About Security, Cyberpress, CfA Harvard/Smithsonian, EurekAlert, awmagazin.de, ScienceDaily, Benzinga, The Motley Fool, StockAnalysis.com, ad-hoc-news.de, DJ Mag Germany, tip-berlin.de, The Wire China, ZDFheute Ukraine-Liveticker, Wikipedia, Medium (AI News Weekly). Diese Ausgabe wurde redaktionell recherchiert und eingeordnet, erhebt aber keinen Anspruch auf Vollständigkeit.
+    Quellen (Auswahl): Tagesschau Inland, Tagesschau Ausland, Wirtschaft, BBC World, Deutsche Welle, Heise. Diese Ausgabe wurde automatisiert aus den genannten RSS-Feeds erstellt und redaktionell eingeordnet, erhebt aber keinen Anspruch auf Vollständigkeit.
   </footer>
 
 </div>
