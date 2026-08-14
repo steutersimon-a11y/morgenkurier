@@ -18,8 +18,11 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 INDEX_PATH = REPO_ROOT / "index.html"
 
 GROQ_URL = "https://api.groq.com/openai/v1/chat/completions"
-MODEL = "llama-3.3-70b-versatile"
-MAX_COMPLETION_TOKENS = 32768
+# groq/compound has a much higher free-tier TPM budget (70K vs 12K for
+# llama-3.3-70b-versatile), which the full request (news material +
+# design reference + instructions) needs headroom for.
+MODEL = "groq/compound"
+MAX_COMPLETION_TOKENS = 20000
 
 WEEKDAYS_DE = [
     "Montag", "Dienstag", "Mittwoch", "Donnerstag",
@@ -115,6 +118,18 @@ def next_edition_number(previous_html: str) -> int:
     return 1
 
 
+def extract_design_reference(previous_html: str) -> str:
+    """Returns just the CSS + navigation markup instead of the full previous
+    edition. Sending the whole prior HTML blew the free-tier per-minute
+    token budget; the model only needs the design, not yesterday's content,
+    to reproduce the layout - the section-by-section spec in the prompt
+    covers structure."""
+    style_match = re.search(r"<style>.*?</style>", previous_html, re.S)
+    nav_match = re.search(r'<nav class="sticky">.*?</nav>', previous_html, re.S)
+    parts = [m.group(0) for m in (style_match, nav_match) if m]
+    return "\n\n".join(parts) if parts else previous_html[:20000]
+
+
 def extract_html(raw_text: str) -> str:
     start = raw_text.lower().find("<!doctype")
     end = raw_text.lower().rfind("</html>")
@@ -126,7 +141,7 @@ def extract_html(raw_text: str) -> str:
 
 
 def build_prompt(
-    previous_html: str, edition_number: int, date_str: str, time_str: str, news_material: str
+    design_reference: str, edition_number: int, date_str: str, time_str: str, news_material: str
 ) -> tuple[str, str]:
     system_prompt = (
         "Du bist der Chefredakteur des 'Morgenkurier', eines taeglichen, "
@@ -164,15 +179,15 @@ Ordne das Rohmaterial diesen Ressorts zu und schreibe daraus die Ausgabe (nicht 
 
 ANFORDERUNGEN AN DAS ERGEBNIS:
 1. Gib AUSSCHLIESSLICH ein vollstaendiges HTML-Dokument zurueck, beginnend mit <!DOCTYPE html> und endend mit </html>. Keine Erklaerungen, kein Markdown, keine Code-Fences davor oder danach.
-2. Uebernimm das komplette CSS (den <style>-Block) und die HTML-Struktur/Klassen/IDs 1:1 aus der untenstehenden Referenzausgabe - Layout, Sektionen, Anker-IDs (#inhalt, #deutschland, #politik, #finanzen, #mechanics, #usa, #geopolitik, #csee, #signal, #future, #wissen, #deepdive, #zitat etc.) und Navigation bleiben identisch. Ressorts, fuer die es heute nichts Berichtenswertes gibt, duerfen kurz ausfallen oder auf das Naechstliegende ausweichen - aber die Struktur bleibt erhalten.
+2. Uebernimm das komplette CSS (den <style>-Block) und die Navigations-/Anker-Struktur 1:1 aus der untenstehenden Design-Referenz - Layout, Sektionen, Anker-IDs (#inhalt, #deutschland, #politik, #finanzen, #mechanics, #usa, #geopolitik, #csee, #signal, #future, #wissen, #deepdive, #zitat etc.) bleiben identisch zu dem, was die Navigation vorgibt. Ressorts, fuer die es heute nichts Berichtenswertes gibt, duerfen kurz ausfallen oder auf das Naechstliegende ausweichen - aber die Struktur bleibt erhalten.
 3. Aktualisiere: Titel-Tag und "Ausgabe {edition_number}" ueberall, das Datum/die Uhrzeit im meta-row, das Inhaltsverzeichnis (Titel/Teaser passend zu den heutigen Themen) und saemtliche Fliesstexte, Schlagzeilen und den Morgenkurier-Index (Ampel-Bewertung pro Bereich) mit echten, heutigen Inhalten aus dem Rohmaterial.
 4. Jede Aussage muss sich auf das gelieferte Rohmaterial stuetzen. Keine erfundenen Fakten, Namen, Zahlen oder Zitate.
 5. Behalte den redaktionellen Aufbau jeder Sektion bei (z.B. "Was ist passiert" / "Gewinner & Verlierer" im Finanzressort, "Ereignis / Hintergrund / Interessen & Akteure / Machtverhaeltnisse / Konsequenzen & Szenarien" im Politikressort), soweit das Material das hergibt.
 6. Das Zitat des Tages am Ende soll thematisch zur Ausgabe passen und einer echten, verifizierbaren Person zugeordnet sein - falls im Material kein passendes Zitat vorkommt, waehle ein bekanntes, echtes Zitat, das zum Hauptthema der Ausgabe passt, und kennzeichne es klar als solches statt es zu erfinden.
 
-REFERENZAUSGABE (gestrige Ausgabe, als Stil- und Struktur-Vorlage - NICHT den Inhalt uebernehmen, nur Design/Struktur):
+DESIGN-REFERENZ (CSS und Navigation der Vorausgabe - uebernimm dieses Design 1:1, fuelle es aber mit den heutigen Inhalten gemaess der obigen Ressort-Vorgaben; die Anker-IDs im nav-Block zeigen dir die erwarteten Section-IDs):
 
-{previous_html}
+{design_reference}
 """
     return system_prompt, user_prompt
 
@@ -232,8 +247,10 @@ def main() -> None:
     news_material = build_news_material()
     print(f"Rohmaterial gesammelt ({len(news_material)} Zeichen).")
 
+    design_reference = extract_design_reference(previous_html)
+
     system_prompt, user_prompt = build_prompt(
-        previous_html, edition_number, date_str, time_str, news_material
+        design_reference, edition_number, date_str, time_str, news_material
     )
 
     raw_text = call_groq(system_prompt, user_prompt, api_key)
