@@ -193,6 +193,7 @@ def call_groq(system_prompt: str, user_prompt: str, api_key: str) -> str:
         headers={
             "Authorization": f"Bearer {api_key}",
             "Content-Type": "application/json",
+            "User-Agent": "Mozilla/5.0 (compatible; MorgenkurierBot/1.0)",
         },
         method="POST",
     )
