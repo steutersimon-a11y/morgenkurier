@@ -23,12 +23,16 @@ INDEX_PATH = REPO_ROOT / "index.html"
 TEMPLATE_PATH = Path(__file__).resolve().parent / "template.html"
 
 GROQ_URL = "https://api.groq.com/openai/v1/chat/completions"
-# groq/compound has by far the highest free-tier TPM budget (70K vs 6-12K
-# for the llama models), but its max_completion_tokens is hard-capped at
-# 8192 regardless of its large context window. Asking the model for JSON
-# content only (no HTML/CSS to reproduce) comfortably fits that cap.
-MODEL = "groq/compound"
-MAX_COMPLETION_TOKENS = 8000
+# groq/compound is an agentic wrapper model (built-in web search/code exec)
+# and proved unreliable for plain JSON generation - it returned a bare
+# "413 request_too_large" even for a ~16K-char request, with no rate-limit
+# detail in the error body, suggesting an internal payload issue unrelated
+# to token counts. llama-3.3-70b-versatile is a plain, well-documented chat
+# model; with the JSON-only content architecture the whole request (news
+# material + schema instructions + completion) comfortably fits its 12K
+# tokens-per-minute free-tier budget.
+MODEL = "llama-3.3-70b-versatile"
+MAX_COMPLETION_TOKENS = 6000
 
 WEEKDAYS_DE = [
     "Montag", "Dienstag", "Mittwoch", "Donnerstag",
