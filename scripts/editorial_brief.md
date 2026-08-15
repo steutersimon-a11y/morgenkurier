@@ -13,6 +13,23 @@ Sie will nicht wissen, *dass* etwas passiert ist, sondern *was es bedeutet*.
 
 ## Ablauf
 
+Du arbeitest autonom — niemand schaut zu, niemand bestätigt Zwischenschritte.
+Arbeite die sieben Schritte vollständig ab und brich nicht nach dem Schreiben
+ab: Erst der Push macht die Ausgabe sichtbar.
+
+**Schritt 0 — Rohmaterial beschaffen.**
+```
+python3 scripts/fetch_material.py
+```
+Das lädt zwölf öffentliche RSS-Feeds und schreibt `build/material.md` sowie
+`build/sources.json`.
+
+Scheitert der Abruf mit `403` oder `host_not_allowed`, erlaubt die
+Netzwerk-Policy der Cloud-Umgebung diese Domains nicht. Brich dann **nicht**
+ab, sondern recherchiere die Tagesthemen ersatzweise vollständig über
+WebSearch — die läuft über Anthropics Server und ist von der Policy nicht
+betroffen. Vermerke das am Ende in deiner Zusammenfassung.
+
 **Schritt 1 — Material lesen.**
 Lies `build/material.md`. Das sind die echten Schlagzeilen des heutigen Tages
 aus zwölf öffentlichen RSS-Feeds. Sie setzen die Agenda: Was dort steht, ist
@@ -37,8 +54,38 @@ Suchen**, konzentriert auf:
 Schreibe den kompletten Inhalt als JSON nach `build/content.json`.
 
 **Schritt 4 — Prüfen.**
-Führe `python3 scripts/render_issue.py --check` aus. Das Skript prüft
-Vollständigkeit und Wortzahlen. Bessere nach, bis es fehlerfrei durchläuft.
+```
+python3 scripts/render_issue.py --check
+```
+Das Skript prüft Vollständigkeit und Wortzahlen, ohne etwas zu schreiben.
+Bessere nach, bis es fehlerfrei durchläuft. Warnungen zu Wortzahlen sind
+ernst zu nehmen: Schreib den fehlenden Text nach, statt sie zu ignorieren.
+
+**Schritt 5 — Rendern.**
+```
+python3 scripts/render_issue.py
+```
+Das erzeugt `index.html` aus `scripts/template.html`. Erhöht die
+Ausgabennummer um eins.
+
+**Schritt 6 — Veröffentlichen.**
+Committe **ausschließlich** `index.html` und pushe nach `main`:
+```
+git add index.html
+git commit -m "Neue Ausgabe vom $(date -u +%Y-%m-%d)"
+git push origin main
+```
+Der Push löst den Deploy-Workflow aus, der die Seite zu GitHub Pages
+schiebt. Ohne diesen Schritt passiert nichts.
+
+Wird der Push nach `main` abgelehnt, pushe stattdessen auf einen Branch mit
+`claude/`-Präfix und sag in deiner Abschlussmeldung deutlich, dass die
+Ausgabe **nicht** veröffentlicht wurde und warum. Erfinde keinen Umweg.
+
+**Schritt 7 — Kurz berichten.**
+Schließe mit drei bis fünf Zeilen: Was war das Leitthema, wie viele Websuchen
+hast du gemacht, welche Wortzahlen haben Deutschland-Artikel und Deep Dive
+erreicht, und ist etwas schiefgegangen.
 
 ---
 
@@ -221,7 +268,12 @@ Reines JSON, keine Code-Fences, keine Kommentare. Wortzahlen in Klammern sind
 
 ## Was du **nicht** tust
 
-- Keine anderen Dateien anfassen als `build/content.json`.
-- `index.html`, `scripts/template.html` und die Python-Skripte **nicht**
-  bearbeiten. Das Layout ist fix; du lieferst ausschließlich Text.
-- Kein `git commit`, kein `git push`. Das erledigt der Workflow.
+- **Keine Datei von Hand bearbeiten außer `build/content.json`.**
+  `index.html` entsteht ausschließlich durch `render_issue.py` — schreibe
+  niemals selbst HTML hinein, auch nicht korrigierend.
+- `scripts/template.html`, die Python-Skripte und dieses Briefing **nicht**
+  ändern. Das Layout ist fix; du lieferst ausschließlich Text.
+- Keine anderen Branches anlegen, keine Pull Requests öffnen, nichts
+  zurücksetzen oder erzwingen (`--force`).
+- Wenn `render_issue.py` mit Exit-Code 1 abbricht, ist das Absicht: Dann ist
+  dein JSON unvollständig. Repariere das JSON, nicht das Skript.

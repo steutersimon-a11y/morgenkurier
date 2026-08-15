@@ -1,0 +1,53 @@
+name: Seite veroeffentlichen
+
+# Reines Deployment - hier wird nichts mehr generiert.
+#
+# Die redaktionelle Arbeit (Rohmaterial holen, recherchieren, schreiben,
+# rendern, committen) erledigt eine Claude-Code-Routine, die taeglich auf
+# Anthropics Cloud-Infrastruktur laeuft und ueber das Abo abgerechnet wird:
+#   https://claude.ai/code/routines
+#
+# Dieser Workflow reagiert nur noch auf den Push, den die Routine erzeugt,
+# und schiebt die fertige Seite zu GitHub Pages. Er braucht dadurch kein
+# Secret, keinen API-Key und verursacht keine Kosten.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "index.html"
+      - ".github/workflows/deploy-pages.yml"
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Repo auschecken
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Pages vorbereiten
+        uses: actions/configure-pages@v5
+
+      - name: Artefakt hochladen
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: "."
+
+      - name: Auf GitHub Pages deployen
+        id: deployment
+        uses: actions/deploy-pages@v4
