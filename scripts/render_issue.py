@@ -31,6 +31,8 @@ from datetime import datetime
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
+from storylines import update_ledger
+
 REPO_ROOT = Path(__file__).resolve().parent.parent
 INDEX_PATH = REPO_ROOT / "index.html"
 TEMPLATE_PATH = Path(__file__).resolve().parent / "template.html"
@@ -291,12 +293,12 @@ def render_headlines_block(items) -> str:
 def render_hauptartikel_block(article) -> str:
     if not article or not article.get("paragraphs"):
         return ""
-    return (
-        f'<h3 class="dept">{esc(article.get("title"))}</h3>\n'
-        f'    <div class="cols">\n'
-        + paragraphs(article.get("paragraphs")) + "\n"
-        f'    </div>'
-    )
+    parts = [f'<h3 class="dept">{esc(article.get("title"))}</h3>']
+    vorgeschichte = article.get("vorgeschichte")
+    if vorgeschichte:
+        parts.append(f'    <p class="fortsetzung">↳ {esc(vorgeschichte)}</p>')
+    parts.append('    <div class="cols">\n' + paragraphs(article.get("paragraphs")) + '\n    </div>')
+    return "\n".join(parts)
 
 
 def render_kleine_artikel_block(items) -> str:
@@ -361,14 +363,6 @@ def render_ressort_sections(ressorts: list) -> str:
     )
 
 
-def render_nav_links(ressorts: list) -> str:
-    links = ['<a class="brand" href="#top">MORGENKURIER</a>', '<a href="#inhalt">Inhalt</a>']
-    for r in ressorts or []:
-        links.append(f'<a href="#{esc(r.get("id"))}">{esc(r.get("name"))}</a>')
-    links.append('<a href="#deepdive">Deep Dive</a>')
-    return "\n    ".join(links)
-
-
 def render_ressort_ticker(ressorts: list) -> str:
     return " · ".join(esc(r.get("name")) for r in ressorts or [])
 
@@ -412,7 +406,6 @@ def render_html(content: dict, sources: list[str], edition_number: int,
         "§§EDITION_LABEL§§": esc(edition_label),
         "§§DATE_TIME§§": esc(f"{date_str} · {time_str} Uhr"),
         "§§RESSORT_TICKER§§": render_ressort_ticker(ressorts),
-        "§§NAV_LINKS§§": render_nav_links(ressorts),
         "§§COVER_HEADLINE§§": esc(content.get("cover_headline")),
         "§§COVER_DEK§§": esc(content.get("cover_dek")),
         "§§COVER_LIST§§": render_cover_items(content.get("cover_items")),
@@ -484,11 +477,15 @@ def main() -> None:
     )
 
     INDEX_PATH.write_text(new_html, encoding="utf-8")
+
+    story_count = update_ledger(content, now_berlin.strftime("%Y-%m-%d"))
+
     total_words = total_word_count(content)
     print(
         f"Ausgabe {edition_number:03d} geschrieben "
         f"({len(new_html):,} Zeichen HTML, ~{total_words:,} Woerter Text, "
-        f"{len(content.get('ressorts') or [])} Ressorts)."
+        f"{len(content.get('ressorts') or [])} Ressorts, "
+        f"{story_count} Geschichten im Storyline-Ledger vermerkt)."
     )
 
 

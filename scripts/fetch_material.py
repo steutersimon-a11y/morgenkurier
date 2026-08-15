@@ -17,6 +17,7 @@ from pathlib import Path
 from zoneinfo import ZoneInfo
 
 from feeds import FEEDS, fetch_all_feeds, material_block
+from storylines import RETENTION_DAYS, format_ledger_markdown, load_ledger
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 BUILD_DIR = REPO_ROOT / "build"
@@ -58,6 +59,12 @@ def main() -> None:
         f"Redaktionsschluss: {german_date(now_berlin)}, "
         f"{now_berlin.strftime('%H:%M')} Uhr (Europe/Berlin)\n"
         f"Quellen, die geantwortet haben: {len(all_items)} von {len(FEEDS)}\n\n"
+        f"---\n\n"
+        f"## Laufende Geschichten (letzte {RETENTION_DAYS} Tage)\n\n"
+        f"Themen, die in juengeren Ausgaben schon liefen. Nutze dieselbe "
+        f"story_id, wenn ein heutiges Thema eine dieser Geschichten "
+        f"fortsetzt (siehe editorial_brief.md).\n\n"
+        f"{format_ledger_markdown(load_ledger())}\n\n"
         f"---\n\n"
     )
     material = header + material_block(all_items)

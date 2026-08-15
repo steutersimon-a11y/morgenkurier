@@ -4,6 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MORGENKURIER — §§EYEBROW§§</title>
+<script>
+  // Vor dem ersten Rendern gesetzt, damit kein helles Aufblitzen entsteht,
+  // wenn gespeichert (oder System-Praeferenz) Dark Mode vorsieht.
+  (function () {
+    var saved = localStorage.getItem('morgenkurier-theme');
+    var theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-theme', theme);
+  })();
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,600;1,700&display=swap" rel="stylesheet">
 <style>
@@ -15,15 +24,38 @@
     --rule:#141414;
     --line:#ddd6c3;
     --card:#ffffff;
+    --body-bg:#dedad0;
+    /* Erklaerbox nutzt bewusst eigene, feste Tokens statt --ink/--paper:
+       die Box soll sich in JEDEM Theme vom Papier abheben, nicht mit ihm
+       die Rollen tauschen. */
+    --explainer-bg:#141414;
+    --explainer-fg:#e7e4d9;
+    --explainer-tag:#d9b08f;
+    --ink-soft:#2b2b28;
+  }
+  :root[data-theme="dark"]{
+    --paper:#1c1a16;
+    --ink:#ece7da;
+    --muted:#9b9686;
+    --accent:#d6824f;
+    --rule:#ece7da;
+    --line:#39362c;
+    --card:#242019;
+    --body-bg:#100f0d;
+    --explainer-bg:#3a2f22;
+    --explainer-fg:#f3ead9;
+    --explainer-tag:#e3a86b;
+    --ink-soft:#d8d2c2;
   }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
   body{
     margin:0;
-    background:#dedad0;
+    background:var(--body-bg);
     color:var(--ink);
     font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
     -webkit-font-smoothing:antialiased;
+    transition:background 0.2s ease,color 0.2s ease;
   }
   .progress{
     position:fixed;top:0;left:0;height:3px;background:var(--accent);
@@ -36,29 +68,36 @@
     box-shadow:0 12px 60px rgba(0,0,0,0.22);
   }
 
-  /* ---- STICKY NAV ---- */
+  /* ---- STICKY TOOLBAR (Marke + Dark-Mode-Toggle, KEINE Ressort-Links -
+     Navigation laeuft bewusst ausschliesslich ueber das Inhaltsverzeichnis) ---- */
   nav.sticky{
     position:sticky;top:0;z-index:90;
     background:rgba(247,243,234,0.96);
     backdrop-filter:blur(4px);
     border-bottom:1px solid var(--rule);
     display:flex;
-    overflow-x:auto;
-    white-space:nowrap;
-    padding:0 24px;
+    align-items:center;
+    justify-content:space-between;
+    padding:9px 24px;
   }
-  nav.sticky a{
-    color:var(--ink);
-    text-decoration:none;
-    font-size:10.5px;
-    letter-spacing:1.6px;
-    text-transform:uppercase;
-    font-weight:700;
-    padding:13px 12px;
-    border-bottom:2px solid transparent;
+  :root[data-theme="dark"] nav.sticky{background:rgba(28,26,22,0.96);}
+  nav.sticky .toolbar-brand{color:var(--accent);font-size:10.5px;letter-spacing:1.6px;
+    text-transform:uppercase;font-weight:700;text-decoration:none;}
+  .theme-toggle{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:30px;height:30px;border-radius:50%;
+    border:1px solid var(--line);background:transparent;color:var(--ink);
+    cursor:pointer;padding:0;
   }
-  nav.sticky a:hover{border-bottom:2px solid var(--accent);color:var(--accent);}
-  nav.sticky a.brand{color:var(--accent);padding-left:0;}
+  .theme-toggle:hover{border-color:var(--accent);color:var(--accent);}
+  .theme-toggle svg{width:16px;height:16px;}
+  .theme-toggle .icon-moon{display:none;}
+  :root[data-theme="dark"] .theme-toggle .icon-sun{display:none;}
+  :root[data-theme="dark"] .theme-toggle .icon-moon{display:block;}
+
+  /* ---- BRANDMARK (eigene Grafik statt Systemschrift-Ueberschrift) ---- */
+  .brandmark{color:var(--ink);margin:0 auto;max-width:520px;}
+  .brandmark svg{width:100%;height:auto;display:block;}
 
   /* ---- MASTHEAD ---- */
   header.masthead{text-align:center;padding:40px 20px 18px;}
@@ -92,7 +131,7 @@
     line-height:1.08;margin:0 0 14px;font-weight:700;letter-spacing:-0.6px;
     text-transform:uppercase;
   }
-  .cover .dek{font-size:16px;line-height:1.55;color:#2b2b28;margin:0 0 18px;max-width:640px;}
+  .cover .dek{font-size:16px;line-height:1.55;color:var(--ink-soft);margin:0 0 18px;max-width:640px;}
   .cover-list{display:grid;grid-template-columns:1fr 1fr;gap:10px 28px;border-top:1px solid var(--line);padding-top:16px;}
   .cover-list .ci{padding:8px 0;border-bottom:1px solid var(--line);}
   .cover-list .ci h4{font-size:14.5px;margin:0 0 3px;font-weight:700;line-height:1.3;}
@@ -123,6 +162,9 @@
   }
   .backtotoc:hover{color:var(--accent);}
   b.lbl{color:var(--accent);}
+  .fortsetzung{
+    font-size:12.5px;color:var(--muted);font-style:italic;margin:0 0 12px;
+  }
 
   /* ---- TOC ---- */
   .toc-row{
@@ -160,13 +202,13 @@
   .signal-item:not(:last-child){border-right:1px solid var(--line);padding-right:18px;margin-right:0;}
   .signal-item .tag{font-size:10px;letter-spacing:1.6px;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:8px;}
   .signal-item h4{font-size:15.5px;margin:0 0 8px;font-weight:700;line-height:1.3;}
-  .signal-item p{font-size:12.5px;color:#2b2b28;}
+  .signal-item p{font-size:12.5px;color:var(--ink-soft);}
 
-  /* ---- ERKLAERBOX (optionale dunkle Box je Ressort) ---- */
-  .explainer{background:var(--ink);color:var(--paper);padding:22px 24px;margin:20px 0 8px;}
-  .explainer .tag{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#d9b08f;font-weight:700;margin-bottom:10px;}
-  .explainer h4{font-family:'Playfair Display',serif;font-weight:700;font-size:20px;margin:0 0 10px;}
-  .explainer p{font-size:13.5px;color:#e7e4d9;line-height:1.6;margin:0 0 10px;}
+  /* ---- ERKLAERBOX (optionale hervorgehobene Box je Ressort) ---- */
+  .explainer{background:var(--explainer-bg);color:var(--explainer-fg);padding:22px 24px;margin:20px 0 8px;}
+  .explainer .tag{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--explainer-tag);font-weight:700;margin-bottom:10px;}
+  .explainer h4{font-family:'Playfair Display',serif;font-weight:700;font-size:20px;margin:0 0 10px;color:var(--explainer-fg);}
+  .explainer p{font-size:13.5px;color:var(--explainer-fg);line-height:1.6;margin:0 0 10px;}
 
   /* ---- KLEINE ARTIKEL (je Ressort) ---- */
   .mini-item{padding:14px 0;border-bottom:1px solid var(--line);}
@@ -204,12 +246,23 @@
 <div class="sheet">
 
   <nav class="sticky">
-    §§NAV_LINKS§§
+    <a class="toolbar-brand" href="#top">Morgenkurier</a>
+    <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Hell-/Dunkelmodus umschalten" title="Hell-/Dunkelmodus umschalten">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2.5v3M12 18.5v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2.5 12h3M18.5 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a6.8 6.8 0 0 0 10.5 10.5z"/></svg>
+    </button>
   </nav>
 
   <header class="masthead" id="top">
     <div class="eyebrow">§§EYEBROW§§</div>
-    <h1 class="title">Morgenkurier</h1>
+    <div class="brandmark">
+      <svg viewBox="0 0 640 130" role="img" aria-label="Morgenkurier">
+        <circle cx="62" cy="65" r="50" fill="none" stroke="currentColor" stroke-width="3"/>
+        <text x="62" y="87" text-anchor="middle" font-family="'Playfair Display', 'Times New Roman', serif" font-weight="900" font-size="62" fill="currentColor">M</text>
+        <text x="132" y="85" font-family="'Playfair Display', 'Times New Roman', serif" font-weight="900" font-size="56" letter-spacing="-1" fill="currentColor">MORGENKURIER</text>
+        <line x1="134" y1="98" x2="620" y2="98" stroke="currentColor" stroke-width="2" opacity="0.4"/>
+      </svg>
+    </div>
     <div class="tagline">Nicht alles, was passiert, ist wichtig. Der Morgenkurier zeigt, was wichtig ist — und erklärt, warum.</div>
   </header>
   <div class="hairline thick"></div>
@@ -325,6 +378,13 @@
     var h = document.documentElement;
     var pct = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
     bar.style.width = pct + '%';
+  });
+
+  document.getElementById('theme-toggle').addEventListener('click', function () {
+    var root = document.documentElement;
+    var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    localStorage.setItem('morgenkurier-theme', next);
   });
 </script>
 </body>

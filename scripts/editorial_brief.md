@@ -45,7 +45,9 @@ haben.
 
 **Schritt 1 — Material lesen.**
 Lies `build/material.md`, falls es Inhalt hat. Was dort steht, ist eine
-Anregung für die Tagesagenda, keine Pflichtliste.
+Anregung für die Tagesagenda, keine Pflichtliste. Im Kopf der Datei steht
+ein Abschnitt **„Laufende Geschichten"** — das sind Themen aus jüngeren
+Ausgaben (siehe Storyline-Kontinuität unten). Lies ihn zuerst.
 
 **Schritt 2 — Recherchieren.**
 Das ist der wichtigste Schritt dieser Ausgabe. Mit 15 Ressorts und einer
@@ -177,6 +179,34 @@ zweimal zum Hauptgegenstand werden.
 
 ---
 
+## Storyline-Kontinuität
+
+Die Routine startet jeden Morgen mit einem frischen Checkout und hat sonst
+kein Gedächtnis an gestern. Damit ein mehrtägiges Thema (z. B. ein
+andauernder Waldbrand, eine Regierungskrise, eine Übernahmeschlacht) nicht
+jeden Tag neu bei null anfängt, gibt es ein kleines, versioniertes
+Story-Ledger (`data/story_ledger.json`), das du über zwei optionale Felder
+im `hauptartikel` jedes Ressorts steuerst:
+
+- **`story_id`** — ein kurzer, stabiler Slug (z. B. `"waldbraende-eifel"`,
+  `"csee-zollstreit"`). Setze eine `story_id`, wenn ein Hauptartikel Teil
+  einer mehrtägigen Geschichte ist. Prüfe zuerst den Abschnitt „Laufende
+  Geschichten" in `build/material.md`: Setzt dein Artikel ein dort
+  gelistetes Thema fort, **verwende exakt dieselbe story_id**. Ist es ein
+  neues Thema, vergib eine neue, eindeutige story_id. Einmalige Themen
+  ohne Fortsetzungscharakter brauchen keine story_id — das Feld ist
+  optional, nicht jeder Artikel muss eine haben.
+- **`vorgeschichte`** — genau EIN Satz, der zur vorherigen Berichterstattung
+  überleitet (z. B. "Nachdem am Mittwoch erste Evakuierungen vermeldet
+  wurden, …"). Nur befüllen, wenn wirklich eine Fortsetzung vorliegt — sonst
+  `null` lassen. Wie bei allen Fakten: keine Vorgeschichte erfinden, die es
+  nicht gab (siehe Faktenregeln).
+
+Das Ledger selbst schreibt `render_issue.py` automatisch fort — du musst
+nichts committen oder pflegen, nur die beiden Felder korrekt setzen.
+
+---
+
 ## Finanzmarkt-Watchlist (immer alle drei, in dieser Reihenfolge)
 
 1. **NVIDIA** (Ticker NVDA)
@@ -260,7 +290,9 @@ Reines JSON, keine Code-Fences, keine Kommentare.
       "headlines": ["str, optional — kurze Ein-Satz-Meldungen, 0-8 Stueck"],
       "hauptartikel": {
         "title": "str",
-        "paragraphs": ["str — mind. 3 Absaetze, KEINE Obergrenze"]
+        "paragraphs": ["str — mind. 3 Absaetze, KEINE Obergrenze"],
+        "story_id": "str oder null — siehe Abschnitt Storyline-Kontinuitaet",
+        "vorgeschichte": "str oder null — 1 Satz, nur bei echter Fortsetzung"
       },
       "kleine_artikel": [
         {

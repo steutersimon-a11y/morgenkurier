@@ -13,5 +13,6 @@ build/
 venv/
 
 # Zwischenstaende der taeglichen Pipeline (Rohmaterial, redaktionelles JSON).
-# Nur index.html wird versioniert.
+# Versioniert werden nur index.html und data/story_ledger.json (Storyline-
+# Kontinuitaet ueber Ausgaben hinweg) - siehe scripts/storylines.py.
 build/
