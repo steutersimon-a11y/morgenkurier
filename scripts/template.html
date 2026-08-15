@@ -83,6 +83,7 @@
     color:var(--muted);padding:11px 24px;font-weight:700;
   }
   .meta-row .special{color:var(--accent);}
+  .meta-row .ticker{max-width:520px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
 
   /* ---- COVER LEAD ---- */
   .cover{padding:26px 24px 6px;border-top:2px solid var(--rule);}
@@ -141,6 +142,18 @@
   table.index td.dot{width:36px;font-size:18px;}
   table.index td.note{color:var(--muted);font-size:12.5px;}
 
+  /* ---- FINANZMARKT WATCHLIST ---- */
+  .watch-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;border-top:1px solid var(--line);}
+  .watch-item{padding:16px 18px 4px 0;}
+  .watch-item:not(:last-child){border-right:1px solid var(--line);padding-right:18px;}
+  .watch-ticker{
+    font-family:'Playfair Display',serif;font-weight:700;font-size:13px;
+    color:var(--accent);letter-spacing:1px;margin-bottom:4px;
+  }
+  .watch-item h4{font-size:15.5px;margin:0 0 8px;font-weight:700;line-height:1.3;}
+  .watch-kurs{font-weight:700;}
+  .watch-einordnung{color:var(--muted);font-size:12.5px;}
+
   /* ---- SIGNAL ---- */
   .signal-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;border-top:1px solid var(--line);}
   .signal-item{padding:16px 18px 4px 0;}
@@ -149,23 +162,18 @@
   .signal-item h4{font-size:15.5px;margin:0 0 8px;font-weight:700;line-height:1.3;}
   .signal-item p{font-size:12.5px;color:#2b2b28;}
 
-  /* ---- MARKET MECHANICS BOX ---- */
-  .mechanics{background:var(--ink);color:var(--paper);padding:22px 24px;margin:4px 0 8px;}
-  .mechanics .tag{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#d9b08f;font-weight:700;margin-bottom:10px;}
-  .mechanics h4{font-family:'Playfair Display',serif;font-weight:700;font-size:20px;margin:0 0 10px;}
-  .mechanics p{font-size:13.5px;color:#e7e4d9;line-height:1.6;margin:0 0 10px;}
+  /* ---- ERKLAERBOX (optionale dunkle Box je Ressort) ---- */
+  .explainer{background:var(--ink);color:var(--paper);padding:22px 24px;margin:20px 0 8px;}
+  .explainer .tag{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#d9b08f;font-weight:700;margin-bottom:10px;}
+  .explainer h4{font-family:'Playfair Display',serif;font-weight:700;font-size:20px;margin:0 0 10px;}
+  .explainer p{font-size:13.5px;color:#e7e4d9;line-height:1.6;margin:0 0 10px;}
 
-  /* ---- CSEE ---- */
-  .csee-item{padding:14px 0;border-bottom:1px solid var(--line);}
-  .csee-item h4{margin:0 0 4px;font-size:15px;font-weight:700;}
-  .csee-item p{font-size:13.5px;margin:0 0 6px;}
+  /* ---- KLEINE ARTIKEL (je Ressort) ---- */
+  .mini-item{padding:14px 0;border-bottom:1px solid var(--line);}
+  .mini-item h4{margin:0 0 4px;font-size:15px;font-weight:700;}
+  .mini-item p{font-size:13.5px;margin:0 0 6px;}
   .relevanz{font-size:12.5px;color:var(--muted);border-left:2px solid var(--accent);padding-left:10px;margin:0;}
   .relevanz b{color:var(--accent);text-transform:uppercase;letter-spacing:0.5px;font-size:11px;}
-
-  /* ---- WISSEN (magazine flow, no cards/icons) ---- */
-  .wissen-item{padding:20px 0;border-bottom:1px solid var(--line);}
-  .wissen-item .kicker{font-size:10.5px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:6px;}
-  .wissen-item h3{font-size:19px;margin:0 0 8px;font-weight:700;line-height:1.25;}
 
   /* ---- DEEP DIVE ---- */
   .disclaimer{font-size:11px;color:var(--muted);font-style:italic;border-top:1px solid var(--line);padding-top:10px;margin-top:6px;}
@@ -186,8 +194,8 @@
   @media (max-width:680px){
     .cols{columns:1;}
     .cover-list{grid-template-columns:1fr;}
-    .signal-grid{grid-template-columns:1fr;}
-    .signal-item{border-right:none !important;border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:10px;}
+    .signal-grid,.watch-grid{grid-template-columns:1fr;}
+    .signal-item,.watch-item{border-right:none !important;border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:10px;}
   }
 </style>
 </head>
@@ -196,16 +204,7 @@
 <div class="sheet">
 
   <nav class="sticky">
-    <a class="brand" href="#top">MORGENKURIER</a>
-    <a href="#inhalt">Inhalt</a>
-    <a href="#deutschland">Deutschland</a>
-    <a href="#politik">Politik</a>
-    <a href="#finanzen">Finanzen</a>
-    <a href="#usa">USA</a>
-    <a href="#geopolitik">Welt</a>
-    <a href="#csee">CSEE</a>
-    <a href="#wissen">Wissen</a>
-    <a href="#future">Future</a>
+    §§NAV_LINKS§§
   </nav>
 
   <header class="masthead" id="top">
@@ -217,7 +216,7 @@
   <div class="meta-row">
     <span class="special">§§EDITION_LABEL§§</span>
     <span>§§DATE_TIME§§</span>
-    <span>Deutschland · Politik · Finanzen · USA · Welt · CSEE · Wissen · Future</span>
+    <span class="ticker">§§RESSORT_TICKER§§</span>
   </div>
   <div class="hairline"></div>
 
@@ -236,20 +235,13 @@
     <h2 class="sectitle">Inhalt</h2>
     <div class="secdesc">Ein Klick auf einen Eintrag springt direkt zum jeweiligen Ressort.</div>
 
-    <a href="#index"><div class="toc-row"><div class="num">03</div><div class="body"><h4>Morgenkurier Index</h4><p>Die redaktionelle Lage in sieben Bereichen auf einen Blick</p></div></div></a>
+    <a href="#index"><div class="toc-row"><div class="num">03</div><div class="body"><h4>Morgenkurier Index</h4><p>Die redaktionelle Lage in mehreren Bereichen auf einen Blick</p></div></div></a>
     <a href="#welt-am-morgen"><div class="toc-row"><div class="num">04</div><div class="body"><h4>Die Welt am Morgen</h4><p>Das Wichtigste aus aller Welt, komprimiert</p></div></div></a>
-    <a href="#deutschland"><div class="toc-row"><div class="num">05</div><div class="body"><h4>Deutschland</h4><p>§§TOC_DEUTSCHLAND§§</p></div></div></a>
-    <a href="#politik"><div class="toc-row"><div class="num">06</div><div class="body"><h4>Politik</h4><p>§§TOC_POLITIK§§</p></div></div></a>
-    <a href="#finanzen"><div class="toc-row"><div class="num">07</div><div class="body"><h4>Finanzen &amp; Wirtschaft</h4><p>§§TOC_FINANZEN§§</p></div></div></a>
-    <a href="#mechanics"><div class="toc-row"><div class="num">08</div><div class="body"><h4>Market Mechanics</h4><p>§§TOC_MECHANICS§§</p></div></div></a>
-    <a href="#usa"><div class="toc-row"><div class="num">09</div><div class="body"><h4>United States</h4><p>§§TOC_USA§§</p></div></div></a>
-    <a href="#geopolitik"><div class="toc-row"><div class="num">10</div><div class="body"><h4>Welt &amp; Geopolitik</h4><p>§§TOC_GEOPOLITIK§§</p></div></div></a>
-    <a href="#csee"><div class="toc-row"><div class="num">11</div><div class="body"><h4>CSEE Business Brief</h4><p>§§TOC_CSEE§§</p></div></div></a>
-    <a href="#signal"><div class="toc-row"><div class="num">12</div><div class="body"><h4>The Signal</h4><p>Drei Frühindikatoren, die diese Woche mehr verraten als die Schlagzeilen</p></div></div></a>
-    <a href="#future"><div class="toc-row"><div class="num">13</div><div class="body"><h4>Future &amp; Technology</h4><p>§§TOC_FUTURE§§</p></div></div></a>
-    <a href="#wissen"><div class="toc-row"><div class="num">14</div><div class="body"><h4>Wissen</h4><p>§§TOC_WISSEN§§</p></div></div></a>
-    <a href="#deepdive"><div class="toc-row"><div class="num">15</div><div class="body"><h4>Deep Dive</h4><p>§§TOC_DEEPDIVE§§</p></div></div></a>
-    <a href="#zitat"><div class="toc-row"><div class="num">16</div><div class="body"><h4>Zitat des Tages</h4><p>Ein ruhiger Schluss zum Ausklang der Ausgabe</p></div></div></a>
+    <a href="#watchlist"><div class="toc-row"><div class="num">05</div><div class="body"><h4>Finanzmarkt-Watchlist</h4><p>NVIDIA, Rocket Lab, Quantum eMotion — Kurs und Einordnung</p></div></div></a>
+    §§TOC_RESSORT_ROWS§§
+    <a href="#signal"><div class="toc-row"><div class="num">§§NUM_SIGNAL§§</div><div class="body"><h4>The Signal</h4><p>Drei Frühindikatoren, die diese Woche mehr verraten als die Schlagzeilen</p></div></div></a>
+    <a href="#deepdive"><div class="toc-row"><div class="num">§§NUM_DEEPDIVE§§</div><div class="body"><h4>Deep Dive</h4><p>Eine Ausgabe, ein Thema, das mehrere Ressorts verbindet</p></div></div></a>
+    <a href="#zitat"><div class="toc-row"><div class="num">§§NUM_ZITAT§§</div><div class="body"><h4>Zitat des Tages</h4><p>Ein ruhiger Schluss zum Ausklang der Ausgabe</p></div></div></a>
   </section>
 
   <!-- ================= INDEX ================= -->
@@ -272,126 +264,23 @@
     <a class="backtotoc" href="#inhalt">↑ Zurück zum Inhalt</a>
   </section>
 
-  <!-- ================= DEUTSCHLAND ================= -->
-  <section id="deutschland">
+  <!-- ================= FINANZMARKT WATCHLIST ================= -->
+  <section id="watchlist">
     <div class="secnum">05</div>
-    <h2 class="sectitle">Deutschland</h2>
-
-    <h3 class="dept">Schlagzeilen</h3>
-    <div class="cols">
-§§DEUTSCHLAND_HEADLINES§§
-    </div>
-
-    <h3 class="dept">§§DEUTSCHLAND_ARTICLE_TITLE§§</h3>
-    <div class="cols">
-§§DEUTSCHLAND_ARTICLE§§
+    <h2 class="sectitle">Finanzmarkt-Watchlist</h2>
+    <div class="secdesc">Persönliche Beobachtungsliste — Kurskontext, Entwicklung und Einordnung des Tages.</div>
+    <div class="watch-grid">
+§§WATCHLIST_ITEMS§§
     </div>
     <a class="backtotoc" href="#inhalt">↑ Zurück zum Inhalt</a>
   </section>
 
-  <!-- ================= POLITIK ================= -->
-  <section id="politik">
-    <div class="secnum">06</div>
-    <h2 class="sectitle">Politik</h2>
-    <div class="secdesc">§§POLITIK_LEITARTIKEL§§</div>
-
-    <h3 class="dept">Ereignis</h3>
-    <p class="lede">§§POLITIK_EREIGNIS§§</p>
-
-    <h3 class="dept">Hintergrund</h3>
-    <p>§§POLITIK_HINTERGRUND§§</p>
-
-    <h3 class="dept">Interessen &amp; Akteure</h3>
-    <p>§§POLITIK_AKTEURE§§</p>
-
-    <h3 class="dept">Machtverhältnisse</h3>
-    <p>§§POLITIK_MACHTVERHAELTNISSE§§</p>
-
-    <h3 class="dept">Konsequenzen &amp; Szenarien</h3>
-    <p>§§POLITIK_KONSEQUENZEN§§</p>
-    <a class="backtotoc" href="#inhalt">↑ Zurück zum Inhalt</a>
-  </section>
-
-  <!-- ================= FINANZEN & WIRTSCHAFT ================= -->
-  <section id="finanzen">
-    <div class="secnum">07</div>
-    <h2 class="sectitle">Finanzen &amp; Wirtschaft</h2>
-
-    <h3 class="dept">Was ist passiert</h3>
-    <div class="cols">
-§§FINANZEN_WAS_IST_PASSIERT§§
-    </div>
-
-    <h3 class="dept">Was bereits eingepreist war</h3>
-    <p>§§FINANZEN_EINGEPREIST§§</p>
-
-    <h3 class="dept">Gewinner &amp; Verlierer</h3>
-    <div class="cols">
-      <p><b class="lbl">Gewinner:</b> §§FINANZEN_GEWINNER§§</p>
-      <p><b class="lbl">Verlierer:</b> §§FINANZEN_VERLIERER§§</p>
-    </div>
-
-    <h3 class="dept">Auswirkungen auf Europa und Deutschland</h3>
-    <p>§§FINANZEN_AUSWIRKUNGEN§§</p>
-    <a class="backtotoc" href="#inhalt">↑ Zurück zum Inhalt</a>
-  </section>
-
-  <!-- ================= MARKET MECHANICS ================= -->
-  <section id="mechanics">
-    <div class="secnum">08</div>
-    <h2 class="sectitle">Market Mechanics</h2>
-    <div class="mechanics">
-      <div class="tag">Heute erklärt</div>
-      <h4>§§MECHANICS_HEADLINE§§</h4>
-§§MECHANICS_PARAGRAPHS§§
-    </div>
-    <a class="backtotoc" href="#inhalt">↑ Zurück zum Inhalt</a>
-  </section>
-
-  <!-- ================= USA ================= -->
-  <section id="usa">
-    <div class="secnum">09</div>
-    <h2 class="sectitle">United States</h2>
-
-    <h3 class="dept">Washington</h3>
-    <p>§§USA_WASHINGTON§§</p>
-
-    <h3 class="dept">Wall Street</h3>
-    <p>§§USA_WALLSTREET§§</p>
-
-    <h3 class="dept">America</h3>
-    <p>§§USA_AMERICA§§</p>
-    <a class="backtotoc" href="#inhalt">↑ Zurück zum Inhalt</a>
-  </section>
-
-  <!-- ================= WELT & GEOPOLITIK ================= -->
-  <section id="geopolitik">
-    <div class="secnum">10</div>
-    <h2 class="sectitle">Welt &amp; Geopolitik</h2>
-
-    <h3 class="dept">China</h3>
-    <p>§§GEOPOLITIK_CHINA§§</p>
-
-    <h3 class="dept">Ukraine &amp; Russland</h3>
-    <p>§§GEOPOLITIK_UKRAINE§§</p>
-
-    <h3 class="dept">Weitere Entwicklungen</h3>
-    <p>§§GEOPOLITIK_WEITERE§§</p>
-    <a class="backtotoc" href="#inhalt">↑ Zurück zum Inhalt</a>
-  </section>
-
-  <!-- ================= CSEE ================= -->
-  <section id="csee">
-    <div class="secnum">11</div>
-    <h2 class="sectitle">CSEE Business Brief</h2>
-    <div class="secdesc">Österreich · Tschechien · Ungarn · Rumänien · Bulgarien · Serbien · Bosnien · Slowakei · Kroatien · Slowenien</div>
-§§CSEE_ITEMS§§
-    <a class="backtotoc" href="#inhalt">↑ Zurück zum Inhalt</a>
-  </section>
+  <!-- ================= RESSORTS (dynamisch) ================= -->
+§§RESSORT_SECTIONS§§
 
   <!-- ================= THE SIGNAL ================= -->
   <section id="signal">
-    <div class="secnum">12</div>
+    <div class="secnum">§§NUM_SIGNAL§§</div>
     <h2 class="sectitle">The Signal</h2>
     <div class="secdesc">Drei Dinge, die noch keine große Nachricht sind — aber beobachtet werden sollten.</div>
     <div class="signal-grid">
@@ -400,34 +289,9 @@
     <a class="backtotoc" href="#inhalt">↑ Zurück zum Inhalt</a>
   </section>
 
-  <!-- ================= FUTURE & TECHNOLOGY ================= -->
-  <section id="future">
-    <div class="secnum">13</div>
-    <h2 class="sectitle">Future &amp; Technology</h2>
-
-    <h3 class="dept">Verfügbar / im produktiven Einsatz</h3>
-    <p>§§FUTURE_VERFUEGBAR§§</p>
-
-    <h3 class="dept">In Entwicklung</h3>
-    <p>§§FUTURE_ENTWICKLUNG§§</p>
-
-    <h3 class="dept">Experimentell bis spekulativ</h3>
-    <p>§§FUTURE_EXPERIMENTELL§§</p>
-    <a class="backtotoc" href="#inhalt">↑ Zurück zum Inhalt</a>
-  </section>
-
-  <!-- ================= WISSEN ================= -->
-  <section id="wissen">
-    <div class="secnum">14</div>
-    <h2 class="sectitle">Wissen</h2>
-    <div class="secdesc">Rotierendes Ressort — Themen je nach Tagesmaterial.</div>
-§§WISSEN_ITEMS§§
-    <a class="backtotoc" href="#inhalt">↑ Zurück zum Inhalt</a>
-  </section>
-
   <!-- ================= DEEP DIVE ================= -->
   <section id="deepdive">
-    <div class="secnum">15</div>
+    <div class="secnum">§§NUM_DEEPDIVE§§</div>
     <h2 class="sectitle">Deep Dive</h2>
 
     <h3 class="dept">§§DEEPDIVE_HEADLINE§§</h3>
@@ -440,7 +304,7 @@
 
   <!-- ================= LETZTE SEITE ================= -->
   <div class="lastpage" id="zitat">
-    <div class="secnum" style="text-align:center;">16</div>
+    <div class="secnum" style="text-align:center;">§§NUM_ZITAT§§</div>
     <div class="eyebrow">Zitat des Tages</div>
     <p class="quote">„§§QUOTE_TEXT§§"</p>
     <div class="quote-author">— §§QUOTE_AUTHOR§§</div>
@@ -451,7 +315,7 @@
   </div>
 
   <footer class="sources">
-    Quellen (Auswahl): §§SOURCES§§. Diese Ausgabe wurde automatisiert aus den genannten RSS-Feeds erstellt und redaktionell eingeordnet, erhebt aber keinen Anspruch auf Vollständigkeit.
+    Quellen (Auswahl): §§SOURCES§§. Diese Ausgabe wurde automatisiert aus RSS-Feeds und Websuche erstellt und redaktionell eingeordnet, erhebt aber keinen Anspruch auf Vollständigkeit. Die Finanzmarkt-Watchlist ist keine Anlageempfehlung.
   </footer>
 
 </div>

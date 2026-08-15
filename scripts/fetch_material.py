@@ -16,7 +16,7 @@ from datetime import datetime
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
-from feeds import fetch_all_feeds, material_block
+from feeds import FEEDS, fetch_all_feeds, material_block
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 BUILD_DIR = REPO_ROOT / "build"
@@ -40,15 +40,24 @@ def main() -> None:
 
     all_items = fetch_all_feeds()
     if not all_items:
-        print("Fehler: keine einzige Quelle hat geantwortet.", file=sys.stderr)
-        sys.exit(1)
+        # Kein harter Abbruch: bei ~110 Feeds ist es plausibel, dass die
+        # Netzwerk-Policy der Cloud-Umgebung ALLE blockiert (z.B. bei
+        # "Trusted" statt "Full" Network Access). Die Redaktion faellt in
+        # diesem Fall auf WebSearch zurueck (editorial_brief.md, Schritt 0).
+        print(
+            "Warnung: keine einzige RSS-Quelle hat geantwortet - vermutlich "
+            "blockiert die Netzwerk-Policy der Umgebung externe Domains. "
+            "Weiter mit leerem Rohmaterial, Recherche laeuft dann komplett "
+            "ueber WebSearch.",
+            file=sys.stderr,
+        )
 
     now_berlin = datetime.now(ZoneInfo("Europe/Berlin"))
     header = (
         f"# Rohmaterial fuer den Morgenkurier\n\n"
         f"Redaktionsschluss: {german_date(now_berlin)}, "
         f"{now_berlin.strftime('%H:%M')} Uhr (Europe/Berlin)\n"
-        f"Quellen, die geantwortet haben: {len(all_items)} von {len(all_items)}\n\n"
+        f"Quellen, die geantwortet haben: {len(all_items)} von {len(FEEDS)}\n\n"
         f"---\n\n"
     )
     material = header + material_block(all_items)
