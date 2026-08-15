@@ -45,6 +45,9 @@ jobs:
         timeout-minutes: 25
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          # Diagnose: druckt die vollstaendige Fehlermeldung des Modellaufrufs.
+          # Ohne das meldet die Action nur 'is_error:true' ohne Begruendung.
+          show_full_output: true
           prompt: |
             Lies scripts/editorial_brief.md und folge dem Briefing
             vollstaendig. Ergebnis ist genau eine Datei: build/content.json.
