@@ -372,7 +372,7 @@ def render_toc_ressort_rows(ressorts: list) -> str:
     for i, r in enumerate(ressorts or []):
         num = SECNUM_ERSTES_RESSORT + i
         rows.append(
-            f'<a href="#{esc(r.get("id"))}"><div class="toc-row"><div class="num">{num:02d}</div>'
+            f'<a class="toc-link" href="#{esc(r.get("id"))}"><div class="toc-row"><div class="num">{num:02d}</div>'
             f'<div class="body"><h4>{esc(r.get("name"))}</h4><p>{esc(r.get("toc_teaser"))}</p></div></div></a>'
         )
     return "\n    ".join(rows)

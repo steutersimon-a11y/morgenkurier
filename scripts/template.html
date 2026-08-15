@@ -174,8 +174,11 @@
   .toc-row .num{font-family:'Playfair Display',serif;font-weight:700;font-size:22px;color:var(--accent);min-width:38px;}
   .toc-row .body h4{margin:0 0 4px;font-size:16px;font-weight:700;}
   .toc-row .body p{margin:0;font-size:12.5px;color:var(--muted);}
-  .toc-row a{color:var(--ink);text-decoration:none;}
-  .toc-row a:hover .body h4{color:var(--accent);}
+  /* Der <a>-Tag UMSCHLIESST .toc-row im Markup (nicht umgekehrt) - daher
+     hier eine eigene Klasse auf dem Link selbst statt einer Nachfahren-
+     Regel, die sonst nie zutrifft und auf Browser-Standardblau zurueckfaellt. */
+  a.toc-link{color:var(--ink);text-decoration:none;display:block;}
+  a.toc-link:hover .body h4{color:var(--accent);}
 
   /* ---- INDEX TABLE ---- */
   table.index{width:100%;border-collapse:collapse;margin-bottom:6px;}
@@ -288,13 +291,13 @@
     <h2 class="sectitle">Inhalt</h2>
     <div class="secdesc">Ein Klick auf einen Eintrag springt direkt zum jeweiligen Ressort.</div>
 
-    <a href="#index"><div class="toc-row"><div class="num">03</div><div class="body"><h4>Morgenkurier Index</h4><p>Die redaktionelle Lage in mehreren Bereichen auf einen Blick</p></div></div></a>
-    <a href="#welt-am-morgen"><div class="toc-row"><div class="num">04</div><div class="body"><h4>Die Welt am Morgen</h4><p>Das Wichtigste aus aller Welt, komprimiert</p></div></div></a>
-    <a href="#watchlist"><div class="toc-row"><div class="num">05</div><div class="body"><h4>Finanzmarkt-Watchlist</h4><p>NVIDIA, Rocket Lab, Quantum eMotion — Kurs und Einordnung</p></div></div></a>
+    <a class="toc-link" href="#index"><div class="toc-row"><div class="num">03</div><div class="body"><h4>Morgenkurier Index</h4><p>Die redaktionelle Lage in mehreren Bereichen auf einen Blick</p></div></div></a>
+    <a class="toc-link" href="#welt-am-morgen"><div class="toc-row"><div class="num">04</div><div class="body"><h4>Die Welt am Morgen</h4><p>Das Wichtigste aus aller Welt, komprimiert</p></div></div></a>
+    <a class="toc-link" href="#watchlist"><div class="toc-row"><div class="num">05</div><div class="body"><h4>Finanzmarkt-Watchlist</h4><p>NVIDIA, Rocket Lab, Quantum eMotion — Kurs und Einordnung</p></div></div></a>
     §§TOC_RESSORT_ROWS§§
-    <a href="#signal"><div class="toc-row"><div class="num">§§NUM_SIGNAL§§</div><div class="body"><h4>The Signal</h4><p>Drei Frühindikatoren, die diese Woche mehr verraten als die Schlagzeilen</p></div></div></a>
-    <a href="#deepdive"><div class="toc-row"><div class="num">§§NUM_DEEPDIVE§§</div><div class="body"><h4>Deep Dive</h4><p>Eine Ausgabe, ein Thema, das mehrere Ressorts verbindet</p></div></div></a>
-    <a href="#zitat"><div class="toc-row"><div class="num">§§NUM_ZITAT§§</div><div class="body"><h4>Zitat des Tages</h4><p>Ein ruhiger Schluss zum Ausklang der Ausgabe</p></div></div></a>
+    <a class="toc-link" href="#signal"><div class="toc-row"><div class="num">§§NUM_SIGNAL§§</div><div class="body"><h4>The Signal</h4><p>Drei Frühindikatoren, die diese Woche mehr verraten als die Schlagzeilen</p></div></div></a>
+    <a class="toc-link" href="#deepdive"><div class="toc-row"><div class="num">§§NUM_DEEPDIVE§§</div><div class="body"><h4>Deep Dive</h4><p>Eine Ausgabe, ein Thema, das mehrere Ressorts verbindet</p></div></div></a>
+    <a class="toc-link" href="#zitat"><div class="toc-row"><div class="num">§§NUM_ZITAT§§</div><div class="body"><h4>Zitat des Tages</h4><p>Ein ruhiger Schluss zum Ausklang der Ausgabe</p></div></div></a>
   </section>
 
   <!-- ================= INDEX ================= -->
