@@ -124,6 +124,25 @@
   .meta-row .special{color:var(--accent);}
   .meta-row .ticker{max-width:520px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
 
+  /* ---- HALTUNG (taeglicher Impuls, VOR den Nachrichten, zeitlos) ---- */
+  .haltung{padding:34px 24px 30px;border-top:2px solid var(--rule);border-bottom:2px solid var(--rule);}
+  .haltung-kicker{font-size:10.5px;letter-spacing:3px;text-transform:uppercase;color:var(--accent);font-weight:700;text-align:center;}
+  .haltung-sub{font-size:11px;font-style:italic;color:var(--muted);text-align:center;margin:4px 0 22px;}
+  .haltung-titel{
+    font-family:'Playfair Display',serif;font-weight:700;font-style:italic;font-size:26px;
+    text-align:center;margin:0 auto 20px;max-width:520px;line-height:1.3;
+  }
+  .haltung-text{max-width:560px;margin:0 auto;}
+  .haltung-eroeffnung{
+    font-family:'Playfair Display',serif;font-size:17px;font-weight:600;
+    line-height:1.6;margin-bottom:14px;
+  }
+  .haltung-text p{font-size:14.5px;line-height:1.75;color:var(--ink-soft);}
+  .haltung-zitat{max-width:480px;margin:20px auto;padding:16px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);text-align:center;}
+  .haltung-zitat p{font-family:'Playfair Display',serif;font-style:italic;font-size:15.5px;margin:0 0 8px;color:var(--ink);}
+  .haltung-zitat .autor{font-size:10.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent);font-weight:700;}
+  .haltung-mitnehmen{max-width:480px;margin:18px auto 0;text-align:center;font-size:13.5px;font-weight:700;color:var(--accent);}
+
   /* ---- COVER LEAD ---- */
   .cover{padding:26px 24px 6px;border-top:2px solid var(--rule);}
   .cover h2{
@@ -275,6 +294,19 @@
     <span class="ticker">§§RESSORT_TICKER§§</span>
   </div>
   <div class="hairline"></div>
+
+  <!-- ================= HALTUNG (vor den Nachrichten) ================= -->
+  <div class="haltung" id="haltung">
+    <div class="haltung-kicker">Haltung</div>
+    <div class="haltung-sub">Zwei Minuten, bevor der Tag beginnt.</div>
+    <h2 class="haltung-titel">§§HALTUNG_TITEL§§</h2>
+    <div class="haltung-text">
+      <p class="haltung-eroeffnung">§§HALTUNG_EROEFFNUNG§§</p>
+§§HALTUNG_TEXT§§
+    </div>
+§§HALTUNG_ZITAT§§
+    <p class="haltung-mitnehmen">§§HALTUNG_MITNEHMEN§§</p>
+  </div>
 
   <!-- ================= COVER ================= -->
   <div class="cover">

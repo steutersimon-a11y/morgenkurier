@@ -19,6 +19,60 @@ bei unbegrenzter Länge nicht erlaubt.
 
 ---
 
+## Haltung — der tägliche Impuls (ganz oben, vor den Nachrichten)
+
+Bevor irgendeine Nachricht kommt, liest die Leserin diesen Abschnitt zuerst.
+Er ist **kein Nachrichtenformat** und **keine Zusammenfassung des
+Tagesgeschehens** — er ist zeitlos, persönlich, und existiert unabhängig
+davon, was heute sonst passiert. Ziel: Nach rund 350 Wörtern (~2 Minuten
+Lesezeit) soll die Leserin gestärkt, geerdet und mit einem klaren Gedanken
+in den Tag gehen — nicht informiert, sondern getragen.
+
+**Anspruch.** Schreibe auf dem Niveau von Marc Aurels *Selbstbetrachtungen*,
+Senecas *Briefen an Lucilius*, oder eines wirklich gut geschriebenen
+"Daily Stoic"-Eintrags — nicht auf dem Niveau eines Motivationsposters oder
+LinkedIn-Posts. Keine Plattitüden ("Du schaffst das!", "Jeder Tag ist ein
+Geschenk", "Glaube an dich"). Jeder Satz muss sich verdienen durch das, was
+davor stand.
+
+**Die Form wechselt täglich** — wähle, was zum inneren Gehalt des Tages
+passt, nicht willkürlich:
+- ein echtes Zitat (Marc Aurel, Epiktet, Seneca, aber auch Rilke, Hesse,
+  moderne Denker) mit einer Reflexion, die es für den heutigen Tag übersetzt;
+- eine kurze, echte Gedichtzeile oder ein kurzer Vers mit Interpretation;
+- eine wirklich verifizierte historische Anekdote oder Parabel mit einer
+  daraus gezogenen Lehre;
+- eine eigene, original geschriebene Reflexion ganz ohne externes Zitat —
+  dann muss die Sprache selbst tragen.
+
+**Verifikationspflicht — hier besonders streng.** Zitate von Marc Aurel und
+ähnlichen Denkern sind im Internet und in Trainingsdaten voller Fälschungen:
+falsch zugeschriebene oder frei erfundene "Zitate" kursieren massenhaft.
+Bevor du ein Zitat verwendest:
+1. Suche gezielt per WebSearch nach dem genauen Wortlaut **und** der
+   Zuschreibung.
+2. Findest du keine verlässliche Bestätigung, verwende das Zitat **nicht**
+   wörtlich — paraphrasiere den Gedanken ohne Anführungszeichen und ohne
+   Namensnennung, oder wähle ein anderes, verifizierbares Zitat.
+3. Historische Anekdoten: nur verwenden, wenn die Recherche sie bestätigt.
+   Ist eine Geschichte ein bekanntes Lehrstück/Parabel ohne echten
+   historischen Anspruch, kennzeichne sie als das ("Eine alte Geschichte
+   erzählt …") statt sie als verbürgtes Ereignis zu präsentieren.
+
+**Struktur** (Feld `haltung` in `build/content.json`, siehe Schema unten):
+- `titel` — ein individueller Titel für **heute**, nicht die feste Rubrik
+  "Haltung" (die steht schon fest im Layout). Kein Klischee ("Kraft für den
+  Tag", "Neuer Morgen, neues Glück").
+- `eroeffnung` — EIN Satz, der sofort trägt. Kein Füllsatz — das ist die
+  Zeile, die hängen bleibt.
+- `text` — 3–5 Absätze, zusammen ca. 320–380 Wörter.
+- `zitat` — nur befüllen, wenn ein echtes, verifiziertes Zitat/Vers zentral
+  ist. Sonst `null` (nicht jeder Tag braucht eins).
+- `mitnehmen` — EIN knapper, konkreter Satz zum Mitnehmen. Kein
+  Imperativ-Slogan, sondern ein Gedanke, den man im Kopf behält.
+
+---
+
 ## Ablauf
 
 Du arbeitest autonom — niemand schaut zu, niemand bestätigt Zwischenschritte.
@@ -259,6 +313,14 @@ Reines JSON, keine Code-Fences, keine Kommentare.
 
 ```json
 {
+  "haltung": {
+    "titel": "str — individueller Titel fuer heute, siehe Abschnitt Haltung oben",
+    "eroeffnung": "str — 1 tragender Satz",
+    "text": ["str — 3-5 Absaetze, zusammen ca. 320-380 Woerter"],
+    "zitat": {"text": "str oder null — nur echte, verifizierte Zitate", "author": "str oder null"},
+    "mitnehmen": "str — 1 knapper Satz zum Mitnehmen"
+  },
+
   "cover_headline": "str — wichtigstes Thema der gesamten Ausgabe, eine Zeile",
   "cover_dek": "str — 2-3 Sätze Einordnung des Leitthemas",
   "cover_items": [
@@ -328,6 +390,7 @@ Reines JSON, keine Code-Fences, keine Kommentare.
 
 | Feld | Vorgabe |
 |---|---|
+| `haltung.text` | 320–380 Wörter (~2 Minuten Lesezeit) — bei Über- oder Unterlänge Warnung, siehe Abschnitt Haltung oben |
 | `cover_items` | genau 4, aus verschiedenen Ressorts, nicht identisch mit `cover_headline` |
 | `index_table` | mind. 6, deckt die wichtigsten Ressorts des Tages ab |
 | `welt_am_morgen` | 8–10, quer durch alle Themenbereiche |

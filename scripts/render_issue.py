@@ -62,6 +62,7 @@ SECNUM_ERSTES_RESSORT = 6
 # (z.B. an material-armen Tagen) nicht staendig als Fehler markiert werden.
 HAUPTARTIKEL_WORD_TARGET = 350
 DEEPDIVE_WORD_TARGET = 400
+HALTUNG_WORD_TARGET = 350  # ca. 2 Minuten Lesezeit
 
 
 # ---------------------------------------------------------------------------
@@ -75,12 +76,14 @@ REQUIRED_TOP_LISTS = [
     ("finanzmarkt_watchlist", 3),
     ("ressorts", 6),
     ("signal", 3),
+    ("haltung.text", 3),
 ]
 
 REQUIRED_TOP_STRINGS = [
     "cover_headline", "cover_dek", "gedanke",
     "deepdive.headline",
     "quote.text", "quote.author",
+    "haltung.titel", "haltung.eroeffnung", "haltung.mitnehmen",
 ]
 
 
@@ -217,6 +220,18 @@ def validate(content: dict) -> None:
     else:
         print(f"  OK: Deep Dive {dd_words} Woerter (Ziel {DEEPDIVE_WORD_TARGET}).")
 
+    # Haltung soll wirklich ~2 Minuten lesbar sein - anders als sonst wird
+    # hier auch vor Ueberlaenge gewarnt, nicht nur vor Unterlaenge.
+    haltung_words = count_words(dig(content, "haltung.text"))
+    if not (HALTUNG_WORD_TARGET * 0.7 <= haltung_words <= HALTUNG_WORD_TARGET * 1.4):
+        print(
+            f"Warnung: 'Haltung' hat {haltung_words} Woerter "
+            f"(Ziel ca. {HALTUNG_WORD_TARGET} fuer ~2 Minuten Lesezeit).",
+            file=sys.stderr,
+        )
+    else:
+        print(f"  OK: Haltung {haltung_words} Woerter (Ziel ca. {HALTUNG_WORD_TARGET}).")
+
 
 # ---------------------------------------------------------------------------
 # Rendering
@@ -276,6 +291,17 @@ def render_watchlist(entries) -> str:
         f'        <p class="watch-einordnung">{esc(entry.get("einordnung"))}</p>\n'
         f'      </div>'
         for entry in entries or []
+    )
+
+
+def render_haltung_zitat(zitat) -> str:
+    if not zitat or not zitat.get("text"):
+        return ""
+    return (
+        '  <div class="haltung-zitat">\n'
+        f'    <p>„{esc(zitat.get("text"))}"</p>\n'
+        f'    <div class="autor">— {esc(zitat.get("author"))}</div>\n'
+        '  </div>'
     )
 
 
@@ -399,6 +425,7 @@ def render_html(content: dict, sources: list[str], edition_number: int,
 
     deepdive = content.get("deepdive") or {}
     quote = content.get("quote") or {}
+    haltung = content.get("haltung") or {}
 
     edition_label = f"Ausgabe {edition_number:03d}"
     replacements = {
@@ -406,6 +433,11 @@ def render_html(content: dict, sources: list[str], edition_number: int,
         "§§EDITION_LABEL§§": esc(edition_label),
         "§§DATE_TIME§§": esc(f"{date_str} · {time_str} Uhr"),
         "§§RESSORT_TICKER§§": render_ressort_ticker(ressorts),
+        "§§HALTUNG_TITEL§§": esc(haltung.get("titel")),
+        "§§HALTUNG_EROEFFNUNG§§": esc(haltung.get("eroeffnung")),
+        "§§HALTUNG_TEXT§§": paragraphs(haltung.get("text")),
+        "§§HALTUNG_ZITAT§§": render_haltung_zitat(haltung.get("zitat")),
+        "§§HALTUNG_MITNEHMEN§§": esc(haltung.get("mitnehmen")),
         "§§COVER_HEADLINE§§": esc(content.get("cover_headline")),
         "§§COVER_DEK§§": esc(content.get("cover_dek")),
         "§§COVER_LIST§§": render_cover_items(content.get("cover_items")),
