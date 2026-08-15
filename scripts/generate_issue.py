@@ -72,7 +72,6 @@ FEEDS = {
     "USA & Kanada (BBC)": "http://feeds.bbci.co.uk/news/world/us_and_canada/rss.xml",
     "Welt (BBC World)": "http://feeds.bbci.co.uk/news/world/rss.xml",
     "Europa & Welt (Deutsche Welle)": "https://rss.dw.com/rdf/rss-de-all",
-    "Europa (DW)": "https://rss.dw.com/rdf/rss-de-eu",
     "Asien (BBC)": "http://feeds.bbci.co.uk/news/world/asia/rss.xml",
     "Technologie (Heise)": "https://www.heise.de/rss/heise-atom.xml",
     "Technologie (Golem)": "https://rss.golem.de/rss.php?feed=RSS2.0",
@@ -248,6 +247,9 @@ def extract_json(raw_text: str) -> dict:
     return json.loads(raw_text[start : end + 1])
 
 
+MAX_ATTEMPTS = 3
+
+
 def run_group(name: str, api_key: str, max_completion_tokens: int, material: str,
               schema: str, covered: list[str], extra_context: str = "") -> dict:
     print(f"Generiere Gruppe '{name}' ({max_completion_tokens} Tokens Budget)...")
@@ -257,10 +259,25 @@ def run_group(name: str, api_key: str, max_completion_tokens: int, material: str
         f"{extra_context}\n"
         f"{schema}"
     )
-    raw_text = call_groq(BASE_SYSTEM_PROMPT, user_prompt, api_key, max_completion_tokens)
-    result = extract_json(raw_text)
-    print(f"Gruppe '{name}' fertig ({len(raw_text)} Zeichen Antwort).")
-    return result
+    # Groq occasionally emits syntactically broken JSON (e.g. a mismatched
+    # bracket in a nested array) and its strict response_format validation
+    # then rejects the whole request with a 400 instead of handing us the
+    # raw text to repair ourselves. This is a transient generation glitch,
+    # not a capacity problem, so a retry (in a fresh TPM window) reliably
+    # fixes it.
+    last_error: Exception | None = None
+    for attempt in range(1, MAX_ATTEMPTS + 1):
+        try:
+            raw_text = call_groq(BASE_SYSTEM_PROMPT, user_prompt, api_key, max_completion_tokens)
+            result = extract_json(raw_text)
+            print(f"Gruppe '{name}' fertig ({len(raw_text)} Zeichen Antwort).")
+            return result
+        except (RuntimeError, json.JSONDecodeError) as exc:
+            last_error = exc
+            print(f"Warnung: Gruppe '{name}' Versuch {attempt}/{MAX_ATTEMPTS} fehlgeschlagen: {exc}", file=sys.stderr)
+            if attempt < MAX_ATTEMPTS:
+                time.sleep(COOLDOWN_SECONDS)
+    raise RuntimeError(f"Gruppe '{name}' nach {MAX_ATTEMPTS} Versuchen fehlgeschlagen: {last_error}")
 
 
 # ---------------------------------------------------------------------------
@@ -354,7 +371,7 @@ Die Mindest-Wortzahlen sind harte Vorgaben. Wenn zu einem Bereich nichts Ausreic
 
 def group_c(all_items, api_key, covered) -> dict:
     material = material_block(all_items, [
-        "Welt (BBC World)", "Europa & Welt (Deutsche Welle)", "Europa (DW)", "Asien (BBC)",
+        "Welt (BBC World)", "Europa & Welt (Deutsche Welle)", "Asien (BBC)",
     ])
     return run_group("Geopolitik & CSEE", api_key, 7000, material, SCHEMA_C, covered)
 
