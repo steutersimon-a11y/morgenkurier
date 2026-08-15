@@ -24,9 +24,11 @@ bei unbegrenzter Länge nicht erlaubt.
 Bevor irgendeine Nachricht kommt, liest die Leserin diesen Abschnitt zuerst.
 Er ist **kein Nachrichtenformat** und **keine Zusammenfassung des
 Tagesgeschehens** — er ist zeitlos, persönlich, und existiert unabhängig
-davon, was heute sonst passiert. Ziel: Nach rund 350 Wörtern (~2 Minuten
-Lesezeit) soll die Leserin gestärkt, geerdet und mit einem klaren Gedanken
-in den Tag gehen — nicht informiert, sondern getragen.
+davon, was heute sonst passiert. Ziel: Nach 320 bis 600 Wörtern (~2 bis 3
+Minuten Lesezeit) soll die Leserin gestärkt, geerdet und mit einem klaren
+Gedanken in den Tag gehen — nicht informiert, sondern getragen. Die
+Obergrenze ist bewusst großzügig: lieber ein Gedanke, der wirklich zu Ende
+gedacht ist, als einer, der auf 350 Wörter gestutzt wurde.
 
 **Anspruch.** Schreibe auf dem Niveau von Marc Aurels *Selbstbetrachtungen*,
 Senecas *Briefen an Lucilius*, oder eines wirklich gut geschriebenen
@@ -65,7 +67,9 @@ Bevor du ein Zitat verwendest:
   Tag", "Neuer Morgen, neues Glück").
 - `eroeffnung` — EIN Satz, der sofort trägt. Kein Füllsatz — das ist die
   Zeile, die hängen bleibt.
-- `text` — 3–5 Absätze, zusammen ca. 320–380 Wörter.
+- `text` — 3–6 Absätze, zusammen 320–600 Wörter. Kürzer ist besser als
+  gestreckt, aber ein Gedanke darf auch die vollen 600 Wörter brauchen,
+  wenn er es wert ist.
 - `zitat` — nur befüllen, wenn ein echtes, verifiziertes Zitat/Vers zentral
   ist. Sonst `null` (nicht jeder Tag braucht eins).
 - `mitnehmen` — EIN knapper, konkreter Satz zum Mitnehmen. Kein
@@ -316,7 +320,7 @@ Reines JSON, keine Code-Fences, keine Kommentare.
   "haltung": {
     "titel": "str — individueller Titel fuer heute, siehe Abschnitt Haltung oben",
     "eroeffnung": "str — 1 tragender Satz",
-    "text": ["str — 3-5 Absaetze, zusammen ca. 320-380 Woerter"],
+    "text": ["str — 3-6 Absaetze, zusammen 320-600 Woerter"],
     "zitat": {"text": "str oder null — nur echte, verifizierte Zitate", "author": "str oder null"},
     "mitnehmen": "str — 1 knapper Satz zum Mitnehmen"
   },
@@ -390,7 +394,7 @@ Reines JSON, keine Code-Fences, keine Kommentare.
 
 | Feld | Vorgabe |
 |---|---|
-| `haltung.text` | 320–380 Wörter (~2 Minuten Lesezeit) — bei Über- oder Unterlänge Warnung, siehe Abschnitt Haltung oben |
+| `haltung.text` | 320–600 Wörter (~2–3 Minuten Lesezeit) — außerhalb dieses Bereichs Warnung, siehe Abschnitt Haltung oben |
 | `cover_items` | genau 4, aus verschiedenen Ressorts, nicht identisch mit `cover_headline` |
 | `index_table` | mind. 6, deckt die wichtigsten Ressorts des Tages ab |
 | `welt_am_morgen` | 8–10, quer durch alle Themenbereiche |

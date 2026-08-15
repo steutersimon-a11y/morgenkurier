@@ -62,7 +62,8 @@ SECNUM_ERSTES_RESSORT = 6
 # (z.B. an material-armen Tagen) nicht staendig als Fehler markiert werden.
 HAUPTARTIKEL_WORD_TARGET = 350
 DEEPDIVE_WORD_TARGET = 400
-HALTUNG_WORD_TARGET = 350  # ca. 2 Minuten Lesezeit
+HALTUNG_WORD_MIN = 320   # ca. 2 Minuten Lesezeit
+HALTUNG_WORD_MAX = 600   # ca. 3 Minuten - vom Nutzer explizit als Obergrenze erlaubt
 
 
 # ---------------------------------------------------------------------------
@@ -223,14 +224,14 @@ def validate(content: dict) -> None:
     # Haltung soll wirklich ~2 Minuten lesbar sein - anders als sonst wird
     # hier auch vor Ueberlaenge gewarnt, nicht nur vor Unterlaenge.
     haltung_words = count_words(dig(content, "haltung.text"))
-    if not (HALTUNG_WORD_TARGET * 0.7 <= haltung_words <= HALTUNG_WORD_TARGET * 1.4):
+    if not (HALTUNG_WORD_MIN <= haltung_words <= HALTUNG_WORD_MAX):
         print(
             f"Warnung: 'Haltung' hat {haltung_words} Woerter "
-            f"(Ziel ca. {HALTUNG_WORD_TARGET} fuer ~2 Minuten Lesezeit).",
+            f"(erlaubter Bereich {HALTUNG_WORD_MIN}-{HALTUNG_WORD_MAX} fuer 2-3 Minuten Lesezeit).",
             file=sys.stderr,
         )
     else:
-        print(f"  OK: Haltung {haltung_words} Woerter (Ziel ca. {HALTUNG_WORD_TARGET}).")
+        print(f"  OK: Haltung {haltung_words} Woerter ({HALTUNG_WORD_MIN}-{HALTUNG_WORD_MAX} erlaubt).")
 
 
 # ---------------------------------------------------------------------------
