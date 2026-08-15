@@ -51,10 +51,9 @@ jobs:
           prompt: |
             Lies scripts/editorial_brief.md und folge dem Briefing
             vollstaendig. Ergebnis ist genau eine Datei: build/content.json.
-          claude_args: |
-            --model claude-sonnet-5
-            --max-turns 60
-            --allowedTools "Read,Write,Edit,Glob,Grep,WebSearch,WebFetch,Bash(python3:*)"
+          # Bewusst OHNE claude_args: eingrenzen, welcher Parameter den
+          # sofortigen 400 ausloest. Laeuft es so durch, wird --model,
+          # --max-turns und --allowedTools einzeln wieder ergaenzt.
 
       - name: HTML rendern
         run: python scripts/render_issue.py
