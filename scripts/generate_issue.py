@@ -250,6 +250,49 @@ def extract_json(raw_text: str) -> dict:
 MAX_ATTEMPTS = 3
 
 
+def count_words(text: str) -> int:
+    return len(text.split())
+
+
+def expand_article(article_paragraphs: list[str], current_words: int, target_words: int,
+                   api_key: str, material: str, article_title: str) -> list[str]:
+    """If article falls short of target, request expansion in a dedicated second pass."""
+    if current_words >= target_words * 0.85:
+        return article_paragraphs
+    shortage = target_words - current_words
+    print(f"  Artikel nur {current_words} Woerter (Ziel: {target_words}). Fuehre Erweiterungspass durch...", file=sys.stderr)
+
+    current_text = " ".join(article_paragraphs)
+    expansion_prompt = f"""Du bekommst einen bereits geschriebenen Artikel und sollst ihn erweitern/vertiefen, ohne den Ton oder die Struktur zu zerstoeren.
+
+AKTUELLER ARTIKEL ({current_words} Woerter):
+{current_text}
+
+ORIGINAL-ROHMATERIAL (zur Recherche fuer Vertiefungen):
+{material}
+
+AUFGABE: Erweitere den Artikel um mindestens {shortage} weitere Woerter. Nutze das Material, um:
+1. Einen oder zwei Absaetze mit zusaetzlichen Facetten, Kontext oder Konsequenzen einzufuegen (nicht einfach bestehende Saetze umformulieren).
+2. Den bestehenden Text minimal zu erwaendern - neue Saetze/Absaetze einfuegen statt zu ersetzen.
+
+ANTWORTE AUSSCHLIESSLICH MIT EINEM GUELTIGEM JSON-OBJEKT (kein Markdown, keine Code-Fences):
+{{
+  "article_paragraphs": [str] (alle Absaetze des erweiterten Artikels als Array)
+}}"""
+
+    try:
+        raw_text = call_groq(BASE_SYSTEM_PROMPT, expansion_prompt, api_key, 3000)
+        result = extract_json(raw_text)
+        expanded = result.get("article_paragraphs", article_paragraphs)
+        new_words = sum(count_words(p) for p in expanded)
+        print(f"  Erweiterung abgeschlossen: {new_words} Woerter.", file=sys.stderr)
+        time.sleep(COOLDOWN_SECONDS)
+        return expanded
+    except Exception as exc:
+        print(f"  Warnung: Erweiterungspass fehlgeschlagen: {exc}. Nutze Original.", file=sys.stderr)
+        return article_paragraphs
+
+
 def run_group(name: str, api_key: str, max_completion_tokens: int, material: str,
               schema: str, covered: list[str], extra_context: str = "") -> dict:
     print(f"Generiere Gruppe '{name}' ({max_completion_tokens} Tokens Budget)...")
@@ -309,7 +352,20 @@ def group_a(all_items, api_key, covered) -> dict:
     material = material_block(all_items, [
         "Deutschland (Tagesschau Inland)", "Welt (Tagesschau Ausland)",
     ])
-    return run_group("Deutschland & Politik", api_key, 8000, material, SCHEMA_A, covered)
+    result = run_group("Deutschland & Politik", api_key, 8000, material, SCHEMA_A, covered)
+
+    # Expansion pass for Deutschland article if word count is below target
+    deutsch_section = result.get("deutschland", {})
+    article_paras = deutsch_section.get("article_paragraphs", [])
+    current_words = sum(count_words(p) for p in article_paras)
+    if current_words < 450:
+        expanded_paras = expand_article(
+            article_paras, current_words, 450, api_key,
+            material, deutsch_section.get("article_title", "")
+        )
+        result["deutschland"]["article_paragraphs"] = expanded_paras
+
+    return result
 
 
 # ---------------------------------------------------------------------------
@@ -433,7 +489,20 @@ def group_e(all_items, api_key, covered, digest: str) -> dict:
         f"um cover_headline/deepdive bewusst zu unterscheiden und Doppelungen "
         f"zu vermeiden):\n{digest}\n"
     )
-    return run_group("Cover & Synthese", api_key, 6500, material, SCHEMA_E, covered, extra_context)
+    result = run_group("Cover & Synthese", api_key, 6500, material, SCHEMA_E, covered, extra_context)
+
+    # Expansion pass for Deep Dive if word count is below target
+    deepdive_section = result.get("deepdive", {})
+    dd_paras = deepdive_section.get("paragraphs", [])
+    dd_words = sum(count_words(p) for p in dd_paras)
+    if dd_words < 400:
+        expanded_dd_paras = expand_article(
+            dd_paras, dd_words, 400, api_key,
+            material, deepdive_section.get("headline", "")
+        )
+        result["deepdive"]["paragraphs"] = expanded_dd_paras
+
+    return result
 
 
 def build_digest(result_a: dict, result_b: dict, result_c: dict, result_d: dict) -> str:
