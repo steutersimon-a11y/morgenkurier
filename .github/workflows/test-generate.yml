@@ -18,6 +18,10 @@ on:
 
 permissions:
   contents: read
+  # Die Action tauscht immer ein OIDC-Token gegen ein GitHub-App-Token,
+  # unabhaengig davon, wie Claude selbst authentifiziert ist. Ohne diese
+  # Berechtigung bricht sie nach drei Versuchen ab.
+  id-token: write
 
 jobs:
   testlauf:
