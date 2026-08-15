@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MORGENKURIER — Ausgabe 005</title>
+<title>MORGENKURIER — Ausgabe 006</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,600;1,700&display=swap" rel="stylesheet">
 <style>
@@ -83,6 +83,7 @@
     color:var(--muted);padding:11px 24px;font-weight:700;
   }
   .meta-row .special{color:var(--accent);}
+  .meta-row .ticker{max-width:520px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
 
   /* ---- COVER LEAD ---- */
   .cover{padding:26px 24px 6px;border-top:2px solid var(--rule);}
@@ -141,6 +142,18 @@
   table.index td.dot{width:36px;font-size:18px;}
   table.index td.note{color:var(--muted);font-size:12.5px;}
 
+  /* ---- FINANZMARKT WATCHLIST ---- */
+  .watch-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;border-top:1px solid var(--line);}
+  .watch-item{padding:16px 18px 4px 0;}
+  .watch-item:not(:last-child){border-right:1px solid var(--line);padding-right:18px;}
+  .watch-ticker{
+    font-family:'Playfair Display',serif;font-weight:700;font-size:13px;
+    color:var(--accent);letter-spacing:1px;margin-bottom:4px;
+  }
+  .watch-item h4{font-size:15.5px;margin:0 0 8px;font-weight:700;line-height:1.3;}
+  .watch-kurs{font-weight:700;}
+  .watch-einordnung{color:var(--muted);font-size:12.5px;}
+
   /* ---- SIGNAL ---- */
   .signal-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;border-top:1px solid var(--line);}
   .signal-item{padding:16px 18px 4px 0;}
@@ -149,23 +162,18 @@
   .signal-item h4{font-size:15.5px;margin:0 0 8px;font-weight:700;line-height:1.3;}
   .signal-item p{font-size:12.5px;color:#2b2b28;}
 
-  /* ---- MARKET MECHANICS BOX ---- */
-  .mechanics{background:var(--ink);color:var(--paper);padding:22px 24px;margin:4px 0 8px;}
-  .mechanics .tag{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#d9b08f;font-weight:700;margin-bottom:10px;}
-  .mechanics h4{font-family:'Playfair Display',serif;font-weight:700;font-size:20px;margin:0 0 10px;}
-  .mechanics p{font-size:13.5px;color:#e7e4d9;line-height:1.6;margin:0 0 10px;}
+  /* ---- ERKLAERBOX (optionale dunkle Box je Ressort) ---- */
+  .explainer{background:var(--ink);color:var(--paper);padding:22px 24px;margin:20px 0 8px;}
+  .explainer .tag{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#d9b08f;font-weight:700;margin-bottom:10px;}
+  .explainer h4{font-family:'Playfair Display',serif;font-weight:700;font-size:20px;margin:0 0 10px;}
+  .explainer p{font-size:13.5px;color:#e7e4d9;line-height:1.6;margin:0 0 10px;}
 
-  /* ---- CSEE ---- */
-  .csee-item{padding:14px 0;border-bottom:1px solid var(--line);}
-  .csee-item h4{margin:0 0 4px;font-size:15px;font-weight:700;}
-  .csee-item p{font-size:13.5px;margin:0 0 6px;}
+  /* ---- KLEINE ARTIKEL (je Ressort) ---- */
+  .mini-item{padding:14px 0;border-bottom:1px solid var(--line);}
+  .mini-item h4{margin:0 0 4px;font-size:15px;font-weight:700;}
+  .mini-item p{font-size:13.5px;margin:0 0 6px;}
   .relevanz{font-size:12.5px;color:var(--muted);border-left:2px solid var(--accent);padding-left:10px;margin:0;}
   .relevanz b{color:var(--accent);text-transform:uppercase;letter-spacing:0.5px;font-size:11px;}
-
-  /* ---- WISSEN (magazine flow, no cards/icons) ---- */
-  .wissen-item{padding:20px 0;border-bottom:1px solid var(--line);}
-  .wissen-item .kicker{font-size:10.5px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:6px;}
-  .wissen-item h3{font-size:19px;margin:0 0 8px;font-weight:700;line-height:1.25;}
 
   /* ---- DEEP DIVE ---- */
   .disclaimer{font-size:11px;color:var(--muted);font-style:italic;border-top:1px solid var(--line);padding-top:10px;margin-top:6px;}
@@ -186,8 +194,8 @@
   @media (max-width:680px){
     .cols{columns:1;}
     .cover-list{grid-template-columns:1fr;}
-    .signal-grid{grid-template-columns:1fr;}
-    .signal-item{border-right:none !important;border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:10px;}
+    .signal-grid,.watch-grid{grid-template-columns:1fr;}
+    .signal-item,.watch-item{border-right:none !important;border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:10px;}
   }
 </style>
 </head>
@@ -200,36 +208,44 @@
     <a href="#inhalt">Inhalt</a>
     <a href="#deutschland">Deutschland</a>
     <a href="#politik">Politik</a>
-    <a href="#finanzen">Finanzen</a>
+    <a href="#europa-geopolitik">Europa &amp; Geopolitik</a>
     <a href="#usa">USA</a>
-    <a href="#geopolitik">Welt</a>
-    <a href="#csee">CSEE</a>
-    <a href="#wissen">Wissen</a>
-    <a href="#future">Future</a>
+    <a href="#wirtschaft-finanzen">Wirtschaft &amp; Finanzen</a>
+    <a href="#csee-retail">CSEE Retail Brief</a>
+    <a href="#wissenschaft-technik">Wissenschaft &amp; Technik</a>
+    <a href="#feuilleton-kultur">Feuilleton &amp; Kultur</a>
+    <a href="#sport">Sport</a>
+    <a href="#leben-gesellschaft">Leben &amp; Gesellschaft</a>
+    <a href="#reise">Reise</a>
+    <a href="#wohnen-immobilien">Wohnen &amp; Immobilien</a>
+    <a href="#beruf-karriere">Beruf &amp; Karriere</a>
+    <a href="#medien-streaming">Medien, TV &amp; Streaming</a>
+    <a href="#magazin-reportage">Magazin: Große Reportage</a>
+    <a href="#deepdive">Deep Dive</a>
   </nav>
 
   <header class="masthead" id="top">
-    <div class="eyebrow">Ausgabe 005</div>
+    <div class="eyebrow">Ausgabe 006</div>
     <h1 class="title">Morgenkurier</h1>
     <div class="tagline">Nicht alles, was passiert, ist wichtig. Der Morgenkurier zeigt, was wichtig ist — und erklärt, warum.</div>
   </header>
   <div class="hairline thick"></div>
   <div class="meta-row">
-    <span class="special">Ausgabe 005</span>
-    <span>Samstag, 15. August 2026 · 16:24 Uhr</span>
-    <span>Deutschland · Politik · Finanzen · USA · Welt · CSEE · Wissen · Future</span>
+    <span class="special">Ausgabe 006</span>
+    <span>Samstag, 15. August 2026 · 18:57 Uhr</span>
+    <span class="ticker">Deutschland · Politik · Europa &amp; Geopolitik · USA · Wirtschaft &amp; Finanzen · CSEE Retail Brief · Wissenschaft &amp; Technik · Feuilleton &amp; Kultur · Sport · Leben &amp; Gesellschaft · Reise · Wohnen &amp; Immobilien · Beruf &amp; Karriere · Medien, TV &amp; Streaming · Magazin: Große Reportage</span>
   </div>
   <div class="hairline"></div>
 
   <!-- ================= COVER ================= -->
   <div class="cover">
-    <h2>Feuer bei Omiš, Dürre auf den Feldern: Europas Sommer wird zur Bilanzgröße</h2>
-    <p class="dek">Ein Waldbrand südlich von Split hat auf dem Höhepunkt der kroatischen Saison mehr als 2.000 Menschen aus Häusern und Hotels getrieben, ein Toter und rund 40 Verletzte sind bestätigt. Fast zeitgleich mussten in der Eifel etwa 1.800 Menschen ihre Häuser verlassen, und in Deutschland verdirbt die Dürre Weizen, Mais und Kartoffeln. Was bisher als Wetterlage abgebucht wurde, greift inzwischen in Umsätze, Lieferwege und Konsumbudgets ein.</p>
+    <h2>Ein Präsident beansprucht eine Meerenge, und der Ölmarkt glaubt ihm nicht</h2>
+    <p class="dek">Donald Trump kündigte am Freitag in Garden City an, die Straße von Hormus nach dem Sieg über Iran zum Territorium der Vereinigten Staaten zu erklären; Teherans Vizeaußenminister Kasem Gharibabadi antwortete, die Meerenge sei iranisch gewesen, sei iranisch und bleibe iranisch. Wenige Stunden später wurde erneut ein Tanker der Abu Dhabi National Oil Company beschossen, der dritte binnen einer Woche. Bemerkenswert ist die Reaktion der Märkte: Brent notierte am Freitag bei rund 87 Dollar, tiefer als vor zwei Wochen. Der Krieg ist heiß, der Ölpreis ist es nicht mehr.</p>
     <div class="cover-list">
-      <div class="ci"><h4>Autoindustrie auf dem Stand von 2005</h4><p>Die deutsche Automobilbranche beschäftigte Ende des ersten Halbjahres 691.500 Menschen, 42.300 weniger als ein Jahr zuvor.</p></div>
-      <div class="ci"><h4>Rekorde trotz 3,4 Prozent Inflation</h4><p>Der Dax markierte am Freitag mit 26.440,31 Punkten ein Allzeithoch, während die US-Terminmärkte erstmals seit Monaten wieder eine Zinserhöhung einpreisen.</p></div>
-      <div class="ci"><h4>Paris scheitert am eigenen Verfassungsrat</h4><p>Das französische Social-Media-Verbot für unter 15-Jährige, das am 1. September greifen sollte, ist am Freitag gekippt worden.</p></div>
-      <div class="ci"><h4>Chinas Ausfuhren wachsen zweistellig weiter</h4><p>Im Juli legten die Exporte um 23,9 Prozent zu, getragen von Halbleitern und KI-Hardware, während klassische Industriegüter schrumpfen.</p></div>
+      <div class="ci"><h4>Kaub meldet sechs Zentimeter</h4><p>Der Rhein-Pegel unterschritt am Freitag jeden je gemessenen Wert; viele Frachter fahren mit einem Fünftel ihrer Ladung.</p></div>
+      <div class="ci"><h4>Nvidia hält 21 Milliarden Dollar an SpaceX</h4><p>Eine 13F-Meldung offenbart, dass Intel und SpaceX zusammen fast 80 Prozent des offengelegten Beteiligungsportfolios ausmachen.</p></div>
+      <div class="ci"><h4>Das Feuer erreicht Omiš</h4><p>Rund 1.200 Menschen flohen aus dem dalmatinischen Küstenort, mehr als 1.000 Hektar brannten, sieben Verletzte schweben in Lebensgefahr.</p></div>
+      <div class="ci"><h4>Goldener Leopard nach Rumänien</h4><p>Florin Șerbans „Nu e locul tău aici“ gewann in Locarno den Hauptpreis, acht Jahre nach seinem letzten Spielfilm.</p></div>
     </div>
   </div>
 
@@ -239,20 +255,27 @@
     <h2 class="sectitle">Inhalt</h2>
     <div class="secdesc">Ein Klick auf einen Eintrag springt direkt zum jeweiligen Ressort.</div>
 
-    <a href="#index"><div class="toc-row"><div class="num">03</div><div class="body"><h4>Morgenkurier Index</h4><p>Die redaktionelle Lage in sieben Bereichen auf einen Blick</p></div></div></a>
+    <a href="#index"><div class="toc-row"><div class="num">03</div><div class="body"><h4>Morgenkurier Index</h4><p>Die redaktionelle Lage in mehreren Bereichen auf einen Blick</p></div></div></a>
     <a href="#welt-am-morgen"><div class="toc-row"><div class="num">04</div><div class="body"><h4>Die Welt am Morgen</h4><p>Das Wichtigste aus aller Welt, komprimiert</p></div></div></a>
-    <a href="#deutschland"><div class="toc-row"><div class="num">05</div><div class="body"><h4>Deutschland</h4><p>Die Automobilindustrie verliert 42.300 Stellen in zwölf Monaten, und der Abbau vollzieht sich fast geräuschlos.</p></div></div></a>
-    <a href="#politik"><div class="toc-row"><div class="num">06</div><div class="body"><h4>Politik</h4><p>Frankreichs Verfassungsrat stoppt das Social-Media-Verbot für Jugendliche und verschiebt damit die europäische Debatte auf die Technik der Altersprüfung.</p></div></div></a>
-    <a href="#finanzen"><div class="toc-row"><div class="num">07</div><div class="body"><h4>Finanzen &amp; Wirtschaft</h4><p>Aktienrekorde in Frankfurt und New York treffen auf eine US-Inflation von 3,4 Prozent und eine Fed, deren nächster Schritt offen ist.</p></div></div></a>
-    <a href="#mechanics"><div class="toc-row"><div class="num">08</div><div class="body"><h4>Market Mechanics</h4><p>Was die Wahrscheinlichkeiten der Terminmärkte tatsächlich aussagen und was nicht.</p></div></div></a>
-    <a href="#usa"><div class="toc-row"><div class="num">09</div><div class="body"><h4>United States</h4><p>Luigi Mangione bekennt sich schuldig, Trump zieht wegen seines Ballsaals vor den Supreme Court, die Börsen feiern.</p></div></div></a>
-    <a href="#geopolitik"><div class="toc-row"><div class="num">10</div><div class="body"><h4>Welt &amp; Geopolitik</h4><p>Chinas Exportmaschine läuft heiß, an der ukrainischen Front bewegt sich wenig, die Straße von Hormuz bleibt blockiert.</p></div></div></a>
-    <a href="#csee"><div class="toc-row"><div class="num">11</div><div class="body"><h4>CSEE Business Brief</h4><p>Kroatien kämpft mit Feuer in der Hochsaison, Ungarn erlebt einen Vertrauensgewinn, Rumänien bleibt ohne stabile Regierung.</p></div></div></a>
-    <a href="#signal"><div class="toc-row"><div class="num">12</div><div class="body"><h4>The Signal</h4><p>Drei Frühindikatoren, die diese Woche mehr verraten als die Schlagzeilen</p></div></div></a>
-    <a href="#future"><div class="toc-row"><div class="num">13</div><div class="body"><h4>Future &amp; Technology</h4><p>Robotaxis skalieren, Elektroflugzeuge fliegen erste Testrunden, und die Frage nach der Rendite des KI-Booms bleibt offen.</p></div></div></a>
-    <a href="#wissen"><div class="toc-row"><div class="num">14</div><div class="body"><h4>Wissen</h4><p>Von der Sonnenkorona über einen Goldfund in einer belgischen Kellerwand bis zum entlarvten Wunderkühler.</p></div></div></a>
-    <a href="#deepdive"><div class="toc-row"><div class="num">15</div><div class="body"><h4>Deep Dive</h4><p>Warum eine Übung in der Oberpfalz die Rüstungsetats und die Rüstungsaktien Europas neu sortiert.</p></div></div></a>
-    <a href="#zitat"><div class="toc-row"><div class="num">16</div><div class="body"><h4>Zitat des Tages</h4><p>Ein ruhiger Schluss zum Ausklang der Ausgabe</p></div></div></a>
+    <a href="#watchlist"><div class="toc-row"><div class="num">05</div><div class="body"><h4>Finanzmarkt-Watchlist</h4><p>NVIDIA, Rocket Lab, Quantum eMotion — Kurs und Einordnung</p></div></div></a>
+    <a href="#deutschland"><div class="toc-row"><div class="num">06</div><div class="body"><h4>Deutschland</h4><p>Der Rhein fällt unter jeden je gemessenen Wert, und Deutschland merkt, dass seine billigste Verkehrsader keine Garantie ist.</p></div></div></a>
+    <a href="#politik"><div class="toc-row"><div class="num">07</div><div class="body"><h4>Politik</h4><p>Französische, deutsche und britische Diplomaten arbeiten an einem Verhandlungsformat für die Ukraine, das Russland bisher gar nicht will.</p></div></div></a>
+    <a href="#europa-geopolitik"><div class="toc-row"><div class="num">08</div><div class="body"><h4>Europa &amp; Geopolitik</h4><p>Trump will Hormus zum US-Territorium erklären, Iran widerspricht, und der Ölpreis fällt trotzdem.</p></div></div></a>
+    <a href="#usa"><div class="toc-row"><div class="num">09</div><div class="body"><h4>USA</h4><p>Drei Vorgänge dieser Woche stellen dieselbe Frage: Wie viel Erlaubnis braucht diese Präsidentschaft noch?</p></div></div></a>
+    <a href="#wirtschaft-finanzen"><div class="toc-row"><div class="num">10</div><div class="body"><h4>Wirtschaft &amp; Finanzen</h4><p>Nvidias Pflichtmeldung legt offen, wie eng Chiphersteller und Abnehmer inzwischen kapitalmäßig verflochten sind.</p></div></div></a>
+    <a href="#csee-retail"><div class="toc-row"><div class="num">11</div><div class="body"><h4>CSEE Retail Brief</h4><p>Polen und Ungarn gewinnen an Kaufkraft, Rumänien konsolidiert, Österreich stagniert auf hohem Kostenniveau.</p></div></div></a>
+    <a href="#wissenschaft-technik"><div class="toc-row"><div class="num">12</div><div class="body"><h4>Wissenschaft &amp; Technik</h4><p>Google halbiert die Preise seines Arbeitspferds, während chinesische Modelle das Preisniveau von unten diktieren.</p></div></div></a>
+    <a href="#feuilleton-kultur"><div class="toc-row"><div class="num">13</div><div class="body"><h4>Feuilleton &amp; Kultur</h4><p>Florin Șerbans „Nu e locul tău aici“ holt den Goldenen Leoparden, acht Jahre nach seinem letzten Spielfilm.</p></div></div></a>
+    <a href="#sport"><div class="toc-row"><div class="num">14</div><div class="body"><h4>Sport</h4><p>Eine Schweizerin bricht einen 34 Jahre alten Meisterschaftsrekord, Bangladesh nähert sich einem historischen Testsieg.</p></div></div></a>
+    <a href="#leben-gesellschaft"><div class="toc-row"><div class="num">15</div><div class="body"><h4>Leben &amp; Gesellschaft</h4><p>Mehr als die Hälfte der befragten Gen-Z-Anleger hat Geld, das für Investitionen gedacht war, in Sportwetten umgeleitet.</p></div></div></a>
+    <a href="#reise"><div class="toc-row"><div class="num">16</div><div class="body"><h4>Reise</h4><p>Deutsche buchen weiter Pauschalreisen, sparen aber vor Ort, während Hitze und Feuer die Zielgebiete neu sortieren.</p></div></div></a>
+    <a href="#wohnen-immobilien"><div class="toc-row"><div class="num">17</div><div class="body"><h4>Wohnen &amp; Immobilien</h4><p>Wer bezahlt die Anpassung an Hitze, Leerstand und Zerstörung?</p></div></div></a>
+    <a href="#beruf-karriere"><div class="toc-row"><div class="num">18</div><div class="body"><h4>Beruf &amp; Karriere</h4><p>Erste belastbare Auswertungen zeigen, dass KI Einstiegsjobs nicht einfach vernichtet, sondern ihre Anforderungen verschiebt.</p></div></div></a>
+    <a href="#medien-streaming"><div class="toc-row"><div class="num">19</div><div class="body"><h4>Medien, TV &amp; Streaming</h4><p>Der Kölner Stadt-Anzeiger streicht 57 Vollzeitstellen und baut die Regionalproduktion auf digitale Teams und KI um.</p></div></div></a>
+    <a href="#magazin-reportage"><div class="toc-row"><div class="num">20</div><div class="body"><h4>Magazin: Große Reportage</h4><p>Die Taliban feiern in Kabul ihren Sieg, während das Land den höchsten Hilfsbedarf seit Beginn der Zählungen meldet.</p></div></div></a>
+    <a href="#signal"><div class="toc-row"><div class="num">21</div><div class="body"><h4>The Signal</h4><p>Drei Frühindikatoren, die diese Woche mehr verraten als die Schlagzeilen</p></div></div></a>
+    <a href="#deepdive"><div class="toc-row"><div class="num">22</div><div class="body"><h4>Deep Dive</h4><p>Eine Ausgabe, ein Thema, das mehrere Ressorts verbindet</p></div></div></a>
+    <a href="#zitat"><div class="toc-row"><div class="num">23</div><div class="body"><h4>Zitat des Tages</h4><p>Ein ruhiger Schluss zum Ausklang der Ausgabe</p></div></div></a>
   </section>
 
   <!-- ================= INDEX ================= -->
@@ -261,13 +284,15 @@
     <h2 class="sectitle">Morgenkurier Index</h2>
     <div class="secdesc">Redaktionelle Einschätzung der Lage, keine objektive Kennzahl.</div>
     <table class="index">
-      <tr><td class="area">Deutschland</td><td class="dot">🟠</td><td class="note">Industriebeschäftigung erodiert weiter, während Dürreschäden die Agrarpreise unter Druck setzen.</td></tr>
-      <tr><td class="area">USA</td><td class="dot">🟡</td><td class="note">Inflation kühlt nur langsam ab, die Fed hat sich für September nicht festgelegt.</td></tr>
-      <tr><td class="area">Europa</td><td class="dot">🟡</td><td class="note">Das Wachstum von 0,4 Prozent im zweiten Quartal ist solide, die Energiekosten bleiben der Bremsklotz.</td></tr>
-      <tr><td class="area">Geopolitik</td><td class="dot">🔴</td><td class="note">Hormuz bleibt faktisch gesperrt, im Donbass verschiebt sich die Front weiter zulasten Kiews.</td></tr>
-      <tr><td class="area">Finanzmärkte</td><td class="dot">🟢</td><td class="note">Dax, S&amp;P 500 und Russell 2000 auf Rekordniveau, getragen von Technologie und Nebenwerten.</td></tr>
-      <tr><td class="area">CSEE Retail</td><td class="dot">🟠</td><td class="note">Die kroatische Saison leidet unter Bränden, Rumänien konsolidiert, Ungarn dreht ins Positive.</td></tr>
-      <tr><td class="area">Technologie</td><td class="dot">🟢</td><td class="note">KI-Nachfrage trägt Halbleiterexporte und Investitionen, die Regulierung hinkt sichtbar hinterher.</td></tr>
+      <tr><td class="area">Energie &amp; Rohstoffe</td><td class="dot">🔴</td><td class="note">Hormus bleibt blockiert, die IEA warnt vor rasch schrumpfenden Ölvorräten, der Preis reagiert trotzdem kaum.</td></tr>
+      <tr><td class="area">Logistik Mitteleuropa</td><td class="dot">🔴</td><td class="note">Rhein, Donau, Loire und Po gleichzeitig auf Rekordtiefständen; Frachtraten steigen, Lieferzeiten werden unberechenbar.</td></tr>
+      <tr><td class="area">Konsum CSEE</td><td class="dot">🟡</td><td class="note">Polen und Ungarn mit realen Kaufkraftgewinnen, Rumänien unter Sparzwang, Österreich stabil, aber pessimistisch.</td></tr>
+      <tr><td class="area">Aktienmärkte</td><td class="dot">🟡</td><td class="note">Sommerrally trotz Krieg; die Konzentration auf wenige KI-Titel wächst weiter, Nvidias Quartalszahlen am 26. August sind der nächste Prüfstein.</td></tr>
+      <tr><td class="area">Währungen</td><td class="dot">🟠</td><td class="note">Der Yen hat die Hälfte des Interventionsgewinns wieder abgegeben, der Forint profitiert vom Regierungswechsel.</td></tr>
+      <tr><td class="area">Tourismus Adria</td><td class="dot">🟠</td><td class="note">Brände bei Omiš, gesperrte Küstenstraße zwischen Split und Dubrovnik, Hitze verschiebt Buchungen nach Norden.</td></tr>
+      <tr><td class="area">Arbeitsmarkt</td><td class="dot">🟠</td><td class="note">DAX-Konzerne verdienen so viel wie nie und beschäftigen 41.000 Menschen weniger als im Vorquartal.</td></tr>
+      <tr><td class="area">Sicherheit &amp; IT</td><td class="dot">🟠</td><td class="note">Aktive Ausnutzung einer vCenter-Lücke, Mac-Screen-Sharing-Angriffe, dazu die anlaufende Post-Quanten-Migration.</td></tr>
+      <tr><td class="area">Ukraine</td><td class="dot">🔴</td><td class="note">Kiew trifft die Raketenfabrik in Samara, Moskau lehnt eine Schwarzmeer-Waffenruhe ab, die Zivilopferzahlen erreichen einen Höchststand.</td></tr>
     </table>
   </section>
 
@@ -276,264 +301,603 @@
     <div class="secnum">04</div>
     <h2 class="sectitle">Die Welt am Morgen</h2>
     <div class="cols">
-      <p>— Ein Erdbeben der Stärke 7,7 vor der indonesischen Insel Flores hat mindestens 47 Menschen getötet, Rettungskräfte suchen weiter nach Verschütteten.</p>
-      <p>— In Japan starben acht Menschen bei außergewöhnlich heftigen Regenfällen, 7.000 Reisende strandeten am Flughafen Tokio-Narita.</p>
-      <p>— Der Waldbrand bei Omiš südlich von Split forderte ein Todesopfer und rund 40 Verletzte, sieben davon schweben in Lebensgefahr.</p>
-      <p>— Im Hürtgenwald an der deutsch-belgischen Grenze mussten rund 1.800 Menschen ihre Häuser verlassen, das Feuer zog auf den Ort Gey zu.</p>
-      <p>— Frankreichs Verfassungsrat erklärte das ab September geplante Social-Media-Verbot für unter 15-Jährige für unvereinbar mit der Meinungsfreiheit.</p>
-      <p>— Die deutsche Automobilindustrie beschäftigte zur Jahresmitte 691.500 Menschen und damit so wenige wie zuletzt 2005.</p>
-      <p>— Chinas Exporte stiegen im Juli um 23,9 Prozent gegenüber dem Vorjahr, die Halbleiterausfuhren haben sich fast verdoppelt.</p>
-      <p>— Luigi Mangione hat sich vor einem US-Bundesgericht der Tötung des Krankenversicherungsmanagers Brian Thompson schuldig bekannt.</p>
-      <p>— Südkoreas Präsident Lee Jae Myung schlug Gespräche über ein formelles Ende des seit 1953 nur durch Waffenstillstand unterbrochenen Krieges vor.</p>
-      <p>— Im Kongo breitet sich das Ebolavirus rasant aus, in der Millionenstadt Kinshasa bereiten sich Krankenhäuser auf einen Notfall vor.</p>
+      <p>— Ein Erdbeben der Stärke 7,7 vor der indonesischen Insel Flores hat nach Behördenangaben mindestens 47 Menschen getötet, Rettungsteams suchen weiter in Maumere nach Verschütteten.</p>
+      <p>— Israels Luftwaffe griff Ziele im Südlibanon an; das libanesische Gesundheitsministerium meldet elf Tote, darunter Kinder, Israel spricht von Hisbollah-Infrastruktur.</p>
+      <p>— Die Taliban haben in Kabul mit einer Militärparade fünf Jahre an der Macht gefeiert, während Hilfsorganisationen den höchsten Bedarf seit Beginn ihrer Zählungen melden.</p>
+      <p>— Ukrainische Flamingo-Marschflugkörper trafen in der Nacht das Raketenzentrum Progress in Samara, das die Trägerraketen für Russlands Starlink-Konkurrenten Rassvet baut.</p>
+      <p>— Frankreichs Verfassungsrat kippte das Verbot sozialer Medien für unter 15-Jährige als unverhältnismäßigen Eingriff in die Meinungsfreiheit; Präsident Macron kündigte einen neuen Entwurf an.</p>
+      <p>— Der ehemalige syrische Machthaber Baschar al-Assad wurde in Abwesenheit wegen Kriegsverbrechen zum Tode verurteilt.</p>
+      <p>— Südkoreas Präsident Lee Jae-myung schlug Nordkorea Gespräche über ein formelles Ende des seit 1953 nur durch Waffenstillstand unterbrochenen Krieges vor.</p>
+      <p>— Die US-Bankenaufsicht OCC erteilte dem von der Familie Trump mitgegründeten Krypto-Unternehmen World Liberty eine vorläufige Genehmigung für eine nationale Trust-Bank.</p>
+      <p>— Bei Renovierungsarbeiten in einem belgischen Gebäude fanden Bauarbeiter in Kellerwänden eingemauerte Goldbarren und Münzen im Wert von rund neun Millionen Euro.</p>
+      <p>— Die Feuerwehr kämpft in der Eifel weiterhin gegen den Waldbrand im Hürtgenwald und musste ihre Einsatzzentrale wegen drehenden Windes verlegen.</p>
     </div>
     <a class="backtotoc" href="#inhalt">↑ Zurück zum Inhalt</a>
   </section>
 
-  <!-- ================= DEUTSCHLAND ================= -->
-  <section id="deutschland">
+  <!-- ================= FINANZMARKT WATCHLIST ================= -->
+  <section id="watchlist">
     <div class="secnum">05</div>
-    <h2 class="sectitle">Deutschland</h2>
-
-    <h3 class="dept">Schlagzeilen</h3>
-    <div class="cols">
-      <p>— Das Statistische Bundesamt meldet für die Automobilindustrie 42.300 Beschäftigte weniger als vor einem Jahr, ein Minus von 5,8 Prozent.</p>
-      <p>— Wirtschaftsministerin Katherina Reiche fordert eine Entlastung der Industrie beim EU-Emissionshandel und begrüßt die Reformpläne der Kommission im Grundsatz.</p>
-      <p>— Die anhaltende Dürre trifft Weizen, Mais und Kartoffeln, der Berufsstand verlangt Hilfen im Millionenbereich.</p>
-      <p>— Ein Waldbrand in der Eifel zwang rund 1.800 Bewohner des Hürtgenwalds zur Flucht aus ihren Häusern.</p>
-      <p>— Finanzminister Lars Klingbeil will den Steuervorteil für den vergünstigten Kauf eigener Unternehmensprodukte streichen und rechnet mit 240 Millionen Euro Mehreinnahmen im Jahr.</p>
-      <p>— Im ersten Halbjahr wurden deutlich mehr Gewerbe angemeldet als im Vorjahreszeitraum, gleichzeitig gingen die Betriebsaufgaben zurück.</p>
-      <p>— Die Deutsche Bahn verschiebt kurzfristig die Eröffnung des neuen Bahnhofs an der Tesla-Fabrik Grünheide, Brandenburgs Verkehrsminister zeigt sich verärgert.</p>
-      <p>— Das Kfz-Handwerk läuft gegen die geplante Nachrichtendienstreform Sturm, die den Diensten Zugriff auf Fahrzeug-Telemetriedaten verschaffen würde.</p>
-    </div>
-
-    <h3 class="dept">Wie eine Schlüsselindustrie schrumpft, ohne dass es knallt</h3>
-    <div class="cols">
-      <p>Das Statistische Bundesamt hat am Freitag eine Zahl veröffentlicht, deren Nüchternheit ihre Wucht verdeckt. Ende des ersten Halbjahres 2026 arbeiteten 691.500 Menschen in der deutschen Automobilindustrie, 42.300 weniger als ein Jahr zuvor. Das ist ein Rückgang von 5,8 Prozent und der niedrigste Beschäftigungsstand seit 2005. Keine andere Großbranche mit mehr als 200.000 Beschäftigten hat im selben Zeitraum so stark verloren.</p>
-      <p>Aufschlussreicher als die Gesamtzahl ist ihre Aufteilung. Bei der Herstellung von Kraftwagen und Motoren sank die Beschäftigung um 6,1 Prozent auf 429.200 Menschen, bei Teilen und Zubehör um 7,6 Prozent auf 219.500. Die Zulieferer verlieren also überproportional, und dafür gibt es einen ökonomischen Grund: Sie tragen die Umstellungskosten der Antriebswende, ohne die Preise gegenüber ihren Abnehmern durchsetzen zu können. Ein Hersteller kann ein Modell streichen und die Marge über den Rest der Palette verteidigen. Ein Zulieferer, dessen Produkt am Verbrennungsmotor hängt, kann das nicht.</p>
-      <p>Der Abbau ist kein Ereignis, sondern ein Zustand. Seit dem Vorkrisenjahr 2019 sind nach Berechnungen der Beratungsgesellschaft EY rund 142.400 Stellen und damit 16 Prozent der Branchenbeschäftigung verschwunden. Das entspricht sechs Jahren, in denen im Schnitt jeden Monat gut 2.000 Arbeitsplätze verloren gingen, ohne dass ein einziges Bild entstanden wäre, das die politische Debatte hätte prägen können. Erosion erzeugt keine Schlagzeilen. Genau deshalb ist sie politisch so schwer zu adressieren: Es fehlt der Moment, an dem eine Entscheidung fällig wird.</p>
-      <p>In diese Lage hinein argumentiert Wirtschaftsministerin Katherina Reiche, die am Donnerstag Entlastungen der Industrie beim europäischen Emissionshandel forderte und die entsprechenden Vorschläge der Kommission grundsätzlich begrüßte. Ihre Warnung vor weiterer Abwanderung ist mehr als Ressortrhetorik. Energieintensive Vorstufen der Fahrzeugproduktion, Gießereien, Umformbetriebe, Chemie, entscheiden über Standorte in Zeiträumen von zehn und mehr Jahren. Der Ölpreisschock infolge des Krieges im Nahen Osten hat die Kalkulationsgrundlage dieser Betriebe in wenigen Monaten verschoben, während die Debatte über den Emissionshandel noch die Vorkriegswelt abbildet.</p>
-      <p>Gegen das Bild vom Niedergang spricht eine zweite Statistik desselben Tages: Im ersten Halbjahr wurden deutlich mehr Gewerbe angemeldet als im Vorjahreszeitraum, Betriebsaufgaben gingen zurück, und die Eurozone wuchs im zweiten Quartal um 0,4 Prozent gegenüber dem Vorquartal. Deutschland verliert also nicht einfach Wirtschaftskraft, es sortiert sie um. Nur verläuft diese Umverteilung asymmetrisch: Ein neu angemeldetes Gewerbe zählt statistisch wie ein Arbeitsplatz, erreicht aber selten das Lohnniveau eines tarifgebundenen Facharbeiterjobs in der Fahrzeugfertigung. Zwischen Beschäftigungsstatistik und Kaufkraftstatistik öffnet sich eine Lücke, die erst mit Verzögerung sichtbar wird.</p>
-      <p>Für den Handel ist genau diese Lücke die relevante Größe. Wer Schuhe verkauft, spürt den Stellenabbau nicht im Quartal der Meldung, sondern zwei bis vier Quartale später, wenn Abfindungen aufgezehrt sind und Haushalte in Industrieregionen ihre Anschaffungen strecken. Verstärkt wird das durch eine zweite Bewegung: Die Dürre treibt die Erzeugerpreise für Weizen, Mais und Kartoffeln, und steigende Ausgaben für Lebensmittel gehen fast eins zu eins zulasten der frei verfügbaren Konsumbudgets. Das trifft Warengruppen mit Ersatzbeschaffungscharakter zuerst. Wer einen Schuh trägt, der noch eine Saison hält, verschiebt den Kauf, und diese Verschiebung ist in schwachen Herbstmonaten kaum aufzuholen.</p>
+    <h2 class="sectitle">Finanzmarkt-Watchlist</h2>
+    <div class="secdesc">Persönliche Beobachtungsliste — Kurskontext, Entwicklung und Einordnung des Tages.</div>
+    <div class="watch-grid">
+      <div class="watch-item">
+        <div class="watch-ticker">NVDA</div>
+        <h4>NVIDIA</h4>
+        <p class="watch-kurs">Letzter verfügbarer Schlusskurs 225,16 US-Dollar am 14. August 2026, praktisch unverändert zum Vortag (minus 0,06 Prozent). Auf Monatssicht steht ein Plus von rund elf Prozent.</p>
+        <p>Die am 14. August eingereichte 13F-Meldung offenbarte, was Nvidia bisher nicht ausgewiesen hatte: 122,8 Millionen SpaceX-Aktien im Wert von 21 Milliarden Dollar sowie Intel-Anteile im Wert von 30 Milliarden Dollar zum Quartalsende. Die xAI-Beteiligung von zehn Milliarden Dollar wurde zur SpaceX-Position, nachdem Musk die KI-Firma in den Raketenkonzern eingebracht hatte. Zugleich berichteten US-Medien, Nvidia werde seine Garantie für OpenAIs Rechenzentrumsprojekt zunächst nur zur Hälfte der ursprünglich genannten 250 Milliarden Dollar übernehmen. Die Quartalszahlen stehen am 26. August an; Analysten erwarten im Konsens 2,08 Dollar Gewinn je Aktie.</p>
+        <p class="watch-einordnung">Intel und SpaceX machen zusammen fast 80 Prozent des offengelegten Beteiligungsportfolios aus, und beide sind zugleich Großabnehmer von Nvidia-Chips. Das ist kein Diversifikationsportfolio, sondern eine Wette auf die eigene Kundschaft. Für die Aktie heißt das: Wer NVDA hält, hält indirekt auch das Ausfallrisiko der Abnehmer mit.</p>
+      </div>
+      <div class="watch-item">
+        <div class="watch-ticker">RKLB</div>
+        <h4>Rocket Lab</h4>
+        <p class="watch-kurs">Letzter verfügbarer Schlusskurs 80,25 US-Dollar am 14. August 2026, ein Plus von 0,19 Prozent. Cantor Fitzgerald hob sein Kursziel nach den Quartalszahlen von 96 auf 122 Dollar an.</p>
+        <p>Das zweite Quartal brachte mit 234 Millionen Dollar Umsatz einen Rekord, 62 Prozent mehr als im Vorjahr, dazu einen Auftragsbestand von 2,36 Milliarden Dollar und am 4. August einen 397-Millionen-Dollar-Auftrag der US Space Force für Flatellites. Der freie Cashflow lag bei minus 110,1 Millionen Dollar, und das Management stellt in Aussicht, dass positive Cashflows erst 18 bis 24 Monate nach dem ersten erfolgreichen Neutron-Testflug realistisch sind. Am 13. August meldete das Unternehmen Fortschritte bei der Iridium-Übernahme und ein neues Kapitalmarktprogramm zur laufenden Aktienausgabe.</p>
+        <p class="watch-einordnung">Die Zahlen sind gut, die Frage ist die Kalenderseite. Peter Beck hält am Neutron-Erstflug im vierten Quartal fest, räumt aber ein, dass das Fenster schmaler wird; jede Verschiebung verlängert die Phase, in der Wachstum über Kapitalerhöhungen finanziert wird. Der Auftragsbestand federt das ab, die Verwässerung nicht.</p>
+      </div>
+      <div class="watch-item">
+        <div class="watch-ticker">QNC</div>
+        <h4>Quantum eMotion Corp</h4>
+        <p class="watch-kurs">Letzter verfügbarer Schlusskurs 3,44 kanadische Dollar am 14. August 2026 an der TSX Venture (plus 2,08 Prozent), im US-Handel entsprach das rund 2,43 US-Dollar für QNCCF. Die Marktkapitalisierung liegt bei etwa 755 Millionen kanadischen Dollar, die 52-Wochen-Spanne reicht von 0,96 bis 6,24 kanadischen Dollar, auf Jahressicht steht ein Plus von knapp 198 Prozent.</p>
+        <p>Am 13. August kündigte das Unternehmen gemeinsam mit Energy Plug Technologies und Malahat Battery Technology eine indigen geführte Partnerschaft für quantengesicherte Energiespeicher in Kanadas Norden an. Zuvor hatte Quantum eMotion am 16. Juli die NIST-Listung seines SecureKey-Kryptomoduls im Status „Implementation Under Test“ gemeldet, eine Vorstufe zur FIPS-Validierung. Die Erlöse bleiben mit rund 21.750 kanadischen Dollar auf Zwölfmonatssicht praktisch bei null, der Nettoverlust liegt bei 10,79 Millionen.</p>
+        <p class="watch-einordnung">Hier wird nicht ein Geschäft bewertet, sondern eine Option auf einen Regulierungszyklus: Je verbindlicher die Migration zur Post-Quanten-Kryptografie wird, desto mehr ist eine zertifizierte Zufallszahlenquelle wert. Bei 755 Millionen Dollar Bewertung und faktisch keinem Umsatz ist jede Meldung ein Kurstreiber und jede ausbleibende Zertifizierung ein Risiko. Die Berichterstattung über den Titel bleibt dünn; belastbare Analystenschätzungen existieren kaum.</p>
+      </div>
     </div>
     <a class="backtotoc" href="#inhalt">↑ Zurück zum Inhalt</a>
   </section>
 
-  <!-- ================= POLITIK ================= -->
-  <section id="politik">
+  <!-- ================= RESSORTS (dynamisch) ================= -->
+  <section id="deutschland">
     <div class="secnum">06</div>
-    <h2 class="sectitle">Politik</h2>
-    <div class="secdesc">Frankreichs Verfassungsrat stoppt das Social-Media-Verbot für unter 15-Jährige und stellt damit die europäische Jugendschutzdebatte vom Ziel auf die Mittel um.</div>
-
-    <h3 class="dept">Ereignis</h3>
-    <p class="lede">Am Freitag hat der französische Verfassungsrat die zentrale Bestimmung des im Juli verabschiedeten Gesetzes für verfassungswidrig erklärt, das Jugendlichen unter 15 Jahren ab dem 1. September den Zugang zu sozialen Netzwerken versperrt hätte. Die Richter sahen darin einen unverhältnismäßigen Eingriff in die Meinungs- und Kommunikationsfreiheit. Präsident Emmanuel Macron kündigte noch am selben Tag an, Premierminister Sébastien Lecornu werde einen neuen Entwurf vorlegen.</p>
-
-    <h3 class="dept">Hintergrund</h3>
-    <p>Der Rat hat das Ziel des Gesetzes nicht beanstandet, sondern seine Bauweise. Zwei Einwände wiegen schwer: Die Regelung erfasse pauschal auch Dienste, bei denen eine Gefährdung Minderjähriger gar nicht belegt sei, und die zur Durchsetzung nötige Altersprüfung sämtlicher Nutzer schütze die Privatsphäre nicht ausreichend. Damit trifft die Entscheidung den wunden Punkt jeder Altersgrenze im Netz: Eine Grenze für Minderjährige lässt sich nur kontrollieren, indem man das Alter aller kontrolliert. Wer Fünfzehnjährige aussperren will, muss Fünfzigjährige identifizieren, und genau dieser Umweg macht aus einer Jugendschutznorm eine Identifizierungsinfrastruktur.</p>
-
-    <h3 class="dept">Interessen &amp; Akteure</h3>
-    <p>Macron hatte das Verbot zu einem persönlichen Projekt gemacht und dafür im Juli eine parlamentarische Mehrheit organisiert, die in anderen Fragen nicht trägt. Die Plattformbetreiber haben sich öffentlich zurückgehalten und den juristischen Widerstand anderen überlassen, während Bürgerrechtsorganisationen und Teile der Kinderschutzverbände aus entgegengesetzten Richtungen gegen das Gesetz argumentierten: die einen wegen des Eingriffs in die Kommunikationsfreiheit, die anderen, weil ein pauschales Verbot Jugendliche in unregulierte Räume abdrängt statt sie zu schützen. In Brüssel wiederum diente Paris als Vorreiter für eine europäische Altersgrenze. Dieser Anlauf ist vorerst gestoppt, nicht aber die Absicht dahinter.</p>
-
-    <h3 class="dept">Machtverhältnisse</h3>
-    <p>Der Verfassungsrat ist damit zum wirksamsten Gegenspieler einer Regierung geworden, die im Parlament keine verlässliche Mehrheit mehr organisieren kann und deshalb auf symbolisch aufgeladene Einzelprojekte ausweicht. Für Macron ist die Niederlage doppelt unangenehm: Sie kommt nicht von der Opposition, sondern aus dem eigenen institutionellen Gefüge, und sie trifft ein Vorhaben, das breite Zustimmung in der Bevölkerung hatte. Wer ein populäres Gesetz verliert, verliert mehr als eine Abstimmung.</p>
-
-    <h3 class="dept">Konsequenzen &amp; Szenarien</h3>
-    <p>Drei Wege sind erkennbar. Erstens ein enger gefasster Entwurf, der nur Dienste mit belegtem Risiko erfasst und die Altersprüfung datensparsam über zertifizierte Dritte löst; das wäre juristisch haltbar, aber technisch aufwendig und frühestens 2027 wirksam. Zweitens eine Verlagerung nach Brüssel, wo eine europäische Altersverifikation ohnehin diskutiert wird und Frankreich seine Niederlage in einen Standardisierungsauftrag umdeuten könnte. Drittens Stillstand bis zu den nächsten Wahlen. Für Unternehmen, die junge Zielgruppen über soziale Netzwerke erreichen, bedeutet jede dieser Varianten dasselbe: Die Reichweite bei unter 15-Jährigen bleibt vorerst verfügbar, aber ihre rechtliche Grundlage ist nun ausdrücklich befristet. Wer seine Kampagnenplanung darauf stützt, plant auf Widerruf.</p>
+    <h2 class="sectitle">Deutschland</h2>
+    <div class="secdesc">Wenn Infrastruktur nicht kaputtgeht, sondern einfach nicht mehr funktioniert</div>
+    <h3 class="dept">Kurz notiert</h3>
+    <div class="cols">
+      <p>— Der Pegel Kaub fiel am Freitag auf sechs Zentimeter und stieg am Samstagmorgen leicht auf elf.</p>
+      <p>— Die Deutsche Bahn will alte Güterwaggons reaktivieren, um Ladung von den Schiffen auf die Schiene zu holen.</p>
+      <p>— Der Bauernverband erwartet in einzelnen Regionen totale Ernteausfälle bei Weizen, Mais und Kartoffeln.</p>
+      <p>— Patientenschützer fordern, Hitze künftig als Todesursache auf Totenscheinen zu vermerken.</p>
+    </div>
+    <h3 class="dept">Sechs Zentimeter</h3>
+    <div class="cols">
+      <p>Es gibt Zahlen, die eine Volkswirtschaft besser beschreiben als jedes Konjunkturbarometer. Sechs Zentimeter ist so eine Zahl. So tief stand der Rhein am Freitag am Pegel Kaub, dem Nadelöhr zwischen Rotterdam und dem süddeutschen Industrierevier. Am Samstagmorgen waren es elf Zentimeter. Schon der Dienstagswert von 24 Zentimetern hatte den bisherigen Rekord vom 22. Oktober 2018 um einen Zentimeter unterboten. Der Pegel misst nicht die Wassertiefe, sondern die Höhe über einem festgelegten Nullpunkt; die Fahrrinne ist tiefer. Aber die Logik bleibt: Wer weniger Wasser unter dem Kiel hat, lädt weniger ein.</p>
+      <p>Und weniger heißt in diesem Sommer sehr viel weniger. Frachter fahren derzeit vielfach mit rund einem Fünftel ihrer üblichen Ladung. Das ist keine Verzögerung, das ist eine Kapazitätsvernichtung: Um dieselbe Menge Kohle, Getreide, Chemikalien oder Baustoffe zu bewegen, braucht es das Fünffache an Schiffen, Personal und Fahrten. Die Frachtraten steigen entsprechend, und weil der Rhein für Chemie und Stahl die mit Abstand billigste Transportform ist, wandert der Aufschlag direkt in die Kostenrechnung der Grundstoffindustrie und von dort in die Preise nachgelagerter Stufen. Die Wirtschaftsweise Veronika Grimm rechnet mit höheren Kosten und mahnt, Bund und Länder seien auf solche Lagen schlecht vorbereitet.</p>
+      <p>Der eigentliche Befund ist nicht das Wetter, sondern die Reaktionsgeschwindigkeit. Über den Ausbau der Fahrrinne wird seit Jahrzehnten diskutiert; passiert ist wenig, weil Naturschutz, Zuständigkeiten und Kosten sich gegenseitig blockieren. Die Deutsche Bahn will nun ausgemusterte Güterwaggons reaktivieren, um einen Teil der Ladung auf die Schiene zu holen. Das ist eine ehrliche Notlösung und zugleich ein Eingeständnis: Ein Netz, das im Normalbetrieb an seiner Kapazitätsgrenze fährt, hat keine Reserve für den Ausnahmefall. Parallel klagt derselbe Konzern gegen die Auflage der Bundesnetzagentur, auf stark belasteten Strecken Kapazitäten für Wettbewerber freizuhalten. Beides zusammen ergibt ein Bild von Knappheit, die nicht nur physisch ist, sondern institutionell.</p>
+      <p>Auf den Feldern ist die Rechnung schon geschrieben. Nach Angaben des Bauernverbands gingen allein in der Hitzeperiode Mitte Juni rund drei Millionen Tonnen Getreide und Raps verloren, ein Einkommensverlust von etwa 600 Millionen Euro. Der Deutsche Raiffeisenverband schätzt die Getreideernte auf 40,6 Millionen Tonnen nach 45 Millionen im Vorjahr. Verbandspräsident Joachim Rukwied spricht von einer brutal angespannten Lage und fordert staatliche Hilfen; eine genauere Bilanz will der Verband am Dienstag vorlegen. Besonders betroffen ist Süddeutschland. Für den Handel bedeutet das weniger die Getreidepreise selbst als die Zweitrundeneffekte: Futter, Verarbeitung, Logistik.</p>
+      <p>Hinzu kommt eine Dimension, die statistisch bislang kaum existiert. Die Zahl hitzebedingter Todesfälle in Deutschland beruht auf Schätzungen und Modellrechnungen, weil Hitze auf Totenscheinen nicht als Todesursache erfasst wird. Patientenschützer fordern das nun. Der europäische Kontext gibt der Forderung Gewicht: Die Gemeinsame Forschungsstelle der EU-Kommission beziffert die hitzebedingten Übersterblichkeitsfälle in Europa in diesem Sommer auf rund 25.000. Wer nicht misst, kann nicht priorisieren, und wer nicht priorisiert, finanziert auch keine Anpassung. Genau daran hakt es: Kommunen wissen, dass sie Schatten, Wasser und Kühlung brauchen; kleine Städte wissen nur nicht, wovon.</p>
+      <p>Für Unternehmen mit Filialnetz und Warenströmen ergibt sich daraus eine unangenehme Einsicht. Die Störung ist nicht punktuell, sondern saisonal wiederkehrend, und sie trifft ausgerechnet die Transportform mit den niedrigsten Stückkosten. Wer Sicherheitsbestände abgebaut hat, weil Wasserstraße und Schiene zuverlässig waren, zahlt jetzt für diese Annahme. Das ist keine Klimadebatte, sondern eine Frage der Bestandspolitik.</p>
+    </div>
+    <h3 class="dept">Weitere Meldungen</h3>
+    <div class="mini-item">
+      <h4>Feuer in der Eifel</h4>
+      <p>Im Hürtgenwald kämpft die Feuerwehr seit Tagen gegen einen Waldbrand, auch in der Nacht wurde gelöscht; drehender Wind zwang die Einsatzleitung, ihre Zentrale zu verlegen. Der Feuerökologe Alexander Held nennt den Brand einen doppelten Weckruf: Deutschland habe weder ausreichend Vorsorge in den Wäldern noch die Einsatzstrukturen, die Südeuropa längst aufgebaut hat. Nach Wochen ohne nennenswerten Regen ist der Boden in weiten Teilen des Landes so trocken, dass Bodenfeuer schwer zu ersticken sind.</p>
+    </div>
+    <div class="mini-item">
+      <h4>Der Streit um die Mitarbeiterrabatte</h4>
+      <p>Finanzminister Lars Klingbeil will den steuerlichen Freibetrag für Personalrabatte streichen; der Staat würde damit rund 240 Millionen Euro jährlich einnehmen. Der Entwurf trifft ausgerechnet eine Vergütungsform, die im Einzelhandel traditionell stark genutzt wird, weil sie günstig ist und im Alltag unmittelbar wirkt. Für personalintensive Filialbetriebe wäre die Streichung faktisch eine Lohnkostenerhöhung ohne Lohnerhöhung.</p>
+    </div>
+    <div class="mini-item">
+      <h4>Handyverbot in Sachsen</h4>
+      <p>Vom neuen Schuljahr an müssen Smartphones an sächsischen Schulen bis zur achten Klasse im Rucksack bleiben. Kultusminister Conrad Clemens bezeichnet die Regel als Befreiung, nicht als Strafe. Sachsen folgt damit einem europäischen Trend, dessen Wirkung empirisch noch dünn belegt ist, und liefert unfreiwillig ein Feldexperiment zu der Frage, ob Aufmerksamkeit sich per Verordnung zurückholen lässt.</p>
+    </div>
+    <div class="mini-item">
+      <h4>Bahnhof Fangschleuse verschiebt sich</h4>
+      <p>Der neue Bahnhof nahe dem Tesla-Werk in Grünheide sollte den Pendlerverkehr entlasten und geht nun später in Betrieb als zugesagt; Brandenburgs Verkehrsminister zeigte sich verärgert. Die Verzögerung ist für sich genommen klein, illustriert aber ein Muster: Die industrielle Ansiedlung war schnell, die begleitende Infrastruktur ist es nicht.</p>
+    </div>
     <a class="backtotoc" href="#inhalt">↑ Zurück zum Inhalt</a>
   </section>
 
-  <!-- ================= FINANZEN & WIRTSCHAFT ================= -->
-  <section id="finanzen">
+  <section id="politik">
     <div class="secnum">07</div>
-    <h2 class="sectitle">Finanzen &amp; Wirtschaft</h2>
-
-    <h3 class="dept">Was ist passiert</h3>
+    <h2 class="sectitle">Politik</h2>
+    <div class="secdesc">Europa sucht seinen Platz am Tisch, bevor der Tisch gedeckt ist</div>
+    <h3 class="dept">Kurz notiert</h3>
     <div class="cols">
-      <p>Die Aktienmärkte haben die Woche auf Rekordniveau beendet. Der Dax notierte am Freitag um 26.400 Punkte und damit praktisch unverändert gegenüber dem Vortagesschluss von 26.411 Zählern, nachdem er im Handelsverlauf mit 26.440,31 Punkten ein Allzeithoch markiert hatte. Der Handel blieb dünn, wie es für die zweite Augusthälfte typisch ist. In New York hatte der S&amp;P 500 bereits am Donnerstag 0,65 Prozent auf 7.799 Punkte zugelegt und damit einen Rekordschluss erreicht, der Nasdaq 100 gewann 1,15 Prozent, der Dow Jones 0,13 Prozent auf 53.840 Punkte. Am Freitag zog der Nebenwerteindex Russell 2000 nach und schloss die Woche mit einem eigenen Rekord ab.</p>
-      <p>Den Takt gaben die US-Verbraucherpreise vor. Im Juli stiegen sie gegenüber dem Vormonat um 0,1 Prozent, im Jahresvergleich lag die Rate bei 3,4 Prozent nach 3,5 Prozent im Juni. Die Kernrate ohne Energie und Lebensmittel legte um 0,2 Prozent zum Vormonat und 2,5 Prozent binnen Jahresfrist zu. Diese Spreizung ist die eigentliche Nachricht: Die Kernrate liegt näher am Ziel der Notenbank als die Gesamtrate. Was die Inflation oben hält, ist Energie, und der Energiepreis ist Folge einer blockierten Meerenge, nicht einer überhitzten Binnenkonjunktur.</p>
-      <p>Entsprechend uneindeutig ist die Erwartung an die Fed. Für die Sitzung des Offenmarktausschusses am 15. und 16. September preisten die Fed-Funds-Futures nach den Juli-Daten mit rund 62 Prozent unveränderte Leitzinsen ein, mit etwa 38 Prozent dagegen eine Anhebung um einen Viertelpunkt. In Europa fiel die Woche nüchterner aus: Die Wirtschaft der Eurozone wuchs im zweiten Quartal wie erwartet um 0,4 Prozent gegenüber dem Vorquartal. Ein Wert, der weder Zinssenkungen erzwingt noch Zinserhöhungen rechtfertigt, und der die Europäische Zentralbank damit in der unbequemsten aller Lagen belässt: Sie muss auf einen Preisschock reagieren, den sie mit ihren Instrumenten nicht beeinflussen kann, weil er aus einer militärisch blockierten Seestraße stammt und nicht aus der europäischen Nachfrage.</p>
+      <p>— Die UN-Menschenrechtsmission zählte für Juli mindestens 437 getötete und 2.610 verletzte Zivilisten in der Ukraine, der höchste Monatswert seit März 2022.</p>
+      <p>— Moskau weist Forderungen nach einer Schwarzmeer-Waffenruhe zurück und will keine Halbmaßnahmen.</p>
+      <p>— Russlands Verteidigungsministerium meldet die Einnahme von 19 Ortschaften in der Südostukraine im Sommer.</p>
     </div>
-
-    <h3 class="dept">Was bereits eingepreist war</h3>
-    <p>Erwartet war der leichte Rückgang der Gesamtinflation. Überrascht hat die Zusammensetzung, und mit ihr die Reaktion der Terminmärkte: Dass überhaupt wieder eine Zinserhöhung mit knapp 38 Prozent bewertet wird, wäre vor dem Ölpreisschock undenkbar gewesen, denn der Markt hatte für das zweite Halbjahr 2026 gelockerte Bedingungen unterstellt. Aktien haben diese Verschiebung bisher nicht quittiert. Das ergibt nur dann Sinn, wenn Anleger davon ausgehen, dass die Gewinne der großen Technologiekonzerne von der Zinsseite entkoppelt sind, weil ihre Investitionen aus laufenden Erträgen finanziert werden.</p>
-
-    <h3 class="dept">Gewinner &amp; Verlierer</h3>
+    <h3 class="dept">Das Format ist die Botschaft</h3>
     <div class="cols">
-      <p><b class="lbl">Gewinner:</b> Nebenwerte, die vom Rekord des Russell 2000 profitierten, sowie Halbleiter- und KI-Hardwarezulieferer, deren Auftragsbücher durch die weltweite Rechenzentrumsnachfrage gefüllt bleiben. Auch Energieproduzenten verdienen an einem Ölpreis, den die Sperrung der Straße von Hormuz oben hält.</p>
-      <p><b class="lbl">Verlierer:</b> Energieintensive europäische Industrie und Automobilzulieferer, die höhere Inputkosten in einem Markt mit schrumpfenden Stückzahlen nicht weitergeben können. Ebenso Transport und Tourismus im östlichen Mittelmeer, wo Treibstoffkosten und Wetterrisiken zusammenfallen.</p>
+      <p>Diplomatie im fünften Kriegsjahr ist zu einem Streit über Sitzordnungen geworden. Französische, deutsche und britische Diplomaten arbeiten nach Berichten der New York Times an einem Format für künftige Verhandlungen zwischen Russland und der Ukraine, das die europäische Seite nicht zum Zuschauer degradiert. Wolodymyr Selenskyj erklärte, Kiew sei zu jedem Format bereit, das zu einem gerechten und dauerhaften Frieden führe, und erwarte für August eine aktivere Rolle der US-Emissäre Steve Witkoff und Jared Kushner. Nur: Moskau hat bislang kaum Interesse an einem Format erkennen lassen, in dem Europäer mitverhandeln.</p>
+      <p>Das ist mehr als Protokoll. Wer am Tisch sitzt, bestimmt, welche Fragen überhaupt verhandelbar sind. Bei den trilateralen Gesprächen in Genf im Februar standen erstmals Territorialfragen auf der Tagesordnung; seither ist der Prozess weitgehend erstarrt. Für die Europäer geht es um Punkte, die Washington und Moskau bilateral gar nicht regeln können: Sanktionsregime, Wiederaufbaufinanzierung, Sicherheitsgarantien, die Frage eingefrorener Vermögen. Verhandelt man ohne sie, entsteht ein Abkommen, dessen Durchsetzung von Akteuren abhängt, die es nicht unterschrieben haben.</p>
+      <p>Die militärische Lage macht Eile weder für die eine noch für die andere Seite zwingend. Russlands Verteidigungsministerium meldet für die Sommerkampagne die Einnahme von 19 Ortschaften im Südosten, ein magerer Ertrag für ein Jahr Krieg, während die Zahl ballistischer Schläge auf Kiew und andere Städte gestiegen ist. Die UN-Menschenrechtsmission zählte im Juli mindestens 437 getötete und 2.610 verletzte Zivilisten, den höchsten Monatswert seit März 2022. Ukrainische Marschflugkörper trafen in der Nacht zum Samstag das Raketenzentrum Progress in Samara, das Träger für Russlands geplante Satellitenkonstellation Rassvet baut. Beide Seiten führen den Krieg inzwischen auch als Wettlauf um die technische Basis des jeweils anderen.</p>
+      <p>Für Europa ergibt sich daraus ein unbequemes Kalkül. Je länger die Verhandlungsarchitektur ungeklärt bleibt, desto größer wird die Wahrscheinlichkeit, dass am Ende ein amerikanisch-russisches Papier vorliegt, zu dem die EU nur noch Ja oder Nein sagen kann. Das erklärt die Hektik, mit der Paris, Berlin und London an einem Format arbeiten, für das es noch keinen Verhandlungsgegenstand gibt. Es ist der Versuch, sich Relevanz zu verschaffen, bevor sie verhandelt wird.</p>
+      <p>Die zweite, leisere Frage betrifft die Innenpolitik der Beteiligten. Der Friedensnobelpreisträger Dmitri Muratow sagte der BBC, Wladimir Putin könne die Ukraine zerstören, aber nicht erobern. Wenn das stimmt, ist der militärische Sieg für Moskau als Kriegsziel bereits ausgefallen, und was bleibt, ist die Aussicht auf einen eingefrorenen Konflikt, der als Erfolg verkauft werden muss. Auch das ist ein Verhandlungsgegenstand, nur eben keiner, über den in Genf gesprochen wird.</p>
     </div>
-
-    <h3 class="dept">Auswirkungen auf Europa und Deutschland</h3>
-    <p>Für Europa ist der Ölpreis der entscheidende Übertragungskanal. Das Institut der deutschen Wirtschaft beziffert die möglichen Kosten dauerhaft hoher Ölpreise für die deutsche Volkswirtschaft auf bis zu 80 Milliarden Euro; die Oesterreichische Nationalbank führt den Inflationssprung seit März ausdrücklich auf den Krieg im Nahen und Mittleren Osten zurück. Daraus folgt ein unangenehmes Muster für den Einzelhandel: Die Teuerung entsteht dort, wo Haushalte nicht ausweichen können, bei Energie, Mobilität und Lebensmitteln. Gespart wird deshalb an anderer Stelle. In Österreich, wo die Inflation im August bei 3,2 Prozent liegt und die Arbeitslosenquote im Juni auf 7,6 Prozent gestiegen ist, ist dieses Muster bereits messbar.</p>
+    <h3 class="dept">Weitere Meldungen</h3>
+    <div class="mini-item">
+      <h4>Budapest nach dem Machtwechsel</h4>
+      <p>Seit dem 9. Mai regiert Péter Magyar in Ungarn, nachdem seine Tisza-Partei die Parlamentswahl vom 12. April mit Zweidrittelmehrheit gewonnen hatte. Die neue Regierung will rund 18 Milliarden Euro eingefrorener EU-Kohäsionsmittel durch Antikorruptionsreformen freibekommen; Brüsseler Beamte rechnen dennoch mit Verzögerungen bei der Auszahlung. Die Wirtschaftsressorts führt der frühere Shell-Manager István Kaptány, der die Subventionspolitik der Vorgängerregierung überprüfen soll. Unternehmen erhoffen sich vor allem Planbarkeit und Rechtssicherheit.</p>
+    </div>
+    <div class="mini-item">
+      <h4>Paris verliert vor dem Verfassungsrat</h4>
+      <p>Frankreichs Verfassungsrat kippte das erst kürzlich von Nationalversammlung und Senat beschlossene Verbot sozialer Medien für unter 15-Jährige. Die Begründung wiegt schwer: Der Eingriff in die Meinungsfreiheit sei unverhältnismäßig, zudem seien die Datenschutzfragen der Altersverifikation ungeklärt. Emmanuel Macron kündigte einen neuen Entwurf an. Damit steht ein europäisches Modellvorhaben, auf das auch Berlin und Madrid geschaut hatten, vorerst ohne Vorbild da.</p>
+    </div>
+    <div class="mini-item">
+      <h4>Sambia zählt weiter</h4>
+      <p>Nach einer landesweiten Unterbrechung wegen mutmaßlicher Angriffe auf Wahlhelfer und gestohlener Stimmzettel wurde die Auszählung wieder aufgenommen. Oppositionsführer Brian Mundubile reklamierte den Sieg für sich, Amtsinhaber Hakainde Hichilema hat sich noch nicht erklärt. Der Streit ist auch ein Nachhall der Fehde zwischen Hichilema und der Familie des 2025 gestorbenen Edgar Lungu.</p>
+    </div>
     <a class="backtotoc" href="#inhalt">↑ Zurück zum Inhalt</a>
   </section>
 
-  <!-- ================= MARKET MECHANICS ================= -->
-  <section id="mechanics">
+  <section id="europa-geopolitik">
     <div class="secnum">08</div>
-    <h2 class="sectitle">Market Mechanics</h2>
-    <div class="mechanics">
-      <div class="tag">Heute erklärt</div>
-      <h4>Was heißt es eigentlich, wenn der Markt eine Zinserhöhung mit 38 Prozent einpreist?</h4>
-      <p>Die Zahl stammt nicht aus einer Umfrage, sondern aus einem Preis. Fed-Funds-Futures sind Terminkontrakte auf den durchschnittlichen Tagesgeldsatz eines bestimmten Monats. Aus ihrem Kurs lässt sich der Zinssatz ablesen, den der Markt für diesen Monat erwartet. Liegt dieser erwartete Satz zwischen zwei möglichen Ergebnissen, etwa zwischen einem unveränderten Korridor und einem um 25 Basispunkte höheren, dann teilt man die Differenz auf und erhält jene 38 Prozent. Es ist also eine Interpolation, keine Abstimmung.</p>
-      <p>Daraus folgt ein häufiges Missverständnis. Die 38 Prozent bedeuten nicht, dass 38 von 100 Marktteilnehmern mit einer Erhöhung rechnen. Sie bedeuten, dass die aggregierte Positionierung so aussieht, wie sie aussähe, wenn dieser Ausgang mit knapp zwei Fünfteln gewichtet würde. Darin steckt auch die Absicherungsnachfrage: Wer eine Erhöhung für unwahrscheinlich hält, sie aber fürchtet, kauft Schutz und hebt die implizite Wahrscheinlichkeit, ohne seine Meinung geändert zu haben. In Phasen mit angebotsseitigen Preisschocks ist dieser Absicherungsanteil regelmäßig hoch.</p>
-      <p>Für die Praxis heißt das zweierlei. Erstens ist die Kennziffer ein guter Indikator für Überraschungspotenzial, aber ein schlechter für Prognosegüte: Bewegt sich der Wert innerhalb weniger Tage um 20 Punkte, ist mit heftigen Ausschlägen an den Devisen- und Anleihemärkten zu rechnen, unabhängig davon, wie die Fed am Ende entscheidet. Zweitens ist sie handelbar und damit interessengeleitet. Wer Währungsrisiken aus Einkaufskontrakten in Dollar absichert, sollte die implizite Wahrscheinlichkeit als Preis für Optionalität lesen und nicht als Vorhersage. Der Unterschied kostet in der Kalkulation echte Marge.</p>
+    <h2 class="sectitle">Europa &amp; Geopolitik</h2>
+    <div class="secdesc">Ein Krieg um eine Meerenge, der die Weltwirtschaft weniger erschüttert als erwartet</div>
+    <h3 class="dept">Kurz notiert</h3>
+    <div class="cols">
+      <p>— Der dritte Angriff binnen einer Woche traf am Freitagabend erneut ein Schiff der Abu Dhabi National Oil Company.</p>
+      <p>— Die Vereinigten Arabischen Emirate sprechen von einem klaren Bruch der UN-Resolution 2817 und kündigen an, ihre Schifffahrtsrechte zu verteidigen.</p>
+      <p>— Die Internationale Energieagentur warnt, die weltweiten Ölvorräte schrumpften rasch.</p>
+    </div>
+    <h3 class="dept">Die Meerenge, die niemandem gehört</h3>
+    <div class="cols">
+      <p>Donald Trump wählte für die Ankündigung einen Wahlkampftermin in Garden City im Bundesstaat New York. Nachdem man Iran besiegt habe, werde er die Straße von Hormus zum Territorium der Vereinigten Staaten erklären; im Grunde sei sie das ohnehin, man habe schließlich die Blockade, und kein Schiff komme durch, wenn man es nicht wolle. Irans Vizeaußenminister Kasem Gharibabadi antwortete, die Meerenge sei iranisch gewesen, sei iranisch und bleibe iranisch, geöffnet und geschlossen werde sie allein auf iranischen Befehl. Zwei Behauptungen, die sich gegenseitig ausschließen, über ein Gewässer, das völkerrechtlich weder dem einen noch dem anderen gehört.</p>
+      <p>Der praktische Streit ist konkreter als der rhetorische. Am Freitagabend wurde erneut ein Schiff der Abu Dhabi National Oil Company beim Transit beschossen, nach Angaben der emiratischen Nachrichtenagentur WAM ohne Verletzte. Es war der dritte Angriff auf ADNOC-Schiffe binnen einer Woche. Abu Dhabi verurteilte den Vorfall als klaren Bruch der UN-Sicherheitsratsresolution 2817 und kündigte an, seine Schifffahrtsrechte zu verteidigen. Die Emirate sind damit in einer Rolle, die sie vermeiden wollten: Sie sind weder Kriegspartei noch unbeteiligt, und ihre Exporte hängen an einem Korridor, den zwei andere Mächte als ihren beanspruchen.</p>
+      <p>Bemerkenswert ist, was an den Rohstoffmärkten nicht passiert. Brent notierte am Freitag bei rund 87 Dollar je Barrel und damit tiefer als vor zwei Wochen, obwohl der Verkehr durch die Meerenge weiterhin stark eingeschränkt ist und ein am 17. Juni unterzeichnetes Memorandum zwischen Washington und Teheran binnen Tagen an der Frage scheiterte, welche Routen Handelsschiffe nutzen dürfen. Analysten führen die Gelassenheit auf zwei Faktoren zurück: China zehrt von seinen strategischen Reserven, und die amerikanische Förderung liegt hoch. Beides sind Puffer, keine Lösungen. Die Internationale Energieagentur warnt, die globalen Lagerbestände schrumpften rasch.</p>
+      <p>Genau darin liegt das Risiko für europäische Unternehmen. Ein Markt, der eine militärische Blockade mit fallenden Preisen quittiert, hat die Krise nicht überstanden, sondern vertagt. Wenn Vorräte die Preisreaktion dämpfen, dann verschiebt sich die Anpassung auf den Moment, in dem die Vorräte aufgebraucht sind, und sie fällt dann sprunghafter aus. Für die Kalkulation heißt das: Der heutige Ölpreis ist ein schlechter Indikator für die Beschaffungskosten des vierten Quartals, und wer Energie- oder Frachtkosten auf Basis der Sommerkurse budgetiert, unterschätzt die Varianz.</p>
+      <p>Die politische Ökonomie des Konflikts ist ebenfalls asymmetrisch. Trump forderte die Amerikaner auf, hohe Benzinpreise hinzunehmen, was innenpolitisch teuer ist, aber die Verhandlungsposition stärkt. Iran wiederum kann die Blockade fortsetzen, ohne selbst exportieren zu müssen, weil es das ohnehin kaum kann. Beide Seiten haben also Anreize auszuharren, und beide bezahlen dafür mit Verlusten, die überwiegend Dritte tragen: Reedereien, Versicherer, importabhängige Volkswirtschaften. Für die europäische Industrie addiert sich das zu den Energiepreisaufschlägen, die bereits in den Inflationsprognosen der Tschechischen Nationalbank und anderer Notenbanken stehen.</p>
+      <p>Bleibt die Frage, was eine Territorialerklärung überhaupt bedeuten würde. Die Straße von Hormus ist an ihrer engsten Stelle rund 33 Kilometer breit und liegt vollständig in den Hoheitsgewässern Irans und Omans; völkerrechtlich gilt dort das Recht auf Transitdurchfahrt, nicht Souveränität eines Dritten. Eine amerikanische Erklärung würde daran nichts ändern, wohl aber die diplomatische Basis all jener Staaten untergraben, die sich gegenüber China im Südchinesischen Meer genau auf dieses Seerecht berufen. Peking hat diese Woche ökologische Berichte zu neun umstrittenen Riffen veröffentlicht, um seine Ansprüche dort zu untermauern. Wer Meerengen zu Territorien erklärt, liefert die Vorlage gleich mit.</p>
+    </div>
+    <h3 class="dept">Weitere Meldungen</h3>
+    <div class="mini-item">
+      <h4>Elf Tote im Südlibanon</h4>
+      <p>Israelische Luftangriffe auf den Süden Libanons töteten nach Angaben des libanesischen Gesundheitsministeriums elf Menschen, darunter drei Kinder; es waren die schwersten Angriffe seit den Vereinbarungen vom Juni, die die Feindseligkeiten zwischen Israel und der Hisbollah gedämpft hatten. Israels Militär erklärte, man habe Hisbollah-Infrastruktur getroffen, als Reaktion auf eine vorherige Aktion gegen israelische Soldaten. Parallel lehnte Ministerpräsident Netanjahu den 15-Punkte-Plan der US-Regierung für Gaza ab; in Washington wird die Absage als Wahlkampfrhetorik gelesen und nicht als letztes Wort.</p>
+    </div>
+    <div class="mini-item">
+      <h4>Todesurteil gegen Assad</h4>
+      <p>Ein syrisches Gericht hat den gestürzten Präsidenten Baschar al-Assad in Abwesenheit wegen Kriegsverbrechen und Verbrechen gegen die Menschlichkeit zum Tode verurteilt. Das Urteil ist juristisch folgenlos, solange Assad im russischen Exil bleibt, aber politisch bedeutsam: Es legt die Beweisführung offen, auf die sich künftige internationale Verfahren stützen können. Im selben Nachrichtenzyklus stimmte das libanesische Parlament für die Abschaffung der Todesstrafe, die damit als erstes Land der Region fallen könnte.</p>
+    </div>
+    <div class="mini-item">
+      <h4>Ein Ölpreis für Osteuropa</h4>
+      <p>Die tschechische Notenbank rechnet für 2026 mit einer Inflation von 2,2 Prozent nach ihrer eigenen Definition, wobei steigende Kraftstoff- und Gaspreise die sinkenden Strompreise überkompensieren; nach EU-harmonisierter Rechnung liegt die Prognose bei 2,7 Prozent. Der Energiepreisschock des Hormus-Konflikts erreicht die Region also nicht über Schlagzeilen, sondern über die Tankrechnung. Für Filialnetze mit eigener Zustellung ist das die unmittelbarste Kostenlinie.</p>
     </div>
     <a class="backtotoc" href="#inhalt">↑ Zurück zum Inhalt</a>
   </section>
 
-  <!-- ================= USA ================= -->
   <section id="usa">
     <div class="secnum">09</div>
-    <h2 class="sectitle">United States</h2>
-
-    <h3 class="dept">Washington</h3>
-    <p>Luigi Mangione hat sich vor einem Bundesgericht in Manhattan schuldig bekannt, den Krankenversicherungsmanager Brian Thompson getötet zu haben; es war das erste Mal, dass ein Gericht seine eigene Schilderung der Tat hörte. Seine Anwälte wollen den anstehenden Mordprozess auf Ebene des Bundesstaats New York nun mit dem Argument abwenden, das Geständnis auf Bundesebene mache ihn entbehrlich. Parallel ruft die Regierung den Supreme Court an, damit die Bauarbeiten an Trumps Ballsaal am Weißen Haus fortgesetzt werden dürfen; die Vorstellung, dafür beim Kongress um Erlaubnis bitten zu müssen, nennt die Administration gefährlich. Das Kuratorium des Kennedy Center hat unterdessen beschlossen, Trumps Namen wieder am Gebäude anzubringen und eine zweijährige Schließung für Renovierungen einzuleiten, die ein Bundesrichter zuvor blockiert hatte.</p>
-
-    <h3 class="dept">Wall Street</h3>
-    <p>Die Woche endete auf Rekordständen: S&amp;P 500 mit 7.799 Punkten am Donnerstag, der Russell 2000 mit einem eigenen Bestwert am Freitag. Bemerkenswert ist weniger die Höhe als die Breite. Dass Nebenwerte mitlaufen, war während der zurückliegenden Rally lange nicht der Fall und gilt als Zeichen dafür, dass Anleger nicht nur den Rechenzentrumsboom kaufen, sondern auch die Binnenkonjunktur. Zugleich preisen dieselben Märkte mit 38 Prozent eine Zinserhöhung im September ein. Diese Kombination ist historisch selten und trägt ein Risiko in sich: Sollte sich die Fed tatsächlich zu einem Schritt nach oben entschließen, wären gerade die zinssensiblen Nebenwerte am schnellsten wieder auf dem Rückzug.</p>
-
-    <h3 class="dept">America</h3>
-    <p>Der Chef des Überwachungsanbieters Flock hat eingeräumt, sein Unternehmen habe zu lange gebraucht, um auf Missbrauch durch Polizisten zu reagieren; mehrere Beamte quittierten den Dienst, nachdem sie Kennzeichenlesesysteme genutzt hatten, um Partnerinnen zu verfolgen. BBC Verify sprach zudem mit einer Frau aus Virginia, die filmte, wie ein Beamter der Einwanderungsbehörde ICE seine Waffe auf sie richtete. Beide Fälle beschreiben dasselbe Problem aus zwei Richtungen: Technische Kontrollinfrastruktur wächst schneller als die Kontrolle über sie. Wirtschaftlich sichtbar wird die politische Stimmung an anderer Stelle. Viele Kanadier meiden Reisen in die Vereinigten Staaten und geben ihr Geld bewusst im eigenen Land oder in Übersee aus, ein Boykott, der inzwischen in den Buchungszahlen ganzer Regionen auftaucht.</p>
+    <h2 class="sectitle">USA</h2>
+    <div class="secdesc">Ein Ballsaal, eine Bank und ein Flugzeugträger</div>
+    <h3 class="dept">Kurz notiert</h3>
+    <div class="cols">
+      <p>— Der Supreme Court soll die Bauarbeiten am 400 Millionen Dollar teuren Ballsaal des Weißen Hauses freigeben, bevor die Verfügung am 21. August greift.</p>
+      <p>— Die BBC will Ivanka Trump, Donald Trump Jr. und Jared Kushner in einem Verleumdungsverfahren vorladen lassen.</p>
+      <p>— Ein Richter in Nevada stellte das Verfahren gegen mutmaßliche Falschwahlleute von 2020 ein.</p>
+    </div>
+    <h3 class="dept">Jenseits des Punktes ohne Wiederkehr</h3>
+    <div class="cols">
+      <p>Die Formulierung stammt aus dem Antrag der Regierung selbst: Der Ballsaal am Weißen Haus sei „jenseits des Punktes ohne Wiederkehr“. Am Freitag bat Solicitor General D. John Sauer den Supreme Court, die Verfügung eines Bundesrichters auszusetzen, die die Bauarbeiten stoppt und am 21. August wirksam wird. Das Berufungsgericht für den District of Columbia hatte die Verfügung am 7. August bestätigt. Der National Trust for Historic Preservation klagt, weil das 400 Millionen Dollar teure Projekt am Standort des abgerissenen Ostflügels ohne Zustimmung des Kongresses begonnen wurde. Die Regierung hält dagegen, der Kläger sei nicht klagebefugt, und Präsidenten dürften die Residenz seit jeher pflegen, umbauen und verbessern.</p>
+      <p>Juristisch ist der Fall enger, als die Aufregung vermuten lässt; politisch ist er es nicht. Das Argument, ein Bau sei zu weit fortgeschritten, um ihn zu stoppen, verwandelt Tempo in Legitimation. Wer schnell genug abreißt, schafft Tatsachen, die kein Gericht mehr sinnvoll rückgängig machen kann. Finanziert wird der Ballsaal nach Regierungsangaben aus privaten Unternehmensspenden, was die Frage der Kongresszustimmung nicht beantwortet, sondern verschiebt: Nicht das Budgetrecht wird umgangen, sondern das Budget.</p>
+      <p>Dieselbe Woche brachte einen zweiten Vorgang mit ähnlicher Struktur. Die Bankenaufsicht OCC erteilte World Liberty Trust Company eine vorläufige, an Auflagen gebundene Genehmigung für eine nationale Trust-Bank, die den Dollar-Stablecoin USD1 ausgeben, dessen Reserven verwalten und institutionelle Verwahrung anbieten soll; USD1 ist nach Unternehmensangaben mit über vier Milliarden Dollar im Umlauf. Der zuständige Comptroller Jonathan Gould ist von Trump ernannt, und World Liberty Financial wurde von Trumps Söhnen mitgegründet. Senatorin Elizabeth Warren hat Einwände angemeldet, die Organisation Americans for Financial Reform hält die Entscheidung für einen Verstoß gegen die gesetzlichen Befugnisse der Behörde.</p>
+      <p>Der dritte Vorgang spielt auf See. Die USS Abraham Lincoln ist seit fast neun Monaten im Einsatz, mehr als 5.000 Soldatinnen und Soldaten an Bord, über 200 Tage ohne Hafenaufenthalt. Ursprünglich war eine rund siebenmonatige Fahrt im Ostpazifik und Südchinesischen Meer geplant; der Iran-Krieg änderte das. Angehörige berichten von Wasser- und Versorgungsengpässen, defekten Sanitäranlagen und langen Dienstschichten. Anfang des Monats ging ein Matrose über Bord und wurde binnen einer Stunde gerettet; die Umstände werden untersucht. Demokratische Abgeordnete fordern eine Untersuchung, die Navy bestreitet einen Anstieg von Suizidversuchen. Die USS George Washington ist auf dem Weg zur Ablösung, wodurch im Pazifik eine Lücke entsteht, die in Peking aufmerksam registriert wird.</p>
+      <p>Was die drei Fälle verbindet, ist nicht Skandalisierbarkeit, sondern ein Muster im Umgang mit Kontrollinstanzen: Der Bau läuft, bis ein Gericht ihn stoppt, und dann ist er zu weit; die Bankgenehmigung ergeht, bevor der Interessenkonflikt geklärt ist; der Einsatz wird verlängert, bevor die Belastungsgrenze verhandelt wird. In jedem Einzelfall lässt sich das rechtfertigen. In der Summe entsteht eine Regierungspraxis, in der Zustimmung nachträglich eingeholt wird oder gar nicht.</p>
+      <p>Für europäische Unternehmen mit US-Geschäft ist die relevante Größe nicht die Empörung, sondern die Regulierungslatenz. Wenn Aufsichtsbehörden Entscheidungen treffen, die anschließend jahrelang vor Gerichten hängen, steigt nicht die Freiheit, sondern die Unsicherheit. Ein Stablecoin mit Bankcharter, dessen Zulassung juristisch angegriffen wird, ist als Zahlungsinfrastruktur schlechter kalkulierbar als eine Zulassung, die niemand bestreitet.</p>
+    </div>
+    <h3 class="dept">Weitere Meldungen</h3>
+    <div class="mini-item">
+      <h4>Mangione bekennt sich schuldig</h4>
+      <p>Luigi Mangione hat sich vor einem Bundesgericht der Anklage wegen Nachstellung mit Todesfolge schuldig bekannt und den Tod des UnitedHealthcare-Managers Brian Thompson eingeräumt. Es war das erste Mal, dass ein Gericht seine eigene Schilderung der Tat hörte. Der Schuldspruch fällt vor den Auftakt des Mordprozesses vor dem Staatsgericht in New York im kommenden Monat und dürfte dessen Verteidigungsstrategie erheblich einengen.</p>
+    </div>
+    <div class="mini-item">
+      <h4>Die BBC lädt die Familie vor</h4>
+      <p>Im Verleumdungsverfahren, das Donald Trump wegen einer Panorama-Dokumentation über den 6. Januar 2021 mit einer Zehn-Milliarden-Dollar-Forderung angestrengt hat, will die BBC Ivanka Trump, Donald Trump Jr. und Jared Kushner vorladen lassen. Die Anwälte des Senders argumentieren, die Familienmitglieder verfügten über persönliche Kenntnis der Absichten des Präsidenten bei seiner Rede vor dem Kapitol. Ein Gericht muss nun entscheiden, ob Verwandtschaft Zeugnisfähigkeit begründet.</p>
+    </div>
+    <div class="mini-item">
+      <h4>Preisdruck im Schuhregal</h4>
+      <p>Nach Zahlen der amerikanischen Footwear Distributors and Retailers of America lagen die Schuhpreise in den USA seit Jahresbeginn drei Prozent höher; hochgerechnet wäre das der drittstärkste Anstieg in 34 Jahren. 2025 zahlte die Branche 6,2 Milliarden Dollar Zölle, der Durchschnittssatz liegt bei 23,6 Prozent und erreicht bei einzelnen Warengruppen fast 68 Prozent. Jeder dritte befragte Manager rechnet mit bis zu fünf Prozent höheren Endverbraucherpreisen im laufenden Jahr.</p>
+    </div>
     <a class="backtotoc" href="#inhalt">↑ Zurück zum Inhalt</a>
   </section>
 
-  <!-- ================= WELT & GEOPOLITIK ================= -->
-  <section id="geopolitik">
+  <section id="wirtschaft-finanzen">
     <div class="secnum">10</div>
-    <h2 class="sectitle">Welt &amp; Geopolitik</h2>
-
-    <h3 class="dept">China</h3>
-    <p>Chinas Exporte legten im Juli um 23,9 Prozent gegenüber dem Vorjahresmonat zu und übertrafen damit die von Reuters erhobene Analystenerwartung von 22,2 Prozent, nach 27 Prozent im Juni. Die Einfuhren stiegen um 27,5 Prozent. Der Zuwachs ist allerdings hochgradig ungleich verteilt: Die Halbleiterausfuhren haben sich gegenüber dem Vorjahr nahezu verdoppelt, Hightech-Produkte insgesamt legten um 40,7 Prozent zu, während die Keramikexporte um 28,3 Prozent einbrachen. Das ist das Bild einer Volkswirtschaft, die den KI-Investitionszyklus der Welt beliefert, während ihre klassischen Konsumgüterbranchen unter schwacher Nachfrage leiden. Nach Deutschland lieferte China im Juli Waren für 12,3 Milliarden US-Dollar, 17,4 Prozent mehr als ein Jahr zuvor. Im ersten Halbjahr wuchs die Wirtschaft um 4,7 Prozent und liegt damit im Zielkorridor von 4,5 bis 5 Prozent.</p>
-
-    <h3 class="dept">Ukraine &amp; Russland</h3>
-    <p>An der Front bewegt sich wenig, und dieses Wenig geht zulasten Kiews. Nachdem russische Truppen die Kontrolle über Kostjantyniwka weitgehend erlangt haben, richtet sich ihr Druck auf die verbliebenen ukrainisch gehaltenen Teile des Gebiets Donezk um Slowjansk, Kramatorsk und Druschkiwka. Große Durchbrüche verhindern weiterhin vor allem ukrainische Drohneneinheiten, die den Mangel an Infanterie mit Aufklärung und präzisen Kleinschlägen kompensieren. Die diplomatische Spur ist damit nicht tot, aber folgenlos: Die trilateralen Gespräche zwischen den Vereinigten Staaten, Russland und der Ukraine, unter anderem in Abu Dhabi und Genf, haben in diesem Jahr keinen Waffenstillstand hervorgebracht. Der ukrainische Generalstab beziffert die russischen Verluste an Gefallenen und Verwundeten seit Februar 2022 auf rund 1,46 Millionen Soldaten; unabhängig überprüfbar ist diese Angabe nicht.</p>
-
-    <h3 class="dept">Weitere Entwicklungen</h3>
-    <p>Die Straße von Hormuz bleibt für den Öltransport praktisch unpassierbar, was den Preisdruck auf die europäischen Verbraucher aufrechterhält und Flugrouten quer durch Asien verschiebt; der Flughafen Seoul-Incheon ist unter anderem deshalb zum weltweit verkehrsreichsten im internationalen Verkehr aufgestiegen. Im Südlibanon töteten israelische Angriffe nach Angaben der dortigen Behörden elf Menschen, Israel spricht von Zielen der Hisbollah. Südkoreas Präsident Lee Jae Myung schlug Gespräche über ein formelles Ende des Koreakriegs vor, der seit 1953 nur durch einen Waffenstillstand ruht. Und Japans Regierungschef nannte den ersten Besuch Wladimir Putins auf den umstrittenen Kurilen absolut inakzeptabel.</p>
+    <h2 class="sectitle">Wirtschaft &amp; Finanzen</h2>
+    <div class="secdesc">Wenn der Lieferant seinen Kunden finanziert</div>
+    <h3 class="dept">Kurz notiert</h3>
+    <div class="cols">
+      <p>— Die DAX-Konzerne steigerten den Halbjahresgewinn um 13,5 Prozent auf 68,3 Milliarden Euro und beschäftigten zugleich 41.000 Menschen weniger.</p>
+      <p>— Der Yen gab die Hälfte der Gewinne aus der gemeinsamen Intervention Japans und der USA wieder ab.</p>
+      <p>— PayPal verhandelt Berichten zufolge weiter über einen Verkauf an Stripe und den Finanzinvestor Advent.</p>
+      <p>— Oracle-Aktien verloren seit Juni fast 40 Prozent, Larry Ellison fiel von Platz zwei auf Platz acht der reichsten Menschen.</p>
+    </div>
+    <div class="explainer">
+      <div class="tag">Heute erklärt</div>
+      <h4>Was ein 13F verrät und was nicht</h4>
+      <p>Ein Formular 13F ist eine Pflichtmeldung, die institutionelle Vermögensverwalter mit mehr als 100 Millionen Dollar in meldepflichtigen US-Wertpapieren binnen 45 Tagen nach Quartalsende bei der SEC einreichen. Sie zeigt Positionen zum Stichtag, nicht die Bewegungen dazwischen, und sie erfasst längst nicht alles: Anleihen, Fremdwährungspositionen, Leerverkäufe und die meisten Privatbeteiligungen tauchen nicht auf.</p>
+      <p>Genau deshalb ist die aktuelle Meldung ungewöhnlich. Dass eine nicht börsennotierte Beteiligung wie SpaceX in einem 13F erscheint, ist die Ausnahme und liegt an der Struktur der Transaktion, mit der xAI in den Raketenkonzern eingebracht wurde. Ein 13F ist außerdem immer ein Blick zurück: Die Werte beziehen sich auf den 30. Juni. Seither hat sich die Intel-Position durch eine Zweitplatzierung auf rund 22 Milliarden Dollar verringert, und die SpaceX-Anteile werden nach einem Kurs von 140 Dollar je Aktie auf etwa 17,2 Milliarden taxiert.</p>
+      <p>Für die Lektüre heißt das: 13F-Daten eignen sich, um Strukturen zu erkennen, und nicht, um Handelsentscheidungen abzuleiten. Wer aus einer Meldung vom 14. August auf die Positionierung von heute schließt, liest ein sechs Wochen altes Foto als Livebild.</p>
+    </div>
+    <h3 class="dept">Der Kreis schließt sich</h3>
+    <div class="cols">
+      <p>Am 14. August reichte Nvidia seine 13F-Meldung für das zweite Quartal ein, und darin stand eine Zahl, die zuvor niemand kannte: 122,8 Millionen Aktien an SpaceX im Wert von 21 Milliarden Dollar. Dazu Intel-Papiere für 30 Milliarden. Zusammen machen die beiden Positionen fast 80 Prozent des offengelegten Beteiligungsportfolios aus. Die SpaceX-Position entstand nicht durch einen Kauf von Raketenaktien, sondern aus einer zehn Milliarden Dollar schweren Beteiligung an xAI, die Elon Musk anschließend per Aktientausch in SpaceX einbrachte. Musk hat zugesagt, die KI-Rechenzentren des Konzerns exklusiv auf Nvidias Vera-Rubin-Chips zu bauen.</p>
+      <p>Damit ist die Konstruktion offengelegt, über die seit Monaten spekuliert wird. Der Chiphersteller hält Anteile an zwei Unternehmen, die seine Chips kaufen. Buchhalterisch ist daran nichts falsch. Ökonomisch entsteht ein Kreislauf, in dem Umsatz und Beteiligungswert aus derselben Quelle gespeist werden: Steigt die Nachfrage nach KI-Rechenleistung, wächst beides; kippt sie, schrumpft beides gleichzeitig. Diversifikation sieht anders aus. Der Vorgang erklärt auch, weshalb Berichte über eine Reduzierung der Nvidia-Garantie für OpenAIs Rechenzentrumsausbau, ursprünglich mit 250 Milliarden Dollar beziffert und nun zunächst nur zur Hälfte hinterlegt, in dieser Woche stärker beachtet wurden als der Preis der Aktie.</p>
+      <p>Joshua Kushner von Thrive Capital hat in seinem ersten Investorenbrief die Stimmung im Silicon Valley beschrieben: Die KI-Chance sei riesig, aber es wäre ein schwerer Fehler, Begeisterung die Investitionsdisziplin schwächen zu lassen. Das ist die höfliche Version dessen, was Kreditanalysten seit Wochen prüfen: Wie viel des Nachfragebooms ist echte Endkundennachfrage, und wie viel ist eine Umlaufbewegung zwischen Anbietern, die einander finanzieren?</p>
+      <p>Für europäische Anleger ist der Befund weniger dramatisch, aber unangenehmer. Die deutschen Aktienindizes profitieren gerade von einer Sommerrally, und die DAX-Konzerne haben im ersten Halbjahr 68,3 Milliarden Euro netto verdient, 13,5 Prozent mehr als im Vorjahr; für das Gesamtjahr erwarten Analysten 127,7 Milliarden, ein historischer Rekord. Gleichzeitig sank die Zahl der Beschäftigten in den DAX-Unternehmen im zweiten Quartal um 41.000 auf 3,49 Millionen. Von 37 Unternehmen mit Beschäftigungsangaben bauten 16 Personal ab. Rekordgewinn und Stellenabbau sind kein Widerspruch, sondern derselbe Vorgang: Margen steigen, weil Kosten sinken, nicht weil Absatz wächst.</p>
+      <p>Die Währungsseite liefert das dritte Element dieser Woche. Der Yen fiel auf den schwächsten Stand seit vierzig Jahren; Ende Juli verkaufte Japans Finanzministerium Berichten zufolge bis zu 59 Milliarden Dollar, um die eigene Währung zu stützen, und Anfang August intervenierten Tokio und Washington erstmals seit 1998 gemeinsam. Die New Yorker Fed verkaufte dafür Euro statt Dollar. Der Effekt hielt kurz: Von 157 Yen je Dollar ging es bis zum 11. August zurück auf 159. Wenn eine koordinierte Intervention zweier G7-Zentralbanken binnen zehn Tagen die Hälfte ihrer Wirkung verliert, dann ist der Markt der Meinung, dass die Ursache nicht auf dem Devisenmarkt liegt, sondern bei Zinsdifferenz, Schuldenstand und Energieimportrechnung.</p>
+      <p>Drei Beobachtungen, ein Muster: In allen drei Fällen wird eine Bewertung von etwas getragen, das nicht die Sache selbst ist. Bei Nvidia von den Beteiligungen an den eigenen Kunden, im DAX von Kostensenkungen statt Wachstum, beim Yen von einer Intervention statt einer Zinswende. Solche Konstruktionen sind stabil, solange niemand nachfragt. Der 26. August, wenn Nvidia Zahlen vorlegt, ist der nächste Termin, an dem jemand nachfragt.</p>
+    </div>
+    <h3 class="dept">Weitere Meldungen</h3>
+    <div class="mini-item">
+      <h4>PayPal im Schaufenster</h4>
+      <p>Die Gespräche über einen Verkauf von PayPal an Stripe und den Finanzinvestor Advent haben sich Berichten zufolge intensiviert, während der neue Vorstandschef versucht, das Unternehmen zu wenden. Ein Zusammenschluss würde im Zahlungsverkehr eine Konzentration schaffen, die europäische Händler unmittelbar betrifft: PayPal ist im Online-Handel vieler CSEE-Märkte die meistgenutzte Bezahlmethode nach Karte und Nachnahme, und Konditionen werden nach Fusionen selten günstiger.</p>
+    </div>
+    <div class="mini-item">
+      <h4>Ellisons teurer Sommer</h4>
+      <p>Oracle-Aktien haben seit ihrem Hoch fast 40 Prozent verloren, und Larry Ellison rutschte binnen zwei Monaten vom zweit- auf den achtreichsten Menschen der Welt ab. Der Kursverfall ist die Kehrseite derselben KI-Wette, die andere Bilanzen aufbläht: Oracle hatte sich über Rechenzentrumsverträge tief in Vorleistungen begeben. Wer die Infrastruktur baut, trägt das Risiko zuerst.</p>
+    </div>
+    <div class="mini-item">
+      <h4>Boiler Room mit Prominenz</h4>
+      <p>Die US-Börsenaufsicht wirft einem New Yorker Finanzunternehmen vor, 74 Millionen Dollar von Ruheständlern eingesammelt zu haben, indem es Anteile an privat gehaltenen Firmen wie SpaceX und Anduril mit hohen versteckten Gebühren verkaufte. Der Beschuldigte weist die Vorwürfe zurück. Der Fall ist ein Nebenprodukt des Booms bei Privatmarktbeteiligungen: Je stärker die interessantesten Unternehmen den Börsengang meiden, desto größer der Graumarkt an ihren Rändern.</p>
+    </div>
     <a class="backtotoc" href="#inhalt">↑ Zurück zum Inhalt</a>
   </section>
 
-  <!-- ================= CSEE ================= -->
-  <section id="csee">
+  <section id="csee-retail">
     <div class="secnum">11</div>
-    <h2 class="sectitle">CSEE Business Brief</h2>
-    <div class="secdesc">Österreich · Tschechien · Ungarn · Rumänien · Bulgarien · Serbien · Bosnien · Slowakei · Kroatien · Slowenien</div>
-    <div class="csee-item">
-      <h4>Kroatien: Feuer bei Omiš trifft die Hochsaison an ihrem teuersten Tag</h4>
-      <p>Der Brand brach am Donnerstagabend bei Lokva Rogoznica aus, rund 20 Kilometer südlich von Split, nach Wochen anhaltender Dürre. Mehr als 2.000 Menschen wurden evakuiert, ein Teil davon über die Adria mit Booten, weil Abschnitte der Küstenstraße gesperrt waren. Ein Mensch starb, rund 40 wurden verletzt, sieben schweben in Lebensgefahr. Verbindungen zwischen Split und Dubrovnik sowie Tagesausflüge und Bustouren waren am Freitag unterbrochen.</p>
-      <p class="relevanz"><b>Relevanz für den Schuhretail:</b> Die kroatische Adriaküste erwirtschaftet in sechs Wochen den Großteil ihres Jahresumsatzes im Non-Food-Handel, und gesperrte Küstenstraßen treffen Filialbelieferung und Frequenz gleichzeitig. Wer dort Standorte oder Lieferrouten hat, sollte für August mit Umsatzausfällen und für September mit verzögerten Nachlieferungen rechnen.</p>
+    <h2 class="sectitle">CSEE Retail Brief</h2>
+    <div class="secdesc">Eine Region, zwei Konjunkturen</div>
+    <h3 class="dept">Kurz notiert</h3>
+    <div class="cols">
+      <p>— Ungarns Inflation fiel im Juli auf 1,2 Prozent, Lebensmittel verbilligten sich um 4,4 Prozent.</p>
+      <p>— Polens Einzelhandelsumsatz stieg im Juni um 6,2 Prozent gegenüber Vorjahr, getragen von Möbeln und Elektronik.</p>
+      <p>— Bulgarien beendet im August die Pflicht zur doppelten Preisauszeichnung in Lew und Euro.</p>
+      <p>— In Tschechien wuchsen die Nominallöhne im ersten Quartal um 6,4 Prozent, das neunte Quartal mit realem Zuwachs in Folge.</p>
     </div>
-    <div class="csee-item">
-      <h4>Ungarn: Der Vertrauensgewinn nach dem Machtwechsel wird messbar</h4>
-      <p>Seit dem Sieg der Tisza-Partei bei der Parlamentswahl am 12. April und dem Amtsantritt von Péter Magyar hat der Forint deutlich aufgewertet. Die Europäische Union hat zuvor blockierte Mittel in Milliardenhöhe freigegeben, und in Umfragen der Deutsch-Ungarischen Industrie- und Handelskammer bewerten die Mitgliedsunternehmen sowohl ihre Geschäftsaussichten als auch die gesamtwirtschaftliche Lage deutlich positiver. Die Sanierung der Staatsfinanzen steht als erste Bewährungsprobe an. Am Mittwoch stellte die Regierung Strafanzeige wegen millionenschwerer Zahlungen für Beiträge zugunsten Viktor Orbáns in sozialen Netzwerken.</p>
-      <p class="relevanz"><b>Relevanz für den Schuhretail:</b> Ein festerer Forint verbilligt in Euro fakturierte Importware und verbessert die Marge im ungarischen Filialnetz, verteuert aber ungarische Beschaffung für Exportmärkte. Wer dort Mietverträge verlängert, verhandelt derzeit aus einer besseren Position als noch im Frühjahr.</p>
+    <h3 class="dept">Die Region entkoppelt sich</h3>
+    <div class="cols">
+      <p>Wer die CSEE-Region als einen Markt behandelt, wird in diesem Jahr systematisch falsch planen. Die Spreizung zwischen den Volkswirtschaften ist so groß wie seit Jahren nicht, und sie verläuft nicht entlang der üblichen Trennlinie zwischen EU-Kernländern und Nachzüglern, sondern entlang der Fiskalpolitik. Polen und Ungarn steigern die Kaufkraft, Rumänien entzieht sie, Österreich hält sie mühsam stabil.</p>
+      <p>Der auffälligste Umschwung ist ungarisch. Im Juli lagen die Verbraucherpreise nur noch 1,2 Prozent über dem Vorjahresniveau, deutlich unter den erwarteten 1,5 Prozent und der niedrigste Wert seit einem Jahrzehnt. Lebensmittel verbilligten sich um 4,4 Prozent, nach Einschätzung des Handelsverbands womöglich ein Rekordrückgang für diese Kategorie. Der Handel weist darauf hin, dass die Margendeckel bei Lebensmitteln seit Mai keine nennenswerte Rolle mehr spielen; günstige Rohstoffmärkte und ein stärkerer Forint überkompensieren die höheren Energiekosten. Für eine Volkswirtschaft, in der die Lebensmittelpreise seit 2019 um rund 80 Prozent gestiegen waren, ist das ein Stimmungsumschwung, kein Statistikdetail.</p>
+      <p>Polen wächst weiter aus eigener Kraft. Der Einzelhandelsumsatz legte im Juni um 6,2 Prozent gegenüber dem Vorjahr zu, angeführt von Möbeln und Elektronik, also von genau jenen Kategorien, die zuerst gestrichen werden, wenn Haushalte unsicher sind. Für 2026 werden 3,7 Prozent Wirtschaftswachstum erwartet, mit 3,4 Prozent mehr privatem Konsum und einem Investitionsschub von gut acht Prozent, gespeist aus EU-Mitteln und Verteidigungsausgaben. Für Filialisten heißt das: Polen ist der einzige Markt der Region, in dem Flächenexpansion derzeit ohne Kannibalisierung funktioniert.</p>
+      <p>Rumänien geht den umgekehrten Weg. Seit August 2025 liegt der Regelsatz der Mehrwertsteuer bei 21 statt 19 Prozent, die ermäßigten Sätze wurden bei elf Prozent zusammengeführt. Die Steuerreform ist Bedingung für EU-Mittel und Folge eines Haushaltsdefizits, das das Finanzministerium bei rund acht Prozent der Wirtschaftsleistung verortete. Konsolidierung dieser Größenordnung wirkt im Handel mit Verzögerung, aber verlässlich: erst über die Preisoptik, dann über die Menge. Wer in Rumänien plant, sollte Absatzrückgänge nicht als Marktanteilsverlust fehlinterpretieren.</p>
+      <p>Österreich schließlich ist der Markt der widersprüchlichen Signale. Das Jahr begann solide, mit leichten Umsatzzuwächsen und im März erstmals seit Februar 2023 wieder steigender Beschäftigung im Handel, 328.143 Beschäftigte inklusive Kfz. Gleichzeitig bleibt die Inflation mit 3,3 Prozent im April hoch, die WIFO-Prognose für das Jahresmittel liegt bei 2,4 Prozent, und die Verbraucherstimmung hat sich wieder eingetrübt: schlechtere Einschätzung der eigenen Finanzlage, Sorge um Arbeitsplatzsicherheit, steigende Inflationserwartungen. Der Handel wächst also, aber nicht, weil die Kunden zuversichtlicher wären, sondern weil sie Nachholbedarf haben.</p>
+      <p>Für die Sortiments- und Flächenplanung ergibt sich daraus eine einfache, unbequeme Konsequenz. Einheitliche Preis- und Aktionsarchitekturen über die Region hinweg treffen 2026 auf Märkte mit gegenläufigen Realeinkommen. Ein Rabattkalender, der in Warschau Volumen bringt, verschenkt in Budapest Marge, wo die Konsumenten gerade wieder Preisstabilität erleben, und verfehlt in Bukarest die Zielgruppe, deren Budget die Mehrwertsteuer bereits gebunden hat.</p>
     </div>
-    <div class="csee-item">
-      <h4>Rumänien: Konsolidierung ohne Regierung</h4>
-      <p>Seit dem Sturz des Kabinetts von Ilie Bolojan durch ein Misstrauensvotum am 5. Mai, getragen von den Sozialdemokraten und der rechtsextremen AUR, sucht Bukarest eine tragfähige Mehrheit. Das Parlament lehnte im Juni einen Regierungsvorschlag ab; PSD und der Block aus PNL, USR und Ungarnverband setzen auf unterschiedliche Kandidaten. Die Sparmaßnahmen bleiben in Kraft, darunter die Anhebung der Mehrwertsteuer von 19 auf 21 Prozent, zusätzliche Verbrauchsabgaben und Kürzungen im öffentlichen Dienst. Rumänien führt zugleich mehrere EU-Statistiken an, die niemand anführen will: höchste Inflation, größtes Haushaltsdefizit.</p>
-      <p class="relevanz"><b>Relevanz für den Schuhretail:</b> Zwei Prozentpunkte mehr Mehrwertsteuer sind im Schuhhandel eine vollständige Preisrunde, die entweder an den Kunden weitergegeben oder aus der Marge bezahlt werden muss. Solange die Regierungsbildung offen bleibt, sind weitere Abgabenänderungen zum Jahreswechsel nicht auszuschließen; Preislisten für 2027 sollten mit Korridoren statt mit Festwerten geplant werden.</p>
+    <h3 class="dept">Weitere Meldungen</h3>
+    <div class="mini-item">
+      <h4>Bulgarien nach dem Euro</h4>
+      <p>Seit dem 1. Januar 2026 zahlt Bulgarien in Euro. Eine Analyse der Europäischen Zentralbank kommt zu dem Ergebnis, dass die Umstellung nur einen begrenzten, weitgehend einmaligen Effekt auf die Verbraucherpreise hatte, mit gewissen Anpassungen bereits im Vorfeld. Systematische Aufrundungen ließen sich nicht nachweisen; auffällig ist stattdessen, dass der Anteil psychologischer Preise mit Endungen wie 0,99 deutlich zurückging. Die Zustimmung zur Währung überschritt im Januar erstmals seit Jahren die 50-Prozent-Marke und stieg im Februar auf 54 Prozent. Die Pflicht zur doppelten Preisauszeichnung in Lew und Euro läuft nach einem Jahr in diesem August aus.</p>
+      <p class="relevanz"><b>Relevanz:</b> Mit dem Wegfall der doppelten Auszeichnung endet die stärkste Bremse gegen Preisoptik-Anpassungen. Wer im bulgarischen Markt Preispunkte neu setzen will, hat jetzt das Zeitfenster, muss aber mit verschärfter Preisbeobachtung durch die Aufsicht rechnen.</p>
     </div>
-    <div class="csee-item">
-      <h4>Österreich: Hohe Kaufkraft, schwache Dynamik</h4>
-      <p>Die Inflation liegt im August bei 3,2 Prozent und damit deutlich über dem Ziel der Europäischen Zentralbank; die Oesterreichische Nationalbank führt den Sprung seit März auf den Krieg im Nahen und Mittleren Osten und die daraus folgenden Energiepreise zurück. Die Arbeitslosenquote stieg im Juni auf 7,6 Prozent, die Auftragseingänge erreichten den niedrigsten Wert seit Jahresbeginn, und Unternehmen kürzen aus Kostengründen Stellen. Für das Gesamtjahr wird weiterhin ein Wachstum von 0,8 Prozent erwartet.</p>
-      <p class="relevanz"><b>Relevanz für den Schuhretail:</b> Österreich bleibt ein Markt mit hoher Kaufkraft, aber ohne Wachstumsimpuls; Flächenexpansion rechnet sich hier derzeit schlechter als in Tschechien oder Ungarn. Für den Herbst spricht mehr für Verteidigung der Bestandsflächen und Frequenzarbeit als für neue Standorte.</p>
+    <div class="mini-item">
+      <h4>Omiš brennt mitten in der Hochsaison</h4>
+      <p>Ein von starkem Wind getriebenes Feuer erreichte in der Nacht zum Freitag den dalmatinischen Küstenort Omiš, erfasste Siedlungen und Wald auf mehr als 1.000 Hektar und zwang rund 1.200 Bewohner und Urlauber zur Flucht; viele verbrachten die Nacht in einer Sporthalle. Von 36 in Split behandelten Personen wurden 14 stationär aufgenommen, sieben schwebten in Lebensgefahr. Häuser, Fahrzeuge, Boote, Cafés und Restaurants wurden zerstört, Abschnitte der Küstenstraße zwischen Split und Dubrovnik waren gesperrt.</p>
+      <p class="relevanz"><b>Relevanz:</b> Die Küstenstraße ist die Lebensader für Warenanlieferung und Tagestourismus in Mitteldalmatien. Für Filialen in Split, Makarska und Omiš bedeutet die Sperrung Umsatzausfall in der ertragreichsten Woche des Jahres und Nachschubprobleme, die sich nicht über Onlinehandel auffangen lassen.</p>
+    </div>
+    <div class="mini-item">
+      <h4>Die Donau als zweite Baustelle</h4>
+      <p>Ungarn versenkt Lastkähne im Flussbett, um den Wasserstand der Donau lokal so weit anzuheben, dass das Kernkraftwerk Paks weiter gekühlt werden kann. Die Gemeinsame Forschungsstelle der EU-Kommission stuft Donau, Rhein, Loire und Po in diesem Sommer gleichzeitig als rekordniedrig ein und meldet für Ende Juli, dass die Hälfte der EU-Fläche unter Trockenheit stand, neun Prozent in der Alarmstufe.</p>
+      <p class="relevanz"><b>Relevanz:</b> Binnenschifffahrt ist in der Region der günstigste Weg für Schüttgut und Container aus den Adria- und Nordseehäfen. Fallen Rhein und Donau gleichzeitig aus, verteuert sich nicht eine Route, sondern das gesamte Alternativennetz, weil Bahn und Lkw simultan gesucht werden.</p>
+    </div>
+    <div class="mini-item">
+      <h4>CCC baut weiter Fläche</h4>
+      <p>Die polnische CCC-Gruppe, der größte Schuhhändler der Region, hat für 2026 Verträge über mindestens 280.000 Quadratmeter neue Verkaufsfläche geschlossen und peilt damit ein weiteres Rekordjahr bei Neueröffnungen an. Der Off-Price-Ableger HalfPrice steht inzwischen für rund ein Fünftel des Konzernumsatzes und ist in zehn Ländern präsent.</p>
+      <p class="relevanz"><b>Relevanz:</b> Der aggressivste Flächenwettbewerber der Region expandiert antizyklisch und mit einem Preiseinstiegsformat. Wer in denselben Einkaufszentren mietet, verhandelt 2026 gegen einen Konkurrenten, der Frequenz über Preis kauft.</p>
+    </div>
+    <div class="mini-item">
+      <h4>Tschechiens stille Kaufkraft</h4>
+      <p>Die Nominallöhne stiegen im ersten Quartal um 6,4 Prozent gegenüber dem Vorjahr, das neunte Quartal in Folge mit realem Zuwachs und das stärkste Tempo seit dem zweiten Quartal 2021. Die Notenbank erwartet für das Jahr 2,2 Prozent Inflation. Zugleich verlor der Einzelhandel im April und Mai gegenüber dem starken ersten Quartal an Dynamik.</p>
+      <p class="relevanz"><b>Relevanz:</b> Reallohnzuwachs bei nachlassenden Handelsumsätzen bedeutet steigende Sparquote. In Tschechien wirkt derzeit nicht der Preis, sondern das Vertrauen; Aktionsrabatte lösen dort weniger aus als in Polen.</p>
+    </div>
+    <a class="backtotoc" href="#inhalt">↑ Zurück zum Inhalt</a>
+  </section>
+
+  <section id="wissenschaft-technik">
+    <div class="secnum">12</div>
+    <h2 class="sectitle">Wissenschaft &amp; Technik</h2>
+    <div class="secdesc">Der Preiskampf hat den Modellmarkt erreicht</div>
+    <h3 class="dept">Kurz notiert</h3>
+    <div class="cols">
+      <p>— Gemini 3.7 Flash kostet bis Jahresende 0,75 Dollar je Million Eingabe-Tokens, ab dem 1. Januar 2027 das Doppelte.</p>
+      <p>— DeepSeeks V4-Pro startete zu 0,435 Dollar je Million Eingabe-Tokens und unterbietet damit auch den Einführungspreis von Google.</p>
+      <p>— Eine global laufende Angriffskampagne nutzt eine kritische Lücke in VMware vCenter aus; Patchen allein genügt nicht.</p>
+      <p>— Eine Schwachstelle in der Bildschirmfreigabe von macOS erlaubt Angreifern die Anmeldung ohne Passwort und wird aktiv ausgenutzt.</p>
+    </div>
+    <h3 class="dept">Wenn die Rechenleistung billiger wird als der Wechsel</h3>
+    <div class="cols">
+      <p>Google hat am 13. August Gemini 3.7 Flash veröffentlicht, drei Wochen nach Version 3.6, und dabei die Preise halbiert: 0,75 Dollar je Million Eingabe-Tokens und 3,75 Dollar je Million Ausgabe-Tokens bis zum Jahresende, danach 1,50 beziehungsweise 7,50 Dollar. Drei Veröffentlichungen der Flash-Klasse in sechs Wochen bei stockender Pro-Kadenz erzählen eine klare Geschichte: Verteidigt wird nicht die Spitze, sondern das Volumensegment. Der Grund kommt aus China. DeepSeeks diese Woche gestartetes V4-Pro liegt bei 0,435 Dollar je Million Eingabe-Tokens und 0,87 Dollar für die Ausgabe und unterbietet damit selbst den rabattierten Google-Tarif. Z.ai brachte GLM-5.3 mit deutlich verbesserten Fähigkeiten für lange Programmieraufgaben, Moonshots Kimi K3 und Alibabas Qwen 3.8 Max drücken von derselben Seite.</p>
+      <p>Für Anwenderunternehmen verschiebt das die entscheidende Frage. Sie lautet nicht mehr, welches Modell das beste ist, sondern ab welchem Punkt Wechselkosten die Ersparnis auffressen. Ein Preisunterschied von 40 Prozent auf der Token-Rechnung ist beeindruckend, solange die Token-Rechnung groß ist; bei den meisten Unternehmen ist sie es nicht. Teuer sind Integration, Evaluierung, Prompt-Anpassung, Regressionstests und Compliance-Freigaben. Wer diese Kosten einmal trägt, um zwei Cent je Million Tokens zu sparen, hat betriebswirtschaftlich verloren, selbst wenn die Rechnung im Nachhinein günstiger aussieht.</p>
+      <p>Bemerkenswert ist die zeitliche Struktur der Google-Preisgestaltung. Ein Einführungspreis, der zu einem festen Datum auf das Doppelte springt, ist kein Rabatt, sondern ein Terminkontrakt auf Kundenbindung: Wer bis zum 1. Januar 2027 seine Prozesse auf das Modell umgestellt hat, wird die Verdopplung mit hoher Wahrscheinlichkeit zahlen, weil der Wechsel dann teurer ist als die Differenz. Das ist legitim und wird jedem Einkäufer bekannt vorkommen, der schon einmal Einführungskonditionen bei einem Warenwirtschaftssystem verhandelt hat.</p>
+      <p>Die zweite Entwicklung dieser Woche ist unspektakulärer und wichtiger. Chinesische Modelle sind nicht nur billiger, sie sind überwiegend als offene Gewichte verfügbar. Damit wird die Verhandlungsposition gegenüber den großen amerikanischen Anbietern strukturell besser, unabhängig davon, ob ein Unternehmen die offenen Modelle tatsächlich einsetzt. Eine glaubwürdige Ausweichoption ist im Einkauf oft mehr wert als der Wechsel selbst. Die Kehrseite: Wer offene Modelle in regulierten Prozessen einsetzt, verlagert Haftungs- und Prüfaufwand nach innen.</p>
+      <p>Vor diesem Hintergrund fällt die Sicherheitslage der Woche auf. Eine weltweit laufende Kampagne nutzt seit Anfang des Monats eine kritische Lücke in VMware vCenter aus, und Fachleute warnen, dass Patchen allein nicht genügt, weil Angreifer sich bereits Persistenz verschafft haben können. Parallel wird eine Schwachstelle in der Bildschirmfreigabe von macOS aktiv ausgenutzt, die eine Anmeldung ohne Passwort erlaubt. Apple warnt zudem gezielt Journalisten, Aktivisten und Diplomaten vor neuen Spyware-Angriffen. Während also der Preis für Intelligenz fällt, steigt der Preis für Vertrauen, und die beiden Kurven treffen sich in derselben IT-Abteilung.</p>
+    </div>
+    <h3 class="dept">Weitere Meldungen</h3>
+    <div class="mini-item">
+      <h4>Das größte Elektroflugzeug hebt ab</h4>
+      <p>Heart Aerospace hat am 12. August auf dem Flughafen Plattsburgh im Bundesstaat New York den Erstflug seines Demonstrators X1 absolviert: 27 Minuten, 1.100 Fuß über Grund, mehr als ein Megawatt Antriebsleistung, gut 25.000 Pfund Abfluggewicht und rund 106 Fuß Spannweite. Der Strom für den Flug kostete etwa fünf Dollar. Das Ziel ist die ES-30, ein hybridelektrischer Regionalflieger für 30 Passagiere mit angepeiltem Indienststellungsjahr 2031; Absichtserklärungen liegen von United Airlines, Air Canada und JSX vor.</p>
+    </div>
+    <div class="mini-item">
+      <h4>Eine Wärmekraftmaschine nahe dem Nullpunkt</h4>
+      <p>Forscher haben erstmals einen zyklisch arbeitenden supraleitenden Quanten-Wärmemotor demonstriert, der Wärme nahe dem absoluten Nullpunkt in nutzbare Arbeit umwandelt. Praktischer Nutzen: Große Quantencomputer scheitern heute weniger an der Zahl der Qubits als an der Kühlung: Jedes zusätzliche Qubit erzeugt Wärme, die abgeführt werden muss. Ein Motor, der diese Wärme im Kryostaten selbst verwertet, würde die Skalierungsgrenze verschieben.</p>
+    </div>
+    <div class="mini-item">
+      <h4>Selbstfahrende Lkw auf Kaliforniens Highways</h4>
+      <p>Aurora Innovation und Kodiak AI haben von der kalifornischen Zulassungsbehörde Genehmigungen für Tests autonomer Lastwagen auf Autobahnen erhalten. Kalifornien war für schwere Fahrzeuge bislang der am stärksten regulierte Markt der USA; die Freigabe verschiebt die Frage vom technischen Nachweis zur Versicherbarkeit. Für Logistikkosten wird das erst relevant, wenn Fahrer nicht mehr an Bord sein müssen, aber die Kostenkurve beginnt bei der Genehmigung.</p>
+    </div>
+    <div class="mini-item">
+      <h4>Fusion sammelt 7,1 Milliarden ein</h4>
+      <p>Fusionsunternehmen haben nach einer Auswertung von TechCrunch bislang 7,1 Milliarden Dollar Wagniskapital eingeworben, der Großteil davon konzentriert auf eine Handvoll Firmen. Zugleich zeigt eine neue Materialstudie, dass Wolfram in Fusionsreaktoren stärker unter Strahlenschäden leiden dürfte als angenommen. Beides zusammen beschreibt den Stand der Technologie treffend: Das Kapital ist da, das Wandmaterial noch nicht.</p>
+    </div>
+    <a class="backtotoc" href="#inhalt">↑ Zurück zum Inhalt</a>
+  </section>
+
+  <section id="feuilleton-kultur">
+    <div class="secnum">13</div>
+    <h2 class="sectitle">Feuilleton &amp; Kultur</h2>
+    <div class="secdesc">Ein rumänischer Film gewinnt Locarno, und niemand nennt ihn osteuropäisch</div>
+    <h3 class="dept">Kurz notiert</h3>
+    <div class="cols">
+      <p>— Monica Bellucci und Kim Minhee erhielten in Locarno die Darstellerpreise.</p>
+      <p>— Samuel Becketts deutsche Tagebücher der Jahre 1936/37 erscheinen erstmals gedruckt.</p>
+      <p>— Die italienische Polizei stellte gestohlene Werke von Renoir, Cézanne und Matisse sicher, in Brasilien wurden acht Matisse-Arbeiten gefunden.</p>
+    </div>
+    <h3 class="dept">Der Leopard geht nach Rumänien</h3>
+    <div class="cols">
+      <p>Am Samstag hat das 79. Filmfestival von Locarno den Goldenen Leoparden an „Nu e locul tău aici“ vergeben, den ersten Spielfilm des rumänischen Regisseurs Florin Șerban seit acht Jahren. Der Film war am 9. August im internationalen Wettbewerb uraufgeführt worden; die Darstellerpreise gingen an Monica Bellucci und Kim Minhee. Șerban erzählt von einem Mann, der seinen halbwüchsigen Sohn Ioan allein großzieht, nachdem die Mutter gestorben ist, und nicht bemerkt, dass der Junge nachts mit einer maskierten Bürgerwehr durch die Stadt zieht und Autos zerstört. Als die Polizei den Sohn eines Mordes verdächtigt, bricht die Ordnung zusammen, die der Vater für Erziehung hielt. Variety beschrieb den Film als düstere Studie über den Rassismus gegen Roma in Rumänien.</p>
+      <p>Es lohnt sich, genau auf diese Doppelbeschreibung zu achten. Ein Familiendrama, das zugleich eine Studie über Rassismus ist: Das ist keine Themenverwechslung, sondern die Bauweise. Șerban erzählt Ausgrenzung nicht als politisches Motiv, sondern als das, was Jugendliche nachts tun, weil es dazugehört, und was Väter nicht sehen, weil sie es nicht sehen wollen. Der Titel, „Du gehörst hier nicht her“, ist deshalb doppelt adressiert: an die, denen der Satz gesagt wird, und an den Vater, dem er am Ende ebenfalls gilt.</p>
+      <p>Bemerkenswert ist auch der Ort des Erfolgs. Locarno ist unter den großen Festivals dasjenige, das sich am beharrlichsten der Kategorie widersetzt, Filme aus Mittel- und Osteuropa als regionale Nische zu behandeln. Der Wettbewerb dieses Jahrgangs versammelte Hong Sangsoo, Basil Da Cunha, Lê Bảo, Ann Oren, Denis Côté sowie León &amp; Cociña; die Auszeichnung eines rumänischen Films in diesem Feld ist kein Bonus für Herkunft. Șerbans Debüt hatte 2010 in Berlin den Silbernen Bären gewonnen; seither wurde die rumänische Autorenfilmwelle regelmäßig für beendet erklärt und war es nie.</p>
+      <p>Die regionale Erstaufführung folgt im August beim 32. Filmfestival von Sarajevo, wo der Film im Spielfilmwettbewerb um das Herz von Sarajevo antritt. Damit läuft er in genau der Region, deren Verhältnis zu den Roma er verhandelt, und das dürfte die interessantere Rezeption werden als jede Schweizer Preisverleihung. Festivals in Locarno vergeben Trophäen. Festivals in Sarajevo vergeben Streit.</p>
+    </div>
+    <h3 class="dept">Weitere Meldungen</h3>
+    <div class="mini-item">
+      <h4>Beckett in Deutschland, 1936</h4>
+      <p>Erstmals erscheinen Samuel Becketts deutsche Tagebücher aus seinen Monaten im Vorkriegsdeutschland gedruckt. Der Ire reiste als junger Mann durch Museen und Städte und notierte nebenbei, was er hörte; über eine Unterhaltung zum Thema Kraft durch Freude schreibt er, sie bringe ihn um. Der Wert der Aufzeichnungen liegt weniger im Urteil als im Unbehagen: Beckett verstand früh und präzise, was er nicht in Worte fassen wollte.</p>
+    </div>
+    <div class="mini-item">
+      <h4>Der Teppich und der Zugang</h4>
+      <p>Die Karten des British Museum für den Bayeux-Teppich waren zu 33 Pfund binnen eines Tages vergriffen; einige Zeitfenster wurden allerdings für Gäste eines Fünf-Sterne-Hotels reserviert, deren Aufenthalt rund 1.000 Pfund kostet. Museen begründen solche Kontingente mit Sponsoring. Faktisch entsteht ein zweiter, teurer Zugangsweg zu einem Objekt, dessen Ausleihe als kulturpolitische Geste zwischen zwei Staaten begründet wurde.</p>
+    </div>
+    <div class="mini-item">
+      <h4>Zwei Kunstfunde in einer Woche</h4>
+      <p>Die italienische Polizei stellte drei aus einem Museum gestohlene Gemälde von Renoir, Cézanne und Matisse sicher; in Brasilien fand die Polizei acht Matisse-Arbeiten in einem Haus im Großraum São Paulo und nahm einen Mann fest. Kunstdiebstähle enden selten mit einem Verkauf: Der Markt für identifizierbare Werke ist so eng, dass die Beute meist eingelagert wird, bis jemand einen Fehler macht.</p>
+    </div>
+    <a class="backtotoc" href="#inhalt">↑ Zurück zum Inhalt</a>
+  </section>
+
+  <section id="sport">
+    <div class="secnum">14</div>
+    <h2 class="sectitle">Sport</h2>
+    <div class="secdesc">Birmingham, Darwin, Memphis</div>
+    <h3 class="dept">Kurz notiert</h3>
+    <div class="cols">
+      <p>— Audrey Werro gewann die 800 Meter in 1:54,81 Minuten vor Keely Hodgkinson und unterbot Olga Mineyewas Meisterschaftsrekord.</p>
+      <p>— Nadia Battocletti verteidigte den Titel über 10.000 Meter und komplettierte ihr zweites Doppel über 5.000 und 10.000 Meter in Folge.</p>
+      <p>— Owen Ansah gewann die 200 Meter vor Zharnel Hughes.</p>
+      <p>— Scottie Scheffler spielte in Memphis eine 61 und führt die FedEx St. Jude Championship mit drei Schlägen an.</p>
+    </div>
+    <h3 class="dept">Der Rekord, der 34 Jahre hielt</h3>
+    <div class="cols">
+      <p>Es war das Rennen, für das die Zuschauer in Birmingham gekommen waren, und es endete anders als erwartet. Über 800 Meter setzte sich die Schweizerin Audrey Werro in 1:54,81 Minuten gegen Keely Hodgkinson durch, die vor heimischem Publikum lief und Silber holte. Werros Zeit unterbot den Meisterschaftsrekord von Olga Mineyewa, der seit 34 Jahren Bestand hatte. Auf der Zielgeraden versuchte Hodgkinson alles; Werro hielt die Innenbahn und den Rhythmus.</p>
+      <p>Eine Generation von Mittelstreckenläuferinnen ordnet sich damit neu. Hodgkinson war seit Jahren die Referenz auf dieser Distanz, und Niederlagen gegen sie waren die Ausnahme. Dass ausgerechnet eine Athletin aus einem Land ohne große Mittelstreckentradition den Meisterschaftsrekord bricht, sagt weniger über die Schweiz aus als über die Verdichtung des Feldes: Zwischen Platz eins und Platz fünf liegen in diesem Jahr Zeiten, die vor zehn Jahren jeweils für den Sieg gereicht hätten.</p>
+      <p>Am Vorabend hatte Nadia Battocletti ihren Titel über 10.000 Meter verteidigt, indem sie 250 Meter vor dem Ziel davonlief. Für die Italienerin ist es das zweite Doppel über 5.000 und 10.000 Meter in Folge, eine Serie, die in der europäischen Leichtathletik zuletzt kaum jemandem gelang. Über 200 Meter gewann Owen Ansah vor Zharnel Hughes, und in Sichtweite des Abschlusses führte die Irin Kate O'Connor den Siebenkampf vor dem letzten Wettbewerb an, während Katarina Johnson-Thompson aus dem Medaillenrennen ausschied.</p>
+      <p>Ganz anders die Lage in Darwin, wo Bangladesch dem ersten Testsieg in Australien so nahe ist wie nie. Der Spinner Mehidy Hasan Miraz nahm am dritten Tag das entscheidende Wicket von Steve Smith, und Australiens Schlagreihe wirkte gegen Drehung so anfällig wie seit Jahren nicht. Sollte es gelingen, wäre es eine der größten Überraschungen der jüngeren Testkricket-Geschichte, und sie würde in einem Format stattfinden, dessen Sterben seit zwanzig Jahren vorhergesagt wird.</p>
+      <p>In Memphis schließlich spielte Scottie Scheffler bei der FedEx St. Jude Championship eine 61, mit Birdies auf den ersten fünf Löchern, und führt mit drei Schlägen Vorsprung; er nannte die Runde selbst einen Traum. Golf produziert solche Tage regelmäßig, aber selten von Spielern, die ohnehin schon Erster der Weltrangliste sind. Am selben Wochenende begann die spanische Liga in ihre neue Saison, und in Nordamerika lieferten sich Caitlin Clark und Paige Bueckers ein Duell mit je 29 Punkten, das Clarks Fever mit 98:87 gewannen.</p>
+    </div>
+    <h3 class="dept">Weitere Meldungen</h3>
+    <div class="mini-item">
+      <h4>Der Hundred und die Hitze</h4>
+      <p>Die englische Kurzformat-Liga verzeichnet in ihrer ersten Saison unter privater Eigentümerschaft deutlich niedrigere Zuschauerzahlen als 2025. Als Ursache gelten Hitze und Terminlage; als strukturelles Problem gilt, dass eine Liga, die eigens für Neupublikum erfunden wurde, ihr Publikum nun über Preise finanzieren muss. Private Eigentümer erhöhen selten die Zahl der Spiele, dafür regelmäßig die Ticketpreise.</p>
+    </div>
+    <div class="mini-item">
+      <h4>Fruchtbarkeitsmedikament und Dopingsperre</h4>
+      <p>Der zweifache Super-Bowl-Sieger Nazeeh Johnson führt seinen positiven Test auf ein Medikament zurück, das er im Rahmen einer Kinderwunschbehandlung einnahm. Der Fall berührt eine bekannte Schwachstelle der Dopingregeln: Einige Wirkstoffe der Reproduktionsmedizin überschneiden sich mit Substanzen der Verbotsliste, und die Ausnahmegenehmigung muss vorher beantragt werden, nicht danach.</p>
+    </div>
+    <div class="mini-item">
+      <h4>Schottland sucht einen Trainer</h4>
+      <p>Der frühere Monaco-Coach Sébastien Pocognoli gilt beim schottischen Verband als aussichtsreichster Kandidat für die Nachfolge von Steve Clarke. Der Belgier steht für eine Generation von Trainern, die als Spieler in mehreren Ligen unterwegs waren und ihre Karriere früh beendeten, um zu arbeiten, bevor der Ruhm verblasst.</p>
+    </div>
+    <a class="backtotoc" href="#inhalt">↑ Zurück zum Inhalt</a>
+  </section>
+
+  <section id="leben-gesellschaft">
+    <div class="secnum">15</div>
+    <h2 class="sectitle">Leben &amp; Gesellschaft</h2>
+    <div class="secdesc">Die Wette frisst das Depot</div>
+    <h3 class="dept">Kurz notiert</h3>
+    <div class="cols">
+      <p>— Auf Polymarket und Kalshi wurden dieses Jahr bereits über 130 Milliarden Dollar gehandelt, nach 50 Milliarden im gesamten Vorjahr.</p>
+      <p>— Ein Gericht im Bundesstaat Washington untersagte Kalshi einen Großteil seiner Prognosemärkte und verlangt Geofencing bis zum 2. September.</p>
+      <p>— Zwischen 70 und 84 Prozent der Konten auf solchen Plattformen weisen Verluste aus.</p>
+    </div>
+    <h3 class="dept">Wenn Wetten als Anlage gilt</h3>
+    <div class="cols">
+      <p>Die Zahl stammt aus einer Umfrage des Vermögensverwalters Betterment unter 1.000 US-Privatanlegern aus vier Generationen, erhoben im April 2026: 52 Prozent der befragten Gen-Z-Anleger haben Geld, das ursprünglich für Investitionen vorgesehen war, in Sportwetten umgeleitet. 26 Prozent bezeichnen Sportwetten als bewussten Bestandteil ihrer langfristigen Finanzplanung. Bei Millennials, Generation X und Babyboomern liegen die Werte deutlich niedriger. Es handelt sich um Selbstauskünfte, also um das, was Menschen zuzugeben bereit sind; die tatsächlichen Anteile dürften eher höher liegen.</p>
+      <p>Was hier passiert, ist keine Torheit, sondern eine rationale Reaktion auf ein verändertes Angebot. Eine Aktie zahlt über Jahrzehnte, eine Wette in neunzig Minuten, und beide erscheinen inzwischen in derselben App-Kachel mit derselben Kursgrafik. Prognosemärkte haben diese Verschmelzung vollendet: Polymarket kehrte Ende 2025 mit Segen der US-Terminaufsicht CFTC auf den amerikanischen Markt zurück, das kombinierte Handelsvolumen der Plattformen lag im vergangenen Jahr bei 50 Milliarden Dollar und hat in diesem Jahr bereits 130 Milliarden überschritten. Zugänglich sind sie ab 18 Jahren. Wer auf eine Wahl, einen Zinsentscheid oder ein Waldbrandausmaß wettet, tut das auf einer Oberfläche, die von einem Broker nicht zu unterscheiden ist.</p>
+      <p>Die Renditeverteilung ist es sehr wohl. Nach Daten, die Kalshi selbst gegenüber CNBC nannte, waren über 70 Prozent der Händler in den vergangenen sechs Monaten unprofitabel; andere Auswertungen kommen auf 70 bis 84 Prozent Verlustkonten, während 67 Prozent aller Gewinne auf weniger als 2.000 Konten entfallen. Das ist keine Anlageklasse mit schlechter Performance, das ist eine Umverteilung von vielen zu wenigen mit einem Anbieteranteil obendrauf. Die Bewertungen der Plattformen von zusammen rund 20 Milliarden Dollar spiegeln genau das.</p>
+      <p>Die Regulierung folgt langsam und uneinheitlich. Ein Gericht im Bundesstaat Washington hat Kalshi untersagt, Sportwetten und eine Reihe weiterer Prognosemärkte anzubieten, und verlangt ein erstes Geofencing bis zum 19. August sowie ein mehrquelliges System bis zum 2. September. Die Bundesaufsicht prüft parallel sogenannte Mention Markets, auf denen darauf gewettet wird, welche Wörter Prominente aussprechen werden. Der Konflikt ist strukturell: Aufsichtsbehörden für Terminmärkte fragen, ob ein Kontrakt ein legitimes Absicherungsinstrument ist; Glücksspielaufsichten fragen, ob gewettet wird. Beide Antworten können zugleich Ja lauten.</p>
+      <p>Für Europa ist das kein amerikanisches Kuriosum. Die Vertriebswege sind dieselben Apps, die Werbeträger dieselben Streamer, und die Altersgruppe, die ihr Konsumverhalten am schnellsten ändert, ist genau jene, die hier Anlagegewohnheiten aufbaut oder eben nicht aufbaut. Wer im Handel junge Zielgruppen bedient, sollte die Zahl anders lesen als ein Finanzberater: Ein wachsender Anteil verfügbaren Einkommens fließt in ein Produkt mit sofortiger Rückkopplung und hoher Frequenz. Dieses Geld steht für Anschaffungen nicht zur Verfügung, und es kehrt statistisch überwiegend nicht zurück.</p>
+    </div>
+    <h3 class="dept">Weitere Meldungen</h3>
+    <div class="mini-item">
+      <h4>E-Bikes und die Frage der Haftung</h4>
+      <p>In den USA steigen schwere Verletzungen und Todesfälle bei Kindern auf E-Bikes und ähnlichen Elektrofahrzeugen deutlich; ein kalifornischer Staatsanwalt verfolgt nun Eltern strafrechtlich, mehrere Kommunen erwägen Haftungsregeln. Die Debatte ist auch eine europäische Vorschau: Fahrzeuge, die schneller sind als Fahrräder und langsamer als Mopeds, fallen in vielen Rechtsordnungen zwischen die Kategorien, und wo die Regel fehlt, springt die Haftung ein.</p>
+    </div>
+    <div class="mini-item">
+      <h4>Warum wir zu wenig fragen</h4>
+      <p>Menschen stellen in Gesprächen auffallend wenige Fragen, aus Sorge, aufdringlich zu wirken. Der Kolumnist David Robson verweist auf Studien, wonach offene Fragen die Sympathie beim Gegenüber erhöhen statt sie zu senken, und zwar messbar. Für Führungskräfte ist die Erkenntnis nicht neu, aber unbequem: Wer im Gespräch dominiert, wird seltener korrigiert und irrt sich deshalb länger unbemerkt.</p>
+    </div>
+    <div class="mini-item">
+      <h4>Der Toilettenstreit von Wien</h4>
+      <p>Eine Wiener Aktivistin klagt gegen die Stadt, weil sie in Gebühren für öffentliche Toiletten eine Diskriminierung sieht; Frauen, Ältere und Menschen mit chronischen Erkrankungen seien überproportional betroffen. Der Fall wirkt klein und berührt eine große Frage der Stadtplanung: Öffentlicher Raum ist nur so lange öffentlich, wie man sich darin aufhalten kann, ohne zu bezahlen.</p>
+    </div>
+    <a class="backtotoc" href="#inhalt">↑ Zurück zum Inhalt</a>
+  </section>
+
+  <section id="reise">
+    <div class="secnum">16</div>
+    <h2 class="sectitle">Reise</h2>
+    <div class="secdesc">Der Sommer, in dem sich die Landkarte verschiebt</div>
+    <h3 class="dept">Kurz notiert</h3>
+    <div class="cols">
+      <p>— Der DRV erwartet für Mai bis Oktober ein Umsatzplus von rund einem Prozent auf knapp 57 Milliarden Euro.</p>
+      <p>— Flugpauschalreisen legten im Sommer um 14 Prozent Umsatz und zwölf Prozent Gäste zu.</p>
+      <p>— Schottland meldet mehr Besucher, auch dank zusätzlicher Direktflüge aus Nordamerika.</p>
+    </div>
+    <h3 class="dept">Gebucht wird trotzdem, ausgegeben wird weniger</h3>
+    <div class="cols">
+      <p>Die deutsche Reisebranche hat in diesem Sommer eine Erfahrung gemacht, die dem Einzelhandel bekannt vorkommt: Die Nachfrage hält, der Warenkorb schrumpft. Der Deutsche Reiseverband erwartet für die Saison von Mai bis Oktober ein Umsatzplus von rund einem Prozent auf knapp 57 Milliarden Euro. Flugpauschalreisen entwickelten sich mit 14 Prozent mehr Umsatz und zwölf Prozent mehr Gästen weit besser als der Markt. Gleichzeitig berichten Veranstalter, dass vor Ort gespart wird: weniger Ausflüge, weniger Restaurantbesuche, mehr All-inclusive. Seit Beginn des Iran-Konflikts sind die Energiepreise gestiegen, was Fernreisen überproportional verteuert; Last-Minute läuft gut, Langstrecke schwächelt.</p>
+      <p>Das Muster ist ökonomisch schlüssig. Die Pauschalreise ist in unsicheren Zeiten das Produkt mit der höchsten Planungssicherheit: ein Preis, eine Buchung, ein Haftungspartner. Wer nicht weiß, was der Herbst kostet, kauft im Frühjahr die Kalkulierbarkeit gleich mit. Für den stationären Handel in Urlaubsregionen bedeutet dieselbe Entscheidung allerdings weniger Umsatz, denn All-inclusive verlagert Ausgaben vom Zielort zum Veranstalter. Die Betten sind voll, die Fußgängerzonen sind es weniger.</p>
+      <p>Über diese Verschiebung legt sich in diesem Jahr eine zweite, gröbere. Die Brände in Kroatien, Griechenland, Frankreich und Spanien treffen die Mittelmeerküsten mitten in der Hochsaison; bei Omiš mussten rund 1.200 Menschen fliehen, Abschnitte der Küstenstraße zwischen Split und Dubrovnik waren gesperrt. Gleichzeitig meldet Schottland ein starkes Jahr, begünstigt durch zusätzliche Direktflüge aus Nordamerika und durch die simple Tatsache, dass es dort kühler ist. Der Tourismus wandert nicht ab, er wandert nach Norden und in die Nebensaison.</p>
+      <p>Für die Zielgebiete ist der zweite Effekt der teurere. Ein Feuer kostet eine Saison; ein Reputationsschaden kostet mehrere. Wenn Buchungsportale Brandkarten anzeigen und Versicherer Stornobedingungen anpassen, verschiebt sich das Risiko vom Anbieter zum Gast und damit die Zahlungsbereitschaft. Kroatien hat mit Tourismusanteilen am Bruttoinlandsprodukt, die zu den höchsten der EU zählen, den geringsten Spielraum, das auszusitzen.</p>
+      <p>Ein dritter Trend läuft leiser und ist langfristig der interessanteste. Die MIT Technology Review führt in ihrer Reihe künftiger Berufsbilder inzwischen den Weltraum-Reisebüroagenten, und die Zahl der Kanadier, die aus politischen Gründen bewusst nicht in die USA reisen, ist so groß, dass Reiseveranstalter eigene Alternativprogramme auflegen. Reiseentscheidungen werden politischer, und das ist für die Branche eine unangenehme Nachricht: Politische Präferenzen ändern sich schneller als Hotelinvestitionen abgeschrieben werden.</p>
+    </div>
+    <h3 class="dept">Weitere Meldungen</h3>
+    <div class="mini-item">
+      <h4>Ceuta rüstet sich</h4>
+      <p>Nach falschen Behauptungen in sozialen Netzwerken, die Grenze zwischen Marokko und der spanischen Exklave Ceuta werde zum Feiertag Mariä Himmelfahrt geöffnet, sammelten sich Migranten am Übergang; Spanien und Marokko verstärkten Zäune, holten Soldaten aus dem Urlaub und erhöhten die Polizeipräsenz. Die BBC hat ein Netzwerk von Instagram-Konten identifiziert, das gegen Bezahlung Ratschläge zum Umschwimmen des Grenzzauns verkauft. Desinformation ist hier kein Meinungsproblem, sondern eine Logistikdienstleistung.</p>
+    </div>
+    <div class="mini-item">
+      <h4>Sicherheitsmängel in Ferienhäusern</h4>
+      <p>Der Tod eines irischen Teenagers, der auf der griechischen Insel Kimolos beim Duschen einen Stromschlag erlitt, hat Forderungen nach verbindlichen Sicherheitsprüfungen in Ferienunterkünften ausgelöst. Das Bad war improvisiert und im Freien angelegt. Vermittlungsplattformen prüfen Ausstattungsangaben, nicht Elektroinstallationen; die Haftungslage ist entsprechend unübersichtlich.</p>
+    </div>
+    <div class="mini-item">
+      <h4>Das Wetter als Buchungsargument</h4>
+      <p>Während weite Teile Europas unter Hitze litten, verzeichnete Schottland ein starkes Jahr. Tourismusvertreter führen das neben zusätzlichen Direktflügen aus Nordamerika auch auf Marketing zurück; wahrscheinlicher ist die simplere Erklärung, dass 22 Grad im August zum Verkaufsargument geworden sind. Für Destinationsmarketing im Mittelmeerraum heißt das, die Nebensaison ernster zu nehmen als die Hochsaison.</p>
+    </div>
+    <a class="backtotoc" href="#inhalt">↑ Zurück zum Inhalt</a>
+  </section>
+
+  <section id="wohnen-immobilien">
+    <div class="secnum">17</div>
+    <h2 class="sectitle">Wohnen &amp; Immobilien</h2>
+    <div class="secdesc">Drei Städte, drei Antworten auf dieselbe Frage</div>
+    <h3 class="dept">Weitere Meldungen</h3>
+    <div class="mini-item">
+      <h4>Chicagos Loop kommt zurück</h4>
+      <p>Ein neuer Bericht meldet für Chicagos Innenstadtbezirk Loop eine Stabilisierung der Büroleerstände und 673 Millionen Dollar an neuen Investitionen; leer stehende Ladenflächen werden wieder vermietet. Die Erholung kommt weniger von zurückkehrenden Büroangestellten als von Umnutzungen: Aus Bürogeschossen werden Wohnungen, aus Wohnungen entsteht Frequenz, aus Frequenz Einzelhandel. Die Reihenfolge ist wichtig, weil sie erklärt, warum Innenstädte mit reinem Büroleerstand nicht durch Handelsförderung zu retten sind.</p>
+    </div>
+    <div class="mini-item">
+      <h4>Wer zahlt die Kühlung?</h4>
+      <p>Viele deutsche Kommunen sind auf Hitzewellen kaum vorbereitet, und die volkswirtschaftlichen Schäden sind erheblich; für kleine Städte ist Anpassung vor allem ein Finanzierungsproblem. Verschattung, Entsiegelung, Trinkbrunnen und kühle Innenräume kosten im Bau wenig und im Unterhalt dauerhaft. Genau das passt schlecht zu Förderprogrammen, die Investitionen finanzieren und Betrieb nicht.</p>
+    </div>
+    <div class="mini-item">
+      <h4>Neubauten auf zerstörtem Grund</h4>
+      <p>Russland errichtet in der besetzten ukrainischen Stadt Mariupol Hochhäuser auf den Flächen zerstörter Gebäude, und russische Käufer erwerben die Wohnungen. Eigentumsfragen bleiben ungeklärt, ebenso das Schicksal der früheren Bewohner. Für die Nachkriegsordnung ist das ein Vorgang mit langer Halbwertszeit: Jede verkaufte Wohnung schafft eine Interessengruppe, die eine Rückabwicklung teurer macht.</p>
+    </div>
+    <a class="backtotoc" href="#inhalt">↑ Zurück zum Inhalt</a>
+  </section>
+
+  <section id="beruf-karriere">
+    <div class="secnum">18</div>
+    <h2 class="sectitle">Beruf &amp; Karriere</h2>
+    <div class="secdesc">Die Daten kommen langsam, die Erzählungen sind längst da</div>
+    <h3 class="dept">Kurz notiert</h3>
+    <div class="cols">
+      <p>— Der PwC AI Jobs Barometer wertete über eine Milliarde Stellenanzeigen in 27 Ländern aus.</p>
+      <p>— Rund 23 Millionen Amerikaner bleiben laut einer Erhebung in ungeliebten Jobs, um ihre Krankenversicherung nicht zu verlieren.</p>
+      <p>— Die Zahl der Beschäftigten in DAX-Konzernen sank im zweiten Quartal um 41.000.</p>
+    </div>
+    <h3 class="dept">Nicht weniger Einstiegsjobs, andere</h3>
+    <div class="cols">
+      <p>Die verbreitete These lautet, künstliche Intelligenz vernichte zuerst die Einstiegspositionen. Die belastbarsten Auswertungen dieses Jahres zeichnen ein komplizierteres Bild. Der PwC AI Jobs Barometer 2026, der über eine Milliarde Stellenanzeigen aus 27 Ländern auswertet, findet, dass Einstiegsrollen in stark KI-exponierten Berufen siebenmal häufiger Fähigkeiten verlangen, die früher als Senior-Kompetenzen galten: Urteilsvermögen, Verantwortung, Führung. Diese Rollen sind seit 2019 um 35 Prozent gewachsen, während andere Einstiegsrollen um zehn Prozent zurückgingen.</p>
+      <p>Das ist keine gute Nachricht, sondern eine präzisere schlechte. Wenn Einstiegspositionen Senior-Fähigkeiten verlangen, dann verschwindet nicht der Job, sondern die Leiter. Der klassische Weg, auf dem Berufsanfänger durch Routinearbeit Erfahrung sammelten, bevor sie Urteilsaufgaben übernahmen, wird weggekürzt, weil die Routinearbeit automatisiert ist. Unternehmen bekommen dadurch kurzfristig produktivere Einsteiger und langfristig ein Nachwuchsproblem, das erst sichtbar wird, wenn die Generation ausscheidet, die ihr Urteilsvermögen noch auf die alte Weise erworben hat.</p>
+      <p>Bei der Frage nach den Geschlechterunterschieden ist Vorsicht angebracht. Eine gemeinsame Auswertung von Stanford und dem Lohnabrechner ADP kam im Juli zu dem Ergebnis, dass die Beschäftigung junger Frauen langsamer wächst als die junger Männer, führte das aber ausdrücklich nicht primär auf KI zurück. Belegt ist dagegen, dass Frauen KI-Werkzeuge im Beruf seltener nutzen; die Differenz liegt in mehreren Erhebungen bei rund 16 Prozentpunkten. Wenn Produktivitätsgewinne an die Nutzung gekoppelt sind, wird aus einer Nutzungslücke im Lauf weniger Jahre eine Gehaltslücke.</p>
+      <p>In Deutschland überlagert eine andere Bewegung diese Debatte. Die DAX-Konzerne verdienen so viel wie nie und beschäftigten im zweiten Quartal 41.000 Menschen weniger als im Vorquartal, insgesamt 3,49 Millionen. Von 37 Unternehmen mit Beschäftigungsangaben bauten 16 Personal ab, 21 stellten ein; in der Automobilbranche sank der Umsatz um 1,2 Prozent und der Gewinn um zwölf Prozent. Das ist kein KI-Effekt, sondern klassische Restrukturierung in einem Industriezyklus. Wer beides vermischt, verlegt sich auf die falschen Gegenmaßnahmen.</p>
+      <p>Ein letzter Befund aus den USA verdient Beachtung, weil er zeigt, wie sehr Arbeitsmarktmobilität von der Sozialordnung abhängt: Rund 23 Millionen Amerikaner bleiben Erhebungen zufolge in Jobs, die sie verlassen wollen, weil sie ihre Krankenversicherung nicht verlieren dürfen. Ein Arbeitsmarkt, in dem Menschen aus Angst vor Arztrechnungen nicht kündigen, sieht in der Statistik stabil aus und ist es nicht. Für europäische Arbeitgeber ist das ein unterschätzter Standortvorteil, über den selten gesprochen wird, weil er nicht als Vorteil auffällt, sondern als Selbstverständlichkeit.</p>
+    </div>
+    <h3 class="dept">Weitere Meldungen</h3>
+    <div class="mini-item">
+      <h4>Gen Z gründet</h4>
+      <p>Eine Auswertung der Bank of America findet, dass jüngere und einkommensschwächere Amerikaner einen wachsenden Anteil der Unternehmensgründungen stellen und damit eine lange bestehende Generationenlücke schließen. Die Ursachen sind nicht nur unternehmerischer Optimismus: Wer im Angestelltenverhältnis keine Einstiegsleiter mehr findet, baut sich eine eigene, und die Gründungskosten für digitale Dienstleistungen sind so niedrig wie nie.</p>
+    </div>
+    <div class="mini-item">
+      <h4>Wenn Führung Sonntagsarbeit bedeutet</h4>
+      <p>Der Vorstandschef von Twilio beschreibt seinen Alltag mit Aufstehen um 4:30 Uhr, Arbeit am Sonntag und Runden ums Haus zwischen Terminen und sagt, seinen Kollegen gehe es ähnlich. Solche Selbstbeschreibungen sind Statussignale und keine Managementlehre. Belastbare Studien zur Arbeitszeit von Führungskräften finden regelmäßig, dass die Streuung der Ergebnisse mit der Stundenzahl nicht steigt, wohl aber die Fehlerquote in Entscheidungen nach langen Tagen.</p>
+    </div>
+    <a class="backtotoc" href="#inhalt">↑ Zurück zum Inhalt</a>
+  </section>
+
+  <section id="medien-streaming">
+    <div class="secnum">19</div>
+    <h2 class="sectitle">Medien, TV &amp; Streaming</h2>
+    <div class="secdesc">Automatisierung an der Produktionslinie des Journalismus</div>
+    <h3 class="dept">Kurz notiert</h3>
+    <div class="cols">
+      <p>— Die Rheinische Redaktionsgemeinschaft stellt ihre Tätigkeit zum 30. September ein.</p>
+      <p>— Die BBC verteidigt sich gegen eine Zehn-Milliarden-Dollar-Klage von Donald Trump.</p>
+      <p>— Marvel stellte auf der D23 die Besetzung seines X-Men-Films vor, darunter Adam Driver.</p>
+    </div>
+    <h3 class="dept">Wir automatisieren Produktionsschritte, nicht Journalismus</h3>
+    <div class="cols">
+      <p>Der Satz stammt vom Chefredakteur der Kölner Stadt-Anzeiger Medien, und er beschreibt eine Umstellung, die 57 Vollzeitstellen kostet. Die Regionalteile werden künftig vollständig digital produziert: Digitale Regionalteams erstellen die Inhalte, aus denen anschließend Apps, Portale, E-Paper und Printausgaben bespielt werden. Die Rheinische Redaktionsgemeinschaft, die diese Produktion bisher übernahm, stellt ihre Tätigkeit zum 30. September ein. Wiederkehrende Produktionsschritte sollen stärker automatisiert werden, unter anderem mit künstlicher Intelligenz. Gespräche mit dem Betriebsrat laufen, neu zugeschnittene Stellen werden zuerst intern ausgeschrieben, und einige Journalisten der Gemeinschaft haben sich bereits erfolgreich beworben.</p>
+      <p>Die Unterscheidung zwischen Produktion und Journalismus ist präzise und trotzdem trügerisch. Präzise, weil Umbruch, Formatanpassung, Metadaten und Ausspielung tatsächlich Handwerksschritte sind, die Software besser beherrscht als Menschen. Trügerisch, weil die Regionalredaktion historisch genau dort entstanden ist, wo Produktion und Recherche zusammenfielen: Wer die Seite baute, kannte den Ort, und wer den Ort kannte, wusste, welche Meldung fehlte. Trennt man beides, bleibt Berichterstattung übrig, die korrekt ist und aus der Ferne gemacht.</p>
+      <p>Der ökonomische Zwang ist real. Die Auflagen sinken seit Jahren, und Regionalverlage tragen die höchsten Fixkosten pro Leser im gesamten Mediensystem. Was den Kölner Fall interessant macht, ist die Reihenfolge: Zuerst wurde die Produktion zentralisiert, dann automatisiert, dann reduziert. Jede Stufe war für sich vernünftig; zusammen ergeben sie eine Struktur, in der die Zahl der Menschen, die eine Stadt beobachten, geringer ist als die Zahl der Kanäle, auf denen über sie berichtet wird.</p>
+      <p>Auf der internationalen Bühne kämpft die BBC unterdessen um etwas Grundsätzlicheres. Der Sender versucht, Ivanka Trump, Donald Trump Jr. und Jared Kushner im Verleumdungsverfahren um eine Panorama-Dokumentation über den 6. Januar 2021 als Zeugen vorladen zu lassen; Trump fordert zehn Milliarden Dollar. Für die BBC geht es nicht nur um Geld, sondern um die Frage, ob eine öffentlich-rechtliche Auslandsberichterstattung amerikanische Prozesskosten tragen kann. Für andere europäische Sender ist der Ausgang eine Kalkulationsgrundlage.</p>
+      <p>Und dann gibt es noch das Geschäft, das trotz allem wächst. Auf der D23 in Anaheim stellte Marvel die Besetzung seines X-Men-Films vor, darunter Adam Driver, Inde Navarrette und Christopher Abbott, dazu einen neuen Trailer für Avengers: Doomsday. Parallel diagnostizieren Kritiker, dass die interessanteren Comicverfilmungen längst animiert entstehen. Beides passt zusammen: Die Aufmerksamkeit finanziert das Kino, die Erfindungskraft ist in die Serie gewandert.</p>
+    </div>
+    <h3 class="dept">Weitere Meldungen</h3>
+    <div class="mini-item">
+      <h4>Discord soll Livestreams abschalten</h4>
+      <p>Brasiliens Datenschutzbehörde hat Discord angewiesen, Livestreams im Land auszusetzen; das Unternehmen erklärte, die Anordnung sorgfältig zu prüfen und dem Schutz der Nutzer verpflichtet zu sein. Der Fall zeigt, wie stark Plattformregulierung inzwischen über Datenschutzaufsichten läuft statt über Medienrecht, weil dort die Durchgriffsmöglichkeiten schneller greifen.</p>
+    </div>
+    <div class="mini-item">
+      <h4>Kinos und die Generation Z</h4>
+      <p>Beim ersten UK Film Conference in Edinburgh sprachen BFI-Chef Ben Roberts und Picturehouse-Geschäftsführerin Clare Binns über eine Kino-Renaissance bei jungen Zuschauern und zugleich über KI-Massenware und die Schwäche des britischen Independent-Films. Roberts nannte das fehlende Stück: Film gehöre ins Klassenzimmer. Die Beobachtung ist übertragbar; Publikum entsteht dort, wo Sehgewohnheiten geprägt werden, nicht dort, wo Werbebudgets liegen.</p>
+    </div>
+    <div class="mini-item">
+      <h4>Locarno wirkt auf den Markt</h4>
+      <p>Neben dem Hauptpreis ging der Goldene Leopard der Sektion Filmmakers of the Present an Alessandra Sanguinettis „The Illusion of an Everlasting Summer“, das zugleich als bestes Erstlingswerk ausgezeichnet wurde. Für Verleiher sind solche Doppelauszeichnungen der eigentliche Handelsplatz des Festivals: Sie definieren, welche Titel im Herbst überhaupt Startdaten in Europa bekommen.</p>
+    </div>
+    <a class="backtotoc" href="#inhalt">↑ Zurück zum Inhalt</a>
+  </section>
+
+  <section id="magazin-reportage">
+    <div class="secnum">20</div>
+    <h2 class="sectitle">Magazin: Große Reportage</h2>
+    <div class="secdesc">Fünf Jahre nach dem 15. August 2021</div>
+    <h3 class="dept">Ein Staat, der nur nach innen funktioniert</h3>
+    <div class="cols">
+      <p>Vor dem ehemaligen amerikanischen Botschaftsgelände in Kabul fuhren am Samstag gepanzerte Fahrzeuge auf, mit Fahnen und Transparenten, und die Regierung nannte den Tag Sieg über westliche Fremdherrschaft. Fünf Jahre zuvor, am 15. August 2021, waren die Taliban ohne nennenswerte Gegenwehr in die Hauptstadt eingezogen. Was seither entstanden ist, lässt sich nicht mit den Kategorien beschreiben, mit denen man Regierungen üblicherweise bewertet. Es ist ein Staat, der Ordnung hält und Wohlstand nicht erzeugt, der Steuern erhebt und international keine Verträge schließen kann, der Sicherheit herstellt, indem er die Hälfte der Bevölkerung aus dem öffentlichen Leben entfernt.</p>
+      <p>Die Zahlen sind der nüchternste Zugang. Seit 2021 sind nach Angaben von Hilfsorganisationen 3,5 Millionen Menschen zusätzlich auf humanitäre Hilfe angewiesen; der Gesamtbedarf hat einen Rekordwert erreicht. Getrieben wird er von drei Faktoren, die zusammenwirken: anhaltende Dürre, schwere Erdbeben und die Abschiebung von Afghaninnen und Afghanen aus Iran und Pakistan. Menschen, die jahrelang im Ausland gearbeitet haben, kehren in ein Land zurück, das keine Arbeitsplätze für sie hat. Das International Rescue Committee nennt genau diese Kombination als Ursache dafür, dass die Not trotz relativer innerer Stabilität wächst.</p>
+      <p>Der zweite Zugang ist der Bildungssektor, und er ist der folgenreichste. Nach Angaben der UNESCO sind 2,5 Millionen afghanische Mädchen von weiterführenden Schulen und Universitäten ausgeschlossen. Weniger bekannt ist die Wirkung auf Jungen: Wo Lehrerinnen nicht mehr unterrichten dürfen und ausgebildetes Personal das Land verlassen hat, sinkt die Unterrichtsqualität für alle. Ein Land, das eine Generation ohne Sekundarbildung heranwachsen lässt, verliert nicht nur Gerechtigkeit, sondern jede Basis für Verwaltung, Medizin und Technik in den zwanziger und dreißiger Jahren dieses Jahrhunderts. Nach Daten von UN Women verlassen die Hälfte der afghanischen Frauen ihr Zuhause nur ein- oder zweimal im Monat.</p>
+      <p>Und doch gibt es eine ökonomische Gegenbewegung, die selten erzählt wird. Unternehmerinnen wie Rukia Resai und Ghoncheh Karimi führen Betriebe weiter, produzieren Seife und Honig, beschäftigen Frauen im Verborgenen und liefern über Zwischenhändler. Das ist kein Widerstandsmythos, sondern schlichte Arithmetik: In einer Volkswirtschaft, in der die Hälfte der potenziellen Erwerbstätigen ausgeschlossen ist, liegt das größte verfügbare Wachstumspotenzial genau dort. Wer in Kabul über Wirtschaftspolitik spricht, spricht über diese Frage, ob er will oder nicht.</p>
+      <p>International ist die Bilanz eindeutig und für die Taliban zugleich weniger schlimm, als sie 2021 fürchten mussten. Russland ist bis heute das einzige Land, das die Regierung förmlich anerkannt hat. Aber der Taliban-Vizesprecher Zia Ahmad Takal verwies darauf, dass zum Jahrestag auch in Pakistan, China, Usbekistan, Iran, der Türkei und Malaysia Veranstaltungen stattfanden, und Menschenrechtsorganisationen beobachten mit Sorge, dass diplomatische Kontakte zunehmen, ohne dass sich an der Menschenrechtslage etwas ändert. Die stille Erkenntnis vieler Regierungen lautet: Isolation hat fünf Jahre lang nichts bewirkt, also probiert man Kontakt. Ob das etwas bewirkt, weiß niemand.</p>
+      <p>Für Deutschland hat der Jahrestag eine eigene, unbequeme Note. Einige Zehntausend Afghaninnen und Afghanen kamen über das Evakuierungsprogramm ins Land; zwei Schwestern, die die Tagesschau porträtiert, beschreiben die Ausreise als schwierigste Zeit ihres Lebens. Andere warten weiter: Menschen, denen Berlin nach dem 15. August 2021 die Aufnahme zusagte, sitzen bis heute in Pakistan und Afghanistan fest. In den USA fürchten Afghanen, die für amerikanische Truppen gearbeitet haben, um ihre Green Cards. Fünf Jahre nach dem Abzug ist die Frage, was Schutzversprechen wert sind, wenn sich Regierungen und Prioritäten ändern, nicht abstrakt, sondern für Zehntausende eine Terminfrage.</p>
+      <p>Am Ende bleibt ein Befund, der für die Region wichtiger ist als für die westliche Debatte. Die Taliban haben bewiesen, dass ein Regime ohne internationale Anerkennung, ohne Zugang zu eingefrorenen Zentralbankreserven und ohne nennenswerte Auslandsinvestitionen fünf Jahre überstehen kann, wenn es bereit ist, den Lebensstandard seiner Bevölkerung als Anpassungsgröße zu behandeln. Das ist eine Lektion, die andere autoritäre Regierungen gelesen haben. Sie lautet nicht, dass Sanktionen wirkungslos sind; sie lautet, dass sie auf jemanden treffen müssen, der die Kosten spürt.</p>
     </div>
     <a class="backtotoc" href="#inhalt">↑ Zurück zum Inhalt</a>
   </section>
 
   <!-- ================= THE SIGNAL ================= -->
   <section id="signal">
-    <div class="secnum">12</div>
+    <div class="secnum">21</div>
     <h2 class="sectitle">The Signal</h2>
     <div class="secdesc">Drei Dinge, die noch keine große Nachricht sind — aber beobachtet werden sollten.</div>
     <div class="signal-grid">
       <div class="signal-item">
         <div class="tag">Economic Signal</div>
-        <h4>Der Rabatt für die eigene Belegschaft wird teurer</h4>
-        <p>Finanzminister Lars Klingbeil will den Steuervorteil streichen, den Beschäftigte beim vergünstigten Kauf von Produkten des eigenen Unternehmens genießen; der Staat rechnet mit 240 Millionen Euro zusätzlichen Einnahmen im Jahr. Betroffen wären vor allem Handel und Konsumgüterindustrie, wo der Personalrabatt seit Jahrzehnten Teil des Vergütungspakets ist und in der Rekrutierung als Argument dient. Fällt der Freibetrag, wird aus einem Benefit ein steuerpflichtiger geldwerter Vorteil, den Arbeitgeber entweder pauschal versteuern oder in der Attraktivität ihres Angebots abschreiben müssen.</p>
+        <h4>Eine Intervention, die zehn Tage hielt</h4>
+        <p>Der Yen fiel auf den schwächsten Stand seit vierzig Jahren, Japans Finanzministerium verkaufte Ende Juli Berichten zufolge bis zu 59 Milliarden Dollar, und Anfang August intervenierten Tokio und Washington erstmals seit 1998 gemeinsam. Vom Zwischenhoch bei 157 Yen je Dollar ging es bis zum 11. August zurück auf 159. Wenn koordinierte Interventionen zweier G7-Notenbanken so schnell verpuffen, ist das ein Urteil über die Ursache, nicht über die Ausführung.</p>
       </div>
       <div class="signal-item">
         <div class="tag">Political Signal</div>
-        <h4>Die Autobranche wehrt sich gegen den Zugriff auf Fahrzeugdaten</h4>
-        <p>Eine geplante Reform der deutschen Nachrichtendienste soll den Diensten Zugang zu Telemetriedaten aus Fahrzeugen verschaffen. Das Kfz-Handwerk lehnt es ab, zum verlängerten Arm der Sicherheitsbehörden zu werden, die Hersteller warnen vor einer automobilen Vorratsdatenspeicherung. Der Konflikt ist ein Vorgriff auf eine größere Auseinandersetzung: Je mehr Produkte dauerhaft Daten senden, desto häufiger wird die Frage gestellt werden, wer außer dem Hersteller darauf zugreifen darf.</p>
+        <h4>Seoul bietet Pjöngjang ein Kriegsende an</h4>
+        <p>Präsident Lee Jae-myung hat Nordkorea Gespräche über ein formelles Ende des Koreakriegs vorgeschlagen, der seit dem Waffenstillstand von 1953 nur eingefroren ist, und in seiner Rede zum Befreiungstag zugleich engere Beziehungen zu Japan angekündigt. Beides zusammen ist eine strategische Umorientierung: Wer sich gegenüber Tokio öffnet, verringert die Abhängigkeit von amerikanischer Vermittlung in Ostasien, gerade jetzt, wo Washingtons Flugzeugträger den Pazifik Richtung Nahost verlassen.</p>
       </div>
       <div class="signal-item">
         <div class="tag">Future Signal</div>
-        <h4>Ein Elektroflugzeug bleibt eine halbe Stunde in der Luft</h4>
-        <p>Die batterieelektrische X1 des schwedischen Herstellers Heart Aerospace hat einen Testflug von rund 30 Minuten absolviert; der Strom dafür soll etwa fünf US-Dollar gekostet haben. Die Energiekosten sind damit vernachlässigbar, alles andere nicht: Zulassung, Batteriemasse und Reichweite entscheiden darüber, ob daraus je ein Linienbetrieb wird. Für Logistikplanung ist der Flug vorerst irrelevant, für die Kostenerwartung an regionale Luftfracht in den 2030er Jahren nicht.</p>
+        <h4>Autonome Lkw bekommen Kaliforniens Straßen</h4>
+        <p>Aurora Innovation und Kodiak AI haben Genehmigungen der kalifornischen Zulassungsbehörde erhalten, ihre selbstfahrenden Lastwagen auf Autobahnen zu testen; Kalifornien war für schwere Fahrzeuge bisher der restriktivste US-Markt. Der Kostenvorteil entsteht erst, wenn kein Sicherheitsfahrer mehr mitfährt, aber der Zulassungsschritt legt fest, in welcher Reihenfolge Versicherer, Speditionen und Handelslogistik ihre Kalkulationen anpassen müssen.</p>
       </div>
-    </div>
-    <a class="backtotoc" href="#inhalt">↑ Zurück zum Inhalt</a>
-  </section>
-
-  <!-- ================= FUTURE & TECHNOLOGY ================= -->
-  <section id="future">
-    <div class="secnum">13</div>
-    <h2 class="sectitle">Future &amp; Technology</h2>
-
-    <h3 class="dept">Verfügbar / im produktiven Einsatz</h3>
-    <p>Der Robotaxi-Betreiber Waymo darf seinen Dienst in Kalifornien deutlich ausweiten, und zwar mit nur wenigen Auflagen. Damit verlässt autonomes Fahren endgültig den Status des Pilotprojekts: Es ist ein zugelassener, regulierter, kommerziell betriebener Verkehrsdienst in einem der größten Märkte der Welt. Parallel wird die Nachfrage nach KI-Rechenleistung in Handelsdaten sichtbar, etwa in Chinas nahezu verdoppelten Halbleiterausfuhren. Und Indiens Premierminister Narendra Modi hat nach Protesten gegen Mängel im Bildungssystem kostenlose Online-Nachhilfe sowie Ausbildungen in Künstlicher Intelligenz angekündigt, ein staatliches Qualifizierungsprogramm im Maßstab von Hunderten Millionen Menschen.</p>
-
-    <h3 class="dept">In Entwicklung</h3>
-    <p>Zwei Entwicklungen betreffen mittelfristig die Kostenstruktur von Transport und Fuhrpark. Die Europäische Union verpflichtet Automobilhersteller, Fahrer künftig zur Unfallverhütung per Kamera zu überwachen; die Systeme entstehen gerade, ebenso wie die Regeln für den Umgang mit den dabei erhobenen Daten. Und in der Elektroluftfahrt hat der Testflug der Heart Aerospace X1 gezeigt, dass batterieelektrisches Fliegen im Regionalmaßstab technisch funktioniert, ohne dass Reichweite und Zulassungsfragen gelöst wären. Beides läuft auf dasselbe hinaus: Fahrzeuge und Flugzeuge werden zu Datenerzeugern, deren Betriebskosten künftig weniger vom Kraftstoff und mehr von Software, Zertifizierung und Haftung bestimmt werden.</p>
-
-    <h3 class="dept">Experimentell bis spekulativ</h3>
-    <p>Offen bleibt die wichtigste Frage des Investitionszyklus: ob sich die enormen Ausgaben für KI-Infrastruktur in Produktivität übersetzen oder in Abschreibungen. Eine Leserumfrage des Fachdienstes Golem zeigt, wie weit die Erwartungen auseinanderliegen; ein Teil der Antworten fasst die Skepsis in dem Satz zusammen, irgendwann fliege einem alles um die Ohren. Zugleich wächst Singapur nach Einschätzung von Beobachtern derzeit wie ein Schwellenland, getragen unter anderem von der KI-Welle. Beides kann gleichzeitig wahr sein. Wer heute Budgets bindet, sollte Pilotprojekte so schneiden, dass ein Abbruch keine Folgekosten erzeugt.</p>
-    <a class="backtotoc" href="#inhalt">↑ Zurück zum Inhalt</a>
-  </section>
-
-  <!-- ================= WISSEN ================= -->
-  <section id="wissen">
-    <div class="secnum">14</div>
-    <h2 class="sectitle">Wissen</h2>
-    <div class="secdesc">Rotierendes Ressort — Themen je nach Tagesmaterial.</div>
-    <div class="wissen-item">
-      <div class="kicker">Wissenschaft</div>
-      <h3>Warum die Sonnenkorona heißer ist als die Sonne selbst</h3>
-      <p>Neue Auswertungen der indischen Solarmission liefern Hinweise auf eines der hartnäckigsten Rätsel der Astrophysik: Die äußere Atmosphäre der Sonne ist Millionen Grad heißer als ihre Oberfläche, obwohl sie weiter von der Energiequelle entfernt liegt. Die Beobachtungsdaten helfen dabei, konkurrierende Erklärungsmodelle zur Aufheizung der Korona gegeneinander zu prüfen. Praktische Bedeutung hat das für die Vorhersage von Sonnenstürmen, die Satelliten und Stromnetze stören können.</p>
-    </div>
-    <div class="wissen-item">
-      <div class="kicker">Verbraucherschutz</div>
-      <h3>Das Wunderkühlgerät war ein PC-Lüfter mit Heizspirale</h3>
-      <p>Die Stiftung Warentest hat einen als revolutionär beworbenen Kühler namens Epicooler bestellt und zerlegt. Im Inneren fand sich ein handelsüblicher Computerlüfter, ergänzt um eine Heizspirale, also das Gegenteil der versprochenen Funktion. Der Fall ist ein Lehrstück über Werbeversprechen im Direktvertrieb, die auf Hitzewellen und Kaufdruck setzen. Für Händler ist er ein Argument, Prüfberichte nicht als Formalie zu behandeln, sondern als Teil der Sortimentsverantwortung.</p>
-    </div>
-    <div class="wissen-item">
-      <div class="kicker">Gesellschaft</div>
-      <h3>Parkour als Sturzprävention im Alter</h3>
-      <p>In einem der am schnellsten alternden Länder der Welt suchen ältere Menschen ungewöhnliche Wege, um beweglich zu bleiben, darunter Parkour-Training. Der Ansatz zielt weniger auf Kraft als auf kontrolliertes Fallen und schnelle Reaktion. Da Stürze eine der häufigsten Ursachen für dauerhafte Pflegebedürftigkeit sind, ist die Prävention ökonomisch hochwirksam. Für Hersteller von Alltagsschuhwerk verschiebt das die Anforderungen: Halt und Rückmeldung des Untergrunds werden wichtiger als reine Dämpfung.</p>
-    </div>
-    <div class="wissen-item">
-      <div class="kicker">Kurioses</div>
-      <h3>Neun Millionen Euro in Gold, eingemauert im Keller</h3>
-      <p>Bauarbeiter stießen in Belgien beim Bohren für eine Abwasserleitung auf einen in einer Kellerwand versiegelten Goldschatz im Wert von rund neun Millionen Euro. Wer das Metall dort einmauerte und wann, ist bislang ungeklärt. Der Fund fällt in eine Zeit, in der Gold ohnehin als Krisenanlage gefragt ist. Rechtlich wird nun interessant, wem der Fund zusteht, dem Eigentümer der Immobilie oder den Findern.</p>
-    </div>
-    <div class="wissen-item">
-      <div class="kicker">Verkehr</div>
-      <h3>Seoul-Incheon ist der verkehrsreichste Flughafen der Welt</h3>
-      <p>Im internationalen Passagierverkehr hat der südkoreanische Flughafen Incheon London-Heathrow auf Platz zwei verwiesen. Der Betreiber führt den Zuwachs unter anderem auf Umleitungen zurück, die der Nahostkonflikt erzwingt. Damit verschieben sich Umsteigeströme dauerhaft nach Ostasien, und mit ihnen die Reisendenausgaben in den Terminals. Für den Handel an Flughäfen ist das eine Standortfrage, keine Konjunkturfrage.</p>
-    </div>
-    <div class="wissen-item">
-      <div class="kicker">Gesundheit</div>
-      <h3>Ebola breitet sich im Kongo schneller aus als je zuvor</h3>
-      <p>Das Ebolavirus verbreitet sich in der Demokratischen Republik Kongo in Rekordgeschwindigkeit, und in der Millionenmetropole Kinshasa wächst nach Einschätzung von Fachleuten die Sorge vor einer ernsten Gesundheitskrise. Krankenhäuser bereiten sich so gut es geht auf Notfälle vor. Anders als bei früheren Ausbrüchen in ländlichen Regionen erschwert die städtische Dichte die Nachverfolgung von Kontakten erheblich. Der Verlauf der kommenden zwei Wochen entscheidet, ob die Eindämmung gelingt.</p>
     </div>
     <a class="backtotoc" href="#inhalt">↑ Zurück zum Inhalt</a>
   </section>
 
   <!-- ================= DEEP DIVE ================= -->
   <section id="deepdive">
-    <div class="secnum">15</div>
+    <div class="secnum">22</div>
     <h2 class="sectitle">Deep Dive</h2>
 
-    <h3 class="dept">Von Hohenfels an die Börse: Wie eine Drohnenübung die Rüstungsetats und die Technologieinvestitionen Europas neu ordnet</h3>
+    <h3 class="dept">Was die Bilanz einer Bank mit der Quantenphysik verbindet: warum die Post-Quanten-Migration 2026 vom Forschungsthema zum Kostenposten wird</h3>
     <div class="cols">
-      <p>Es ist die Sorte Nachricht, die zwei Ressorts gleichzeitig betrifft und deshalb in beiden zu klein wirkt: In der Geopolitik ist sie eine Fußnote zu einer Übung, an den Finanzmärkten eine Frage der Bewertung von Rüstungsunternehmen. Zusammengenommen ergibt sie eine der wichtigeren Erkenntnisse dieses Sommers. Beim Manöver Combined Resolve 26-07, das vom 9. April bis 10. Mai auf dem Truppenübungsplatz Hohenfels in der Oberpfalz stattfand, haben Drohnenpiloten der 412. ukrainischen Brigade Nemesis einen mechanisierten Angriff der 1st Cavalry Division ausgehebelt, 3.500 Soldaten mit Kampfpanzern vom Typ M1A2 Abrams und Schützenpanzern M2 Bradley.</p>
-      <p>Der Ablauf ist lehrreicher als das Ergebnis. Die vorrückenden Fahrzeuge wirbelten Staubwolken auf, die ukrainische Aufklärungsdrohnen aus großer Entfernung erkannten. Sobald ein Fahrzeug lokalisiert war, folgten Angriffsdrohnen mit Sprengladungen und FPV-Systeme. Der amerikanische Verband reagierte im Verlauf der zwei Wochen, tarnte besser, nutzte Gelände, löste enge Formationen auf. Genau das ist der Punkt: Eine Doktrin, die auf Masse und Geschwindigkeit setzt, muss sich neu erfinden, wenn Aufklärung billig und permanent wird.</p>
-      <p>Ökonomisch bedeutet das eine Verschiebung des Verhältnisses von Kapital zu Wirkung. Ein Kampfpanzer ist ein Gerät mit jahrzehntelanger Nutzungsdauer, langen Beschaffungszyklen und industrieller Fertigungstiefe; eine FPV-Drohne ist ein Verbrauchsgut, dessen Wirksamkeit von Software, Funkstrecke und Nachschubtempo abhängt. Wo das erste Modell Planungssicherheit für die Zulieferkette schafft, verlangt das zweite kurze Innovationszyklen und die Bereitschaft, ganze Serien nach wenigen Monaten zu ersetzen. Für Volkswirtschaften wie die deutsche, deren industrielle Stärke im mechanischen Präzisionsbau liegt, ist das keine gute Nachricht, sondern eine Aufforderung zur Umstellung.</p>
-      <p>Damit verbindet sich die Nachricht mit dem Finanzressort. Europäische Rüstungswerte sind in den vergangenen Jahren mit der Erwartung stark gestiegener und langfristig gesicherter Beschaffungsbudgets bewertet worden, wobei implizit unterstellt wurde, dass die Struktur dieser Budgets stabil bleibt, also schweres Gerät dominiert. Verschiebt sich der Etatanteil zugunsten von Sensorik, Störsendern, Software und Zehntausenden billiger Fluggeräte, dann bleibt die Gesamtsumme möglicherweise gleich, während die Empfänger wechseln. Wer Rüstung als homogenes Anlagethema kauft, kauft in Wahrheit zwei gegenläufige Geschäftsmodelle in einem Korb.</p>
-      <p>Der dritte Strang ist die Technologie selbst. Drohnenabwehr ist im Kern ein Problem der Signalverarbeitung in Echtzeit, und damit dieselbe Rechenlast, die den zivilen KI-Boom antreibt. Chinas nahezu verdoppelte Halbleiterausfuhren und die zweistelligen Zuwächse bei Hightech-Gütern beschreiben eine Angebotsseite, die militärisch und zivil identisch ist. Europas Verwundbarkeit liegt genau hier: Man kann Panzer in Deutschland bauen, aber die Chips, die sie schützen, kommen überwiegend nicht von hier.</p>
-      <p>Für Unternehmen außerhalb der Verteidigungswirtschaft ist die Übung dennoch relevant, und zwar über die Zinsseite. Steigende Verteidigungsausgaben in einer Phase mit ölgetriebener Inflation und angespannten Haushalten erhöhen den Druck auf Staatsanleiherenditen, und die Renditen bestimmen die Finanzierungskosten von Lagerbeständen, Filialausbauten und Working Capital. Der Weg von einem Übungsplatz in der Oberpfalz zur Zinsbelastung einer Handelskette ist lang, aber er ist nicht spekulativ. Er verläuft über Budgetstruktur, Emissionsvolumen und Risikoprämien, und er wird in den kommenden Haushaltsberatungen sichtbarer werden als in jedem Militärbericht.</p>
+      <p>Zwei Ressorts dieser Ausgabe berühren dasselbe Thema, ohne dass es auffällt. In Wissenschaft und Technik steht, dass Forscher erstmals einen zyklisch arbeitenden supraleitenden Quanten-Wärmemotor demonstriert haben, ein Schritt zur Skalierung großer Quantencomputer. In der Finanzmarkt-Watchlist steht ein kanadisches Kleinunternehmen mit 755 Millionen kanadischen Dollar Marktkapitalisierung und praktisch keinem Umsatz, dessen Geschäft aus Quanten-Zufallszahlengeneratoren besteht. Zwischen beiden liegt die Frage, die IT-Vorstände 2026 beschäftigt: Wann genau muss man Verschlüsselung austauschen, die heute noch funktioniert?</p>
+      <p>Die Antwort hat einen unangenehmen Zeitverlauf. Die Bedrohung heißt in der Fachsprache „harvest now, decrypt later“: Angreifer schneiden verschlüsselten Datenverkehr heute mit und lagern ihn, bis Quantencomputer leistungsfähig genug sind, ihn zu entschlüsseln. Analysten datieren diesen Punkt überwiegend auf die Mitte der dreißiger Jahre. Der Angriff findet also heute statt, der Schaden tritt in zehn Jahren ein, und dazwischen liegt nichts, was ein Sicherheitsteam bemerken würde. Für Daten mit kurzer Halbwertszeit ist das gleichgültig. Für alles, was gesetzlich lange aufbewahrt werden muss, für Verträge, Personalakten, Kreditunterlagen und Gesundheitsdaten, ist es das nicht.</p>
+      <p>Der regulatorische Takt ist inzwischen gesetzt. Das amerikanische NIST hat mit den Standards FIPS 203, 204 und 205 die quantenresistenten Algorithmen festgelegt und verlangt von Bundessystemen eine verbindliche Migration; die europäische Diskussion folgt mit einigem Abstand demselben Muster. Die technische Umstellung selbst ist dabei der kleinere Teil. Der größere ist die Bestandsaufnahme: Kaum ein Unternehmen weiß vollständig, wo überall kryptografische Verfahren in seinen Systemen stecken, in welchen Geräten, welcher Middleware, welchen Verträgen mit Dienstleistern. Genau deshalb entstehen gerade Beratungs- und Werkzeugmärkte für kryptografische Inventarisierung, lange bevor der erste Algorithmus getauscht wird.</p>
+      <p>Von hier führt eine gerade Linie zur Bewertung von Unternehmen wie Quantum eMotion. Ein Quanten-Zufallszahlengenerator liefert Zufall aus einem physikalischen Prozess statt aus einem Algorithmus, was Schlüssel schwerer vorhersagbar macht. Ob man diese Hardware braucht, ist unter Kryptografen umstritten; gute Pseudozufallsquellen gelten vielen als ausreichend. Was aber nicht umstritten ist: Zertifizierungen entscheiden über Beschaffungsentscheidungen im öffentlichen Sektor. Deshalb war die NIST-Listung des SecureKey-Moduls im Status „Implementation Under Test“ am 16. Juli für den Kurs wichtiger als jede technische Kennzahl. Wer in solche Titel investiert, kauft eine Wette auf Beschaffungsregeln, nicht auf Physik.</p>
+      <p>Die dritte Verbindung führt zur Sicherheitslage der laufenden Woche und macht die Sache konkret. Während über die Bedrohung des Jahres 2035 diskutiert wird, läuft eine globale Angriffskampagne gegen eine kritische Lücke in VMware vCenter, bei der Patchen allein nicht genügt, weil Angreifer sich bereits festgesetzt haben können. Eine Schwachstelle in der macOS-Bildschirmfreigabe erlaubt die Anmeldung ohne Passwort. In Deutschland deckte das BKA gemeinsam mit brasilianischen Ermittlern eine Bande auf, die über eine Online-Banking-Lücke Millionenschäden verursacht hat. Keine dieser Attacken benötigt einen Quantencomputer.</p>
+      <p>Daraus ergibt sich die Priorisierungsfrage, vor der jedes mittelständische Unternehmen steht. Post-Quanten-Migration ist teuer, langwierig und schützt vor einem Risiko, das mit Sicherheit erst in Jahren eintritt. Grundlegende Sicherheitshygiene ist billiger und schützt vor Risiken, die diese Woche eintreten. Die richtige Reihenfolge ist deshalb weder das eine noch das andere allein, sondern eine Trennung nach Datenlebensdauer: Was in zehn Jahren noch schadet, wenn es öffentlich wird, gehört in die Migrationsplanung; alles andere gehört in die Patch-Routine. Diese Unterscheidung kostet nichts außer einer Entscheidung, und sie ist die einzige, die ein Unternehmen ohne eigene Kryptografen selbst treffen kann.</p>
+      <p>Für den Finanzmarkt hat diese Nüchternheit eine Konsequenz. Der Markt für Post-Quanten-Sicherheit wird real, aber er wächst im Takt von Zertifizierungszyklen und Beschaffungsordnungen, nicht im Takt von Schlagzeilen. Bewertungen, die einen Durchbruch einpreisen, laufen dem Beschaffungsprozess um Jahre voraus. Bewertungen, die ihn ignorieren, unterschätzen, wie zäh regulierte Nachfrage ist, wenn sie einmal entsteht. Zwischen diesen beiden Fehlern liegt der ganze Sektor.</p>
     </div>
     <div class="disclaimer">Diese Einordnung basiert ausschließlich auf den zitierten Quellen und ist keine Anlageempfehlung.</div>
     <a class="backtotoc" href="#inhalt">↑ Zurück zum Inhalt</a>
@@ -541,18 +905,18 @@
 
   <!-- ================= LETZTE SEITE ================= -->
   <div class="lastpage" id="zitat">
-    <div class="secnum" style="text-align:center;">16</div>
+    <div class="secnum" style="text-align:center;">23</div>
     <div class="eyebrow">Zitat des Tages</div>
-    <p class="quote">„Die Reform des EU-Emissionshandels muss jetzt so ausgestaltet werden, dass wir industrielle Produktion und energieintensive Unternehmen langfristig in Deutschland halten können."</p>
-    <div class="quote-author">— Katherina Reiche, Bundesministerin für Wirtschaft und Energie, am 14. August 2026</div>
+    <p class="quote">„Putin kann die Ukraine zerstören, aber nicht erobern."</p>
+    <div class="quote-author">— Dmitri Muratow, Friedensnobelpreisträger, im Gespräch mit der BBC</div>
     <div class="gedanke">
       <div class="tag">Gedanke des Tages</div>
-      <p>Drei Meldungen dieses Tages handeln vom selben Sachverhalt, ohne es zu wissen: ein Feuer an der Adria, das eine Saison verkürzt, eine Statistik über 42.300 verschwundene Industriearbeitsplätze und ein Ölpreis, der aus einer gesperrten Meerenge stammt. Sie alle beschreiben Kosten, die nicht in der Kalkulation stehen, weil sie früher als Ausnahme galten. Die Aufgabe der kommenden Jahre besteht weniger darin, jede dieser Störungen zu prognostizieren, als darin, Geschäftsmodelle so zu bauen, dass sie eine Störung aushalten, ohne dass gleich die Jahresplanung fällt. Robustheit ist teurer als Effizienz. Sie ist derzeit die bessere Investition.</p>
+      <p>Diese Ausgabe hat einen roten Faden, der niemandem gefallen dürfte: In fast jedem Ressort steht eine Zahl, die eigentlich eine Warnung ist, aber wie eine Beruhigung klingt. Der Ölpreis fällt, obwohl eine Meerenge blockiert ist, weil Reserven die Anpassung vertagen. Die DAX-Gewinne steigen auf Rekordniveau, obwohl 41.000 Stellen weggefallen sind, weil Kosten sinken und nicht Absatz wächst. Ungarns Inflation liegt bei 1,2 Prozent, nachdem die Lebensmittelpreise seit 2019 um achtzig Prozent gestiegen waren. Und der Rhein hat einen Rekord gebrochen, den zu brechen niemand vorhatte. Es gehört zur Aufgabe einer Geschäftsführung, solche Zahlen richtig herum zu lesen. Nicht als Entwarnung, sondern als Auskunft darüber, wie lange ein Puffer noch trägt.</p>
     </div>
   </div>
 
   <footer class="sources">
-    Quellen (Auswahl): Asien (BBC), Europa &amp; Welt (Deutsche Welle), Technologie (Golem), USA &amp; Kanada (BBC), Welt (BBC World). Diese Ausgabe wurde automatisiert aus den genannten RSS-Feeds erstellt und redaktionell eingeordnet, erhebt aber keinen Anspruch auf Vollständigkeit.
+    Quellen (Auswahl): Asien &amp; Pazifik — ABC News Australia, Asien &amp; Pazifik — Bangkok Post, Asien &amp; Pazifik — Japan Times, Asien &amp; Pazifik — SCMP (Hongkong), Asien &amp; Pazifik — Straits Times Asia, Asien &amp; Pazifik — The Diplomat, Asien &amp; Pazifik — The Hindu, Asien &amp; Pazifik — Times of India, CSEE &amp; Deutschland — Spiegel Wirtschaft, CSEE &amp; Deutschland — Tagesschau Ausland, CSEE &amp; Deutschland — Tagesschau Inland, CSEE &amp; Deutschland — Tagesschau Wirtschaft, CSEE &amp; Deutschland — n-tv Wirtschaft, Europa — Politico Europe, Europa — Spiegel International, Europa — The Guardian Europe, Europa — The Guardian UK, Europa — The Moscow Times, Kultur &amp; Feuilleton — New Yorker, Kultur &amp; Feuilleton — Slate, Kultur &amp; Feuilleton — Smithsonian Magazine, Kultur &amp; Feuilleton — The Atlantic, Kultur &amp; Feuilleton — Vox, Naher Osten &amp; Afrika — Africanews, Naher Osten &amp; Afrika — Al-Monitor, Naher Osten &amp; Afrika — AllAfrica Headlines, Reise, Karriere &amp; Wohnen — Conde Nast Traveler, Reise, Karriere &amp; Wohnen — Fast Company, Reise, Karriere &amp; Wohnen — Inc., Sport — BBC Sport, Sport — ESPN, Sport — Sky Sports, Technologie — 9to5Mac, Technologie — Android Authority, Technologie — Ars Technica, Technologie — Dark Reading (IT-Sicherheit), Technologie — Engadget, Technologie — Golem, Technologie — Heise, Technologie — MIT Technology Review, Technologie — TechCrunch, Technologie — TechRadar, Technologie — The Verge, Technologie — VentureBeat, Technologie — Wired, Technologie — ZDNet, USA &amp; Nordamerika — CNN Politics, USA &amp; Nordamerika — NPR Politics, USA &amp; Nordamerika — NYT US, USA &amp; Nordamerika — Politico, USA &amp; Nordamerika — The Hill, Unterhaltung &amp; Medien — Billboard, Unterhaltung &amp; Medien — Deadline, Unterhaltung &amp; Medien — Hollywood Reporter, Unterhaltung &amp; Medien — IndieWire, Unterhaltung &amp; Medien — Pitchfork, Unterhaltung &amp; Medien — Rolling Stone, Unterhaltung &amp; Medien — Variety, Weltnachrichten — Al Jazeera, Weltnachrichten — BBC Africa, Weltnachrichten — BBC Asia, Weltnachrichten — BBC Europe, Weltnachrichten — BBC Latin America, Weltnachrichten — BBC Middle East, Weltnachrichten — BBC UK, Weltnachrichten — BBC US &amp; Canada, Weltnachrichten — BBC World, Weltnachrichten — CNN Top Stories, Weltnachrichten — CNN World, Weltnachrichten — DW English, Weltnachrichten — France24 English, Weltnachrichten — NPR News, Weltnachrichten — NPR World, Weltnachrichten — NYT World, Weltnachrichten — The Guardian International, Weltnachrichten — The Guardian World, Weltnachrichten — euronews, Wirtschaft &amp; Maerkte — Business Insider, Wirtschaft &amp; Maerkte — CoinDesk, Wirtschaft &amp; Maerkte — CoinTelegraph, Wirtschaft &amp; Maerkte — Forbes Business, Wirtschaft &amp; Maerkte — Fortune, Wirtschaft &amp; Maerkte — Fox Business, Wirtschaft &amp; Maerkte — Investing.com, Wirtschaft &amp; Maerkte — MarketWatch Realtime, Wirtschaft &amp; Maerkte — MarketWatch Top Stories, Wirtschaft &amp; Maerkte — Seeking Alpha Market Currents, Wirtschaft &amp; Maerkte — Yahoo Finance, Wissenschaft — Nature News, Wissenschaft — New Scientist, Wissenschaft — Phys.org, Wissenschaft — Science Magazine News, Wissenschaft — ScienceDaily, Wissenschaft — Scientific American, Wissenschaft — Space.com. Diese Ausgabe wurde automatisiert aus RSS-Feeds und Websuche erstellt und redaktionell eingeordnet, erhebt aber keinen Anspruch auf Vollständigkeit. Die Finanzmarkt-Watchlist ist keine Anlageempfehlung.
   </footer>
 
 </div>
