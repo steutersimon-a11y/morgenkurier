@@ -3,9 +3,9 @@ name: Morgenkurier taeglich aktualisieren
 on:
   schedule:
     # 04:30 UTC = 06:30 Uhr im Sommer (CEST) / 05:30 Uhr im Winter (CET).
-    # Bewusst grosszuegiger Puffer vor 8 Uhr: die Generierung macht 5
-    # gestaffelte KI-Aufrufe (mit Pausen fuers Gratis-Kontingent) und
-    # dauert dadurch ca. 6-7 Minuten statt weniger Sekunden.
+    # Der Lauf besteht aus drei Phasen: Feeds holen (Sekunden), Redaktion
+    # durch Claude inkl. Web-Recherche (ca. 3-6 Minuten) und Rendern
+    # (Sekunden). Der Puffer bis 8 Uhr ist damit komfortabel.
     - cron: "30 4 * * *"
   workflow_dispatch: {}
 
@@ -35,11 +35,33 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Neue Ausgabe generieren
-        timeout-minutes: 20
-        env:
-          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
-        run: python scripts/generate_issue.py
+      # Phase 1: Rohmaterial aus zwoelf oeffentlichen RSS-Feeds.
+      # Schreibt build/material.md und build/sources.json.
+      - name: Rohmaterial sammeln
+        run: python scripts/fetch_material.py
+
+      # Phase 2: Redaktion. Claude liest das Material, recherchiert per
+      # Websuche nach und schreibt den redaktionellen Inhalt als reines JSON
+      # nach build/content.json. Es entsteht bewusst KEIN HTML - das Layout
+      # bleibt allein Sache des Render-Skripts.
+      - name: Ausgabe redigieren (Claude)
+        uses: anthropics/claude-code-action@v1
+        timeout-minutes: 25
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          prompt: |
+            Lies scripts/editorial_brief.md und folge dem Briefing
+            vollstaendig. Ergebnis ist genau eine Datei: build/content.json.
+          claude_args: |
+            --model claude-opus-5
+            --max-turns 60
+            --allowedTools "Read,Write,Edit,Glob,Grep,WebSearch,WebFetch,Bash(python3:*)"
+
+      # Phase 3: Deterministisches Rendern. Bricht ab, wenn content.json
+      # fehlt oder unvollstaendig ist - eine halb leere Zeitung wird nicht
+      # deployt.
+      - name: HTML rendern
+        run: python scripts/render_issue.py
 
       - name: Aenderung committen und pushen
         run: |
