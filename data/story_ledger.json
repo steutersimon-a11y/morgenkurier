@@ -46,5 +46,83 @@
     "headline": "Die Rückkehr des flachen Schuhs",
     "ressort": "Magazin: Große Reportage",
     "date": "2026-08-16"
+  },
+  {
+    "story_id": "waldbraende-hohes-venn",
+    "headline": "Dreihundert Meter, dann drehte der Wind",
+    "ressort": "Deutschland",
+    "date": "2026-08-17"
+  },
+  {
+    "story_id": "paragraf-188-reform",
+    "headline": "Der Sonderschutz, den niemand mehr verteidigen will",
+    "ressort": "Politik",
+    "date": "2026-08-17"
+  },
+  {
+    "story_id": "ukraine-tiefenkrieg",
+    "headline": "Der Krieg gegen das Lager",
+    "ressort": "Europa & Geopolitik",
+    "date": "2026-08-17"
+  },
+  {
+    "story_id": "usa-korea-manoever",
+    "headline": "Die Manöver als Faustpfand",
+    "ressort": "USA",
+    "date": "2026-08-17"
+  },
+  {
+    "story_id": "hormuz-blockade",
+    "headline": "Fünf Schiffe",
+    "ressort": "Wirtschaft & Finanzen",
+    "date": "2026-08-17"
+  },
+  {
+    "story_id": "csee-industrieverlagerung",
+    "headline": "Die Werkbank zieht um, die Kaufkraft folgt",
+    "ressort": "CSEE Retail Brief",
+    "date": "2026-08-17"
+  },
+  {
+    "story_id": "eu-ai-act-kennzeichnung",
+    "headline": "Brüssel schreibt, die Welt liefert",
+    "ressort": "Wissenschaft & Technik",
+    "date": "2026-08-17"
+  },
+  {
+    "story_id": "kunstraub-messina",
+    "headline": "Fünf Tafeln, zwei zurückgelassen",
+    "ressort": "Feuilleton & Kultur",
+    "date": "2026-08-17"
+  },
+  {
+    "story_id": "hitzesommer-2026-europa",
+    "headline": "Der Sommer, der die Institutionen prüft",
+    "ressort": "Leben & Gesellschaft",
+    "date": "2026-08-17"
+  },
+  {
+    "story_id": "adria-preiswende",
+    "headline": "Die Adria rechnet nach",
+    "ressort": "Reise",
+    "date": "2026-08-17"
+  },
+  {
+    "story_id": "ki-arbeitsmarkt-einstieg",
+    "headline": "Die Tür, die sich zuerst schließt",
+    "ressort": "Beruf & Karriere",
+    "date": "2026-08-17"
+  },
+  {
+    "story_id": "paramount-wbd-fusion",
+    "headline": "Der Umzug als Druckmittel",
+    "ressort": "Medien, TV & Streaming",
+    "date": "2026-08-17"
+  },
+  {
+    "story_id": "ebola-bundibugyo-drk",
+    "headline": "Ein Toter alle dreißig Minuten",
+    "ressort": "Magazin: Große Reportage",
+    "date": "2026-08-17"
   }
 ]
