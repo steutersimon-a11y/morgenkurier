@@ -124,5 +124,89 @@
     "headline": "Ein Toter alle dreißig Minuten",
     "ressort": "Magazin: Große Reportage",
     "date": "2026-08-17"
+  },
+  {
+    "story_id": "klimaanpassung-grundgesetz",
+    "headline": "Wenn der Sommer die Verfassung erreicht",
+    "ressort": "Deutschland",
+    "date": "2026-08-18"
+  },
+  {
+    "story_id": "ungarn-magyar-100-tage",
+    "headline": "Hundert Tage Fegefeuer",
+    "ressort": "Politik",
+    "date": "2026-08-18"
+  },
+  {
+    "story_id": "eu-russland-sanktionen",
+    "headline": "Die Buchführung des Durchhaltens",
+    "ressort": "Europa & Geopolitik",
+    "date": "2026-08-18"
+  },
+  {
+    "story_id": "usa-korea-manoever",
+    "headline": "Die Übung als Verhandlungsmasse",
+    "ressort": "USA",
+    "date": "2026-08-18"
+  },
+  {
+    "story_id": "oelpreis-zinswende",
+    "headline": "Der Aufschlag, den keine Notenbank wegdiskutieren kann",
+    "ressort": "Wirtschaft & Finanzen",
+    "date": "2026-08-18"
+  },
+  {
+    "story_id": "csee-konsum-zweiklassen",
+    "headline": "Zwei Geschwindigkeiten, ein Regal",
+    "ressort": "CSEE Retail Brief",
+    "date": "2026-08-18"
+  },
+  {
+    "story_id": "speicherkrise-dram",
+    "headline": "Der Rohstoff, der teurer wird als der Chip",
+    "ressort": "Wissenschaft & Technik",
+    "date": "2026-08-18"
+  },
+  {
+    "story_id": "kunstraub-messina",
+    "headline": "Zwei Tafeln auf einer Mauer",
+    "ressort": "Feuilleton & Kultur",
+    "date": "2026-08-18"
+  },
+  {
+    "story_id": "sport-investorenkapital",
+    "headline": "Der Verein als Anlageklasse",
+    "ressort": "Sport",
+    "date": "2026-08-18"
+  },
+  {
+    "story_id": "daenemark-ki-schule",
+    "headline": "Das Diktat der kontrollierten Bedingungen",
+    "ressort": "Leben & Gesellschaft",
+    "date": "2026-08-18"
+  },
+  {
+    "story_id": "adria-preiswende",
+    "headline": "Die Adria rechnet nach",
+    "ressort": "Reise",
+    "date": "2026-08-18"
+  },
+  {
+    "story_id": "ki-arbeitsmarkt-einstieg",
+    "headline": "Die Leiter ohne unterste Sprosse",
+    "ressort": "Beruf & Karriere",
+    "date": "2026-08-18"
+  },
+  {
+    "story_id": "meta-kinderschutz-prozess",
+    "headline": "Der Prozess, der das Geschäftsmodell prüft",
+    "ressort": "Medien, TV & Streaming",
+    "date": "2026-08-18"
+  },
+  {
+    "story_id": "zoll-umleitung-china",
+    "headline": "Der Umweg",
+    "ressort": "Magazin: Große Reportage",
+    "date": "2026-08-18"
   }
 ]
