@@ -1,77 +1,5 @@
 [
   {
-    "story_id": "paragraf-188-reform",
-    "headline": "Der Sonderschutz, den niemand mehr verteidigen will",
-    "ressort": "Politik",
-    "date": "2026-08-17"
-  },
-  {
-    "story_id": "ukraine-tiefenkrieg",
-    "headline": "Der Krieg gegen das Lager",
-    "ressort": "Europa & Geopolitik",
-    "date": "2026-08-17"
-  },
-  {
-    "story_id": "usa-korea-manoever",
-    "headline": "Die Manöver als Faustpfand",
-    "ressort": "USA",
-    "date": "2026-08-17"
-  },
-  {
-    "story_id": "hormuz-blockade",
-    "headline": "Fünf Schiffe",
-    "ressort": "Wirtschaft & Finanzen",
-    "date": "2026-08-17"
-  },
-  {
-    "story_id": "csee-industrieverlagerung",
-    "headline": "Die Werkbank zieht um, die Kaufkraft folgt",
-    "ressort": "CSEE Retail Brief",
-    "date": "2026-08-17"
-  },
-  {
-    "story_id": "eu-ai-act-kennzeichnung",
-    "headline": "Brüssel schreibt, die Welt liefert",
-    "ressort": "Wissenschaft & Technik",
-    "date": "2026-08-17"
-  },
-  {
-    "story_id": "kunstraub-messina",
-    "headline": "Fünf Tafeln, zwei zurückgelassen",
-    "ressort": "Feuilleton & Kultur",
-    "date": "2026-08-17"
-  },
-  {
-    "story_id": "hitzesommer-2026-europa",
-    "headline": "Der Sommer, der die Institutionen prüft",
-    "ressort": "Leben & Gesellschaft",
-    "date": "2026-08-17"
-  },
-  {
-    "story_id": "adria-preiswende",
-    "headline": "Die Adria rechnet nach",
-    "ressort": "Reise",
-    "date": "2026-08-17"
-  },
-  {
-    "story_id": "ki-arbeitsmarkt-einstieg",
-    "headline": "Die Tür, die sich zuerst schließt",
-    "ressort": "Beruf & Karriere",
-    "date": "2026-08-17"
-  },
-  {
-    "story_id": "paramount-wbd-fusion",
-    "headline": "Der Umzug als Druckmittel",
-    "ressort": "Medien, TV & Streaming",
-    "date": "2026-08-17"
-  },
-  {
-    "story_id": "ebola-bundibugyo-drk",
-    "headline": "Ein Toter alle dreißig Minuten",
-    "ressort": "Magazin: Große Reportage",
-    "date": "2026-08-17"
-  },
-  {
     "story_id": "klimaanpassung-grundgesetz",
     "headline": "Wenn der Sommer die Verfassung erreicht",
     "ressort": "Deutschland",
@@ -238,5 +166,77 @@
     "headline": "Der Virus, für den es keinen zugelassenen Impfstoff gibt",
     "ressort": "Magazin: Große Reportage",
     "date": "2026-08-19"
+  },
+  {
+    "story_id": "gasspeicher-winter-2026",
+    "headline": "Die Speicher, die niemand füllen will",
+    "ressort": "Deutschland",
+    "date": "2026-08-20"
+  },
+  {
+    "story_id": "icc-us-sanktionen",
+    "headline": "Der Gerichtshof als Zielscheibe",
+    "ressort": "Politik",
+    "date": "2026-08-20"
+  },
+  {
+    "story_id": "ukraine-wahlfrage",
+    "headline": "Zwei Angriffe auf dieselbe Hauptstadt",
+    "ressort": "Europa & Geopolitik",
+    "date": "2026-08-20"
+  },
+  {
+    "story_id": "iran-wirtschaftskrieg",
+    "headline": "Der Wirtschaftskrieg als letztes verbliebenes Mittel",
+    "ressort": "USA",
+    "date": "2026-08-20"
+  },
+  {
+    "story_id": "usa-schulden-anleihen",
+    "headline": "Vierzig Billionen, und die Käufer werden wählerisch",
+    "ressort": "Wirtschaft & Finanzen",
+    "date": "2026-08-20"
+  },
+  {
+    "story_id": "ungarn-preisdeckel-handel",
+    "headline": "Der Deckel, den niemand mehr abnehmen will",
+    "ressort": "CSEE Retail Brief",
+    "date": "2026-08-20"
+  },
+  {
+    "story_id": "swift-absturz",
+    "headline": "Das Teleskop, das niemand mehr einholt",
+    "ressort": "Wissenschaft & Technik",
+    "date": "2026-08-20"
+  },
+  {
+    "story_id": "musiala-diagnose",
+    "headline": "Die Diagnose, die der Spieler selbst veröffentlicht",
+    "ressort": "Sport",
+    "date": "2026-08-20"
+  },
+  {
+    "story_id": "luftverkehr-golf-verschiebung",
+    "headline": "Wo die Drehscheibe sich verschiebt",
+    "ressort": "Reise",
+    "date": "2026-08-20"
+  },
+  {
+    "story_id": "ki-verantwortung-arbeitsplatz",
+    "headline": "Der Prüfer, den man nach dem Unfall wegrationalisiert",
+    "ressort": "Beruf & Karriere",
+    "date": "2026-08-20"
+  },
+  {
+    "story_id": "abc-fcc-lizenzstreit",
+    "headline": "Die Lizenz als Druckmittel",
+    "ressort": "Medien, TV & Streaming",
+    "date": "2026-08-20"
+  },
+  {
+    "story_id": "evergrande-urteil",
+    "headline": "Lebenslänglich für den Mann, der Chinas Immobilienwunder verkörperte",
+    "ressort": "Magazin: Große Reportage",
+    "date": "2026-08-20"
   }
 ]
