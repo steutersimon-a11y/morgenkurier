@@ -1,89 +1,5 @@
 [
   {
-    "story_id": "klimaanpassung-grundgesetz",
-    "headline": "Wenn der Sommer die Verfassung erreicht",
-    "ressort": "Deutschland",
-    "date": "2026-08-18"
-  },
-  {
-    "story_id": "ungarn-magyar-100-tage",
-    "headline": "Hundert Tage Fegefeuer",
-    "ressort": "Politik",
-    "date": "2026-08-18"
-  },
-  {
-    "story_id": "eu-russland-sanktionen",
-    "headline": "Die Buchführung des Durchhaltens",
-    "ressort": "Europa & Geopolitik",
-    "date": "2026-08-18"
-  },
-  {
-    "story_id": "usa-korea-manoever",
-    "headline": "Die Übung als Verhandlungsmasse",
-    "ressort": "USA",
-    "date": "2026-08-18"
-  },
-  {
-    "story_id": "oelpreis-zinswende",
-    "headline": "Der Aufschlag, den keine Notenbank wegdiskutieren kann",
-    "ressort": "Wirtschaft & Finanzen",
-    "date": "2026-08-18"
-  },
-  {
-    "story_id": "csee-konsum-zweiklassen",
-    "headline": "Zwei Geschwindigkeiten, ein Regal",
-    "ressort": "CSEE Retail Brief",
-    "date": "2026-08-18"
-  },
-  {
-    "story_id": "speicherkrise-dram",
-    "headline": "Der Rohstoff, der teurer wird als der Chip",
-    "ressort": "Wissenschaft & Technik",
-    "date": "2026-08-18"
-  },
-  {
-    "story_id": "kunstraub-messina",
-    "headline": "Zwei Tafeln auf einer Mauer",
-    "ressort": "Feuilleton & Kultur",
-    "date": "2026-08-18"
-  },
-  {
-    "story_id": "sport-investorenkapital",
-    "headline": "Der Verein als Anlageklasse",
-    "ressort": "Sport",
-    "date": "2026-08-18"
-  },
-  {
-    "story_id": "daenemark-ki-schule",
-    "headline": "Das Diktat der kontrollierten Bedingungen",
-    "ressort": "Leben & Gesellschaft",
-    "date": "2026-08-18"
-  },
-  {
-    "story_id": "adria-preiswende",
-    "headline": "Die Adria rechnet nach",
-    "ressort": "Reise",
-    "date": "2026-08-18"
-  },
-  {
-    "story_id": "ki-arbeitsmarkt-einstieg",
-    "headline": "Die Leiter ohne unterste Sprosse",
-    "ressort": "Beruf & Karriere",
-    "date": "2026-08-18"
-  },
-  {
-    "story_id": "meta-kinderschutz-prozess",
-    "headline": "Der Prozess, der das Geschäftsmodell prüft",
-    "ressort": "Medien, TV & Streaming",
-    "date": "2026-08-18"
-  },
-  {
-    "story_id": "zoll-umleitung-china",
-    "headline": "Der Umweg",
-    "ressort": "Magazin: Große Reportage",
-    "date": "2026-08-18"
-  },
-  {
     "story_id": "duerre-ernte-deutschland",
     "headline": "Die Ernte, die schon eingefahren ist, und die Rechnung, die noch aussteht",
     "ressort": "Deutschland",
@@ -238,5 +154,89 @@
     "headline": "Lebenslänglich für den Mann, der Chinas Immobilienwunder verkörperte",
     "ressort": "Magazin: Große Reportage",
     "date": "2026-08-20"
+  },
+  {
+    "story_id": "nord-stream-ermittlungen",
+    "headline": "Der Taucher, den Polen nicht ausliefern wollte",
+    "ressort": "Deutschland",
+    "date": "2026-08-21"
+  },
+  {
+    "story_id": "israel-siedlungen-e1",
+    "headline": "Ein Keil aus Beton",
+    "ressort": "Politik",
+    "date": "2026-08-21"
+  },
+  {
+    "story_id": "ukraine-luftverteidigung",
+    "headline": "Neun Stunden, 44 Raketen, ein Rechenproblem",
+    "ressort": "Europa & Geopolitik",
+    "date": "2026-08-21"
+  },
+  {
+    "story_id": "usa-schulden-anleihen",
+    "headline": "Vierzig Billionen, und der Markt gab einen Tag Ruhe",
+    "ressort": "USA",
+    "date": "2026-08-21"
+  },
+  {
+    "story_id": "oelpreis-zinswende",
+    "headline": "Der Schock, der aus der Politik kommt",
+    "ressort": "Wirtschaft & Finanzen",
+    "date": "2026-08-21"
+  },
+  {
+    "story_id": "csee-konsum-zweiklassen",
+    "headline": "Vier Länder, vier Kaufkraftregime",
+    "ressort": "CSEE Retail Brief",
+    "date": "2026-08-21"
+  },
+  {
+    "story_id": "change-7-mondmission",
+    "headline": "Der erste Versuch, direkt am Südpol aufzusetzen",
+    "ressort": "Wissenschaft & Technik",
+    "date": "2026-08-21"
+  },
+  {
+    "story_id": "kunstraub-europa",
+    "headline": "Acht zurück, fünf verkauft",
+    "ressort": "Feuilleton & Kultur",
+    "date": "2026-08-21"
+  },
+  {
+    "story_id": "tennis-preisgeld-verhandlung",
+    "headline": "Der Preisgeldtopf als Verhandlungsprotokoll",
+    "ressort": "Sport",
+    "date": "2026-08-21"
+  },
+  {
+    "story_id": "bargeld-krisenvorsorge",
+    "headline": "Das Paradox im Portemonnaie",
+    "ressort": "Leben & Gesellschaft",
+    "date": "2026-08-21"
+  },
+  {
+    "story_id": "reise-hitze-nordverschiebung",
+    "headline": "Coolcation ist kein Modewort mehr, sondern eine Bilanzposition",
+    "ressort": "Reise",
+    "date": "2026-08-21"
+  },
+  {
+    "story_id": "ausbildung-belastung-dgb",
+    "headline": "Der niedrigste Wert, den dieser Report je gemessen hat",
+    "ressort": "Beruf & Karriere",
+    "date": "2026-08-21"
+  },
+  {
+    "story_id": "ki-musik-kennzeichnung",
+    "headline": "Die Flut, die niemand hört",
+    "ressort": "Medien, TV & Streaming",
+    "date": "2026-08-21"
+  },
+  {
+    "story_id": "hongkong-tiananmen-prozess",
+    "headline": "Das Urteil über ein Licht, das längst aus ist",
+    "ressort": "Magazin: Große Reportage",
+    "date": "2026-08-21"
   }
 ]
