@@ -1,89 +1,5 @@
 [
   {
-    "story_id": "duerre-ernte-deutschland",
-    "headline": "Die Ernte, die schon eingefahren ist, und die Rechnung, die noch aussteht",
-    "ressort": "Deutschland",
-    "date": "2026-08-19"
-  },
-  {
-    "story_id": "polen-safe-streit",
-    "headline": "Zwei Unterschriften, ein Panzer",
-    "ressort": "Politik",
-    "date": "2026-08-19"
-  },
-  {
-    "story_id": "ukraine-wahlfrage",
-    "headline": "Der erste Riss im Kriegskonsens",
-    "ressort": "Europa & Geopolitik",
-    "date": "2026-08-19"
-  },
-  {
-    "story_id": "usa-vorwahlen-2026",
-    "headline": "Sechzehn Millionen gegen eine",
-    "ressort": "USA",
-    "date": "2026-08-19"
-  },
-  {
-    "story_id": "oelpreis-zinswende",
-    "headline": "Die Rechnung kommt am langen Ende",
-    "ressort": "Wirtschaft & Finanzen",
-    "date": "2026-08-19"
-  },
-  {
-    "story_id": "csee-konsum-zweiklassen",
-    "headline": "Die Schere, die sich nicht schließt",
-    "ressort": "CSEE Retail Brief",
-    "date": "2026-08-19"
-  },
-  {
-    "story_id": "china-tech-doppelschlag",
-    "headline": "Zwei Beweise an einem Tag",
-    "ressort": "Wissenschaft & Technik",
-    "date": "2026-08-19"
-  },
-  {
-    "story_id": "kunstraub-europa",
-    "headline": "Drei Minuten für zehn Millionen",
-    "ressort": "Feuilleton & Kultur",
-    "date": "2026-08-19"
-  },
-  {
-    "story_id": "sport-investorenkapital",
-    "headline": "Der Erbe als Minderheitsgesellschafter",
-    "ressort": "Sport",
-    "date": "2026-08-19"
-  },
-  {
-    "story_id": "luftqualitaet-staedte",
-    "headline": "Was in fünf Jahren aus einer Umweltzone wird",
-    "ressort": "Leben & Gesellschaft",
-    "date": "2026-08-19"
-  },
-  {
-    "story_id": "adria-preiswende",
-    "headline": "Die Nebensaison ist keine mehr",
-    "ressort": "Reise",
-    "date": "2026-08-19"
-  },
-  {
-    "story_id": "ki-arbeitsmarkt-einstieg",
-    "headline": "Die Leiter, deren unterste Sprosse zur obersten wurde",
-    "ressort": "Beruf & Karriere",
-    "date": "2026-08-19"
-  },
-  {
-    "story_id": "abc-fcc-lizenzstreit",
-    "headline": "Der Antrag, der zur Waffe wurde",
-    "ressort": "Medien, TV & Streaming",
-    "date": "2026-08-19"
-  },
-  {
-    "story_id": "ebola-bundibugyo-drk",
-    "headline": "Der Virus, für den es keinen zugelassenen Impfstoff gibt",
-    "ressort": "Magazin: Große Reportage",
-    "date": "2026-08-19"
-  },
-  {
     "story_id": "gasspeicher-winter-2026",
     "headline": "Die Speicher, die niemand füllen will",
     "ressort": "Deutschland",
@@ -238,5 +154,89 @@
     "headline": "Das Urteil über ein Licht, das längst aus ist",
     "ressort": "Magazin: Große Reportage",
     "date": "2026-08-21"
+  },
+  {
+    "story_id": "vw-restrukturierung",
+    "headline": "Zwei Zahlen aus derselben Woche, die einander widersprechen",
+    "ressort": "Deutschland",
+    "date": "2026-08-22"
+  },
+  {
+    "story_id": "israel-siedlungen-e1",
+    "headline": "Ein Bauantrag mit Ablaufdatum",
+    "ressort": "Politik",
+    "date": "2026-08-22"
+  },
+  {
+    "story_id": "ukraine-luftverteidigung",
+    "headline": "Eine halbe Stunde zwischen zwei Drohnen",
+    "ressort": "Europa & Geopolitik",
+    "date": "2026-08-22"
+  },
+  {
+    "story_id": "usa-kanada-zollkrieg",
+    "headline": "Fünf Prozent der Exporte, hundert Prozent der Unsicherheit",
+    "ressort": "USA",
+    "date": "2026-08-22"
+  },
+  {
+    "story_id": "usa-schulden-anleihen",
+    "headline": "Der Käufer der letzten Instanz trägt jetzt Krawatte statt Notenbankmandat",
+    "ressort": "Wirtschaft & Finanzen",
+    "date": "2026-08-22"
+  },
+  {
+    "story_id": "ungarn-preisdeckel-handel",
+    "headline": "Der Deckel kommt vor Gericht",
+    "ressort": "CSEE Retail Brief",
+    "date": "2026-08-22"
+  },
+  {
+    "story_id": "super-el-nino-2026",
+    "headline": "Das Ereignis, dessen Spitze noch bevorsteht",
+    "ressort": "Wissenschaft & Technik",
+    "date": "2026-08-22"
+  },
+  {
+    "story_id": "sarajevo-filmfestival",
+    "headline": "Ein Preis, der auch eine Standortbestimmung ist",
+    "ressort": "Feuilleton & Kultur",
+    "date": "2026-08-22"
+  },
+  {
+    "story_id": "fussball-finanzarchitektur",
+    "headline": "Ein verlorenes Playoff, achtundfünfzig Millionen weniger",
+    "ressort": "Sport",
+    "date": "2026-08-22"
+  },
+  {
+    "story_id": "hitzetote-praevention",
+    "headline": "Vierzehntausend, und keiner davon steht in einer Statistik über Todesursachen",
+    "ressort": "Leben & Gesellschaft",
+    "date": "2026-08-22"
+  },
+  {
+    "story_id": "reise-hitze-nordverschiebung",
+    "headline": "Wie schnell sich eine Reisegeografie wirklich verschiebt",
+    "ressort": "Reise",
+    "date": "2026-08-22"
+  },
+  {
+    "story_id": "praesenzpflicht-rueckzug",
+    "headline": "Der Rückzug, den ein Konzern nicht Rückzug nennt",
+    "ressort": "Beruf & Karriere",
+    "date": "2026-08-22"
+  },
+  {
+    "story_id": "lokal-tv-automatisierung",
+    "headline": "Achtundsiebzig Jahre, und dann steht der Stuhl leer",
+    "ressort": "Medien, TV & Streaming",
+    "date": "2026-08-22"
+  },
+  {
+    "story_id": "hormuz-blockade",
+    "headline": "Die Meerenge, die niemand offiziell geschlossen hat",
+    "ressort": "Magazin: Große Reportage",
+    "date": "2026-08-22"
   }
 ]
