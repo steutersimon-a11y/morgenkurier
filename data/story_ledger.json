@@ -1,89 +1,5 @@
 [
   {
-    "story_id": "gasspeicher-winter-2026",
-    "headline": "Die Speicher, die niemand füllen will",
-    "ressort": "Deutschland",
-    "date": "2026-08-20"
-  },
-  {
-    "story_id": "icc-us-sanktionen",
-    "headline": "Der Gerichtshof als Zielscheibe",
-    "ressort": "Politik",
-    "date": "2026-08-20"
-  },
-  {
-    "story_id": "ukraine-wahlfrage",
-    "headline": "Zwei Angriffe auf dieselbe Hauptstadt",
-    "ressort": "Europa & Geopolitik",
-    "date": "2026-08-20"
-  },
-  {
-    "story_id": "iran-wirtschaftskrieg",
-    "headline": "Der Wirtschaftskrieg als letztes verbliebenes Mittel",
-    "ressort": "USA",
-    "date": "2026-08-20"
-  },
-  {
-    "story_id": "usa-schulden-anleihen",
-    "headline": "Vierzig Billionen, und die Käufer werden wählerisch",
-    "ressort": "Wirtschaft & Finanzen",
-    "date": "2026-08-20"
-  },
-  {
-    "story_id": "ungarn-preisdeckel-handel",
-    "headline": "Der Deckel, den niemand mehr abnehmen will",
-    "ressort": "CSEE Retail Brief",
-    "date": "2026-08-20"
-  },
-  {
-    "story_id": "swift-absturz",
-    "headline": "Das Teleskop, das niemand mehr einholt",
-    "ressort": "Wissenschaft & Technik",
-    "date": "2026-08-20"
-  },
-  {
-    "story_id": "musiala-diagnose",
-    "headline": "Die Diagnose, die der Spieler selbst veröffentlicht",
-    "ressort": "Sport",
-    "date": "2026-08-20"
-  },
-  {
-    "story_id": "luftverkehr-golf-verschiebung",
-    "headline": "Wo die Drehscheibe sich verschiebt",
-    "ressort": "Reise",
-    "date": "2026-08-20"
-  },
-  {
-    "story_id": "ki-verantwortung-arbeitsplatz",
-    "headline": "Der Prüfer, den man nach dem Unfall wegrationalisiert",
-    "ressort": "Beruf & Karriere",
-    "date": "2026-08-20"
-  },
-  {
-    "story_id": "abc-fcc-lizenzstreit",
-    "headline": "Die Lizenz als Druckmittel",
-    "ressort": "Medien, TV & Streaming",
-    "date": "2026-08-20"
-  },
-  {
-    "story_id": "evergrande-urteil",
-    "headline": "Lebenslänglich für den Mann, der Chinas Immobilienwunder verkörperte",
-    "ressort": "Magazin: Große Reportage",
-    "date": "2026-08-20"
-  },
-  {
-    "story_id": "nord-stream-ermittlungen",
-    "headline": "Der Taucher, den Polen nicht ausliefern wollte",
-    "ressort": "Deutschland",
-    "date": "2026-08-21"
-  },
-  {
-    "story_id": "israel-siedlungen-e1",
-    "headline": "Ein Keil aus Beton",
-    "ressort": "Politik",
-    "date": "2026-08-21"
-  },
-  {
     "story_id": "ukraine-luftverteidigung",
     "headline": "Neun Stunden, 44 Raketen, ein Rechenproblem",
     "ressort": "Europa & Geopolitik",
@@ -238,5 +154,89 @@
     "headline": "Die Meerenge, die niemand offiziell geschlossen hat",
     "ressort": "Magazin: Große Reportage",
     "date": "2026-08-22"
+  },
+  {
+    "story_id": "merz-reformumsetzung",
+    "headline": "Die Klausur, deren Frist am 6. September abläuft",
+    "ressort": "Deutschland",
+    "date": "2026-08-23"
+  },
+  {
+    "story_id": "israel-siedlungen-e1",
+    "headline": "Wenn die Diplomaten selbst zu Klägern werden",
+    "ressort": "Politik",
+    "date": "2026-08-23"
+  },
+  {
+    "story_id": "ukraine-luftverteidigung",
+    "headline": "Eine halbe Stunde, und dann noch einmal",
+    "ressort": "Europa & Geopolitik",
+    "date": "2026-08-23"
+  },
+  {
+    "story_id": "usa-kanada-zollkrieg",
+    "headline": "Der Nachbar als Testfall",
+    "ressort": "USA",
+    "date": "2026-08-23"
+  },
+  {
+    "story_id": "oelpreis-zinswende",
+    "headline": "Sechs Unterschriften gegen den Preis an der Zapfsäule",
+    "ressort": "Wirtschaft & Finanzen",
+    "date": "2026-08-23"
+  },
+  {
+    "story_id": "rumaenien-flaechenexpansion",
+    "headline": "Rumänien baut Fläche, während die Kaufkraft abbaut",
+    "ressort": "CSEE Retail Brief",
+    "date": "2026-08-23"
+  },
+  {
+    "story_id": "humanoide-roboter-china",
+    "headline": "9,32 Sekunden, und niemand war außer Atem",
+    "ressort": "Wissenschaft & Technik",
+    "date": "2026-08-23"
+  },
+  {
+    "story_id": "rijksmuseum-uylenburgh",
+    "headline": "Dreihundert Jahre im Dunkeln, und deshalb noch farbig",
+    "ressort": "Feuilleton & Kultur",
+    "date": "2026-08-23"
+  },
+  {
+    "story_id": "premier-league-2026-27",
+    "headline": "Der erste Spieltag, an dem alle Rechnungen noch stimmen",
+    "ressort": "Sport",
+    "date": "2026-08-23"
+  },
+  {
+    "story_id": "hitzetote-praevention",
+    "headline": "Dreißigtausend, und die Zahl ist noch nicht fertig",
+    "ressort": "Leben & Gesellschaft",
+    "date": "2026-08-23"
+  },
+  {
+    "story_id": "reise-preissensible-buchung",
+    "headline": "Wenn der Preis wieder das erste Argument ist",
+    "ressort": "Reise",
+    "date": "2026-08-23"
+  },
+  {
+    "story_id": "arbeitsmarkt-ki-verschiebung",
+    "headline": "Zwei Mangelanzeigen, die sich nicht aufheben",
+    "ressort": "Beruf & Karriere",
+    "date": "2026-08-23"
+  },
+  {
+    "story_id": "australien-medienabgabe",
+    "headline": "Eine Abgabe, die man durch Verhandeln vermeiden kann",
+    "ressort": "Medien, TV & Streaming",
+    "date": "2026-08-23"
+  },
+  {
+    "story_id": "ebola-drc-2026",
+    "headline": "Der Ausbruch, gegen den es keinen zugelassenen Impfstoff gibt",
+    "ressort": "Magazin: Große Reportage",
+    "date": "2026-08-23"
   }
 ]
