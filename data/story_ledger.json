@@ -1,71 +1,5 @@
 [
   {
-    "story_id": "ukraine-luftverteidigung",
-    "headline": "Neun Stunden, 44 Raketen, ein Rechenproblem",
-    "ressort": "Europa & Geopolitik",
-    "date": "2026-08-21"
-  },
-  {
-    "story_id": "usa-schulden-anleihen",
-    "headline": "Vierzig Billionen, und der Markt gab einen Tag Ruhe",
-    "ressort": "USA",
-    "date": "2026-08-21"
-  },
-  {
-    "story_id": "oelpreis-zinswende",
-    "headline": "Der Schock, der aus der Politik kommt",
-    "ressort": "Wirtschaft & Finanzen",
-    "date": "2026-08-21"
-  },
-  {
-    "story_id": "csee-konsum-zweiklassen",
-    "headline": "Vier Länder, vier Kaufkraftregime",
-    "ressort": "CSEE Retail Brief",
-    "date": "2026-08-21"
-  },
-  {
-    "story_id": "change-7-mondmission",
-    "headline": "Der erste Versuch, direkt am Südpol aufzusetzen",
-    "ressort": "Wissenschaft & Technik",
-    "date": "2026-08-21"
-  },
-  {
-    "story_id": "kunstraub-europa",
-    "headline": "Acht zurück, fünf verkauft",
-    "ressort": "Feuilleton & Kultur",
-    "date": "2026-08-21"
-  },
-  {
-    "story_id": "tennis-preisgeld-verhandlung",
-    "headline": "Der Preisgeldtopf als Verhandlungsprotokoll",
-    "ressort": "Sport",
-    "date": "2026-08-21"
-  },
-  {
-    "story_id": "bargeld-krisenvorsorge",
-    "headline": "Das Paradox im Portemonnaie",
-    "ressort": "Leben & Gesellschaft",
-    "date": "2026-08-21"
-  },
-  {
-    "story_id": "reise-hitze-nordverschiebung",
-    "headline": "Coolcation ist kein Modewort mehr, sondern eine Bilanzposition",
-    "ressort": "Reise",
-    "date": "2026-08-21"
-  },
-  {
-    "story_id": "ausbildung-belastung-dgb",
-    "headline": "Der niedrigste Wert, den dieser Report je gemessen hat",
-    "ressort": "Beruf & Karriere",
-    "date": "2026-08-21"
-  },
-  {
-    "story_id": "ki-musik-kennzeichnung",
-    "headline": "Die Flut, die niemand hört",
-    "ressort": "Medien, TV & Streaming",
-    "date": "2026-08-21"
-  },
-  {
     "story_id": "hongkong-tiananmen-prozess",
     "headline": "Das Urteil über ein Licht, das längst aus ist",
     "ressort": "Magazin: Große Reportage",
@@ -238,5 +172,71 @@
     "headline": "Der Ausbruch, gegen den es keinen zugelassenen Impfstoff gibt",
     "ressort": "Magazin: Große Reportage",
     "date": "2026-08-23"
+  },
+  {
+    "story_id": "vw-restrukturierung",
+    "headline": "Blumes Zahl: Warum 50.000 mehr sind als eine Zahl",
+    "ressort": "Deutschland",
+    "date": "2026-08-24"
+  },
+  {
+    "story_id": "iran-wirtschaftskrieg",
+    "headline": "Der Krieg, der mit einer Pressekonferenz geführt wird",
+    "ressort": "Politik",
+    "date": "2026-08-24"
+  },
+  {
+    "story_id": "ukraine-wahlfrage",
+    "headline": "Fünfunddreißig Jahre, und die Frage nach der Wahl",
+    "ressort": "Europa & Geopolitik",
+    "date": "2026-08-24"
+  },
+  {
+    "story_id": "usa-kanada-zollkrieg",
+    "headline": "Wie man einen Handelskrieg verliert — zu zweit",
+    "ressort": "USA",
+    "date": "2026-08-24"
+  },
+  {
+    "story_id": "usa-schulden-anleihen",
+    "headline": "Vierzig Billionen, und der Markt wird wählerisch",
+    "ressort": "Wirtschaft & Finanzen",
+    "date": "2026-08-24"
+  },
+  {
+    "story_id": "ungarn-preisdeckel-handel",
+    "headline": "Der Deckel, jetzt vor dem Europäischen Gerichtshof",
+    "ressort": "CSEE Retail Brief",
+    "date": "2026-08-24"
+  },
+  {
+    "story_id": "mrna-krebsimpfstoff",
+    "headline": "Der erste Impfstoff, der dem Krebs zuvorkommt",
+    "ressort": "Wissenschaft & Technik",
+    "date": "2026-08-24"
+  },
+  {
+    "story_id": "reise-hitze-nordverschiebung",
+    "headline": "Die Reisegeografie verschiebt sich — messbar",
+    "ressort": "Reise",
+    "date": "2026-08-24"
+  },
+  {
+    "story_id": "indien-it-ki",
+    "headline": "Das Ende der goldenen Stunde",
+    "ressort": "Beruf & Karriere",
+    "date": "2026-08-24"
+  },
+  {
+    "story_id": "warner-paramount-fusion",
+    "headline": "Warner, Paramount und die Grenzen der Größe",
+    "ressort": "Medien, TV & Streaming",
+    "date": "2026-08-24"
+  },
+  {
+    "story_id": "russland-kriegswirtschaft",
+    "headline": "Die Schlange an der Tankstelle",
+    "ressort": "Magazin: Große Reportage",
+    "date": "2026-08-24"
   }
 ]
