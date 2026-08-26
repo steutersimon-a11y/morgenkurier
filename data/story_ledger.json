@@ -1,89 +1,5 @@
 [
   {
-    "story_id": "hormuz-blockade",
-    "headline": "Die Meerenge, die niemand offiziell geschlossen hat",
-    "ressort": "Magazin: Große Reportage",
-    "date": "2026-08-22"
-  },
-  {
-    "story_id": "merz-reformumsetzung",
-    "headline": "Die Klausur, deren Frist am 6. September abläuft",
-    "ressort": "Deutschland",
-    "date": "2026-08-23"
-  },
-  {
-    "story_id": "israel-siedlungen-e1",
-    "headline": "Wenn die Diplomaten selbst zu Klägern werden",
-    "ressort": "Politik",
-    "date": "2026-08-23"
-  },
-  {
-    "story_id": "ukraine-luftverteidigung",
-    "headline": "Eine halbe Stunde, und dann noch einmal",
-    "ressort": "Europa & Geopolitik",
-    "date": "2026-08-23"
-  },
-  {
-    "story_id": "usa-kanada-zollkrieg",
-    "headline": "Der Nachbar als Testfall",
-    "ressort": "USA",
-    "date": "2026-08-23"
-  },
-  {
-    "story_id": "oelpreis-zinswende",
-    "headline": "Sechs Unterschriften gegen den Preis an der Zapfsäule",
-    "ressort": "Wirtschaft & Finanzen",
-    "date": "2026-08-23"
-  },
-  {
-    "story_id": "rumaenien-flaechenexpansion",
-    "headline": "Rumänien baut Fläche, während die Kaufkraft abbaut",
-    "ressort": "CSEE Retail Brief",
-    "date": "2026-08-23"
-  },
-  {
-    "story_id": "humanoide-roboter-china",
-    "headline": "9,32 Sekunden, und niemand war außer Atem",
-    "ressort": "Wissenschaft & Technik",
-    "date": "2026-08-23"
-  },
-  {
-    "story_id": "rijksmuseum-uylenburgh",
-    "headline": "Dreihundert Jahre im Dunkeln, und deshalb noch farbig",
-    "ressort": "Feuilleton & Kultur",
-    "date": "2026-08-23"
-  },
-  {
-    "story_id": "premier-league-2026-27",
-    "headline": "Der erste Spieltag, an dem alle Rechnungen noch stimmen",
-    "ressort": "Sport",
-    "date": "2026-08-23"
-  },
-  {
-    "story_id": "hitzetote-praevention",
-    "headline": "Dreißigtausend, und die Zahl ist noch nicht fertig",
-    "ressort": "Leben & Gesellschaft",
-    "date": "2026-08-23"
-  },
-  {
-    "story_id": "reise-preissensible-buchung",
-    "headline": "Wenn der Preis wieder das erste Argument ist",
-    "ressort": "Reise",
-    "date": "2026-08-23"
-  },
-  {
-    "story_id": "arbeitsmarkt-ki-verschiebung",
-    "headline": "Zwei Mangelanzeigen, die sich nicht aufheben",
-    "ressort": "Beruf & Karriere",
-    "date": "2026-08-23"
-  },
-  {
-    "story_id": "australien-medienabgabe",
-    "headline": "Eine Abgabe, die man durch Verhandeln vermeiden kann",
-    "ressort": "Medien, TV & Streaming",
-    "date": "2026-08-23"
-  },
-  {
     "story_id": "ebola-drc-2026",
     "headline": "Der Ausbruch, gegen den es keinen zugelassenen Impfstoff gibt",
     "ressort": "Magazin: Große Reportage",
@@ -238,5 +154,89 @@
     "headline": "Minus zwei Zentimeter",
     "ressort": "Magazin: Große Reportage",
     "date": "2026-08-25"
+  },
+  {
+    "story_id": "merz-reformumsetzung",
+    "headline": "Die Stimmung dreht, bevor die Reform kommt",
+    "ressort": "Deutschland",
+    "date": "2026-08-26"
+  },
+  {
+    "story_id": "iran-wirtschaftskrieg",
+    "headline": "Die Sanktion, die sich an Dritte richtet",
+    "ressort": "Politik",
+    "date": "2026-08-26"
+  },
+  {
+    "story_id": "usa-russland-geheimdiplomatie",
+    "headline": "Ein C-17 landet in Moskau, und Kiew soll stillhalten",
+    "ressort": "Europa & Geopolitik",
+    "date": "2026-08-26"
+  },
+  {
+    "story_id": "usa-kanada-zollkrieg",
+    "headline": "Dollar für Dollar, ab dem 8. September",
+    "ressort": "USA",
+    "date": "2026-08-26"
+  },
+  {
+    "story_id": "footwear-nachfrageknick",
+    "headline": "Der Tag, an dem der Sneakermarkt aufhörte, sich selbst zu tragen",
+    "ressort": "Wirtschaft & Finanzen",
+    "date": "2026-08-26"
+  },
+  {
+    "story_id": "rumaenien-flaechenexpansion",
+    "headline": "Wenn der Warenkorb kleiner wird, ohne dass die Kasse es zeigt",
+    "ressort": "CSEE Retail Brief",
+    "date": "2026-08-26"
+  },
+  {
+    "story_id": "spacex-starbase-louisiana",
+    "headline": "Ein Startplatz als Industriepolitik",
+    "ressort": "Wissenschaft & Technik",
+    "date": "2026-08-26"
+  },
+  {
+    "story_id": "dolly-parton-tod",
+    "headline": "Die Frau, die ihre eigenen Klischees geschrieben hat",
+    "ressort": "Feuilleton & Kultur",
+    "date": "2026-08-26"
+  },
+  {
+    "story_id": "nfl-cte-studie",
+    "headline": "Einer von vier, und wahrscheinlich mehr",
+    "ressort": "Sport",
+    "date": "2026-08-26"
+  },
+  {
+    "story_id": "zuckersteuer-deutschland",
+    "headline": "Eine Abgabe, die den Süßstoff mitnimmt",
+    "ressort": "Leben & Gesellschaft",
+    "date": "2026-08-26"
+  },
+  {
+    "story_id": "reise-hitze-nordverschiebung",
+    "headline": "Wenn ein Drittel der Reisenden nur noch außerhalb der Saison kommt",
+    "ressort": "Reise",
+    "date": "2026-08-26"
+  },
+  {
+    "story_id": "usa-h1b-gebuehr",
+    "headline": "103.265 Dollar, und 76 Prozent der Kleinen sind draußen",
+    "ressort": "Beruf & Karriere",
+    "date": "2026-08-26"
+  },
+  {
+    "story_id": "warner-paramount-fusion",
+    "headline": "Die Fusion, die nun auch die Bundesstaaten gegeneinander stellt",
+    "ressort": "Medien, TV & Streaming",
+    "date": "2026-08-26"
+  },
+  {
+    "story_id": "hormuz-blockade",
+    "headline": "Die Rechnung, die in Seeleuten geführt wird",
+    "ressort": "Magazin: Große Reportage",
+    "date": "2026-08-26"
   }
 ]
