@@ -1,83 +1,5 @@
 [
   {
-    "story_id": "ebola-drc-2026",
-    "headline": "Der Ausbruch, gegen den es keinen zugelassenen Impfstoff gibt",
-    "ressort": "Magazin: Große Reportage",
-    "date": "2026-08-23"
-  },
-  {
-    "story_id": "vw-restrukturierung",
-    "headline": "Blumes Zahl: Warum 50.000 mehr sind als eine Zahl",
-    "ressort": "Deutschland",
-    "date": "2026-08-24"
-  },
-  {
-    "story_id": "iran-wirtschaftskrieg",
-    "headline": "Der Krieg, der mit einer Pressekonferenz geführt wird",
-    "ressort": "Politik",
-    "date": "2026-08-24"
-  },
-  {
-    "story_id": "ukraine-wahlfrage",
-    "headline": "Fünfunddreißig Jahre, und die Frage nach der Wahl",
-    "ressort": "Europa & Geopolitik",
-    "date": "2026-08-24"
-  },
-  {
-    "story_id": "usa-kanada-zollkrieg",
-    "headline": "Wie man einen Handelskrieg verliert — zu zweit",
-    "ressort": "USA",
-    "date": "2026-08-24"
-  },
-  {
-    "story_id": "usa-schulden-anleihen",
-    "headline": "Vierzig Billionen, und der Markt wird wählerisch",
-    "ressort": "Wirtschaft & Finanzen",
-    "date": "2026-08-24"
-  },
-  {
-    "story_id": "ungarn-preisdeckel-handel",
-    "headline": "Der Deckel, jetzt vor dem Europäischen Gerichtshof",
-    "ressort": "CSEE Retail Brief",
-    "date": "2026-08-24"
-  },
-  {
-    "story_id": "mrna-krebsimpfstoff",
-    "headline": "Der erste Impfstoff, der dem Krebs zuvorkommt",
-    "ressort": "Wissenschaft & Technik",
-    "date": "2026-08-24"
-  },
-  {
-    "story_id": "reise-hitze-nordverschiebung",
-    "headline": "Die Reisegeografie verschiebt sich — messbar",
-    "ressort": "Reise",
-    "date": "2026-08-24"
-  },
-  {
-    "story_id": "indien-it-ki",
-    "headline": "Das Ende der goldenen Stunde",
-    "ressort": "Beruf & Karriere",
-    "date": "2026-08-24"
-  },
-  {
-    "story_id": "warner-paramount-fusion",
-    "headline": "Warner, Paramount und die Grenzen der Größe",
-    "ressort": "Medien, TV & Streaming",
-    "date": "2026-08-24"
-  },
-  {
-    "story_id": "russland-kriegswirtschaft",
-    "headline": "Die Schlange an der Tankstelle",
-    "ressort": "Magazin: Große Reportage",
-    "date": "2026-08-24"
-  },
-  {
-    "story_id": "merz-reformumsetzung",
-    "headline": "Zwei Tage Schloss, zwölf Tage Wahlkampf",
-    "ressort": "Deutschland",
-    "date": "2026-08-25"
-  },
-  {
     "story_id": "iran-wirtschaftskrieg",
     "headline": "Der Sanktionsbogen, der über Teheran hinausreicht",
     "ressort": "Politik",
@@ -238,5 +160,83 @@
     "headline": "Die Rechnung, die in Seeleuten geführt wird",
     "ressort": "Magazin: Große Reportage",
     "date": "2026-08-26"
+  },
+  {
+    "story_id": "sachsen-anhalt-wahl-2026",
+    "headline": "Wenn die Mehrheit nicht mehr gebildet, sondern nur noch verhindert wird",
+    "ressort": "Deutschland",
+    "date": "2026-08-27"
+  },
+  {
+    "story_id": "iran-wirtschaftskrieg",
+    "headline": "Die Sanktion, die nicht mehr Teheran adressiert, sondern Ihre Bank",
+    "ressort": "Politik",
+    "date": "2026-08-27"
+  },
+  {
+    "story_id": "usa-russland-geheimdiplomatie",
+    "headline": "Eine Reise, über die alle reden und über deren Inhalt niemand spricht",
+    "ressort": "Europa & Geopolitik",
+    "date": "2026-08-27"
+  },
+  {
+    "story_id": "fed-unabhaengigkeit-cook",
+    "headline": "Eine Frist, ein Brief und die Frage, wofür das Wort Grund steht",
+    "ressort": "USA",
+    "date": "2026-08-27"
+  },
+  {
+    "story_id": "ki-investitionszyklus",
+    "headline": "Der Tag, an dem Nvidia zugab, dass es Preise nicht mehr überall setzt",
+    "ressort": "Wirtschaft & Finanzen",
+    "date": "2026-08-27"
+  },
+  {
+    "story_id": "oesterreich-konsumflaute",
+    "headline": "Null Komma eins",
+    "ressort": "CSEE Retail Brief",
+    "date": "2026-08-27"
+  },
+  {
+    "story_id": "pankreaskarzinom-ras",
+    "headline": "Sechseinhalb Monate",
+    "ressort": "Wissenschaft & Technik",
+    "date": "2026-08-27"
+  },
+  {
+    "story_id": "kusama-tod",
+    "headline": "Die Punkte waren keine Dekoration",
+    "ressort": "Feuilleton & Kultur",
+    "date": "2026-08-27"
+  },
+  {
+    "story_id": "nfl-pro-bowl-aus",
+    "headline": "Das Ende eines Spiels, das keiner mehr spielen wollte",
+    "ressort": "Sport",
+    "date": "2026-08-27"
+  },
+  {
+    "story_id": "meta-jugendschutz-vergleich",
+    "headline": "Zwei Stunden am Tag, zehn Jahre lang",
+    "ressort": "Leben & Gesellschaft",
+    "date": "2026-08-27"
+  },
+  {
+    "story_id": "arbeitsmarkt-ki-verschiebung",
+    "headline": "Der Abstand zwischen Umfrage und Statistik",
+    "ressort": "Beruf & Karriere",
+    "date": "2026-08-27"
+  },
+  {
+    "story_id": "warner-paramount-fusion",
+    "headline": "Alle Genehmigungen, kein grünes Licht",
+    "ressort": "Medien, TV & Streaming",
+    "date": "2026-08-27"
+  },
+  {
+    "story_id": "nepal-gletscherflut",
+    "headline": "Der Damm, den niemand gebaut hat",
+    "ressort": "Magazin: Große Reportage",
+    "date": "2026-08-27"
   }
 ]
