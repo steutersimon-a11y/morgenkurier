@@ -1,90 +1,6 @@
 [
   {
     "story_id": "iran-wirtschaftskrieg",
-    "headline": "Der Sanktionsbogen, der über Teheran hinausreicht",
-    "ressort": "Politik",
-    "date": "2026-08-25"
-  },
-  {
-    "story_id": "ukraine-langstreckenwaffen",
-    "headline": "Baupläne statt Marschflugkörper",
-    "ressort": "Europa & Geopolitik",
-    "date": "2026-08-25"
-  },
-  {
-    "story_id": "usa-visa-widerruf",
-    "headline": "Zweihunderttausend Visa, rückwirkend",
-    "ressort": "USA",
-    "date": "2026-08-25"
-  },
-  {
-    "story_id": "ki-investitionszyklus",
-    "headline": "Der Mittwoch, an dem der KI-Zyklus zur Abstimmung steht",
-    "ressort": "Wirtschaft & Finanzen",
-    "date": "2026-08-25"
-  },
-  {
-    "story_id": "ungarn-preisdeckel-handel",
-    "headline": "Der Margendeckel geht vor Gericht, nachdem er aufgehört hat zu wirken",
-    "ressort": "CSEE Retail Brief",
-    "date": "2026-08-25"
-  },
-  {
-    "story_id": "roman-teleskop",
-    "headline": "Ein Spiegel wie Hubble, ein Blickfeld wie hundert",
-    "ressort": "Wissenschaft & Technik",
-    "date": "2026-08-25"
-  },
-  {
-    "story_id": "sardis-statue",
-    "headline": "Zweitausendfünfhundert Jahre als Pflasterstein",
-    "ressort": "Feuilleton & Kultur",
-    "date": "2026-08-25"
-  },
-  {
-    "story_id": "premier-league-2026-27",
-    "headline": "Fünf Tore, und die teuerste Verpflichtung trifft sofort",
-    "ressort": "Sport",
-    "date": "2026-08-25"
-  },
-  {
-    "story_id": "hitzetote-praevention",
-    "headline": "Zweiunddreißigtausend, und der Sommer ist statistisch nicht zu Ende",
-    "ressort": "Leben & Gesellschaft",
-    "date": "2026-08-25"
-  },
-  {
-    "story_id": "reise-hitze-nordverschiebung",
-    "headline": "Wenn der August nicht mehr die erste Wahl ist",
-    "ressort": "Reise",
-    "date": "2026-08-25"
-  },
-  {
-    "story_id": "arbeitsmarkt-ki-verschiebung",
-    "headline": "Neunzehn Prozent, und die Lücke wächst weiter",
-    "ressort": "Beruf & Karriere",
-    "date": "2026-08-25"
-  },
-  {
-    "story_id": "warner-paramount-fusion",
-    "headline": "Kalifornien sagt den Termin ab, und der Deal wartet bis März",
-    "ressort": "Medien, TV & Streaming",
-    "date": "2026-08-25"
-  },
-  {
-    "story_id": "rhein-niedrigwasser",
-    "headline": "Minus zwei Zentimeter",
-    "ressort": "Magazin: Große Reportage",
-    "date": "2026-08-25"
-  },
-  {
-    "story_id": "merz-reformumsetzung",
-    "headline": "Die Stimmung dreht, bevor die Reform kommt",
-    "ressort": "Deutschland",
-    "date": "2026-08-26"
-  },
-  {
-    "story_id": "iran-wirtschaftskrieg",
     "headline": "Die Sanktion, die sich an Dritte richtet",
     "ressort": "Politik",
     "date": "2026-08-26"
@@ -238,5 +154,89 @@
     "headline": "Der Damm, den niemand gebaut hat",
     "ressort": "Magazin: Große Reportage",
     "date": "2026-08-27"
+  },
+  {
+    "story_id": "rente-mit-63-abschaffung",
+    "headline": "Ein Kernstück, das jedes Mal etwas weicher wird, wenn jemand es anfasst",
+    "ressort": "Deutschland",
+    "date": "2026-08-28"
+  },
+  {
+    "story_id": "eu-haushalt-2028-34",
+    "headline": "Vierhundert Milliarden, und niemand sagt, wo genau",
+    "ressort": "Politik",
+    "date": "2026-08-28"
+  },
+  {
+    "story_id": "mladic-tod",
+    "headline": "Der Tote, über den zwei Länder zwei verschiedene Sätze sagen",
+    "ressort": "Europa & Geopolitik",
+    "date": "2026-08-28"
+  },
+  {
+    "story_id": "warsh-fed-kurs",
+    "headline": "Ein Notenbankchef, der die Märkte lesen will, während das Finanzministerium die Schrift verwischt",
+    "ressort": "USA",
+    "date": "2026-08-28"
+  },
+  {
+    "story_id": "usa-chipzoelle-endgeraete",
+    "headline": "Wenn der Zoll nicht mehr den Chip trifft, sondern das Gerät",
+    "ressort": "Wirtschaft & Finanzen",
+    "date": "2026-08-28"
+  },
+  {
+    "story_id": "csee-konsumdivergenz",
+    "headline": "Zwei Konsummärkte, eine Region",
+    "ressort": "CSEE Retail Brief",
+    "date": "2026-08-28"
+  },
+  {
+    "story_id": "roman-teleskop",
+    "headline": "Das Teleskop, das die Regierung streichen wollte, startet am Sonntag",
+    "ressort": "Wissenschaft & Technik",
+    "date": "2026-08-28"
+  },
+  {
+    "story_id": "villena-goldraub",
+    "headline": "Um 5.20 Uhr ging der Alarm los, um 5.24 Uhr waren sie weg",
+    "ressort": "Feuilleton & Kultur",
+    "date": "2026-08-28"
+  },
+  {
+    "story_id": "uefa-infantino-ffe",
+    "headline": "Zwanzig Milliarden für alles, was die Fifa jemals verkaufen wird",
+    "ressort": "Sport",
+    "date": "2026-08-28"
+  },
+  {
+    "story_id": "groenland-zwangsverhuetung",
+    "headline": "Dreihunderttausend Kronen, und der Bericht kommt erst danach",
+    "ressort": "Leben & Gesellschaft",
+    "date": "2026-08-28"
+  },
+  {
+    "story_id": "china-visafrei-tourismus",
+    "headline": "Wenn ein Land die Einreise abschafft und daraus Kaufkraft macht",
+    "ressort": "Reise",
+    "date": "2026-08-28"
+  },
+  {
+    "story_id": "usa-talentabwanderung",
+    "headline": "Vierundsechzig Berufungen, 504 Millionen Dollar, acht Jahre",
+    "ressort": "Beruf & Karriere",
+    "date": "2026-08-28"
+  },
+  {
+    "story_id": "gta6-netflix",
+    "headline": "Sechsundzwanzig Minuten, sechs Stunden Exklusivität",
+    "ressort": "Medien, TV & Streaming",
+    "date": "2026-08-28"
+  },
+  {
+    "story_id": "nigeria-entfuehrungsoekonomie",
+    "headline": "Neunzig Prozent aus acht Fällen",
+    "ressort": "Magazin: Große Reportage",
+    "date": "2026-08-28"
   }
 ]
