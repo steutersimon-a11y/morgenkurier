@@ -1,89 +1,5 @@
 [
   {
-    "story_id": "iran-wirtschaftskrieg",
-    "headline": "Die Sanktion, die nicht mehr Teheran adressiert, sondern Ihre Bank",
-    "ressort": "Politik",
-    "date": "2026-08-27"
-  },
-  {
-    "story_id": "usa-russland-geheimdiplomatie",
-    "headline": "Eine Reise, über die alle reden und über deren Inhalt niemand spricht",
-    "ressort": "Europa & Geopolitik",
-    "date": "2026-08-27"
-  },
-  {
-    "story_id": "fed-unabhaengigkeit-cook",
-    "headline": "Eine Frist, ein Brief und die Frage, wofür das Wort Grund steht",
-    "ressort": "USA",
-    "date": "2026-08-27"
-  },
-  {
-    "story_id": "ki-investitionszyklus",
-    "headline": "Der Tag, an dem Nvidia zugab, dass es Preise nicht mehr überall setzt",
-    "ressort": "Wirtschaft & Finanzen",
-    "date": "2026-08-27"
-  },
-  {
-    "story_id": "oesterreich-konsumflaute",
-    "headline": "Null Komma eins",
-    "ressort": "CSEE Retail Brief",
-    "date": "2026-08-27"
-  },
-  {
-    "story_id": "pankreaskarzinom-ras",
-    "headline": "Sechseinhalb Monate",
-    "ressort": "Wissenschaft & Technik",
-    "date": "2026-08-27"
-  },
-  {
-    "story_id": "kusama-tod",
-    "headline": "Die Punkte waren keine Dekoration",
-    "ressort": "Feuilleton & Kultur",
-    "date": "2026-08-27"
-  },
-  {
-    "story_id": "nfl-pro-bowl-aus",
-    "headline": "Das Ende eines Spiels, das keiner mehr spielen wollte",
-    "ressort": "Sport",
-    "date": "2026-08-27"
-  },
-  {
-    "story_id": "meta-jugendschutz-vergleich",
-    "headline": "Zwei Stunden am Tag, zehn Jahre lang",
-    "ressort": "Leben & Gesellschaft",
-    "date": "2026-08-27"
-  },
-  {
-    "story_id": "arbeitsmarkt-ki-verschiebung",
-    "headline": "Der Abstand zwischen Umfrage und Statistik",
-    "ressort": "Beruf & Karriere",
-    "date": "2026-08-27"
-  },
-  {
-    "story_id": "warner-paramount-fusion",
-    "headline": "Alle Genehmigungen, kein grünes Licht",
-    "ressort": "Medien, TV & Streaming",
-    "date": "2026-08-27"
-  },
-  {
-    "story_id": "nepal-gletscherflut",
-    "headline": "Der Damm, den niemand gebaut hat",
-    "ressort": "Magazin: Große Reportage",
-    "date": "2026-08-27"
-  },
-  {
-    "story_id": "rente-mit-63-abschaffung",
-    "headline": "Ein Kernstück, das jedes Mal etwas weicher wird, wenn jemand es anfasst",
-    "ressort": "Deutschland",
-    "date": "2026-08-28"
-  },
-  {
-    "story_id": "eu-haushalt-2028-34",
-    "headline": "Vierhundert Milliarden, und niemand sagt, wo genau",
-    "ressort": "Politik",
-    "date": "2026-08-28"
-  },
-  {
     "story_id": "mladic-tod",
     "headline": "Der Tote, über den zwei Länder zwei verschiedene Sätze sagen",
     "ressort": "Europa & Geopolitik",
@@ -238,5 +154,89 @@
     "headline": "Vierundneunzig Prozent",
     "ressort": "Magazin: Große Reportage",
     "date": "2026-08-29"
+  },
+  {
+    "story_id": "sachsen-anhalt-wahl-2026",
+    "headline": "Wenn über das Verbot geredet wird, wird nicht über die Rente geredet",
+    "ressort": "Deutschland",
+    "date": "2026-08-30"
+  },
+  {
+    "story_id": "island-eu-referendum",
+    "headline": "Zwölfhundert Stimmen, an denen eine europäische Richtungsfrage hängt",
+    "ressort": "Politik",
+    "date": "2026-08-30"
+  },
+  {
+    "story_id": "ukraine-munitionsdepots-wohngebiete",
+    "headline": "Ein Munitionslager, das dort nicht hätte stehen dürfen",
+    "ressort": "Europa & Geopolitik",
+    "date": "2026-08-30"
+  },
+  {
+    "story_id": "usa-venezuela-oeldeal",
+    "headline": "Sechzig Milliarden Fass, und die Frage, wer hier eigentlich Vertragspartner ist",
+    "ressort": "USA",
+    "date": "2026-08-30"
+  },
+  {
+    "story_id": "warsh-fed-kurs",
+    "headline": "Ein Satz mit vier Wörtern, und 57 Prozent Wahrscheinlichkeit",
+    "ressort": "Wirtschaft & Finanzen",
+    "date": "2026-08-30"
+  },
+  {
+    "story_id": "csee-tourismus-verschiebung",
+    "headline": "Wenn der deutsche Gast ausbleibt und der ungarische kommt",
+    "ressort": "CSEE Retail Brief",
+    "date": "2026-08-30"
+  },
+  {
+    "story_id": "roman-teleskop",
+    "headline": "Hundertmal mehr Himmel, aufgenommen mit derselben Schärfe",
+    "ressort": "Wissenschaft & Technik",
+    "date": "2026-08-30"
+  },
+  {
+    "story_id": "wien-mak-raub",
+    "headline": "Zwei Eintrittskarten, ein Hammer, vier Minuten",
+    "ressort": "Feuilleton & Kultur",
+    "date": "2026-08-30"
+  },
+  {
+    "story_id": "us-open-2026",
+    "headline": "Fünf Monate Pause, und trotzdem in der schwierigen Hälfte",
+    "ressort": "Sport",
+    "date": "2026-08-30"
+  },
+  {
+    "story_id": "meta-jugendschutz-vergleich",
+    "headline": "Achtzehn Milliarden Dollar für eine Uhr, nicht für einen Algorithmus",
+    "ressort": "Leben & Gesellschaft",
+    "date": "2026-08-30"
+  },
+  {
+    "story_id": "reise-hitze-nordverschiebung",
+    "headline": "Ein aufgeladenes Meer verschiebt die beste Reisezeit nach hinten, und das Risiko mit",
+    "ressort": "Reise",
+    "date": "2026-08-30"
+  },
+  {
+    "story_id": "krankenstand-lohnfortzahlung",
+    "headline": "Fünfundachtzig Komma sechs Milliarden, und was die Zahl nicht bedeutet",
+    "ressort": "Beruf & Karriere",
+    "date": "2026-08-30"
+  },
+  {
+    "story_id": "streaming-preisrunde-2026",
+    "headline": "Von 4,99 auf 14,99, und die Kündigungswelle bleibt aus",
+    "ressort": "Medien, TV & Streaming",
+    "date": "2026-08-30"
+  },
+  {
+    "story_id": "nepal-gletscherflut",
+    "headline": "Dreitausend Namen ohne Ort",
+    "ressort": "Magazin: Große Reportage",
+    "date": "2026-08-30"
   }
 ]
