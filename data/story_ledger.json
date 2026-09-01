@@ -1,83 +1,5 @@
 [
   {
-    "story_id": "usa-russland-geheimdiplomatie",
-    "headline": "Eine tiefe Pause, und eine Lücke von 6.000 Mann im Monat",
-    "ressort": "Europa & Geopolitik",
-    "date": "2026-08-29"
-  },
-  {
-    "story_id": "warsh-fed-kurs",
-    "headline": "Sonst haben wir Arbeit vor uns",
-    "ressort": "USA",
-    "date": "2026-08-29"
-  },
-  {
-    "story_id": "usa-venezuela-oeldeal",
-    "headline": "Der größte Öldeal der Geschichte ist zunächst ein Vertrag, kein Fass",
-    "ressort": "Wirtschaft & Finanzen",
-    "date": "2026-08-29"
-  },
-  {
-    "story_id": "ungarn-machtwechsel-konsum",
-    "headline": "Was passiert, wenn ein Land plötzlich wieder berechenbar wird",
-    "ressort": "CSEE Retail Brief",
-    "date": "2026-08-29"
-  },
-  {
-    "story_id": "roman-teleskop",
-    "headline": "Das Teleskop, das breiter schaut statt tiefer",
-    "ressort": "Wissenschaft & Technik",
-    "date": "2026-08-29"
-  },
-  {
-    "story_id": "wien-mak-raub",
-    "headline": "Die Konjunktur des spektakulären Coups",
-    "ressort": "Feuilleton & Kultur",
-    "date": "2026-08-29"
-  },
-  {
-    "story_id": "us-open-2026",
-    "headline": "Flushing Meadows, und die Frage, wer eigentlich Favorit ist",
-    "ressort": "Sport",
-    "date": "2026-08-29"
-  },
-  {
-    "story_id": "meta-jugendschutz-vergleich",
-    "headline": "Aus dem Verbot wird eine Einwilligung",
-    "ressort": "Leben & Gesellschaft",
-    "date": "2026-08-29"
-  },
-  {
-    "story_id": "reise-hitze-nordverschiebung",
-    "headline": "Wenn der zweitbeste Monat der beste wird",
-    "ressort": "Reise",
-    "date": "2026-08-29"
-  },
-  {
-    "story_id": "deutschland-arbeitsmarkt-flaute",
-    "headline": "Der Abstand zwischen Suchenden und Stellen wird größer, nicht kleiner",
-    "ressort": "Beruf & Karriere",
-    "date": "2026-08-29"
-  },
-  {
-    "story_id": "streaming-preisrunde-2026",
-    "headline": "Von 4,99 auf 14,99 in sieben Jahren",
-    "ressort": "Medien, TV & Streaming",
-    "date": "2026-08-29"
-  },
-  {
-    "story_id": "somalia-piraterie",
-    "headline": "Vierundneunzig Prozent",
-    "ressort": "Magazin: Große Reportage",
-    "date": "2026-08-29"
-  },
-  {
-    "story_id": "sachsen-anhalt-wahl-2026",
-    "headline": "Wenn über das Verbot geredet wird, wird nicht über die Rente geredet",
-    "ressort": "Deutschland",
-    "date": "2026-08-30"
-  },
-  {
     "story_id": "island-eu-referendum",
     "headline": "Zwölfhundert Stimmen, an denen eine europäische Richtungsfrage hängt",
     "ressort": "Politik",
@@ -238,5 +160,83 @@
     "headline": "Die Luft, die in einen Tunnel gepumpt wird",
     "ressort": "Magazin: Große Reportage",
     "date": "2026-08-31"
+  },
+  {
+    "story_id": "sachsen-anhalt-wahl-2026",
+    "headline": "Vierzig Prozent, drei Koalitionsoptionen, und keine, die jemand versprochen hat",
+    "ressort": "Deutschland",
+    "date": "2026-09-01"
+  },
+  {
+    "story_id": "schengen-ceuta-krise",
+    "headline": "Wenn ein Land Grenzkontrollen gegen ein Land einführt, mit dem es keine Grenze teilt",
+    "ressort": "Politik",
+    "date": "2026-09-01"
+  },
+  {
+    "story_id": "ukraine-kulturinfrastruktur",
+    "headline": "Zwölf Millionen Schulbücher, vier Tage vor dem ersten Schultag",
+    "ressort": "Europa & Geopolitik",
+    "date": "2026-09-01"
+  },
+  {
+    "story_id": "pentagon-hegseth-fuehrungsstreit",
+    "headline": "Der Heeresminister geht, und er sagt zum ersten Mal, warum",
+    "ressort": "USA",
+    "date": "2026-09-01"
+  },
+  {
+    "story_id": "japan-zinswende-2026",
+    "headline": "Drei Prozent in Tokio, und das Ende einer dreißigjährigen Gewohnheit",
+    "ressort": "Wirtschaft & Finanzen",
+    "date": "2026-09-01"
+  },
+  {
+    "story_id": "shein-boersengang",
+    "headline": "26,5 statt 98 Milliarden: Was der Markt über Fast Fashion entschieden hat",
+    "ressort": "CSEE Retail Brief",
+    "date": "2026-09-01"
+  },
+  {
+    "story_id": "openai-agenten-vorfall",
+    "headline": "Die Agenten haben ihre eigenen Protokolle gefälscht",
+    "ressort": "Wissenschaft & Technik",
+    "date": "2026-09-01"
+  },
+  {
+    "story_id": "messi-abschied",
+    "headline": "Zweihundertsieben Spiele, und der Abschied kommt per Instagram",
+    "ressort": "Sport",
+    "date": "2026-09-01"
+  },
+  {
+    "story_id": "handyverbot-schulen-frankreich",
+    "headline": "Ab heute ohne Telefon, auch mit siebzehn",
+    "ressort": "Leben & Gesellschaft",
+    "date": "2026-09-01"
+  },
+  {
+    "story_id": "zypern-faehrunglueck",
+    "headline": "Zwei Stunden nach dem Auslaufen, und niemand hatte die Abfahrt gestoppt",
+    "ressort": "Reise",
+    "date": "2026-09-01"
+  },
+  {
+    "story_id": "vw-standorte-konflikt",
+    "headline": "Ein Werk ohne Folgeprodukt ist ein Werk mit Enddatum",
+    "ressort": "Beruf & Karriere",
+    "date": "2026-09-01"
+  },
+  {
+    "story_id": "streaming-lizenzoekonomie",
+    "headline": "Der Konkurrent als Vertriebskanal",
+    "ressort": "Medien, TV & Streaming",
+    "date": "2026-09-01"
+  },
+  {
+    "story_id": "drk-ebola-ituri",
+    "headline": "Sechstausendeinhunderteinundzwanzig",
+    "ressort": "Magazin: Große Reportage",
+    "date": "2026-09-01"
   }
 ]
