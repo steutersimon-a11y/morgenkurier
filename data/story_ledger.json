@@ -1,90 +1,6 @@
 [
   {
     "story_id": "island-eu-referendum",
-    "headline": "Zwölfhundert Stimmen, an denen eine europäische Richtungsfrage hängt",
-    "ressort": "Politik",
-    "date": "2026-08-30"
-  },
-  {
-    "story_id": "ukraine-munitionsdepots-wohngebiete",
-    "headline": "Ein Munitionslager, das dort nicht hätte stehen dürfen",
-    "ressort": "Europa & Geopolitik",
-    "date": "2026-08-30"
-  },
-  {
-    "story_id": "usa-venezuela-oeldeal",
-    "headline": "Sechzig Milliarden Fass, und die Frage, wer hier eigentlich Vertragspartner ist",
-    "ressort": "USA",
-    "date": "2026-08-30"
-  },
-  {
-    "story_id": "warsh-fed-kurs",
-    "headline": "Ein Satz mit vier Wörtern, und 57 Prozent Wahrscheinlichkeit",
-    "ressort": "Wirtschaft & Finanzen",
-    "date": "2026-08-30"
-  },
-  {
-    "story_id": "csee-tourismus-verschiebung",
-    "headline": "Wenn der deutsche Gast ausbleibt und der ungarische kommt",
-    "ressort": "CSEE Retail Brief",
-    "date": "2026-08-30"
-  },
-  {
-    "story_id": "roman-teleskop",
-    "headline": "Hundertmal mehr Himmel, aufgenommen mit derselben Schärfe",
-    "ressort": "Wissenschaft & Technik",
-    "date": "2026-08-30"
-  },
-  {
-    "story_id": "wien-mak-raub",
-    "headline": "Zwei Eintrittskarten, ein Hammer, vier Minuten",
-    "ressort": "Feuilleton & Kultur",
-    "date": "2026-08-30"
-  },
-  {
-    "story_id": "us-open-2026",
-    "headline": "Fünf Monate Pause, und trotzdem in der schwierigen Hälfte",
-    "ressort": "Sport",
-    "date": "2026-08-30"
-  },
-  {
-    "story_id": "meta-jugendschutz-vergleich",
-    "headline": "Achtzehn Milliarden Dollar für eine Uhr, nicht für einen Algorithmus",
-    "ressort": "Leben & Gesellschaft",
-    "date": "2026-08-30"
-  },
-  {
-    "story_id": "reise-hitze-nordverschiebung",
-    "headline": "Ein aufgeladenes Meer verschiebt die beste Reisezeit nach hinten, und das Risiko mit",
-    "ressort": "Reise",
-    "date": "2026-08-30"
-  },
-  {
-    "story_id": "krankenstand-lohnfortzahlung",
-    "headline": "Fünfundachtzig Komma sechs Milliarden, und was die Zahl nicht bedeutet",
-    "ressort": "Beruf & Karriere",
-    "date": "2026-08-30"
-  },
-  {
-    "story_id": "streaming-preisrunde-2026",
-    "headline": "Von 4,99 auf 14,99, und die Kündigungswelle bleibt aus",
-    "ressort": "Medien, TV & Streaming",
-    "date": "2026-08-30"
-  },
-  {
-    "story_id": "nepal-gletscherflut",
-    "headline": "Dreitausend Namen ohne Ort",
-    "ressort": "Magazin: Große Reportage",
-    "date": "2026-08-30"
-  },
-  {
-    "story_id": "sachsen-anhalt-wahl-2026",
-    "headline": "Vierzig, zweiundvierzig, dreiundvierzig — und trotzdem keine Mehrheit",
-    "ressort": "Deutschland",
-    "date": "2026-08-31"
-  },
-  {
-    "story_id": "island-eu-referendum",
     "headline": "Zwölftausend Stimmen Abstand, und niemand kann sagen, die Frage sei nicht gestellt worden",
     "ressort": "Politik",
     "date": "2026-08-31"
@@ -238,5 +154,89 @@
     "headline": "Sechstausendeinhunderteinundzwanzig",
     "ressort": "Magazin: Große Reportage",
     "date": "2026-09-01"
+  },
+  {
+    "story_id": "russland-hybridangriffe-deutschland",
+    "headline": "Ein Konsulat, ein Kulturhaus und ein Feuerball über Jänschwalde",
+    "ressort": "Deutschland",
+    "date": "2026-09-02"
+  },
+  {
+    "story_id": "g20-asheville-2026",
+    "headline": "Das Familienfoto, das nicht zustande kam",
+    "ressort": "Politik",
+    "date": "2026-09-02"
+  },
+  {
+    "story_id": "usa-iran-hormuz-eskalation",
+    "headline": "Sieben Monate, und der Preis steht wieder bei fünfundneunzig",
+    "ressort": "Europa & Geopolitik",
+    "date": "2026-09-02"
+  },
+  {
+    "story_id": "usps-briefwahl-midterms",
+    "headline": "Neun Monate Arbeit in drei Monaten, und zehntausend Stimmzettel an einem Strichcode",
+    "ressort": "USA",
+    "date": "2026-09-02"
+  },
+  {
+    "story_id": "ezb-energieschock-2026",
+    "headline": "Fünfundneunzig Dollar, dreiundsechzig Prozent Speicherstand und ein Zinsschritt, den niemand mehr bestreitet",
+    "ressort": "Wirtschaft & Finanzen",
+    "date": "2026-09-02"
+  },
+  {
+    "story_id": "eu-paketgebuehr-kleinsendungen",
+    "headline": "Zehn Euro pro Paket, und die Rechnung für neun Euro Ware geht nicht mehr auf",
+    "ressort": "CSEE Retail Brief",
+    "date": "2026-09-02"
+  },
+  {
+    "story_id": "lz-dunkle-materie",
+    "headline": "Ein Ereignis, eine halbe Prozentchance und die Disziplin, nichts zu behaupten",
+    "ressort": "Wissenschaft & Technik",
+    "date": "2026-09-02"
+  },
+  {
+    "story_id": "wendell-berry-tod",
+    "headline": "Der Mann, der nie einen Computer besaß und trotzdem über die Gegenwart schrieb",
+    "ressort": "Feuilleton & Kultur",
+    "date": "2026-09-02"
+  },
+  {
+    "story_id": "transferfenster-2026",
+    "headline": "Dreikommazwei Milliarden Pfund, und am Ende steht ein Klub ohne Ersatz",
+    "ressort": "Sport",
+    "date": "2026-09-02"
+  },
+  {
+    "story_id": "handyverbot-schulen-frankreich",
+    "headline": "Ab Dienstag ohne Telefon, auch mit siebzehn",
+    "ressort": "Leben & Gesellschaft",
+    "date": "2026-09-02"
+  },
+  {
+    "story_id": "luftraum-russland-sperrung",
+    "headline": "Wenn ein Luftraum nicht geschlossen wird, sondern sich schließt",
+    "ressort": "Reise",
+    "date": "2026-09-02"
+  },
+  {
+    "story_id": "interimsfuehrung-ki-transformation",
+    "headline": "Dreihundertfünfzig Prozent mehr Nachfrage, und keine einzige neue Planstelle",
+    "ressort": "Beruf & Karriere",
+    "date": "2026-09-02"
+  },
+  {
+    "story_id": "jiohotstar-global",
+    "headline": "Der Konkurrent lässt den Sport zu Hause",
+    "ressort": "Medien, TV & Streaming",
+    "date": "2026-09-02"
+  },
+  {
+    "story_id": "nepal-gletscherflut",
+    "headline": "Sieben Minuten von der Bruchkante bis zur Grenze",
+    "ressort": "Magazin: Große Reportage",
+    "date": "2026-09-02"
   }
 ]
