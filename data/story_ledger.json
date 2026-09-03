@@ -1,89 +1,5 @@
 [
   {
-    "story_id": "island-eu-referendum",
-    "headline": "Zwölftausend Stimmen Abstand, und niemand kann sagen, die Frage sei nicht gestellt worden",
-    "ressort": "Politik",
-    "date": "2026-08-31"
-  },
-  {
-    "story_id": "usa-iran-hormuz-eskalation",
-    "headline": "Zwei Werfer, zwei Vergeltungsziele, und ein Ölpreis, der die Rechnung schreibt",
-    "ressort": "Europa & Geopolitik",
-    "date": "2026-08-31"
-  },
-  {
-    "story_id": "warsh-fed-kurs",
-    "headline": "Achtundfünfzig Prozent, und niemand hat es versprochen",
-    "ressort": "USA",
-    "date": "2026-08-31"
-  },
-  {
-    "story_id": "frankreich-anleihen-druck",
-    "headline": "Wenn Frankreich mehr zahlt als Italien, stimmt die Landkarte nicht mehr",
-    "ressort": "Wirtschaft & Finanzen",
-    "date": "2026-08-31"
-  },
-  {
-    "story_id": "shein-boersengang",
-    "headline": "Siebenundzwanzig Milliarden statt hundert, und drei Euro pro Paket",
-    "ressort": "CSEE Retail Brief",
-    "date": "2026-08-31"
-  },
-  {
-    "story_id": "roman-teleskop",
-    "headline": "Der Start um 7.26 Uhr, den es viermal nicht geben sollte",
-    "ressort": "Wissenschaft & Technik",
-    "date": "2026-08-31"
-  },
-  {
-    "story_id": "wien-mak-raub",
-    "headline": "Was ein Museum verliert, wenn es sich absichert",
-    "ressort": "Feuilleton & Kultur",
-    "date": "2026-08-31"
-  },
-  {
-    "story_id": "us-open-2026",
-    "headline": "Der Körper kündigt zuerst, dann die Statistik",
-    "ressort": "Sport",
-    "date": "2026-08-31"
-  },
-  {
-    "story_id": "meta-jugendschutz-vergleich",
-    "headline": "Zwei Stunden, oder eine, wenn die anderen mitziehen",
-    "ressort": "Leben & Gesellschaft",
-    "date": "2026-08-31"
-  },
-  {
-    "story_id": "china-visafrei-tourismus",
-    "headline": "Dreißig Millionen ohne Visum, und was daraus für Europa folgt",
-    "ressort": "Reise",
-    "date": "2026-08-31"
-  },
-  {
-    "story_id": "ki-bewerbungen-auswahlverfahren",
-    "headline": "Das Ende des Lebenslaufs als Signal",
-    "ressort": "Beruf & Karriere",
-    "date": "2026-08-31"
-  },
-  {
-    "story_id": "streaming-preisrunde-2026",
-    "headline": "Von 4,99 auf 14,99, und niemand kündigt",
-    "ressort": "Medien, TV & Streaming",
-    "date": "2026-08-31"
-  },
-  {
-    "story_id": "nepal-gletscherflut",
-    "headline": "Die Luft, die in einen Tunnel gepumpt wird",
-    "ressort": "Magazin: Große Reportage",
-    "date": "2026-08-31"
-  },
-  {
-    "story_id": "sachsen-anhalt-wahl-2026",
-    "headline": "Vierzig Prozent, drei Koalitionsoptionen, und keine, die jemand versprochen hat",
-    "ressort": "Deutschland",
-    "date": "2026-09-01"
-  },
-  {
     "story_id": "schengen-ceuta-krise",
     "headline": "Wenn ein Land Grenzkontrollen gegen ein Land einführt, mit dem es keine Grenze teilt",
     "ressort": "Politik",
@@ -238,5 +154,89 @@
     "headline": "Sieben Minuten von der Bruchkante bis zur Grenze",
     "ressort": "Magazin: Große Reportage",
     "date": "2026-09-02"
+  },
+  {
+    "story_id": "sachsen-anhalt-wahl-2026",
+    "headline": "Vierzig, dreiundzwanzig, dreizehn und zweimal drei",
+    "ressort": "Deutschland",
+    "date": "2026-09-03"
+  },
+  {
+    "story_id": "schengen-ceuta-krise",
+    "headline": "Wenn der eigene Polizeibericht die eigene Erzählung widerlegt",
+    "ressort": "Politik",
+    "date": "2026-09-03"
+  },
+  {
+    "story_id": "russland-hybridangriffe-deutschland",
+    "headline": "Selbstgebaute Flugkörper, zwölf Stück, und niemand nennt einen Namen",
+    "ressort": "Europa & Geopolitik",
+    "date": "2026-09-03"
+  },
+  {
+    "story_id": "geburtsortsprinzip-usa-2026",
+    "headline": "Fünfunddreißig Seiten, und der Satz steht schon in der Verfassung",
+    "ressort": "USA",
+    "date": "2026-09-03"
+  },
+  {
+    "story_id": "globaler-anleihen-ausverkauf-2026",
+    "headline": "4,814 Prozent, und niemand kauft die andere Seite",
+    "ressort": "Wirtschaft & Finanzen",
+    "date": "2026-09-03"
+  },
+  {
+    "story_id": "frankreich-fastfashion-gesetz",
+    "headline": "Zwei Euro auf ein T-Shirt, und eine neue Rechtskategorie",
+    "ressort": "CSEE Retail Brief",
+    "date": "2026-09-03"
+  },
+  {
+    "story_id": "unep-overshoot-bericht",
+    "headline": "Von der Vermeidung zur Bewirtschaftung",
+    "ressort": "Wissenschaft & Technik",
+    "date": "2026-09-03"
+  },
+  {
+    "story_id": "met-galliano-absage",
+    "headline": "Was ein Museum verliert, wenn es die eigene Frage zurückzieht",
+    "ressort": "Feuilleton & Kultur",
+    "date": "2026-09-03"
+  },
+  {
+    "story_id": "nba-clippers-strafe",
+    "headline": "Dreißig Millionen, fünf Erstrundenpicks und ein Jahr Hausverbot",
+    "ressort": "Sport",
+    "date": "2026-09-03"
+  },
+  {
+    "story_id": "unicef-digitale-gewalt-kinder",
+    "headline": "Zwanzig Millionen in einem Jahr, und die Plattformen stehen namentlich im Bericht",
+    "ressort": "Leben & Gesellschaft",
+    "date": "2026-09-03"
+  },
+  {
+    "story_id": "luftraum-russland-sperrung",
+    "headline": "Wenn ein Land seinen eigenen Luftraum nicht mehr garantieren kann",
+    "ressort": "Reise",
+    "date": "2026-09-03"
+  },
+  {
+    "story_id": "uber-management-abbau",
+    "headline": "Zwanzig Prozent weniger Manager, und ein Prozent Vollremote",
+    "ressort": "Beruf & Karriere",
+    "date": "2026-09-03"
+  },
+  {
+    "story_id": "google-adtech-remedy",
+    "headline": "Kein Verkauf, aber eine Betriebsanleitung",
+    "ressort": "Medien, TV & Streaming",
+    "date": "2026-09-03"
+  },
+  {
+    "story_id": "schwarzmeer-getreide-2026",
+    "headline": "Sechzig Millionen Tonnen, elf Millionen davon ohne Dach",
+    "ressort": "Magazin: Große Reportage",
+    "date": "2026-09-03"
   }
 ]
