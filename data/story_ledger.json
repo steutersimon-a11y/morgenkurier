@@ -1,89 +1,5 @@
 [
   {
-    "story_id": "schengen-ceuta-krise",
-    "headline": "Wenn ein Land Grenzkontrollen gegen ein Land einführt, mit dem es keine Grenze teilt",
-    "ressort": "Politik",
-    "date": "2026-09-01"
-  },
-  {
-    "story_id": "ukraine-kulturinfrastruktur",
-    "headline": "Zwölf Millionen Schulbücher, vier Tage vor dem ersten Schultag",
-    "ressort": "Europa & Geopolitik",
-    "date": "2026-09-01"
-  },
-  {
-    "story_id": "pentagon-hegseth-fuehrungsstreit",
-    "headline": "Der Heeresminister geht, und er sagt zum ersten Mal, warum",
-    "ressort": "USA",
-    "date": "2026-09-01"
-  },
-  {
-    "story_id": "japan-zinswende-2026",
-    "headline": "Drei Prozent in Tokio, und das Ende einer dreißigjährigen Gewohnheit",
-    "ressort": "Wirtschaft & Finanzen",
-    "date": "2026-09-01"
-  },
-  {
-    "story_id": "shein-boersengang",
-    "headline": "26,5 statt 98 Milliarden: Was der Markt über Fast Fashion entschieden hat",
-    "ressort": "CSEE Retail Brief",
-    "date": "2026-09-01"
-  },
-  {
-    "story_id": "openai-agenten-vorfall",
-    "headline": "Die Agenten haben ihre eigenen Protokolle gefälscht",
-    "ressort": "Wissenschaft & Technik",
-    "date": "2026-09-01"
-  },
-  {
-    "story_id": "messi-abschied",
-    "headline": "Zweihundertsieben Spiele, und der Abschied kommt per Instagram",
-    "ressort": "Sport",
-    "date": "2026-09-01"
-  },
-  {
-    "story_id": "handyverbot-schulen-frankreich",
-    "headline": "Ab heute ohne Telefon, auch mit siebzehn",
-    "ressort": "Leben & Gesellschaft",
-    "date": "2026-09-01"
-  },
-  {
-    "story_id": "zypern-faehrunglueck",
-    "headline": "Zwei Stunden nach dem Auslaufen, und niemand hatte die Abfahrt gestoppt",
-    "ressort": "Reise",
-    "date": "2026-09-01"
-  },
-  {
-    "story_id": "vw-standorte-konflikt",
-    "headline": "Ein Werk ohne Folgeprodukt ist ein Werk mit Enddatum",
-    "ressort": "Beruf & Karriere",
-    "date": "2026-09-01"
-  },
-  {
-    "story_id": "streaming-lizenzoekonomie",
-    "headline": "Der Konkurrent als Vertriebskanal",
-    "ressort": "Medien, TV & Streaming",
-    "date": "2026-09-01"
-  },
-  {
-    "story_id": "drk-ebola-ituri",
-    "headline": "Sechstausendeinhunderteinundzwanzig",
-    "ressort": "Magazin: Große Reportage",
-    "date": "2026-09-01"
-  },
-  {
-    "story_id": "russland-hybridangriffe-deutschland",
-    "headline": "Ein Konsulat, ein Kulturhaus und ein Feuerball über Jänschwalde",
-    "ressort": "Deutschland",
-    "date": "2026-09-02"
-  },
-  {
-    "story_id": "g20-asheville-2026",
-    "headline": "Das Familienfoto, das nicht zustande kam",
-    "ressort": "Politik",
-    "date": "2026-09-02"
-  },
-  {
     "story_id": "usa-iran-hormuz-eskalation",
     "headline": "Sieben Monate, und der Preis steht wieder bei fünfundneunzig",
     "ressort": "Europa & Geopolitik",
@@ -238,5 +154,89 @@
     "headline": "Sechzig Millionen Tonnen, elf Millionen davon ohne Dach",
     "ressort": "Magazin: Große Reportage",
     "date": "2026-09-03"
+  },
+  {
+    "story_id": "sachsen-anhalt-wahl-2026",
+    "headline": "Einundvierzig Prozent, und 191.000 Beschäftigte, die in keiner Rede vorkommen",
+    "ressort": "Deutschland",
+    "date": "2026-09-04"
+  },
+  {
+    "story_id": "eu-verteidigungsbereitschaft-2030",
+    "headline": "Wenn die eigenen Prüfer sagen, dass die Frist nicht zu halten ist",
+    "ressort": "Politik",
+    "date": "2026-09-04"
+  },
+  {
+    "story_id": "russland-hybridangriffe-deutschland",
+    "headline": "Hundertfünfundsechzig Verdachtsfälle, und keiner heißt mehr Einzelfall",
+    "ressort": "Europa & Geopolitik",
+    "date": "2026-09-04"
+  },
+  {
+    "story_id": "usps-briefwahl-midterms",
+    "headline": "Die Karte, die November nicht erreicht",
+    "ressort": "USA",
+    "date": "2026-09-04"
+  },
+  {
+    "story_id": "vw-standorte-konflikt",
+    "headline": "Einstimmig, und deshalb schlimmer",
+    "ressort": "Wirtschaft & Finanzen",
+    "date": "2026-09-04"
+  },
+  {
+    "story_id": "csee-flaechenabbau-kaufkraft",
+    "headline": "Vierzig Fußballfelder im Jahr, und die Kaufkraft wandert nach Osten",
+    "ressort": "CSEE Retail Brief",
+    "date": "2026-09-04"
+  },
+  {
+    "story_id": "openai-gpt6-astra",
+    "headline": "Das erste Modell, das sein Hersteller selbst als kritisch einstuft",
+    "ressort": "Wissenschaft & Technik",
+    "date": "2026-09-04"
+  },
+  {
+    "story_id": "gloria-steinem-tod",
+    "headline": "Die Reporterin, die ihr eigenes Medium bauen musste",
+    "ressort": "Feuilleton & Kultur",
+    "date": "2026-09-04"
+  },
+  {
+    "story_id": "fifa-uefa-infantino-streit",
+    "headline": "Vier Komma zwei Milliarden, ein zurückgezogener Plan und drei US-Gerichte",
+    "ressort": "Sport",
+    "date": "2026-09-04"
+  },
+  {
+    "story_id": "nyc-ki-verbot-schulen",
+    "headline": "Sechshunderttausend Schüler, ein Jahr ohne Chatbot",
+    "ressort": "Leben & Gesellschaft",
+    "date": "2026-09-04"
+  },
+  {
+    "story_id": "panamakanal-el-nino-2026",
+    "headline": "Zweihundert Millionen Liter pro Schleusung, und der See sinkt weiter",
+    "ressort": "Reise",
+    "date": "2026-09-04"
+  },
+  {
+    "story_id": "ostdeutschland-fachkraefte-migration",
+    "headline": "Ein Viertel der Fahrer, ein Viertel der Klinikärzte",
+    "ressort": "Beruf & Karriere",
+    "date": "2026-09-04"
+  },
+  {
+    "story_id": "streaming-preisrunde-2026",
+    "headline": "Das Ende des unbegrenzten Abonnements",
+    "ressort": "Medien, TV & Streaming",
+    "date": "2026-09-04"
+  },
+  {
+    "story_id": "nepal-gletscherflut",
+    "headline": "Zweihundertneunundsiebzig draußen, neunhundert drinnen",
+    "ressort": "Magazin: Große Reportage",
+    "date": "2026-09-04"
   }
 ]
