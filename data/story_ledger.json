@@ -1,83 +1,5 @@
 [
   {
-    "story_id": "usa-iran-hormuz-eskalation",
-    "headline": "Sieben Monate, und der Preis steht wieder bei fünfundneunzig",
-    "ressort": "Europa & Geopolitik",
-    "date": "2026-09-02"
-  },
-  {
-    "story_id": "usps-briefwahl-midterms",
-    "headline": "Neun Monate Arbeit in drei Monaten, und zehntausend Stimmzettel an einem Strichcode",
-    "ressort": "USA",
-    "date": "2026-09-02"
-  },
-  {
-    "story_id": "ezb-energieschock-2026",
-    "headline": "Fünfundneunzig Dollar, dreiundsechzig Prozent Speicherstand und ein Zinsschritt, den niemand mehr bestreitet",
-    "ressort": "Wirtschaft & Finanzen",
-    "date": "2026-09-02"
-  },
-  {
-    "story_id": "eu-paketgebuehr-kleinsendungen",
-    "headline": "Zehn Euro pro Paket, und die Rechnung für neun Euro Ware geht nicht mehr auf",
-    "ressort": "CSEE Retail Brief",
-    "date": "2026-09-02"
-  },
-  {
-    "story_id": "lz-dunkle-materie",
-    "headline": "Ein Ereignis, eine halbe Prozentchance und die Disziplin, nichts zu behaupten",
-    "ressort": "Wissenschaft & Technik",
-    "date": "2026-09-02"
-  },
-  {
-    "story_id": "wendell-berry-tod",
-    "headline": "Der Mann, der nie einen Computer besaß und trotzdem über die Gegenwart schrieb",
-    "ressort": "Feuilleton & Kultur",
-    "date": "2026-09-02"
-  },
-  {
-    "story_id": "transferfenster-2026",
-    "headline": "Dreikommazwei Milliarden Pfund, und am Ende steht ein Klub ohne Ersatz",
-    "ressort": "Sport",
-    "date": "2026-09-02"
-  },
-  {
-    "story_id": "handyverbot-schulen-frankreich",
-    "headline": "Ab Dienstag ohne Telefon, auch mit siebzehn",
-    "ressort": "Leben & Gesellschaft",
-    "date": "2026-09-02"
-  },
-  {
-    "story_id": "luftraum-russland-sperrung",
-    "headline": "Wenn ein Luftraum nicht geschlossen wird, sondern sich schließt",
-    "ressort": "Reise",
-    "date": "2026-09-02"
-  },
-  {
-    "story_id": "interimsfuehrung-ki-transformation",
-    "headline": "Dreihundertfünfzig Prozent mehr Nachfrage, und keine einzige neue Planstelle",
-    "ressort": "Beruf & Karriere",
-    "date": "2026-09-02"
-  },
-  {
-    "story_id": "jiohotstar-global",
-    "headline": "Der Konkurrent lässt den Sport zu Hause",
-    "ressort": "Medien, TV & Streaming",
-    "date": "2026-09-02"
-  },
-  {
-    "story_id": "nepal-gletscherflut",
-    "headline": "Sieben Minuten von der Bruchkante bis zur Grenze",
-    "ressort": "Magazin: Große Reportage",
-    "date": "2026-09-02"
-  },
-  {
-    "story_id": "sachsen-anhalt-wahl-2026",
-    "headline": "Vierzig, dreiundzwanzig, dreizehn und zweimal drei",
-    "ressort": "Deutschland",
-    "date": "2026-09-03"
-  },
-  {
     "story_id": "schengen-ceuta-krise",
     "headline": "Wenn der eigene Polizeibericht die eigene Erzählung widerlegt",
     "ressort": "Politik",
@@ -238,5 +160,83 @@
     "headline": "Zweihundertneunundsiebzig draußen, neunhundert drinnen",
     "ressort": "Magazin: Große Reportage",
     "date": "2026-09-04"
+  },
+  {
+    "story_id": "sachsen-anhalt-wahl-2026",
+    "headline": "Zweiundvierzig zu zweiundzwanzig, und die eigentliche Frage steht bei fünf",
+    "ressort": "Deutschland",
+    "date": "2026-09-05"
+  },
+  {
+    "story_id": "ukraine-friedensmission-witkoff",
+    "headline": "Ein Plan, den niemand kennt, überbracht von zwei Männern, die nie in Kyiv waren",
+    "ressort": "Politik",
+    "date": "2026-09-05"
+  },
+  {
+    "story_id": "russland-hybridangriffe-deutschland",
+    "headline": "Sprengstoff in Gevelsberg, und plötzlich passt die Geschichte nicht mehr",
+    "ressort": "Europa & Geopolitik",
+    "date": "2026-09-05"
+  },
+  {
+    "story_id": "usps-briefwahl-midterms",
+    "headline": "Ein Verfahren, das erst zu Ende gedacht wird, wenn die Post schon läuft",
+    "ressort": "USA",
+    "date": "2026-09-05"
+  },
+  {
+    "story_id": "us-arbeitsmarkt-fed-2026",
+    "headline": "Hundertzweiundsechzigtausend, und die Zinssenkung rückt weg",
+    "ressort": "Wirtschaft & Finanzen",
+    "date": "2026-09-05"
+  },
+  {
+    "story_id": "vw-standorte-konflikt",
+    "headline": "Zwölftausend in Győr, und niemand nennt ein Datum",
+    "ressort": "CSEE Retail Brief",
+    "date": "2026-09-05"
+  },
+  {
+    "story_id": "openai-agenten-ausbruch",
+    "headline": "Achtzehntausend Nachrichten, und keine davon war für Menschen bestimmt",
+    "ressort": "Wissenschaft & Technik",
+    "date": "2026-09-05"
+  },
+  {
+    "story_id": "katie-taylor-abschied",
+    "headline": "Achtzigtausend im Croke Park, und ein Gürtel, der noch fehlt",
+    "ressort": "Sport",
+    "date": "2026-09-05"
+  },
+  {
+    "story_id": "masern-ausbruch-2026",
+    "headline": "986 Kinder, 58 von 64 Distrikten, und eine Lieferkette, die 2024 riss",
+    "ressort": "Leben & Gesellschaft",
+    "date": "2026-09-05"
+  },
+  {
+    "story_id": "luftraum-russland-sperrung",
+    "headline": "Vier Tage Aussetzung, dann doch wieder ab Montag",
+    "ressort": "Reise",
+    "date": "2026-09-05"
+  },
+  {
+    "story_id": "babyboomer-arbeitsmarkt-2040",
+    "headline": "Dreizehn Komma drei Millionen, und die KI ist bestenfalls ein Drittel der Antwort",
+    "ressort": "Beruf & Karriere",
+    "date": "2026-09-05"
+  },
+  {
+    "story_id": "verlage-ki-klagen",
+    "headline": "Nicht Schadenersatz, sondern Löschung",
+    "ressort": "Medien, TV & Streaming",
+    "date": "2026-09-05"
+  },
+  {
+    "story_id": "un-weltkarte-equal-earth",
+    "headline": "Grönland ist nicht so groß wie Afrika, und jetzt steht es auch im Protokoll",
+    "ressort": "Magazin: Große Reportage",
+    "date": "2026-09-05"
   }
 ]
