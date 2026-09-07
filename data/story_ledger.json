@@ -1,71 +1,5 @@
 [
   {
-    "story_id": "google-adtech-remedy",
-    "headline": "Kein Verkauf, aber eine Betriebsanleitung",
-    "ressort": "Medien, TV & Streaming",
-    "date": "2026-09-03"
-  },
-  {
-    "story_id": "schwarzmeer-getreide-2026",
-    "headline": "Sechzig Millionen Tonnen, elf Millionen davon ohne Dach",
-    "ressort": "Magazin: Große Reportage",
-    "date": "2026-09-03"
-  },
-  {
-    "story_id": "sachsen-anhalt-wahl-2026",
-    "headline": "Einundvierzig Prozent, und 191.000 Beschäftigte, die in keiner Rede vorkommen",
-    "ressort": "Deutschland",
-    "date": "2026-09-04"
-  },
-  {
-    "story_id": "eu-verteidigungsbereitschaft-2030",
-    "headline": "Wenn die eigenen Prüfer sagen, dass die Frist nicht zu halten ist",
-    "ressort": "Politik",
-    "date": "2026-09-04"
-  },
-  {
-    "story_id": "russland-hybridangriffe-deutschland",
-    "headline": "Hundertfünfundsechzig Verdachtsfälle, und keiner heißt mehr Einzelfall",
-    "ressort": "Europa & Geopolitik",
-    "date": "2026-09-04"
-  },
-  {
-    "story_id": "usps-briefwahl-midterms",
-    "headline": "Die Karte, die November nicht erreicht",
-    "ressort": "USA",
-    "date": "2026-09-04"
-  },
-  {
-    "story_id": "vw-standorte-konflikt",
-    "headline": "Einstimmig, und deshalb schlimmer",
-    "ressort": "Wirtschaft & Finanzen",
-    "date": "2026-09-04"
-  },
-  {
-    "story_id": "csee-flaechenabbau-kaufkraft",
-    "headline": "Vierzig Fußballfelder im Jahr, und die Kaufkraft wandert nach Osten",
-    "ressort": "CSEE Retail Brief",
-    "date": "2026-09-04"
-  },
-  {
-    "story_id": "openai-gpt6-astra",
-    "headline": "Das erste Modell, das sein Hersteller selbst als kritisch einstuft",
-    "ressort": "Wissenschaft & Technik",
-    "date": "2026-09-04"
-  },
-  {
-    "story_id": "gloria-steinem-tod",
-    "headline": "Die Reporterin, die ihr eigenes Medium bauen musste",
-    "ressort": "Feuilleton & Kultur",
-    "date": "2026-09-04"
-  },
-  {
-    "story_id": "fifa-uefa-infantino-streit",
-    "headline": "Vier Komma zwei Milliarden, ein zurückgezogener Plan und drei US-Gerichte",
-    "ressort": "Sport",
-    "date": "2026-09-04"
-  },
-  {
     "story_id": "nyc-ki-verbot-schulen",
     "headline": "Sechshunderttausend Schüler, ein Jahr ohne Chatbot",
     "ressort": "Leben & Gesellschaft",
@@ -238,5 +172,71 @@
     "headline": "Achthundertdreiunddreißig Prozent, und plötzlich sind sich beide Parteien einig",
     "ressort": "Magazin: Große Reportage",
     "date": "2026-09-06"
+  },
+  {
+    "story_id": "sachsen-anhalt-wahl-2026",
+    "headline": "Neununddreißig von dreiundachtzig, und trotzdem keine Mehrheit",
+    "ressort": "Deutschland",
+    "date": "2026-09-07"
+  },
+  {
+    "story_id": "ukraine-friedensmission-witkoff",
+    "headline": "Substanziell, und trotzdem ohne Gegenstand",
+    "ressort": "Politik",
+    "date": "2026-09-07"
+  },
+  {
+    "story_id": "russland-hybridangriffe-deutschland",
+    "headline": "Vorbereitet, nicht vermutet",
+    "ressort": "Europa & Geopolitik",
+    "date": "2026-09-07"
+  },
+  {
+    "story_id": "usps-briefwahl-midterms",
+    "headline": "Die dritte Anrufung, und die Post ist schon weg",
+    "ressort": "USA",
+    "date": "2026-09-07"
+  },
+  {
+    "story_id": "globaler-anleihen-ausverkauf-2026",
+    "headline": "Vier Komma acht, und die Zinssenkung ist vom Tisch",
+    "ressort": "Wirtschaft & Finanzen",
+    "date": "2026-09-07"
+  },
+  {
+    "story_id": "oesterreich-csee-konsumflaute-2026",
+    "headline": "Einunddreißigtausend Euro pro Kopf, und null Komma eins Prozent mehr Umsatz",
+    "ressort": "CSEE Retail Brief",
+    "date": "2026-09-07"
+  },
+  {
+    "story_id": "openai-gpt6-astra",
+    "headline": "Wenn der Zulieferer den Durchbruch verkündet und der Hersteller bremst",
+    "ressort": "Wissenschaft & Technik",
+    "date": "2026-09-07"
+  },
+  {
+    "story_id": "anak-krakatau-2026",
+    "headline": "Dreißig Sekunden Ausbruch, 1.558 gestrichene Flüge",
+    "ressort": "Reise",
+    "date": "2026-09-07"
+  },
+  {
+    "story_id": "fachkraeftemangel-iw-2029",
+    "headline": "Neununddreißigtausendeinhundert, und keine Ausbildungsoffensive in Sicht",
+    "ressort": "Beruf & Karriere",
+    "date": "2026-09-07"
+  },
+  {
+    "story_id": "verlage-ki-klagen",
+    "headline": "Nicht nur Schadenersatz, sondern Beschlagnahme",
+    "ressort": "Medien, TV & Streaming",
+    "date": "2026-09-07"
+  },
+  {
+    "story_id": "indonesien-torfbraende-2026",
+    "headline": "Dreiundzwanzig Millionen Tonnen in einer Woche, aus einem Boden, der selbst brennt",
+    "ressort": "Magazin: Große Reportage",
+    "date": "2026-09-07"
   }
 ]
