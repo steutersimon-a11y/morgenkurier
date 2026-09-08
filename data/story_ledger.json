@@ -1,71 +1,5 @@
 [
   {
-    "story_id": "nyc-ki-verbot-schulen",
-    "headline": "Sechshunderttausend Schüler, ein Jahr ohne Chatbot",
-    "ressort": "Leben & Gesellschaft",
-    "date": "2026-09-04"
-  },
-  {
-    "story_id": "panamakanal-el-nino-2026",
-    "headline": "Zweihundert Millionen Liter pro Schleusung, und der See sinkt weiter",
-    "ressort": "Reise",
-    "date": "2026-09-04"
-  },
-  {
-    "story_id": "ostdeutschland-fachkraefte-migration",
-    "headline": "Ein Viertel der Fahrer, ein Viertel der Klinikärzte",
-    "ressort": "Beruf & Karriere",
-    "date": "2026-09-04"
-  },
-  {
-    "story_id": "streaming-preisrunde-2026",
-    "headline": "Das Ende des unbegrenzten Abonnements",
-    "ressort": "Medien, TV & Streaming",
-    "date": "2026-09-04"
-  },
-  {
-    "story_id": "nepal-gletscherflut",
-    "headline": "Zweihundertneunundsiebzig draußen, neunhundert drinnen",
-    "ressort": "Magazin: Große Reportage",
-    "date": "2026-09-04"
-  },
-  {
-    "story_id": "sachsen-anhalt-wahl-2026",
-    "headline": "Zweiundvierzig zu zweiundzwanzig, und die eigentliche Frage steht bei fünf",
-    "ressort": "Deutschland",
-    "date": "2026-09-05"
-  },
-  {
-    "story_id": "ukraine-friedensmission-witkoff",
-    "headline": "Ein Plan, den niemand kennt, überbracht von zwei Männern, die nie in Kyiv waren",
-    "ressort": "Politik",
-    "date": "2026-09-05"
-  },
-  {
-    "story_id": "russland-hybridangriffe-deutschland",
-    "headline": "Sprengstoff in Gevelsberg, und plötzlich passt die Geschichte nicht mehr",
-    "ressort": "Europa & Geopolitik",
-    "date": "2026-09-05"
-  },
-  {
-    "story_id": "usps-briefwahl-midterms",
-    "headline": "Ein Verfahren, das erst zu Ende gedacht wird, wenn die Post schon läuft",
-    "ressort": "USA",
-    "date": "2026-09-05"
-  },
-  {
-    "story_id": "us-arbeitsmarkt-fed-2026",
-    "headline": "Hundertzweiundsechzigtausend, und die Zinssenkung rückt weg",
-    "ressort": "Wirtschaft & Finanzen",
-    "date": "2026-09-05"
-  },
-  {
-    "story_id": "vw-standorte-konflikt",
-    "headline": "Zwölftausend in Győr, und niemand nennt ein Datum",
-    "ressort": "CSEE Retail Brief",
-    "date": "2026-09-05"
-  },
-  {
     "story_id": "openai-agenten-ausbruch",
     "headline": "Achtzehntausend Nachrichten, und keine davon war für Menschen bestimmt",
     "ressort": "Wissenschaft & Technik",
@@ -238,5 +172,71 @@
     "headline": "Dreiundzwanzig Millionen Tonnen in einer Woche, aus einem Boden, der selbst brennt",
     "ressort": "Magazin: Große Reportage",
     "date": "2026-09-07"
+  },
+  {
+    "story_id": "bundeshaushalt-2027",
+    "headline": "Der teuerste Etat der Republik, und die Frage, wer ihn noch erklären kann",
+    "ressort": "Deutschland",
+    "date": "2026-09-08"
+  },
+  {
+    "story_id": "sachsen-anhalt-wahl-2026",
+    "headline": "Ein deutsches Wahlergebnis, das in Warschau als Sicherheitsfrage ankommt",
+    "ressort": "Politik",
+    "date": "2026-09-08"
+  },
+  {
+    "story_id": "iran-usa-hormuz-2026",
+    "headline": "Sieben Schiffe an einem Montag, und der Ölpreis liegt trotzdem erst bei 97 Dollar",
+    "ressort": "Europa & Geopolitik",
+    "date": "2026-09-08"
+  },
+  {
+    "story_id": "usa-kanada-handelskrieg-2026",
+    "headline": "Zwanzig Milliarden Dollar Vergeltung, und die Rechnung geht an Wisconsin",
+    "ressort": "USA",
+    "date": "2026-09-08"
+  },
+  {
+    "story_id": "vw-standorte-konflikt",
+    "headline": "Aus dem T-Roc Cabrio wird Luftverteidigung, und niemand nennt das eine Umschulung",
+    "ressort": "Wirtschaft & Finanzen",
+    "date": "2026-09-08"
+  },
+  {
+    "story_id": "serbien-mladic-eu-kurs",
+    "headline": "Militärische Ehren in Belgrad, und ein Beitrittsziel, das plötzlich sehr weit weg ist",
+    "ressort": "CSEE Retail Brief",
+    "date": "2026-09-08"
+  },
+  {
+    "story_id": "ki-formalisierung-mathematik",
+    "headline": "Elf Tage für einen Beweis, für den Fachleute Jahre veranschlagt hatten",
+    "ressort": "Wissenschaft & Technik",
+    "date": "2026-09-08"
+  },
+  {
+    "story_id": "anak-krakatau-2026",
+    "headline": "Dreihundertvierzigtausend Gestrandete, und die Rückkehr zum Fahrplan dauert länger als die Sperrung",
+    "ressort": "Reise",
+    "date": "2026-09-08"
+  },
+  {
+    "story_id": "eu-entgelttransparenz",
+    "headline": "Gleiches Entgelt, ungleiche Umsetzung: Was Arbeitgeber ab sofort in 27 Varianten regeln müssen",
+    "ressort": "Beruf & Karriere",
+    "date": "2026-09-08"
+  },
+  {
+    "story_id": "lumiere-gipfel-youtube",
+    "headline": "Die Plattform, die keine Investitionsauflagen kennt",
+    "ressort": "Medien, TV & Streaming",
+    "date": "2026-09-08"
+  },
+  {
+    "story_id": "chinesische-autobauer-europa",
+    "headline": "Neun Komma fünf Prozent, und die Fabrik steht schon im Binnenmarkt",
+    "ressort": "Magazin: Große Reportage",
+    "date": "2026-09-08"
   }
 ]
