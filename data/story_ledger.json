@@ -1,89 +1,5 @@
 [
   {
-    "story_id": "openai-agenten-ausbruch",
-    "headline": "Achtzehntausend Nachrichten, und keine davon war für Menschen bestimmt",
-    "ressort": "Wissenschaft & Technik",
-    "date": "2026-09-05"
-  },
-  {
-    "story_id": "katie-taylor-abschied",
-    "headline": "Achtzigtausend im Croke Park, und ein Gürtel, der noch fehlt",
-    "ressort": "Sport",
-    "date": "2026-09-05"
-  },
-  {
-    "story_id": "masern-ausbruch-2026",
-    "headline": "986 Kinder, 58 von 64 Distrikten, und eine Lieferkette, die 2024 riss",
-    "ressort": "Leben & Gesellschaft",
-    "date": "2026-09-05"
-  },
-  {
-    "story_id": "luftraum-russland-sperrung",
-    "headline": "Vier Tage Aussetzung, dann doch wieder ab Montag",
-    "ressort": "Reise",
-    "date": "2026-09-05"
-  },
-  {
-    "story_id": "babyboomer-arbeitsmarkt-2040",
-    "headline": "Dreizehn Komma drei Millionen, und die KI ist bestenfalls ein Drittel der Antwort",
-    "ressort": "Beruf & Karriere",
-    "date": "2026-09-05"
-  },
-  {
-    "story_id": "verlage-ki-klagen",
-    "headline": "Nicht Schadenersatz, sondern Löschung",
-    "ressort": "Medien, TV & Streaming",
-    "date": "2026-09-05"
-  },
-  {
-    "story_id": "un-weltkarte-equal-earth",
-    "headline": "Grönland ist nicht so groß wie Afrika, und jetzt steht es auch im Protokoll",
-    "ressort": "Magazin: Große Reportage",
-    "date": "2026-09-05"
-  },
-  {
-    "story_id": "sachsen-anhalt-wahl-2026",
-    "headline": "Ein Land, das schrumpft, wählt über eine Frage ab, die es nicht gestellt hat",
-    "ressort": "Deutschland",
-    "date": "2026-09-06"
-  },
-  {
-    "story_id": "ukraine-friedensmission-witkoff",
-    "headline": "Eine Reise, die stattfindet, bevor irgendjemand weiß, worüber verhandelt wird",
-    "ressort": "Politik",
-    "date": "2026-09-06"
-  },
-  {
-    "story_id": "russland-hybridangriffe-deutschland",
-    "headline": "Wenn ein Nachrichtendienst nicht mehr warnt, sondern Zielkategorien nennt",
-    "ressort": "Europa & Geopolitik",
-    "date": "2026-09-06"
-  },
-  {
-    "story_id": "usps-briefwahl-midterms",
-    "headline": "Ein Verfahren, das die Post schon eingeholt hat",
-    "ressort": "USA",
-    "date": "2026-09-06"
-  },
-  {
-    "story_id": "globaler-anleihen-ausverkauf-2026",
-    "headline": "Ein guter Arbeitsmarktbericht ist der teuerste Bericht des Jahres",
-    "ressort": "Wirtschaft & Finanzen",
-    "date": "2026-09-06"
-  },
-  {
-    "story_id": "shein-boersengang-2026",
-    "headline": "Sechsundzwanzig Milliarden statt hundert, und die Rechnung liegt jetzt offen",
-    "ressort": "CSEE Retail Brief",
-    "date": "2026-09-06"
-  },
-  {
-    "story_id": "isar-aerospace-spectrum",
-    "headline": "Europa hat jetzt einen eigenen Weg nach oben, und der Zeitpunkt ist kein Zufall",
-    "ressort": "Wissenschaft & Technik",
-    "date": "2026-09-06"
-  },
-  {
     "story_id": "anak-krakatau-2026",
     "headline": "Ein Vulkan zwischen zwei Inseln, und eine Hauptstadt ohne Flugbetrieb",
     "ressort": "Reise",
@@ -238,5 +154,89 @@
     "headline": "Neun Komma fünf Prozent, und die Fabrik steht schon im Binnenmarkt",
     "ressort": "Magazin: Große Reportage",
     "date": "2026-09-08"
+  },
+  {
+    "story_id": "bundeshaushalt-2027",
+    "headline": "Die Zinsuhr läuft schneller als die Debatte über sie",
+    "ressort": "Deutschland",
+    "date": "2026-09-09"
+  },
+  {
+    "story_id": "sachsen-anhalt-wahl-2026",
+    "headline": "Die Frage ist nicht mehr, wer regiert, sondern wer die Akten sieht",
+    "ressort": "Politik",
+    "date": "2026-09-09"
+  },
+  {
+    "story_id": "siedlungs-handelsverbot-2026",
+    "headline": "Eine Grenze, die nicht zwischen Staaten verläuft, sondern durch eine Lieferkette",
+    "ressort": "Europa & Geopolitik",
+    "date": "2026-09-09"
+  },
+  {
+    "story_id": "usa-kanada-handelskrieg-2026",
+    "headline": "Von Aufschlägen zu Ausschluss: Was Section 338 anders macht",
+    "ressort": "USA",
+    "date": "2026-09-09"
+  },
+  {
+    "story_id": "globaler-anleihen-ausverkauf-2026",
+    "headline": "Fünf Komma acht zwei, und der Haushalt schreibt sich von selbst",
+    "ressort": "Wirtschaft & Finanzen",
+    "date": "2026-09-09"
+  },
+  {
+    "story_id": "rumaenien-sparkurs-konsum",
+    "headline": "Zwei Prozentpunkte Mehrwertsteuer, und die Kasse merkt es vor der Statistik",
+    "ressort": "CSEE Retail Brief",
+    "date": "2026-09-09"
+  },
+  {
+    "story_id": "openai-navier-stokes",
+    "headline": "Wenn ein Beweis in 88 Stunden entsteht, wird die Zeitrechnung zum Streitgegenstand",
+    "ressort": "Wissenschaft & Technik",
+    "date": "2026-09-09"
+  },
+  {
+    "story_id": "museumsdiebstaehle-europa",
+    "headline": "Drei Minuten, ein Loch im Gartenzaun und die Grenzen der Sicherheitslogik",
+    "ressort": "Feuilleton & Kultur",
+    "date": "2026-09-09"
+  },
+  {
+    "story_id": "liv-golf-insolvenz",
+    "headline": "Vier Jahre gekaufte Aufmerksamkeit, und die Rechnung liegt beim Insolvenzgericht",
+    "ressort": "Sport",
+    "date": "2026-09-09"
+  },
+  {
+    "story_id": "europaeisches-selbstvertrauen-2026",
+    "headline": "Der Widerspruch, aus dem gerade europäische Politik gemacht wird",
+    "ressort": "Leben & Gesellschaft",
+    "date": "2026-09-09"
+  },
+  {
+    "story_id": "nats-systemausfall-2026",
+    "headline": "Wenn ein Datenfehler drei Stunden dauert und die Erholung zwei Tage",
+    "ressort": "Reise",
+    "date": "2026-09-09"
+  },
+  {
+    "story_id": "fue-verlagerung-maschinenbau",
+    "headline": "Wenn die Entwicklung geht, folgt die Fertigung mit einigen Jahren Verzögerung",
+    "ressort": "Beruf & Karriere",
+    "date": "2026-09-09"
+  },
+  {
+    "story_id": "late-night-oekonomie",
+    "headline": "Das Dementi ist glaubwürdig, die Rechnung dahinter trotzdem eindeutig",
+    "ressort": "Medien, TV & Streaming",
+    "date": "2026-09-09"
+  },
+  {
+    "story_id": "ukraine-handelslogistik-krieg",
+    "headline": "Neunzig Prozent der Lebensmittellogistik, und trotzdem kein Hunger",
+    "ressort": "Magazin: Große Reportage",
+    "date": "2026-09-09"
   }
 ]
