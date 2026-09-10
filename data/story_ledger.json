@@ -1,89 +1,5 @@
 [
   {
-    "story_id": "anak-krakatau-2026",
-    "headline": "Ein Vulkan zwischen zwei Inseln, und eine Hauptstadt ohne Flugbetrieb",
-    "ressort": "Reise",
-    "date": "2026-09-06"
-  },
-  {
-    "story_id": "ki-jobabbau-informationssektor",
-    "headline": "Zum ersten Mal verschwinden die Stellen, die man nicht ersetzen wollte",
-    "ressort": "Beruf & Karriere",
-    "date": "2026-09-06"
-  },
-  {
-    "story_id": "verlage-ki-klagen",
-    "headline": "Zwei Regionalzeitungen, ein Bundesgericht und eine Forderung, die keine Lizenz sein will",
-    "ressort": "Medien, TV & Streaming",
-    "date": "2026-09-06"
-  },
-  {
-    "story_id": "datacenter-widerstand-midterms",
-    "headline": "Achthundertdreiunddreißig Prozent, und plötzlich sind sich beide Parteien einig",
-    "ressort": "Magazin: Große Reportage",
-    "date": "2026-09-06"
-  },
-  {
-    "story_id": "sachsen-anhalt-wahl-2026",
-    "headline": "Neununddreißig von dreiundachtzig, und trotzdem keine Mehrheit",
-    "ressort": "Deutschland",
-    "date": "2026-09-07"
-  },
-  {
-    "story_id": "ukraine-friedensmission-witkoff",
-    "headline": "Substanziell, und trotzdem ohne Gegenstand",
-    "ressort": "Politik",
-    "date": "2026-09-07"
-  },
-  {
-    "story_id": "russland-hybridangriffe-deutschland",
-    "headline": "Vorbereitet, nicht vermutet",
-    "ressort": "Europa & Geopolitik",
-    "date": "2026-09-07"
-  },
-  {
-    "story_id": "usps-briefwahl-midterms",
-    "headline": "Die dritte Anrufung, und die Post ist schon weg",
-    "ressort": "USA",
-    "date": "2026-09-07"
-  },
-  {
-    "story_id": "globaler-anleihen-ausverkauf-2026",
-    "headline": "Vier Komma acht, und die Zinssenkung ist vom Tisch",
-    "ressort": "Wirtschaft & Finanzen",
-    "date": "2026-09-07"
-  },
-  {
-    "story_id": "oesterreich-csee-konsumflaute-2026",
-    "headline": "Einunddreißigtausend Euro pro Kopf, und null Komma eins Prozent mehr Umsatz",
-    "ressort": "CSEE Retail Brief",
-    "date": "2026-09-07"
-  },
-  {
-    "story_id": "openai-gpt6-astra",
-    "headline": "Wenn der Zulieferer den Durchbruch verkündet und der Hersteller bremst",
-    "ressort": "Wissenschaft & Technik",
-    "date": "2026-09-07"
-  },
-  {
-    "story_id": "anak-krakatau-2026",
-    "headline": "Dreißig Sekunden Ausbruch, 1.558 gestrichene Flüge",
-    "ressort": "Reise",
-    "date": "2026-09-07"
-  },
-  {
-    "story_id": "fachkraeftemangel-iw-2029",
-    "headline": "Neununddreißigtausendeinhundert, und keine Ausbildungsoffensive in Sicht",
-    "ressort": "Beruf & Karriere",
-    "date": "2026-09-07"
-  },
-  {
-    "story_id": "verlage-ki-klagen",
-    "headline": "Nicht nur Schadenersatz, sondern Beschlagnahme",
-    "ressort": "Medien, TV & Streaming",
-    "date": "2026-09-07"
-  },
-  {
     "story_id": "indonesien-torfbraende-2026",
     "headline": "Dreiundzwanzig Millionen Tonnen in einer Woche, aus einem Boden, der selbst brennt",
     "ressort": "Magazin: Große Reportage",
@@ -238,5 +154,89 @@
     "headline": "Neunzig Prozent der Lebensmittellogistik, und trotzdem kein Hunger",
     "ressort": "Magazin: Große Reportage",
     "date": "2026-09-09"
+  },
+  {
+    "story_id": "sachsen-anhalt-wahl-2026",
+    "headline": "Eine Einladung, die niemand annehmen wollte, und eine Partei, die trotzdem zusagte",
+    "ressort": "Deutschland",
+    "date": "2026-09-10"
+  },
+  {
+    "story_id": "siedlungs-handelsverbot-2026",
+    "headline": "Ein Handelsverbot, das die Bündnisfrage stellt, und eine Supermacht, die schweigt",
+    "ressort": "Politik",
+    "date": "2026-09-10"
+  },
+  {
+    "story_id": "iran-usa-hormuz-2026",
+    "headline": "Hundert Dollar sind keine Marke, sondern ein Ergebnis",
+    "ressort": "Europa & Geopolitik",
+    "date": "2026-09-10"
+  },
+  {
+    "story_id": "trump-dividende-midterms-2026",
+    "headline": "Fünftausend Dollar, aber nur bei Wohlverhalten",
+    "ressort": "USA",
+    "date": "2026-09-10"
+  },
+  {
+    "story_id": "globaler-anleihen-ausverkauf-2026",
+    "headline": "Wenn die Notenbank stillhält, weil der Anleihemarkt schon entschieden hat",
+    "ressort": "Wirtschaft & Finanzen",
+    "date": "2026-09-10"
+  },
+  {
+    "story_id": "oesterreich-csee-konsumflaute-2026",
+    "headline": "Neunundsechzig von einhundertvierundvierzig, und die Fläche war nie das Problem",
+    "ressort": "CSEE Retail Brief",
+    "date": "2026-09-10"
+  },
+  {
+    "story_id": "openai-navier-stokes",
+    "headline": "Zwölf Stunden Abstand, und die Frage, wem ein Beweis gehört",
+    "ressort": "Wissenschaft & Technik",
+    "date": "2026-09-10"
+  },
+  {
+    "story_id": "museumsdiebstaehle-europa",
+    "headline": "Neun Millionen Euro in fünf Minuten, und die Polizei war rechtzeitig da",
+    "ressort": "Feuilleton & Kultur",
+    "date": "2026-09-10"
+  },
+  {
+    "story_id": "us-open-2026",
+    "headline": "Erste der Welt, und Kasachstan hat noch nie oben gestanden",
+    "ressort": "Sport",
+    "date": "2026-09-10"
+  },
+  {
+    "story_id": "glp1-nebenwirkungen-gesellschaft",
+    "headline": "Vierzig Prozent weniger Asthmaanfälle, und niemand hatte danach gesucht",
+    "ressort": "Leben & Gesellschaft",
+    "date": "2026-09-10"
+  },
+  {
+    "story_id": "nats-systemausfall-2026",
+    "headline": "Der dritte schwere Ausfall in drei Jahren, und diesmal ist das Wort vermeidbar gefallen",
+    "ressort": "Reise",
+    "date": "2026-09-10"
+  },
+  {
+    "story_id": "lkw-fahrermangel-logistik",
+    "headline": "Zwei gehen, einer kommt, und niemand nennt es eine Schließungswelle",
+    "ressort": "Beruf & Karriere",
+    "date": "2026-09-10"
+  },
+  {
+    "story_id": "fcc-druck-late-night",
+    "headline": "Kein Verbot, keine Auflage, nur ein Anruf, der genügt hat",
+    "ressort": "Medien, TV & Streaming",
+    "date": "2026-09-10"
+  },
+  {
+    "story_id": "polarroute-arktis-handel",
+    "headline": "Eine Route, die es nur zehn Wochen im Jahr gibt, und ein Hafen, der sie trotzdem einplant",
+    "ressort": "Magazin: Große Reportage",
+    "date": "2026-09-10"
   }
 ]
