@@ -1,83 +1,5 @@
 [
   {
-    "story_id": "indonesien-torfbraende-2026",
-    "headline": "Dreiundzwanzig Millionen Tonnen in einer Woche, aus einem Boden, der selbst brennt",
-    "ressort": "Magazin: Große Reportage",
-    "date": "2026-09-07"
-  },
-  {
-    "story_id": "bundeshaushalt-2027",
-    "headline": "Der teuerste Etat der Republik, und die Frage, wer ihn noch erklären kann",
-    "ressort": "Deutschland",
-    "date": "2026-09-08"
-  },
-  {
-    "story_id": "sachsen-anhalt-wahl-2026",
-    "headline": "Ein deutsches Wahlergebnis, das in Warschau als Sicherheitsfrage ankommt",
-    "ressort": "Politik",
-    "date": "2026-09-08"
-  },
-  {
-    "story_id": "iran-usa-hormuz-2026",
-    "headline": "Sieben Schiffe an einem Montag, und der Ölpreis liegt trotzdem erst bei 97 Dollar",
-    "ressort": "Europa & Geopolitik",
-    "date": "2026-09-08"
-  },
-  {
-    "story_id": "usa-kanada-handelskrieg-2026",
-    "headline": "Zwanzig Milliarden Dollar Vergeltung, und die Rechnung geht an Wisconsin",
-    "ressort": "USA",
-    "date": "2026-09-08"
-  },
-  {
-    "story_id": "vw-standorte-konflikt",
-    "headline": "Aus dem T-Roc Cabrio wird Luftverteidigung, und niemand nennt das eine Umschulung",
-    "ressort": "Wirtschaft & Finanzen",
-    "date": "2026-09-08"
-  },
-  {
-    "story_id": "serbien-mladic-eu-kurs",
-    "headline": "Militärische Ehren in Belgrad, und ein Beitrittsziel, das plötzlich sehr weit weg ist",
-    "ressort": "CSEE Retail Brief",
-    "date": "2026-09-08"
-  },
-  {
-    "story_id": "ki-formalisierung-mathematik",
-    "headline": "Elf Tage für einen Beweis, für den Fachleute Jahre veranschlagt hatten",
-    "ressort": "Wissenschaft & Technik",
-    "date": "2026-09-08"
-  },
-  {
-    "story_id": "anak-krakatau-2026",
-    "headline": "Dreihundertvierzigtausend Gestrandete, und die Rückkehr zum Fahrplan dauert länger als die Sperrung",
-    "ressort": "Reise",
-    "date": "2026-09-08"
-  },
-  {
-    "story_id": "eu-entgelttransparenz",
-    "headline": "Gleiches Entgelt, ungleiche Umsetzung: Was Arbeitgeber ab sofort in 27 Varianten regeln müssen",
-    "ressort": "Beruf & Karriere",
-    "date": "2026-09-08"
-  },
-  {
-    "story_id": "lumiere-gipfel-youtube",
-    "headline": "Die Plattform, die keine Investitionsauflagen kennt",
-    "ressort": "Medien, TV & Streaming",
-    "date": "2026-09-08"
-  },
-  {
-    "story_id": "chinesische-autobauer-europa",
-    "headline": "Neun Komma fünf Prozent, und die Fabrik steht schon im Binnenmarkt",
-    "ressort": "Magazin: Große Reportage",
-    "date": "2026-09-08"
-  },
-  {
-    "story_id": "bundeshaushalt-2027",
-    "headline": "Die Zinsuhr läuft schneller als die Debatte über sie",
-    "ressort": "Deutschland",
-    "date": "2026-09-09"
-  },
-  {
     "story_id": "sachsen-anhalt-wahl-2026",
     "headline": "Die Frage ist nicht mehr, wer regiert, sondern wer die Akten sieht",
     "ressort": "Politik",
@@ -238,5 +160,83 @@
     "headline": "Eine Route, die es nur zehn Wochen im Jahr gibt, und ein Hafen, der sie trotzdem einplant",
     "ressort": "Magazin: Große Reportage",
     "date": "2026-09-10"
+  },
+  {
+    "story_id": "strom-sabotage-deutschland",
+    "headline": "Ein Draht über der Leitung, und plötzlich ist es ein Fall für den Generalbundesanwalt",
+    "ressort": "Deutschland",
+    "date": "2026-09-11"
+  },
+  {
+    "story_id": "sachsen-anhalt-wahl-2026",
+    "headline": "Dreiundvierzig Komma acht in Magdeburg, und drei Milliarden in Brüssel",
+    "ressort": "Politik",
+    "date": "2026-09-11"
+  },
+  {
+    "story_id": "huthis-bab-al-mandab",
+    "headline": "Siebzig Kilometer vor der zweiten Meerenge",
+    "ressort": "Europa & Geopolitik",
+    "date": "2026-09-11"
+  },
+  {
+    "story_id": "trump-dividende-midterms-2026",
+    "headline": "Fünftausend Dollar, bezahlt mit einer Rendite von fünf Komma drei fünf",
+    "ressort": "USA",
+    "date": "2026-09-11"
+  },
+  {
+    "story_id": "globaler-anleihen-ausverkauf-2026",
+    "headline": "Drei Komma drei Prozent, davon vierzehn aus der Tanksäule",
+    "ressort": "Wirtschaft & Finanzen",
+    "date": "2026-09-11"
+  },
+  {
+    "story_id": "modivo-ccc-offprice-csee",
+    "headline": "Zweihunderteinunddreißig Filialen, und darunter kommt noch ein Format",
+    "ressort": "CSEE Retail Brief",
+    "date": "2026-09-11"
+  },
+  {
+    "story_id": "openai-navier-stokes",
+    "headline": "Ein zurückgezogenes Sponsoring, und die Frage, wem ein Fachgebiet gehört",
+    "ressort": "Wissenschaft & Technik",
+    "date": "2026-09-11"
+  },
+  {
+    "story_id": "museumsdiebstaehle-europa",
+    "headline": "Neun Millionen Euro Beute, von der zwei Drittel im Garten lagen",
+    "ressort": "Feuilleton & Kultur",
+    "date": "2026-09-11"
+  },
+  {
+    "story_id": "us-open-2026",
+    "headline": "Die Nummer eins steht fest, bevor der erste Ball geschlagen ist",
+    "ressort": "Sport",
+    "date": "2026-09-11"
+  },
+  {
+    "story_id": "flugpreise-treibstoff-2026",
+    "headline": "Achtzig Prozent bei siebenundsechzig Dollar, und was danach kommt",
+    "ressort": "Reise",
+    "date": "2026-09-11"
+  },
+  {
+    "story_id": "ki-berufseinstieg",
+    "headline": "Neunzehn Prozent Rückstand, und kaum jemand wurde entlassen",
+    "ressort": "Beruf & Karriere",
+    "date": "2026-09-11"
+  },
+  {
+    "story_id": "fcc-druck-late-night",
+    "headline": "Kein Verbot, nur eine Rücksichtnahme",
+    "ressort": "Medien, TV & Streaming",
+    "date": "2026-09-11"
+  },
+  {
+    "story_id": "diesel-preisschock-2026",
+    "headline": "Fünf Dollar neunzig, zwei Euro zweiundzwanzig, und ein Display, das nicht mehr genug Stellen hat",
+    "ressort": "Magazin: Große Reportage",
+    "date": "2026-09-11"
   }
 ]
